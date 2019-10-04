@@ -43,6 +43,7 @@
                     <a class="nav-item nav-link" href="<?= base_url('home/kampanye'); ?>">Kampanye</a>
                     <a class="nav-item nav-link" href="#">Galeri</a>
                     <a class="nav-item nav-link" href="#">Tentang Senat</a>
+                    <a class="nav-item nav-link" href="<?= base_url('home/riwayatsenat'); ?>">Riwayat Senat</a>
                     <li class="nav-item dropdown">
                         <a class="nav-link nav-item nav-link btn btn-primary text-white tombol " href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Login
@@ -206,17 +207,55 @@
     </div>
     <!-- END TEAM -->
 
-
+    <div class="row">
+        <div class="col-lg pl-5 pt-5">
+            <h4><b>2 komentar :</b></h4>
+        </div>
     </div>
-    <!-- akhir container -->
+    <div class=" pl-5 pt-3 mb-2">
+        <div class="row namakomen">
+            <img src="<?= base_url('assets/img/profile/default.jpg'); ?>" alt="foto-user" class="mr-3 mt-6 rounded-circle" style="width:70px;">
+            <b>Samson Sugiyarto</b><br>
+            <div class="row">
+                <div class="col-sm">
+                    <small> Posted on <i>2019-08-10 04:53:38</i></small>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-auto pl-5 ml-5">
+                <figure class="figurekomen komen">
+                    Ayo nyoblos, yang belum pada nyoblos, jangan golput ya
+                </figure>
+            </div>
+        </div>
+        <div class="mb-2">
+            <div class="row namakomen">
+                <img src="<?= base_url('assets/img/profile/default.jpg'); ?>" alt="foto-user" class="mr-3 mt-6 rounded-circle" style="width:70px;">
+                <b>Nabilla Nur Fadillah</b><br>
+                <div class="row">
+                    <div class="col-sm">
+                        <small> Posted on <i>2019-09-30 03:53:38</i></small>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-auto pl-5 ml-5">
+                    <figure class="figurekomen komen">
+                        hallo, semoga lancar dan sukses
+                    </figure>
+                </div>
+            </div>
+
+            <!-- akhir container -->
 
 
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+            <!-- Optional JavaScript -->
+            <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </body>
 
 </html>

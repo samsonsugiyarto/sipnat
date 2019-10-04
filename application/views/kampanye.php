@@ -36,10 +36,11 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav ml-auto">
-                    <a class="nav-item nav-link active" href="<?= base_url('home'); ?>">Home <span class="sr-only">(current)</span></a>
-                    <a class="nav-item nav-link" href="<?= base_url('home/kampanye'); ?>">Kampanye</a>
+                    <a class="nav-item nav-link" href="<?= base_url('home'); ?>">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link active" href="<?= base_url('home/kampanye'); ?>">Kampanye</a>
                     <a class="nav-item nav-link" href="#">Galeri</a>
                     <a class="nav-item nav-link" href="#">Tentang Senat</a>
+                    <a class="nav-item nav-link" href="<?= base_url('home/riwayatsenat'); ?>">Riwayat Senat</a>
                     <li class="nav-item dropdown">
                         <a class="nav-link nav-item nav-link btn btn-primary text-white tombol " href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Login

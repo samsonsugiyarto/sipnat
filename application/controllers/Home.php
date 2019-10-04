@@ -13,4 +13,8 @@ class Home extends CI_Controller
     {
         $this->load->view('kampanye');
     }
+    public function riwayatsenat()
+    {
+        $this->load->view('riwayatsenat');
+    }
 }
