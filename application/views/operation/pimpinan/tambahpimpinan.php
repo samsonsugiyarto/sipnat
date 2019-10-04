@@ -7,64 +7,80 @@
     <div class="row">
         <div class="col-lg-8">
 
-            <?= form_open_multipart('operation/pimpinan'); ?>
+            <?= form_open_multipart('operation/tambahpimpinan'); ?>
 
             <div class="form-group row">
                 <label for="nidn" class="col-sm-3 col-form-label">NIDN</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" id="nidn" name="nidn" value="">
+                    <input type="text" class="form-control" id="nidn" name="nidn" value="<?= set_value('nidn'); ?>">
+                    <?= form_error('nidn', ' <small class="text-danger pl-3">', '</small>'); ?>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="namalengkap" class="col-sm-3 col-form-label">Nama Lengkap</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" id="namalengkap" name="namalengkap" value="">
-                    <?= form_error('name', ' <small class="text-danger pl-3">', '</small>'); ?>
+                    <input type="text" class="form-control" id="namalengkap" name="namalengkap" value="<?= set_value('namalengkap'); ?>">
+                    <?= form_error('namalengkap', ' <small class="text-danger pl-3">', '</small>'); ?>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="password" class="col-sm-3 col-form-label">Password</label>
+                <div class="col-sm-9">
+                    <input type="password" class="form-control" id="password" name="password" value="">
+                    <?= form_error('password', ' <small class="text-danger pl-3">', '</small>'); ?>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="password2" class="col-sm-3 col-form-label">Repeat Password</label>
+                <div class="col-sm-9">
+                    <input type="password" class="form-control" id="password2" name="password2" value="">
+                    <?= form_error('password2', ' <small class="text-danger pl-3">', '</small>'); ?>
                 </div>
             </div>
 
             <div class="form-group row">
                 <label for="jk" class="col-sm-3 col-form-label">Jenis Kelamin</label>
                 <div class="form-check form-check-inline pl-3">
-                    <input class="form-check-input" type="radio" name="jkl" id="inlineRadio1" value="option1">
-                    <label class="form-check-label" for="jkl">Laki-laki</label>
+                    <input type="radio" name="jk" value="L" <?php echo  set_radio('jk', 'L', TRUE); ?> />
+                    <label class="form-check-label" for="jk">Laki-laki</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="jkp" id="inlineRadio2" value="option2">
-                    <label class="form-check-label" for="jkp">Perempuan</label>
+                    <input type="radio" name="jk" value="P" <?php echo  set_radio('jk', 'P'); ?> />
+                    <label class="form-check-label" for="jk">Perempuan</label>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="mengajar" class="col-sm-3 col-form-label">Jabatan</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" id="mengajar" name="mengajar" value="">
-                    <?= form_error('name', ' <small class="text-danger pl-3">', '</small>'); ?>
+                    <input type="text" class="form-control" id="jabatan" name="jabatan" value="<?= set_value('jabatan'); ?>">
+                    <?= form_error('jabatan', ' <small class="text-danger pl-3">', '</small>'); ?>
                 </div>
             </div>
 
             <div class="form-group row">
                 <label for="email" class="col-sm-3 col-form-label">Email</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" id="email" name="email" value="">
-                    <?= form_error('name', ' <small class="text-danger pl-3">', '</small>'); ?>
+                    <input type="text" class="form-control" id="email" name="email" value="<?= set_value('email'); ?>">
+                    <?= form_error('email', ' <small class="text-danger pl-3">', '</small>'); ?>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="hp" class="col-sm-3 col-form-label">Handphone</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" id="hp" name="hp" value="">
-                    <?= form_error('name', ' <small class="text-danger pl-3">', '</small>'); ?>
+                    <input type="text" class="form-control" id="hp" name="hp" value="<?= set_value('hp'); ?>">
+                    <?= form_error('hp', ' <small class="text-danger pl-3">', '</small>'); ?>
                 </div>
             </div>
             <div class="form-group row">
-                <label for="aktif" class="col-sm-3 col-form-label">Aktif</label>
+                <label class="col-sm-3 col-form-label">Aktif</label>
                 <div class="form-check form-check-inline pl-3">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                    <label class="form-check-label" for="inlineRadio1">Ya</label>
+                    <input type="radio" name="aktif" value="1" <?php echo  set_radio('aktif', '1', TRUE); ?> />
+                    <label class="form-check-label">Ya</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                    <label class="form-check-label" for="inlineRadio2">Tidak</label>
+                    <input type="radio" name="aktif" value="0" <?php echo  set_radio('aktif', '0'); ?> />
+                    <label class="form-check-label">Tidak</label>
+
                 </div>
             </div>
             <div class="form-group row">

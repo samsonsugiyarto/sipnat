@@ -7,6 +7,10 @@ class Operation extends CI_Controller
     {
         parent::__construct();
         is_logged_in();
+        $this->load->model('Jurusan_model');
+        $this->load->model('Mahasiswa_model');
+        $this->load->model('Dosen_model');
+        $this->load->model('Pimpinan_model');
     }
 
     public function index()
@@ -15,67 +19,87 @@ class Operation extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar', $data);
-        $this->load->view('templates/topbar', $data);
-        $this->load->view('operation/jurusan/index', $data);
-        $this->load->view('templates/footer');
+
+        $data['menu'] = $this->db->get('jurusan')->result_array();
+
+        $this->form_validation->set_rules('jurusan', 'Jurusan', 'required');
+        $this->form_validation->set_rules('jumlah', 'Jumlah', 'required');
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('operation/jurusan/index', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $data = [
+                'nama_jurusan' => $this->input->post('jurusan'),
+                'jumlah_mhs' => $this->input->post('jumlah'),
+
+            ];
+            $this->db->insert('jurusan', $data);
+            $this->session->set_flashdata('message', '<div class="alert
+            alert-success" role="alert"> Jurusan baru ditambahkan!</div>');
+            redirect('operation');
+        }
     }
-    public function editjurusan()
+
+    public function editjurusan($id)
     {
-        $data['title'] = 'Form Edit Jurusan';
+        $data['title'] = 'Edit Jurusan';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
+        $data['jurusan'] = $this->Jurusan_model->getJurusanById($id);
+        $data['menu'] = $this->db->get('jurusan')->result_array();
 
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar', $data);
-        $this->load->view('templates/topbar', $data);
-        $this->load->view('operation/jurusan/editjurusan', $data);
-        $this->load->view('templates/footer');
+        $this->form_validation->set_rules('jurusan', 'Jurusan', 'required|trim');
+        $this->form_validation->set_rules('jumlah', 'Jumlah', 'required');
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('operation/jurusan/editjurusan', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $this->Jurusan_model->editJurusan();
+            $this->session->set_flashdata('message', '<div class="alert
+            alert-success" role="alert"> Jurusan telah diubah!</div>');
+            redirect('operation');
+        }
     }
 
-    public function komentar()
+    public function hapusjurusan($id)
     {
-        $data['title'] = 'Komentar';
+
+        $this->Jurusan_model->hapusDataJurusan($id);
+        $this->session->set_flashdata('message', '<div class="alert
+        alert-success" role="alert">Dihapus!</div>');
+        redirect('operation');
+    }
+
+    public function detailjurusan($id)
+    {
+
+        $data['title'] = 'Detail Data Jurusan';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
+        $data['jurusan'] = $this->Jurusan_model->getJurusanById($id);
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
-        $this->load->view('operation/komentar/komentar', $data);
+        $this->load->view('operation/jurusan/detailjurusan', $data);
         $this->load->view('templates/footer');
     }
 
-    public function tambahkomentar()
-    {
-        $data['title'] = 'Tambah komentar';
-        $data['user'] = $this->db->get_where('user', ['email' =>
-        $this->session->userdata('email')])->row_array();
-
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar', $data);
-        $this->load->view('templates/topbar', $data);
-        $this->load->view('operation/komentar/tambahkomentar', $data);
-        $this->load->view('templates/footer');
-    }
-    public function detailkomentar()
-    {
-        $data['title'] = 'Detail Komentar';
-        $data['user'] = $this->db->get_where('user', ['email' =>
-        $this->session->userdata('email')])->row_array();
-
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar', $data);
-        $this->load->view('templates/topbar', $data);
-        $this->load->view('operation/komentar/detailkomentar', $data);
-        $this->load->view('templates/footer');
-    }
     public function mahasiswa()
     {
         $data['title'] = 'Mahasiswa';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
+
+        $data['mahasiswa'] = $this->Mahasiswa_model->getAllMahasiswa();
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
@@ -86,28 +110,28 @@ class Operation extends CI_Controller
     public function tambahmahasiswa()
     {
 
+        $data['title'] = 'Tambah Mahasiswa';
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+
         $this->form_validation->set_rules('nim', 'NIM', 'required|trim|is_unique[mahasiswa.nim]', [
             'is_unique' => 'This nim has already registered!'
         ]);
         $this->form_validation->set_rules('nama', 'Nama', 'required|trim');
-
         $this->form_validation->set_rules('passwordmhs1', 'Password', 'required|trim|min_length[3]|matches[passwordmhs2]', [
             'matches' => 'password dont match!',
             'min_length' => 'password too short!'
         ]);
         $this->form_validation->set_rules('passwordmhs2', 'Password', 'required|trim|matches[passwordmhs1]');
+
+        $this->form_validation->set_rules('hpmhs', 'Hpmhs', 'required|trim');
+
         $this->form_validation->set_rules('emailmhs', 'Email', 'required|trim|valid_email|is_unique[mahasiswa.email]', [
             'is_unique' => 'This email has already registered!'
         ]);
-        $this->form_validation->set_rules('hpmhs', 'Hpmhs', 'required|trim');
-        $this->form_validation->set_rules('aktimhsy', 'aktif', 'required|trim');
 
 
         if ($this->form_validation->run() == false) {
-            $data['title'] = 'Mahasiswa';
-            $data['user'] = $this->db->get_where('user', ['email' =>
-            $this->session->userdata('email')])->row_array();
-
             $this->load->view('templates/header', $data);
             $this->load->view('templates/sidebar', $data);
             $this->load->view('templates/topbar', $data);
@@ -115,25 +139,9 @@ class Operation extends CI_Controller
             $this->load->view('templates/footer');
         } else {
 
-            $nim = $this->input->post('nim', true);
-            $data = [
-                'nim' => htmlspecialchars($nim),
-                'nama' => htmlspecialchars($this->input->post('nama', true)),
-                'jk' => 'L',
-                'jurusan' => 'SI',
-                'email' => htmlspecialchars($this->input->post('emailmhs', true)),
-                'hp' => htmlspecialchars($this->input->post('hpmhs', true)),
-                'image' => 'default.jpg',
-                'password' => password_hash($this->input->post('passwordmhs1'), PASSWORD_DEFAULT),
-                'role_id' => 5,
-                'is_active' => 1
-            ];
-
-            $this->db->insert('mahasiswa', $data);
-
+            $this->Mahasiswa_model->tambahDataMahasiswa();
             $this->session->set_flashdata('message', '<div class="alert
-            alert-success" role="alert">Congratulation! account has been 
-            created.</div>');
+            alert-success" role="alert">Data mahasiswa baru telah ditambahkan!</div>');
             redirect('operation/mahasiswa');
         }
     }
@@ -167,6 +175,8 @@ class Operation extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
+        $data['dosen'] = $this->Dosen_model->getAllDosen();
+
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
@@ -176,15 +186,43 @@ class Operation extends CI_Controller
 
     public function tambahdosen()
     {
-        $data['title'] = 'Form Tambah Dosen';
+
+        $data['title'] = 'Tambah Dosen';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar', $data);
-        $this->load->view('templates/topbar', $data);
-        $this->load->view('operation/dosen/tambahdosen', $data);
-        $this->load->view('templates/footer');
+        $this->form_validation->set_rules('nidn', 'NIDN', 'required|trim|is_unique[dosen.nidn]', [
+            'is_unique' => 'This nidn has already registered!'
+        ]);
+        $this->form_validation->set_rules('namalengkap', 'Nama Lengkap', 'required|trim');
+        $this->form_validation->set_rules('password', 'Password', 'required|trim|min_length[3]|matches[password2]', [
+            'matches' => 'password dont match!',
+            'min_length' => 'password too short!'
+        ]);
+        $this->form_validation->set_rules('password2', 'Password', 'required|trim|matches[password]');
+        $this->form_validation->set_rules('mengajar', 'Mengajar', 'required|trim');
+
+        $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[dosen.email]', [
+            'is_unique' => 'This email has already registered!'
+        ]);
+
+        $this->form_validation->set_rules('hp', 'Hp', 'required|trim');
+
+
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('operation/dosen/tambahdosen', $data);
+            $this->load->view('templates/footer');
+        } else {
+
+            $this->Dosen_model->tambahDataDosen();
+            $this->session->set_flashdata('message', '<div class="alert
+            alert-success" role="alert">Data dosen baru telah ditambahkan!</div>');
+            redirect('operation/dosen');
+        }
     }
 
     public function detaildosen()
@@ -213,9 +251,11 @@ class Operation extends CI_Controller
     }
     public function pimpinan()
     {
-        $data['title'] = 'Pimpinan STIKOM';
+        $data['title'] = 'Pimpinan';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
+
+        $data['pimpinan'] = $this->Pimpinan_model->getAllPimpinan();
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
@@ -225,15 +265,43 @@ class Operation extends CI_Controller
     }
     public function tambahpimpinan()
     {
-        $data['title'] = 'Form Tambah Pimpinan STIKOM';
+
+        $data['title'] = 'Pimpinan';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar', $data);
-        $this->load->view('templates/topbar', $data);
-        $this->load->view('operation/pimpinan/tambahpimpinan', $data);
-        $this->load->view('templates/footer');
+        $this->form_validation->set_rules('nidn', 'NIDN', 'required|trim|is_unique[dosen.nidn]', [
+            'is_unique' => 'This nidn has already registered!'
+        ]);
+        $this->form_validation->set_rules('namalengkap', 'Nama Lengkap', 'required|trim');
+        $this->form_validation->set_rules('password', 'Password', 'required|trim|min_length[3]|matches[password2]', [
+            'matches' => 'password dont match!',
+            'min_length' => 'password too short!'
+        ]);
+        $this->form_validation->set_rules('password2', 'Password', 'required|trim|matches[password]');
+        $this->form_validation->set_rules('jabatan', 'jabatan', 'required|trim');
+
+        $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[dosen.email]', [
+            'is_unique' => 'This email has already registered!'
+        ]);
+
+        $this->form_validation->set_rules('hp', 'Hp', 'required|trim');
+
+
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('operation/pimpinan/tambahpimpinan', $data);
+            $this->load->view('templates/footer');
+        } else {
+
+            $this->Pimpinan_model->tambahDataPimpinan();
+            $this->session->set_flashdata('message', '<div class="alert
+            alert-success" role="alert">Data pimpinan baru telah ditambahkan!</div>');
+            redirect('operation/pimpinan');
+        }
     }
     public function detailpimpinan()
     {
@@ -354,6 +422,44 @@ class Operation extends CI_Controller
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
         $this->load->view('kandidat/editriwayat', $data);
+        $this->load->view('templates/footer');
+    }
+
+    public function komentar()
+    {
+        $data['title'] = 'Komentar';
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('operation/komentar/komentar', $data);
+        $this->load->view('templates/footer');
+    }
+
+    public function tambahkomentar()
+    {
+        $data['title'] = 'Tambah komentar';
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('operation/komentar/tambahkomentar', $data);
+        $this->load->view('templates/footer');
+    }
+    public function detailkomentar()
+    {
+        $data['title'] = 'Detail Komentar';
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('operation/komentar/detailkomentar', $data);
         $this->load->view('templates/footer');
     }
 }

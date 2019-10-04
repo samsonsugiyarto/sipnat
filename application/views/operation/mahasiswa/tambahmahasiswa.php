@@ -7,8 +7,7 @@
     <div class="row">
         <div class="col-lg-8">
 
-
-            <form class="mahasiswa" method="post" action="<?= base_url('operation/tambahmahasiswa'); ?>">
+            <form method="post" action="<?= base_url('operation/tambahmahasiswa'); ?>">
                 <div class="form-group row">
                     <label for="nim" class="col-sm-3 col-form-label">NIM</label>
                     <div class="col-sm-9">
@@ -41,23 +40,22 @@
                 <div class="form-group row">
                     <label for="jk" class="col-sm-3 col-form-label">Jenis Kelamin</label>
                     <div class="form-check form-check-inline pl-3">
-                        <input class="form-check-input" type="radio" name="jk" id="jk" value="L">
+                        <input type="radio" name="jk" value="L" <?php echo  set_radio('jk', 'L', TRUE); ?> />
                         <label class="form-check-label" for="jk">Laki-laki</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="jk" id="jk" value="P">
+                        <input type="radio" name="jk" value="P" <?php echo  set_radio('jk', 'P'); ?> />
                         <label class="form-check-label" for="jk">Perempuan</label>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="namalengkap" class="col-sm-3 col-form-label">Jurusan</label>
+                    <label for="jurusan" class="col-sm-3 col-form-label">Jurusan</label>
                     <div class="col-sm-9">
-                        <select name="jurusan" id="jurusan" class="form-control col-sm-9">
-
-                            <option value="S1 Sistem Informasi">S1 Sistem Informasi</option>
-                            <option value="D3 Komputerisasi Akuntansi">D3 Komputerisasi Akuntansi</option>
-                            <option value="S1 Teknik Informatika">S1 Teknik Informatika</option>
-                            <option value="S1 Teknik Multimedia & Jaringan">S1 Teknik Multimedia & Jaringan</option>
+                        <select name="jurusan" class="form-control col-sm-9">
+                            <option value="SI Sistem Informasi" <?= set_select('jurusan', 'SI Sistem Informasi', TRUE); ?>>SI Sistem Informasi</option>
+                            <option value="SI Teknik Multimedia dan Jaringan" <?= set_select('jurusan', 'SI Teknik Multimedia dan Jaringan'); ?>>SI Teknik Multimedia dan Jaringan</option>
+                            <option value="SI Teknik Informatika" <?= set_select('jurusan', 'SI Teknik Informatika'); ?>>SI Teknik Informatika</option>
+                            <option value="D3 Komputerisasi Akuntansi" <?= set_select('jurusan', 'D3 Komputerisasi Akuntansi'); ?>>D3 Komputerisasi Akuntansi</option>
                         </select>
                     </div>
                 </div>
@@ -77,11 +75,11 @@
                 <div class="form-group row">
                     <label class="col-sm-3 col-form-label">Aktif</label>
                     <div class="form-check form-check-inline pl-3">
-                        <input class="form-check-input" type="radio" name="aktif" id="aktif" value="1">
-                        <label class="form-check-label">Ya</label>
+                        <input type="radio" name="aktif" value="1" <?php echo  set_radio('aktif', '1', TRUE); ?> />
+                        <label class="form-check-label">Tidak</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="aktif" id="aktif" value="0">
+                        <input type="radio" name="aktif" value="0" <?php echo  set_radio('aktif', '0'); ?> />
                         <label class="form-check-label">Tidak</label>
 
                     </div>
@@ -107,7 +105,6 @@
                     <div class="col-sm-10">
                         <button type="submit" class="btn btn-primary">Tambah</button>
 
-                        <button type="submit" class="btn btn-danger">Batal</button>
                     </div>
                 </div>
 

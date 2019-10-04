@@ -35,23 +35,26 @@
                 </thead>
                 <tbody>
 
-                    <tr>
+                    <?php $i = 1; ?>
+                    <?php foreach ($dosen as $dsn) : ?>
+                        <tr>
+                            <th scope="row"><?= $i ?></th>
+                            <td><?= $dsn['nidn']; ?></td>
+                            <td><?= $dsn['name']; ?></td>
+                            <td><?= $dsn['jk']; ?></td>
+                            <td><?= $dsn['mengajar']; ?></td>
+                            <td><?= $dsn['email']; ?></td>
+                            <td><?= $dsn['hp']; ?></td>
+                            <td><?= $dsn['is_active']; ?></td>
+                            <td>
+                                <a href="<?= base_url() ?>operation/detaildosen/<?= $dsn['nidn']; ?>" class="badge badge-primary">detail</a>
+                                <a href="<?= base_url() ?>operation/editdosen/<?= $dsn['nidn']; ?>" class="badge badge-warning">edit</a>
+                                <a href="<?= base_url() ?>operation/hapusdosen/<?= $dsn['nidn']; ?>" class="badge badge-danger" onclick="return confirm('yakin?');">hapus</a>
 
-                        <td>1</td>
-                        <td>52739</td>
-                        <td>Endang Setyawati, M.Kom</td>
-                        <td>Perempuan</td>
-                        <td>Ansi</td>
-                        <td>endangb17@gmail.com</td>
-                        <td>089563</td>
-                        <td>Y</td>
-                        <td>
-                            <a href="<?= base_url('operation/detaildosen'); ?>" class="badge badge-warning">detail</a>
-                            <a href="<?= base_url('operation/editdosen'); ?>" class="badge badge-success">edit</a>
-                            <a href="" class="badge badge-danger" data-toggle="modal" data-target="#hapusModal">hapus</a>
-                        </td>
-                    </tr>
-
+                            </td>
+                        </tr>
+                        <?php $i++; ?>
+                    <?php endforeach; ?>
 
                 </tbody>
             </table>

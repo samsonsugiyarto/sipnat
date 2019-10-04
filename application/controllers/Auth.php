@@ -6,7 +6,6 @@ class Auth extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->library('form_validation');
     }
 
     public function index()
@@ -29,10 +28,10 @@ class Auth extends CI_Controller
 
     public function pimpinan()
     {
-        if ($this->session->userdata('email')) {
+        if ($this->session->userdata('nidn')) {
             redirect('user');
         }
-        $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
+        $this->form_validation->set_rules('nidn', 'NIDN', 'trim|required');
         $this->form_validation->set_rules('password', 'Password', 'trim|required');
         if ($this->form_validation->run() == false) {
             $data['title'] = 'Login Page';
@@ -41,16 +40,56 @@ class Auth extends CI_Controller
             $this->load->view('templates/auth_footer');
         } else {
             // validasinya sukses
-            $this->_login();
+            $this->_loginpimpinan();
         }
     }
+    private function _loginpimpinan()
+    {
+        $nidn = $this->input->post('nidn');
+        $password = $this->input->post('password');
 
+        $user = $this->db->get_where('pimpinan', ['nidn' => $nidn])->row_array();
+        // jika usernya ada
+        if ($user) {
+            //jika usernya aktif
+            if ($user['is_active'] == 1) {
+                //cek password
+                if (password_verify($password, $user['password'])) {
+                    $data = [
+                        'nidn' => $user['nidn'],
+                        'role_id' => $user['role_id']
+                    ];
+
+                    $this->session->set_userdata($data);
+                    if ($user['role_id'] == 1) {
+
+                        redirect('admin');
+                    } else {
+
+                        redirect('user');
+                    }
+                } else {
+                    $this->session->set_flashdata('message', '<div class="alert
+                    alert-danger" role="alert"> Wrong password!</div>');
+                    redirect('auth/pimpinan');
+                }
+            } else {
+                $this->session->set_flashdata('message', '<div class="alert
+            alert-danger" role="alert"> This NIDN has not been activated!</div>');
+                redirect('auth/pimpinan');
+            }
+        } else {
+            $this->session->set_flashdata('message', '<div class="alert
+            alert-danger" role="alert">NIDN is not registered!</div>');
+            redirect('auth/pimpinan');
+        }
+    }
     public function dosen()
     {
-        if ($this->session->userdata('email')) {
+        if ($this->session->userdata('nidn')) {
             redirect('user');
         }
-        $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
+        $this->form_validation->set_rules('nidn', 'NIDN', 'trim|required');
         $this->form_validation->set_rules('password', 'Password', 'trim|required');
         if ($this->form_validation->run() == false) {
             $data['title'] = 'Login Page';
@@ -59,9 +98,51 @@ class Auth extends CI_Controller
             $this->load->view('templates/auth_footer');
         } else {
             // validasinya sukses
-            $this->_login();
+            $this->_logindosen();
         }
     }
+    private function _logindosen()
+    {
+        $nidn = $this->input->post('nidn');
+        $password = $this->input->post('password');
+
+        $user = $this->db->get_where('dosen', ['nidn' => $nidn])->row_array();
+        // jika usernya ada
+        if ($user) {
+            //jika usernya aktif
+            if ($user['is_active'] == 1) {
+                //cek password
+                if (password_verify($password, $user['password'])) {
+                    $data = [
+                        'nidn' => $user['nidn'],
+                        'role_id' => $user['role_id']
+                    ];
+
+                    $this->session->set_userdata($data);
+                    if ($user['role_id'] == 1) {
+
+                        redirect('admin');
+                    } else {
+
+                        redirect('user');
+                    }
+                } else {
+                    $this->session->set_flashdata('message', '<div class="alert
+                    alert-danger" role="alert"> Wrong password!</div>');
+                    redirect('auth/dosen');
+                }
+            } else {
+                $this->session->set_flashdata('message', '<div class="alert
+            alert-danger" role="alert"> This NIDN has not been activated!</div>');
+                redirect('auth/dosen');
+            }
+        } else {
+            $this->session->set_flashdata('message', '<div class="alert
+            alert-danger" role="alert">NIDN is not registered!</div>');
+            redirect('auth/dosen');
+        }
+    }
+
 
     public function mahasiswa()
     {
@@ -92,7 +173,7 @@ class Auth extends CI_Controller
             //jika usernya aktif
             if ($user['is_active'] == 1) {
                 //cek password
-                if ($password) {
+                if (password_verify($password, $user['password'])) {
                     $data = [
                         'nim' => $user['nim'],
                         'role_id' => $user['role_id']
@@ -113,12 +194,12 @@ class Auth extends CI_Controller
                 }
             } else {
                 $this->session->set_flashdata('message', '<div class="alert
-            alert-danger" role="alert"> This email has not been activated!</div>');
+            alert-danger" role="alert"> This NIM has not been activated!</div>');
                 redirect('auth/mahasiswa');
             }
         } else {
             $this->session->set_flashdata('message', '<div class="alert
-            alert-danger" role="alert">Email is not registered!</div>');
+            alert-danger" role="alert">NIM is not registered!</div>');
             redirect('auth/mahasiswa');
         }
     }
@@ -144,6 +225,8 @@ class Auth extends CI_Controller
                     $this->session->set_userdata($data);
                     if ($user['role_id'] == 1) {
 
+                        redirect('admin');
+                    } else if ($user['role_id'] == 2) {
                         redirect('admin');
                     } else {
 
@@ -309,10 +392,12 @@ class Auth extends CI_Controller
     {
         $this->session->unset_userdata('email');
         $this->session->unset_userdata('role_id');
+        $this->session->unset_userdata('nim');
+        $this->session->unset_userdata('nidn');
 
         $this->session->set_flashdata('message', '<div class="alert
             alert-success" role="alert">You have been logged out!</div>');
-        redirect('auth');
+        redirect('home');
     }
 
     public function blocked()

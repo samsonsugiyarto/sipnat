@@ -6,19 +6,22 @@ class User extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        is_logged_in();
     }
     public function index()
     {
         $data['title'] = 'My Profile';
-        $data['user'] = $this->db->get_where('user', ['email' =>
-        $this->session->userdata('email')])->row_array();
 
         $role_id = $this->session->userdata('role_id');
 
         $user = $this->db->get_where('user', ['role_id' => $role_id])->row_array();
+        $usermhs = $this->db->get_where('mahasiswa', ['role_id' => $role_id])->row_array();
+        $userdsn = $this->db->get_where('dosen', ['role_id' => $role_id])->row_array();
+        $userpimp = $this->db->get_where('pimpinan', ['role_id' => $role_id])->row_array();
 
         if ($user['role_id'] == 1) {
+            is_logged_in();
+            $data['user'] = $this->db->get_where('user', ['email' =>
+            $this->session->userdata('email')])->row_array();
             $this->load->view('templates/header', $data);
             $this->load->view('templates/sidebar', $data);
             $this->load->view('templates/topbar', $data);
@@ -27,27 +30,38 @@ class User extends CI_Controller
         }
 
         if ($user['role_id'] == 2) {
+            $data['user'] = $this->db->get_where('user', ['email' =>
+            $this->session->userdata('email')])->row_array();
             $this->load->view('templates/header', $data);
             $this->load->view('templates/sidebar', $data);
             $this->load->view('templates/topbar', $data);
             $this->load->view('user/index', $data);
             $this->load->view('templates/footer');
         }
-        if ($user['role_id'] == 3) {
+        if ($userpimp['role_id'] == 3) {
+            is_logged_inpimp();
+            $data['user'] = $this->db->get_where('pimpinan', ['nidn' =>
+            $this->session->userdata('nidn')])->row_array();
             $this->load->view('templates/header', $data);
             $this->load->view('templates/sidebar', $data);
             $this->load->view('templates/topbar', $data);
             $this->load->view('pimpinan/index', $data);
             $this->load->view('templates/footer');
         }
-        if ($user['role_id'] == 4) {
+        if ($userdsn['role_id'] == 4) {
+            is_logged_indsn();
+            $data['user'] = $this->db->get_where('dosen', ['nidn' =>
+            $this->session->userdata('nidn')])->row_array();
             $this->load->view('templates/header', $data);
             $this->load->view('templates/sidebar', $data);
             $this->load->view('templates/topbar', $data);
             $this->load->view('dosen/index', $data);
             $this->load->view('templates/footer');
         }
-        if ($user['role_id'] == 5) {
+        if ($usermhs['role_id'] == 5) {
+            is_logged_inmhs();
+            $data['user'] = $this->db->get_where('mahasiswa', ['nim' =>
+            $this->session->userdata('nim')])->row_array();
             $this->load->view('templates/header', $data);
             $this->load->view('templates/sidebar', $data);
             $this->load->view('templates/topbar', $data);
@@ -68,8 +82,15 @@ class User extends CI_Controller
         $role_id = $this->session->userdata('role_id');
 
         $user = $this->db->get_where('user', ['role_id' => $role_id])->row_array();
+        $usermhs = $this->db->get_where('mahasiswa', ['role_id' => $role_id])->row_array();
+        $userdsn = $this->db->get_where('dosen', ['role_id' => $role_id])->row_array();
+        $userpimp = $this->db->get_where('pimpinan', ['role_id' => $role_id])->row_array();
+
 
         if ($user['role_id'] == 1) {
+            is_logged_in();
+            $data['user'] = $this->db->get_where('user', ['email' =>
+            $this->session->userdata('email')])->row_array();
             if ($this->form_validation->run() == false) {
                 $this->load->view('templates/header', $data);
                 $this->load->view('templates/sidebar', $data);
@@ -146,9 +167,6 @@ class User extends CI_Controller
                         echo $this->upload->display_errors();
                     }
                 }
-
-
-
                 $this->db->set('name', $name);
                 $this->db->where('email', $email);
                 $this->db->update('user');
@@ -158,7 +176,10 @@ class User extends CI_Controller
                 redirect('user');
             }
         }
-        if ($user['role_id'] == 3) {
+        if ($userpimp['role_id'] == 3) {
+            is_logged_inpimp();
+            $data['user'] = $this->db->get_where('pimpinan', ['nidn' =>
+            $this->session->userdata('nidn')])->row_array();
             if ($this->form_validation->run() == false) {
                 $this->load->view('templates/header', $data);
                 $this->load->view('templates/sidebar', $data);
@@ -203,7 +224,10 @@ class User extends CI_Controller
                 redirect('user');
             }
         }
-        if ($user['role_id'] == 4) {
+        if ($userdsn['role_id'] == 4) {
+            is_logged_indsn();
+            $data['user'] = $this->db->get_where('dosen', ['nidn' =>
+            $this->session->userdata('nidn')])->row_array();
             if ($this->form_validation->run() == false) {
                 $this->load->view('templates/header', $data);
                 $this->load->view('templates/sidebar', $data);
@@ -248,7 +272,10 @@ class User extends CI_Controller
                 redirect('user');
             }
         }
-        if ($user['role_id'] == 5) {
+        if ($usermhs['role_id'] == 5) {
+            is_logged_inmhs();
+            $data['user'] = $this->db->get_where('mahasiswa', ['nim' =>
+            $this->session->userdata('nim')])->row_array();
             if ($this->form_validation->run() == false) {
                 $this->load->view('templates/header', $data);
                 $this->load->view('templates/sidebar', $data);
@@ -300,44 +327,253 @@ class User extends CI_Controller
     public function changePassword()
     {
         $data['title'] = 'Change Password';
-        $data['user'] = $this->db->get_where('user', ['email' =>
-        $this->session->userdata('email')])->row_array();
+
+        $role_id = $this->session->userdata('role_id');
+        $user = $this->db->get_where('user', ['role_id' => $role_id])->row_array();
+        $usermhs = $this->db->get_where('mahasiswa', ['role_id' => $role_id])->row_array();
+        $userdsn = $this->db->get_where('dosen', ['role_id' => $role_id])->row_array();
+        $userpimp = $this->db->get_where('pimpinan', ['role_id' => $role_id])->row_array();
+
 
         $this->form_validation->set_rules('current_password', 'Current Password', 'required|trim');
         $this->form_validation->set_rules('new_password1', 'New Password', 'required|trim|min_length[3]|matches[new_password2]');
         $this->form_validation->set_rules('new_password2', ' Confirm New Password', 'required|trim|min_length[3]|matches[new_password1]');
 
-        if ($this->form_validation->run() == false) {
+        if ($user['role_id'] == 1) {
+            is_logged_in();
+
+            $data['user'] = $this->db->get_where('user', ['email' =>
+            $this->session->userdata('email')])->row_array();
+
+            if ($this->form_validation->run() == false) {
+                $this->load->view('templates/header', $data);
+                $this->load->view('templates/sidebar', $data);
+                $this->load->view('templates/topbar', $data);
+                $this->load->view('user/changepassword', $data);
+                $this->load->view('templates/footer');
+            } else {
+                $current_password = $this->input->post('current_password');
+                $new_password = $this->input->post('new_password1');
+                if (!password_verify($current_password, $data['user']['password'])) {
+                    $this->session->set_flashdata('message', '<div class="alert
+                alert-danger" role="alert">Wrong current password!</div>');
+                    redirect('user/changepassword');
+                } else {
+                    if ($current_password == $new_password) {
+                        $this->session->set_flashdata('message', '<div class="alert
+                    alert-danger" role="alert">New password cannot be the same as current password!</div>');
+                        redirect('user/changepassword');
+                    } else {
+                        // password sudah oke 
+                        $password_hash = password_hash($new_password, PASSWORD_DEFAULT);
+
+                        $this->db->set('password', $password_hash);
+                        $this->db->where('email', $this->session->userdata('email'));
+                        $this->db->update('user');
+
+                        $this->session->set_flashdata('message', '<div class="alert
+                    alert-success" role="alert">Password changed!</div>');
+                        redirect('user/changepassword');
+                    }
+                }
+            }
+        }
+        if ($user['role_id'] == 2) {
+            is_logged_in();
+
+            $data['user'] = $this->db->get_where('user', ['email' =>
+            $this->session->userdata('email')])->row_array();
+
+            if ($this->form_validation->run() == false) {
+                $this->load->view('templates/header', $data);
+                $this->load->view('templates/sidebar', $data);
+                $this->load->view('templates/topbar', $data);
+                $this->load->view('user/changepassword', $data);
+                $this->load->view('templates/footer');
+            } else {
+                $current_password = $this->input->post('current_password');
+                $new_password = $this->input->post('new_password1');
+                if (!password_verify($current_password, $data['user']['password'])) {
+                    $this->session->set_flashdata('message', '<div class="alert
+                alert-danger" role="alert">Wrong current password!</div>');
+                    redirect('user/changepassword');
+                } else {
+                    if ($current_password == $new_password) {
+                        $this->session->set_flashdata('message', '<div class="alert
+                    alert-danger" role="alert">New password cannot be the same as current password!</div>');
+                        redirect('user/changepassword');
+                    } else {
+                        // password sudah oke 
+                        $password_hash = password_hash($new_password, PASSWORD_DEFAULT);
+
+                        $this->db->set('password', $password_hash);
+                        $this->db->where('email', $this->session->userdata('email'));
+                        $this->db->update('user');
+
+                        $this->session->set_flashdata('message', '<div class="alert
+                    alert-success" role="alert">Password changed!</div>');
+                        redirect('user/changepassword');
+                    }
+                }
+            }
+        }
+
+        if ($userpimp['role_id'] == 3) {
+            is_logged_inpimp();
+            $data['user'] = $this->db->get_where('pimpinan', ['nidn' =>
+            $this->session->userdata('nidn')])->row_array();
+            if ($this->form_validation->run() == false) {
+                $this->load->view('templates/header', $data);
+                $this->load->view('templates/sidebar', $data);
+                $this->load->view('templates/topbar', $data);
+                $this->load->view('user/changepassword', $data);
+                $this->load->view('templates/footer');
+            } else {
+                $current_password = $this->input->post('current_password');
+                $new_password = $this->input->post('new_password1');
+                if (!password_verify($current_password, $data['user']['password'])) {
+                    $this->session->set_flashdata('message', '<div class="alert
+                alert-danger" role="alert">Wrong current password!</div>');
+                    redirect('user/changepassword');
+                } else {
+                    if ($current_password == $new_password) {
+                        $this->session->set_flashdata('message', '<div class="alert
+                    alert-danger" role="alert">New password cannot be the same as current password!</div>');
+                        redirect('user/changepassword');
+                    } else {
+                        // password sudah oke 
+                        $password_hash = password_hash($new_password, PASSWORD_DEFAULT);
+
+                        $this->db->set('password', $password_hash);
+                        $this->db->where('nim', $this->session->userdata('nim'));
+                        $this->db->update('mahasiswa');
+
+                        $this->session->set_flashdata('message', '<div class="alert
+                    alert-success" role="alert">Password changed!</div>');
+                        redirect('user/changepassword');
+                    }
+                }
+            }
+        }
+
+        if ($userdsn['role_id'] == 4) {
+            is_logged_indsn();
+            $data['user'] = $this->db->get_where('dosen', ['nidn' =>
+            $this->session->userdata('nidn')])->row_array();
+            if ($this->form_validation->run() == false) {
+                $this->load->view('templates/header', $data);
+                $this->load->view('templates/sidebar', $data);
+                $this->load->view('templates/topbar', $data);
+                $this->load->view('user/changepassword', $data);
+                $this->load->view('templates/footer');
+            } else {
+                $current_password = $this->input->post('current_password');
+                $new_password = $this->input->post('new_password1');
+                if (!password_verify($current_password, $data['user']['password'])) {
+                    $this->session->set_flashdata('message', '<div class="alert
+                alert-danger" role="alert">Wrong current password!</div>');
+                    redirect('user/changepassword');
+                } else {
+                    if ($current_password == $new_password) {
+                        $this->session->set_flashdata('message', '<div class="alert
+                    alert-danger" role="alert">New password cannot be the same as current password!</div>');
+                        redirect('user/changepassword');
+                    } else {
+                        // password sudah oke 
+                        $password_hash = password_hash($new_password, PASSWORD_DEFAULT);
+
+                        $this->db->set('password', $password_hash);
+                        $this->db->where('nim', $this->session->userdata('nim'));
+                        $this->db->update('mahasiswa');
+
+                        $this->session->set_flashdata('message', '<div class="alert
+                    alert-success" role="alert">Password changed!</div>');
+                        redirect('user/changepassword');
+                    }
+                }
+            }
+        }
+
+        if ($usermhs['role_id'] == 5) {
+            is_logged_inmhs();
+            $data['user'] = $this->db->get_where('mahasiswa', ['nim' =>
+            $this->session->userdata('nim')])->row_array();
+            if ($this->form_validation->run() == false) {
+                $this->load->view('templates/header', $data);
+                $this->load->view('templates/sidebar', $data);
+                $this->load->view('templates/topbar', $data);
+                $this->load->view('user/changepassword', $data);
+                $this->load->view('templates/footer');
+            } else {
+                $current_password = $this->input->post('current_password');
+                $new_password = $this->input->post('new_password1');
+                if (!password_verify($current_password, $data['user']['password'])) {
+                    $this->session->set_flashdata('message', '<div class="alert
+                alert-danger" role="alert">Wrong current password!</div>');
+                    redirect('user/changepassword');
+                } else {
+                    if ($current_password == $new_password) {
+                        $this->session->set_flashdata('message', '<div class="alert
+                    alert-danger" role="alert">New password cannot be the same as current password!</div>');
+                        redirect('user/changepassword');
+                    } else {
+                        // password sudah oke 
+                        $password_hash = password_hash($new_password, PASSWORD_DEFAULT);
+
+                        $this->db->set('password', $password_hash);
+                        $this->db->where('nim', $this->session->userdata('nim'));
+                        $this->db->update('mahasiswa');
+
+                        $this->session->set_flashdata('message', '<div class="alert
+                    alert-success" role="alert">Password changed!</div>');
+                        redirect('user/changepassword');
+                    }
+                }
+            }
+        }
+    }
+
+    public function komentar()
+    {
+        $data['title'] = 'Komentar';
+        $role_id = $this->session->userdata('role_id');
+        $usermhs = $this->db->get_where('mahasiswa', ['role_id' => $role_id])->row_array();
+        $userdsn = $this->db->get_where('dosen', ['role_id' => $role_id])->row_array();
+        $userpimp = $this->db->get_where('pimpinan', ['role_id' => $role_id])->row_array();
+
+        if ($userpimp['role_id'] == 3) {
+            is_logged_inpimp();
+            $data['user'] = $this->db->get_where('pimpinan', ['nidn' =>
+            $this->session->userdata('nidn')])->row_array();
             $this->load->view('templates/header', $data);
             $this->load->view('templates/sidebar', $data);
             $this->load->view('templates/topbar', $data);
-            $this->load->view('user/changepassword', $data);
+            $this->load->view('dosen/komen', $data);
             $this->load->view('templates/footer');
-        } else {
-            $current_password = $this->input->post('current_password');
-            $new_password = $this->input->post('new_password1');
-            if (!password_verify($current_password, $data['user']['password'])) {
-                $this->session->set_flashdata('message', '<div class="alert
-                alert-danger" role="alert">Wrong current password!</div>');
-                redirect('user/changepassword');
-            } else {
-                if ($current_password == $new_password) {
-                    $this->session->set_flashdata('message', '<div class="alert
-                    alert-danger" role="alert">New password cannot be the same as current password!</div>');
-                    redirect('user/changepassword');
-                } else {
-                    // password sudah oke 
-                    $password_hash = password_hash($new_password, PASSWORD_DEFAULT);
+        }
 
-                    $this->db->set('password', $password_hash);
-                    $this->db->where('email', $this->session->userdata('email'));
-                    $this->db->update('user');
 
-                    $this->session->set_flashdata('message', '<div class="alert
-                    alert-success" role="alert">Password changed!</div>');
-                    redirect('user/changepassword');
-                }
-            }
+        if ($userdsn['role_id'] == 4) {
+            is_logged_indsn();
+            $data['user'] = $this->db->get_where('dosen', ['nidn' =>
+            $this->session->userdata('nidn')])->row_array();
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('dosen/komen', $data);
+            $this->load->view('templates/footer');
+        }
+
+
+        if ($usermhs['role_id'] == 5) {
+            is_logged_inmhs();
+            $data['user'] = $this->db->get_where('mahasiswa', ['nim' =>
+            $this->session->userdata('nim')])->row_array();
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('mahasiswa/komen', $data);
+            $this->load->view('templates/footer');
         }
     }
 }

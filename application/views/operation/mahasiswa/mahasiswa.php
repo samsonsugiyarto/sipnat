@@ -1,4 +1,5 @@
 <!-- Begin Page Content -->
+
 <div class="container-fluid">
 
     <!-- Page Heading -->
@@ -35,23 +36,26 @@
                 </thead>
                 <tbody>
 
-                    <tr>
+                    <?php $i = 1; ?>
+                    <?php foreach ($mahasiswa as $mhs) : ?>
+                        <tr>
+                            <th scope="row"><?= $i ?></th>
+                            <td><?= $mhs['nim']; ?></td>
+                            <td><?= $mhs['name']; ?></td>
+                            <td><?= $mhs['jk']; ?></td>
+                            <td><?= $mhs['jurusan']; ?></td>
+                            <td><?= $mhs['email']; ?></td>
+                            <td><?= $mhs['hp']; ?></td>
+                            <td><?= $mhs['is_active']; ?></td>
+                            <td>
+                                <a href="<?= base_url() ?>operation/detailmahasiswa/<?= $mhs['nim']; ?>" class="badge badge-primary">detail</a>
+                                <a href="<?= base_url() ?>operation/editmahasiswa/<?= $mhs['nim']; ?>" class="badge badge-warning">edit</a>
+                                <a href="<?= base_url() ?>operation/hapusmahasiswa/<?= $mhs['nim']; ?>" class="badge badge-danger" onclick="return confirm('yakin?');">hapus</a>
 
-                        <td>1</td>
-                        <td>201601001</td>
-                        <td>Nabilla Nur Fadillah</td>
-                        <td>Perempuan</td>
-                        <td>S1 Sistem Informasi</td>
-                        <td>nurfadillaha@gmail.com</td>
-                        <td>089563</td>
-                        <td>Y</td>
-                        <td>
-                            <a href="<?= base_url('operation/detailmahasiswa'); ?>" class="badge badge-warning">detail</a>
-                            <a href="<?= base_url('operation/editmahasiswa'); ?>" class="badge badge-success">edit</a>
-                            <a href="" class="badge badge-danger" data-toggle="modal" data-target="#hapusModal">hapus</a>
-                        </td>
-                    </tr>
-
+                            </td>
+                        </tr>
+                        <?php $i++; ?>
+                    <?php endforeach; ?>
 
                 </tbody>
             </table>

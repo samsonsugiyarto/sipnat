@@ -18,7 +18,7 @@
 
             <?= $this->session->flashdata('message'); ?>
 
-            <a href="<?= base_url('operation/tambahpimpinan'); ?>" class="btn btn-primary mb-3">Tambah Pimpinan STIKOM</a>
+            <a href="<?= base_url('operation/tambahpimpinan'); ?>" class="btn btn-success mb-3">Tambah Pimpinan</a>
             <table class="table table-hover">
                 <thead>
                     <tr>
@@ -26,7 +26,7 @@
                         <th scope="col">NIDN</th>
                         <th scope="col">Nama</th>
                         <th scope="col">JK</th>
-                        <th scope="col">Jabatan</th>
+                        <th scope="col">jabatan</th>
                         <th scope="col">Email</th>
                         <th scope="col">HP</th>
                         <th scope="col">Aktif</th>
@@ -35,23 +35,26 @@
                 </thead>
                 <tbody>
 
-                    <tr>
+                    <?php $i = 1; ?>
+                    <?php foreach ($pimpinan as $pimp) : ?>
+                        <tr>
+                            <th scope="row"><?= $i ?></th>
+                            <td><?= $pimp['nidn']; ?></td>
+                            <td><?= $pimp['name']; ?></td>
+                            <td><?= $pimp['jk']; ?></td>
+                            <td><?= $pimp['jabatan']; ?></td>
+                            <td><?= $pimp['email']; ?></td>
+                            <td><?= $pimp['hp']; ?></td>
+                            <td><?= $pimp['is_active']; ?></td>
+                            <td>
+                                <a href="<?= base_url() ?>operation/detailpimpinan/<?= $pimp['nidn']; ?>" class="badge badge-primary">detail</a>
+                                <a href="<?= base_url() ?>operation/editpimpinan/<?= $pimp['nidn']; ?>" class="badge badge-warning">edit</a>
+                                <a href="<?= base_url() ?>operation/hapuspimpinan/<?= $pimp['nidn']; ?>" class="badge badge-danger" onclick="return confirm('yakin?');">hapus</a>
 
-                        <td>1</td>
-                        <td>90827</td>
-                        <td>Romanus Edy</td>
-                        <td>Laki-Laki</td>
-                        <td>Ketua STIKOM</td>
-                        <td>romanus@gmail.com</td>
-                        <td>089563</td>
-                        <td>Y</td>
-                        <td>
-                            <a href="<?= base_url('operation/detailpimpinan'); ?>" class="badge badge-warning">detail</a>
-                            <a href="<?= base_url('operation/editpimpinan'); ?>" class="badge badge-success">edit</a>
-                            <a href="" class="badge badge-danger" data-toggle="modal" data-target="#hapusModal">hapus</a>
-                        </td>
-                    </tr>
-
+                            </td>
+                        </tr>
+                        <?php $i++; ?>
+                    <?php endforeach; ?>
 
                 </tbody>
             </table>
@@ -70,15 +73,15 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Hapus Pimpinan STIKOM</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Hapus Dosen</h5>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
             </div>
-            <div class="modal-body">Apakah Anda yakin ingin menghapus pimpinan STIKOM ini?</div>
+            <div class="modal-body">Apakah Anda yakin ingin menghapus dosen ini?</div>
             <div class="modal-footer">
                 <button class="btn btn-danger" type="button" data-dismiss="modal">Hapus</button>
-                <a class="btn btn-primary" href="<?= base_url('operation/pimpinan'); ?>">Batal</a>
+                <a class="btn btn-primary" href="<?= base_url('operation/dosen'); ?>">Batal</a>
             </div>
         </div>
     </div>

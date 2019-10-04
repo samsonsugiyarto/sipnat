@@ -8,17 +8,10 @@
 
     <div class="row">
         <div class="col-lg">
-            <?php if (validation_errors()) : ?>
-                <div class="alert alert-danger" role="alert">
-                    <?= validation_errors(); ?>
-                </div>
-
-
-            <?php endif; ?>
 
             <?= $this->session->flashdata('message'); ?>
 
-            <a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#newSubMenuModal">Tambah Jurusan</a>
+            <a href="" class="btn btn-success mb-3" data-toggle="modal" data-target="#newSubMenuModal">Tambah Jurusan</a>
             <table class="table table-hover">
                 <thead>
                     <tr>
@@ -29,21 +22,24 @@
 
                     </tr>
                 </thead>
+
+                </tbody>
                 <tbody>
+                    <?php $i = 1; ?>
+                    <?php foreach ($menu as $m) : ?>
+                        <tr>
+                            <th scope="row"><?= $i ?></th>
+                            <td><?= $m['nama_jurusan']; ?></td>
+                            <td><?= $m['jumlah_mhs']; ?></td>
+                            <td>
+                                <a href="<?= base_url() ?>operation/detailjurusan/<?= $m['id']; ?>" class="badge badge-primary">detail</a>
+                                <a href="<?= base_url() ?>operation/editjurusan/<?= $m['id']; ?>" class="badge badge-warning">edit</a>
+                                <a href="<?= base_url() ?>operation/hapusjurusan/<?= $m['id']; ?>" class="badge badge-danger" onclick="return confirm('yakin?');">hapus</a>
 
-                    <tr>
-
-                        <td>1</td>
-                        <td>S1 Sistem Informasi</td>
-                        <td>250</td>
-
-                        <td>
-                            <a href="<?= base_url('operation/editjurusan'); ?>" class="badge badge-success">edit</a>
-                            <a href="" class="badge badge-danger">hapus</a>
-                        </td>
-                    </tr>
-
-
+                            </td>
+                        </tr>
+                        <?php $i++; ?>
+                    <?php endforeach; ?>
                 </tbody>
             </table>
         </div>
@@ -68,15 +64,13 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="<?= base_url('menu/submenu'); ?>" method="post">
+            <form action="<?= base_url('operation'); ?>" method="post">
                 <div class="modal-body">
                     <div class="form-group">
-                        <input type="text" class="form-control" id="jurusan" name="jurusan" placeholder="Nama Jurusan">
+                        <input type="text" class="form-control" id="jurusan" name="jurusan" placeholder="Nama Jurusan" required>
                     </div>
-
-
                     <div class="form-group">
-                        <input type="text" class="form-control" id="jumlah" name="jumlah" placeholder="Jumlah Mahasiswa">
+                        <input type="text" class="form-control" id="jumlah" name="jumlah" placeholder="Jumlah Mahasiswa" required>
                     </div>
 
 
@@ -84,7 +78,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                    <button type="submit" class="btn btn-primary">Tambah</button>
+                    <button type="submit" nama="tambah" class="btn btn-primary">Tambah</button>
                 </div>
             </form>
         </div>
