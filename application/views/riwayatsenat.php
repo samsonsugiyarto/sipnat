@@ -26,7 +26,7 @@
 
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light">
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
         <div class="container">
             <img class="logo" src="../assets/img/logostikom.png">
             <a class="navbar-brand" href="#">SIPNAT</a>

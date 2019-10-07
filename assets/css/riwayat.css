@@ -386,14 +386,15 @@
 @media (min-width: 992px) {
 	.navbar {
 		padding-top: 20px;
+		padding-bottom: 20px;
 		z-index: 99;
-		background-color: rgba(11, 98, 220, 0);
+		background-color: rgba(0, 0, 0, 0.973);
 	}
 
 	.logo {
-		margin: -35px -85px -40px 10px;
+		margin: -50px -30px -40px -40px;
 		float: left;
-		height: 65px;
+		height: 80px;
 		text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
 		text-align: center;
 	}
@@ -403,7 +404,7 @@
 		z-index: 9;
 		margin-left: 40px;
 		margin-bottom: -10px;
-		margin-top: -20px;
+		margin-top: -30px;
 	}
 
 	.navbar-brand2 {
@@ -456,13 +457,6 @@
 		text-align: center;
 	}
 
-	.logo {
-		margin: -30px -30px -40px -40px;
-		float: left;
-		height: 80px;
-		text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
-		text-align: center;
-	}
 
 	.navbar-brand,
 	.nav-link {
