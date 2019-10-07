@@ -6,10 +6,7 @@ $('.page-scroll').on('click', function (e) {
 
 	$('html , body').animate({
 		scrollTop: elemenTujuan.offset().top - 70
-	}, 1250, "easeInOutExpo");
-
-
-
+	}, 1000, "easeInOutExpo");
 
 
 	e.preventDefault();

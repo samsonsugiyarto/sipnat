@@ -40,8 +40,8 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav ml-auto">
-                    <a class="nav-item nav-link active  page-scroll" href="#home">Home <span class="sr-only">(current)</span></a>
-                    <a class="nav-item nav-link page-scroll" href="#voting">Voting <span class="sr-only"></span></a>
+                    <a class="nav-item nav-link active  page-scroll" href="#home">Home <span class="sr-only"></span></a>
+                    <a class="nav-item nav-link page-scroll" href="#voting">Voting <span></span></a>
                     <a class="nav-item nav-link  page-scroll" href="#gallery">Galeri</a>
                     <a class="nav-item nav-link  page-scroll" href="#personil">Tentang Senat</a>
                     <a class="nav-item nav-link" href="<?= base_url('home/kampanye'); ?>">Kampanye</a>
@@ -58,6 +58,7 @@
                         </div>
                     </li>
                 </div>
+
             </div>
 
         </div>
@@ -303,6 +304,14 @@
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script>
+        $('.navbar-nav a').on('click', function() {
+            $('.navbar-nav a').removeClass('active');
+            $(this).addClass('active');
+        });
+    </script>
+
+
 
     <script>
         src = "<?= base_url('assets/js/jquery.easing.1.3.js') ?>"
@@ -316,6 +325,9 @@
 
     <script src="<?= base_url('assets/js/pindahnav.js'); ?>">
     </script>
+
+
+
 
 </body>
 
