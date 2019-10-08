@@ -388,6 +388,21 @@
 
 }
 
+.visibtn h2,
+.misibtn h2 {
+	font-size: 25px;
+	color: #ffffff;
+	font-weight: 400;
+
+}
+
+.figurevisi,
+.figuremisi {
+	color: #ffffff;
+
+	font-size: 20px;
+}
+
 
 /* RESPONSIVE */
 @media (min-width: 992px) {
@@ -395,7 +410,7 @@
 		padding-top: 20px;
 		padding-bottom: 20px;
 		z-index: 99;
-		background-color: rgba(0, 0, 0, 0.973);
+		background-color: rgba(0, 0, 0, 0.856);
 	}
 
 

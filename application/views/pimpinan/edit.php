@@ -26,7 +26,7 @@
             <div class="form-group row">
                 <label for="jk" class="col-sm-3 col-form-label">Jenis Kelamin</label>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="jkl" id="inlineRadio1" value="option1" checked>
+                    <input class="form-check-input ml-3" type="radio" name="jkl" id="inlineRadio1" value="option1" checked>
                     <label class="form-check-label" for="jkl">Laki-laki</label>
                 </div>
                 <div class="form-check form-check-inline">

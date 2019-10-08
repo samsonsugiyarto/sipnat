@@ -49,6 +49,7 @@ class Auth extends CI_Controller
         $password = $this->input->post('password');
 
         $user = $this->db->get_where('pimpinan', ['nidn' => $nidn])->row_array();
+
         // jika usernya ada
         if ($user) {
             //jika usernya aktif
@@ -59,6 +60,7 @@ class Auth extends CI_Controller
                         'nidn' => $user['nidn'],
                         'role_id' => $user['role_id']
                     ];
+
 
                     $this->session->set_userdata($data);
                     if ($user['role_id'] == 1) {
@@ -211,6 +213,7 @@ class Auth extends CI_Controller
         $password = $this->input->post('password');
 
         $user = $this->db->get_where('user', ['email' => $email])->row_array();
+
         // jika usernya ada
         if ($user) {
             //jika usernya aktif
@@ -220,6 +223,7 @@ class Auth extends CI_Controller
                     $data = [
                         'email' => $user['email'],
                         'role_id' => $user['role_id']
+
                     ];
 
                     $this->session->set_userdata($data);

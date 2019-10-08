@@ -17,11 +17,27 @@ class Admin extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar', $data);
-        $this->load->view('templates/topbar', $data);
-        $this->load->view('admin/index', $data);
-        $this->load->view('templates/footer');
+
+        $role_id = $this->session->userdata('role_id');
+        $user = $this->db->get_where('user', ['role_id' => $role_id])->row_array();
+        if ($user['role_id'] == 1) {
+            $role = 1;
+            $data['namarole']  = $this->db->get_where('user_role', ['id' => $role])->row_array();
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('admin/index', $data);
+            $this->load->view('templates/footer');
+        }
+        if ($user['role_id'] == 2) {
+            $role = 2;
+            $data['namarole']  = $this->db->get_where('user_role', ['id' => $role])->row_array();
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('admin/index', $data);
+            $this->load->view('templates/footer');
+        }
     }
 
     public function role()
@@ -33,6 +49,7 @@ class Admin extends CI_Controller
         $data['role'] = $this->db->get('user_role')->result_array();
 
         $this->form_validation->set_rules('role', 'Role', 'required');
+
 
         if ($this->form_validation->run() == false) {
             $this->load->view('templates/header', $data);
@@ -54,6 +71,7 @@ class Admin extends CI_Controller
         $data['title'] = 'Role Access';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
+        $data['namarole'] = $this->db->get('user_role')->row_array();
 
         $data['role'] = $this->db->get_where('user_role', ['id' => $role_id])->row_array();
 

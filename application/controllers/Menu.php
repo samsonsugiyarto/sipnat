@@ -17,6 +17,8 @@ class Menu extends CI_Controller
         $data['menu'] = $this->db->get('user_menu')->result_array();
 
         $this->form_validation->set_rules('menu', 'Menu', 'required');
+        $role = 1;
+        $data['namarole']  = $this->db->get_where('user_role', ['id' => $role])->row_array();
 
         if ($this->form_validation->run() == false) {
             $this->load->view('templates/header', $data);
@@ -37,6 +39,8 @@ class Menu extends CI_Controller
         $data['title'] = 'Submenu Management';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
+        $role = 1;
+        $data['namarole']  = $this->db->get_where('user_role', ['id' => $role])->row_array();
 
         $this->load->model('Menu_model', 'menu');
 

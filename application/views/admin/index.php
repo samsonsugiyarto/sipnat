@@ -20,7 +20,7 @@
                         </div>
                     </div>
                 </div>
-                <a href="#" class="btn btn-success btn-icon-split">
+                <a href="<?= base_url('operation'); ?>" class="btn btn-success btn-icon-split">
                     <span class="icon text-white-50">
                         <i class="fas fa-arrow-right"></i>
                     </span>
@@ -43,7 +43,7 @@
                         </div>
                     </div>
                 </div>
-                <a href="#" class="btn btn-warning btn-icon-split">
+                <a href="<?= base_url('operation/mahasiswa'); ?>" class="btn btn-warning btn-icon-split">
                     <span class="icon text-white-50">
                         <i class="fas fa-arrow-right"></i>
                     </span>
@@ -66,7 +66,7 @@
                         </div>
                     </div>
                 </div>
-                <a href="#" class="btn btn-info btn-icon-split">
+                <a href="<?= base_url('operation/dosen'); ?>" class="btn btn-info btn-icon-split">
                     <span class="icon text-white-50">
                         <i class="fas fa-arrow-right"></i>
                     </span>
@@ -88,7 +88,7 @@
                         </div>
                     </div>
                 </div>
-                <a href="#" class="btn btn-primary btn-icon-split">
+                <a href="<?= base_url('operation/pimpinan'); ?>" class="btn btn-primary btn-icon-split">
                     <span class="icon text-white-50">
                         <i class="fas fa-arrow-right"></i>
                     </span>
@@ -110,7 +110,7 @@
                         </div>
                     </div>
                 </div>
-                <a href="#" class="btn btn-danger btn-icon-split">
+                <a href="<?= base_url('operation/kandidat'); ?>" class="btn btn-danger btn-icon-split">
                     <span class="icon text-white-50">
                         <i class="fas fa-arrow-right"></i>
                     </span>
@@ -132,7 +132,7 @@
                         </div>
                     </div>
                 </div>
-                <a href="#" class="btn btn-secondary btn-icon-split">
+                <a href="<?= base_url('operation/komentar'); ?>" class="btn btn-secondary btn-icon-split">
                     <span class="icon text-white-50">
                         <i class="fas fa-arrow-right"></i>
                     </span>

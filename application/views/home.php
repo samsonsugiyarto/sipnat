@@ -30,7 +30,7 @@
 
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+    <nav class="navbar navbar-expand-lg sticky-top">
         <div class="container">
             <img class="logo" src="assets/img/logostikom.png">
             <a class="navbar-brand page-scroll" href="#home">SIPNAT</a>
@@ -219,14 +219,45 @@
 
 
     <!-- akhir Gallery -->
-
-    <!-- TEAM -->
     <div class="row justify-content-center" id="personil">
         <div class="col-12 zero-panel text-center background1">
             <div class="font">
-                <h1>PERSONIL SENAT</h1>
-                Inilah personil SENAT periode 2017-2018
+                <h1>TENTANG SENAT</h1>
             </div>
+            <div class="row mt-4 justify-content-center">
+                <div class="col-md-auto visibtn">
+                    <h2 class="badge badge-pill badge-success"><span>VISI</span> </h2>
+                </div>
+            </div>
+            <div class="row mt-3 justify-content-center">
+                <div class="col-mx-auto">
+                    <figure class="figurevisi visi">
+                        Menjadikan Kampus Humanis dan Unggul dalam Bidang Cyber Akademik
+                    </figure>
+
+                </div>
+            </div>
+
+            <div class="row mt-2 justify-content-center">
+                <div class="col-md-auto visibtn">
+                    <h2 class="badge badge-pill badge-danger"><span>MISI</span> </h2>
+                </div>
+            </div>
+
+            <div class="row mt-3 justify-content-center">
+                <div class="col-auto">
+                    <figure class="figuremisi misi">
+                        1. Ikut Serta Kegiatan Kampus <br>
+                        2. Mengadakan acara Inisiasi 2019 <br>
+                        3. Study banding ke kampus lain
+                    </figure>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- TEAM -->
+    <div class="row justify-content-center" id="personil">
+        <div class="col-12 zero-panel text-center background1">
             <div class="row justify-content-center">
                 <div class="col-8">
                     <div class="card-deck">

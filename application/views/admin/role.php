@@ -30,8 +30,8 @@
                             <td><?= $r['role']; ?></td>
                             <td>
                                 <a href="<?= base_url('admin/roleaccess/') . $r['id']; ?>" class="badge badge-warning">access</a>
-                                <a href="" class="badge badge-success">edit</a>
-                                <a href="" class="badge badge-danger">delete</a>
+                                <a href="" class="badge badge-success" data-toggle="modal" data-target="#editRoleModal">edit</a>
+                                <a href="" class="badge badge-danger" data-toggle="modal" data-target="#hapusRoleModal">delete</a>
                             </td>
                         </tr>
                         <?php $i++; ?>
@@ -71,6 +71,48 @@
                     <button type="submit" class="btn btn-primary">Add</button>
                 </div>
             </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="editRoleModal" tabindex="-1" role="dialog" aria-labelledby="newRoleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="newRoleModalLabel">Edit Role</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="" method="post">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="role" name="role" value="Dosen">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                    <button type="submit" class="btn btn-primary">Edit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="hapusRoleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Hapus Role</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">Apakah ingin menghapus role ini ?</div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
+                <a class="btn btn-primary" href="">Hapus</a>
+            </div>
         </div>
     </div>
 </div>
