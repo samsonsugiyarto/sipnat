@@ -49,6 +49,8 @@ class Auth extends CI_Controller
         $password = $this->input->post('password');
 
         $user = $this->db->get_where('pimpinan', ['nidn' => $nidn])->row_array();
+        $id_role = $user['role_id'];
+        $role = $this->db->get_where('user_role', ['id' => $id_role])->row_array();
 
         // jika usernya ada
         if ($user) {
@@ -58,7 +60,8 @@ class Auth extends CI_Controller
                 if (password_verify($password, $user['password'])) {
                     $data = [
                         'nidn' => $user['nidn'],
-                        'role_id' => $user['role_id']
+                        'role_id' => $user['role_id'],
+                        'id' => $role['id']
                     ];
 
 
@@ -109,6 +112,8 @@ class Auth extends CI_Controller
         $password = $this->input->post('password');
 
         $user = $this->db->get_where('dosen', ['nidn' => $nidn])->row_array();
+        $id_role = $user['role_id'];
+        $role = $this->db->get_where('user_role', ['id' => $id_role])->row_array();
         // jika usernya ada
         if ($user) {
             //jika usernya aktif
@@ -117,7 +122,8 @@ class Auth extends CI_Controller
                 if (password_verify($password, $user['password'])) {
                     $data = [
                         'nidn' => $user['nidn'],
-                        'role_id' => $user['role_id']
+                        'role_id' => $user['role_id'],
+                        'id' => $role['id']
                     ];
 
                     $this->session->set_userdata($data);
@@ -170,6 +176,8 @@ class Auth extends CI_Controller
         $password = $this->input->post('password');
 
         $user = $this->db->get_where('mahasiswa', ['nim' => $nim])->row_array();
+         $id_role = $user['role_id'];
+        $role = $this->db->get_where('user_role', ['id' => $id_role])->row_array();
         // jika usernya ada
         if ($user) {
             //jika usernya aktif
@@ -178,7 +186,8 @@ class Auth extends CI_Controller
                 if (password_verify($password, $user['password'])) {
                     $data = [
                         'nim' => $user['nim'],
-                        'role_id' => $user['role_id']
+                        'role_id' => $user['role_id'],
+                        'id' => $role['id']
                     ];
 
                     $this->session->set_userdata($data);
@@ -214,6 +223,9 @@ class Auth extends CI_Controller
 
         $user = $this->db->get_where('user', ['email' => $email])->row_array();
 
+        $id_role = $user['role_id'];
+        $role = $this->db->get_where('user_role', ['id' => $id_role])->row_array();
+
         // jika usernya ada
         if ($user) {
             //jika usernya aktif
@@ -222,10 +234,9 @@ class Auth extends CI_Controller
                 if (password_verify($password, $user['password'])) {
                     $data = [
                         'email' => $user['email'],
-                        'role_id' => $user['role_id']
-
+                        'role_id' => $user['role_id'],
+                        'id' => $role['id']
                     ];
-
                     $this->session->set_userdata($data);
                     if ($user['role_id'] == 1) {
 

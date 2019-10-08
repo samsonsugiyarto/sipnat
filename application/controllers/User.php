@@ -13,29 +13,10 @@ class User extends CI_Controller
 
         $role_id = $this->session->userdata('role_id');
 
+        $data['namarole']  = $this->db->get_where('user_role', ['id' =>
+        $this->session->userdata('id')])->row_array();
 
-        $user = $this->db->get_where('user', ['role_id' => $role_id])->row_array();
-        $usermhs = $this->db->get_where('mahasiswa', ['role_id' => $role_id])->row_array();
-        $userdsn = $this->db->get_where('dosen', ['role_id' => $role_id])->row_array();
-        $userpimp = $this->db->get_where('pimpinan', ['role_id' => $role_id])->row_array();
-
-        if ($user['role_id'] == 1) {
-            $role = 1;
-            $data['namarole']  = $this->db->get_where('user_role', ['id' => $role])->row_array();
-            is_logged_in();
-            $data['user'] = $this->db->get_where('user', ['email' =>
-            $this->session->userdata('email')])->row_array();
-
-            $this->load->view('templates/header', $data);
-            $this->load->view('templates/sidebar', $data);
-            $this->load->view('templates/topbar', $data);
-            $this->load->view('user/index', $data);
-            $this->load->view('templates/footer');
-        }
-
-        if ($user['role_id'] == 2) {
-            $role = 2;
-            $data['namarole']  = $this->db->get_where('user_role', ['id' => $role])->row_array();
+        if ($role_id == 1) {
             is_logged_in();
             $data['user'] = $this->db->get_where('user', ['email' =>
             $this->session->userdata('email')])->row_array();
@@ -45,10 +26,19 @@ class User extends CI_Controller
             $this->load->view('user/index', $data);
             $this->load->view('templates/footer');
         }
-        if ($userpimp['role_id'] == 3) {
+
+        if ($role_id == 2) {
+            is_logged_in();
+            $data['user'] = $this->db->get_where('user', ['email' =>
+            $this->session->userdata('email')])->row_array();
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('user/index', $data);
+            $this->load->view('templates/footer');
+        }
+        if ($role_id == 3) {
             is_logged_inpimp();
-            $role = 3;
-            $data['namarole']  = $this->db->get_where('user_role', ['id' => $role])->row_array();
             $data['user'] = $this->db->get_where('pimpinan', ['nidn' =>
             $this->session->userdata('nidn')])->row_array();
             $this->load->view('templates/header', $data);
@@ -57,9 +47,7 @@ class User extends CI_Controller
             $this->load->view('pimpinan/index', $data);
             $this->load->view('templates/footer');
         }
-        if ($userdsn['role_id'] == 4) {
-            $role = 4;
-            $data['namarole']  = $this->db->get_where('user_role', ['id' => $role])->row_array();
+        if ($role_id == 4) {
             is_logged_indsn();
             $data['user'] = $this->db->get_where('dosen', ['nidn' =>
             $this->session->userdata('nidn')])->row_array();
@@ -69,9 +57,7 @@ class User extends CI_Controller
             $this->load->view('dosen/index', $data);
             $this->load->view('templates/footer');
         }
-        if ($usermhs['role_id'] == 5) {
-            $role = 5;
-            $data['namarole']  = $this->db->get_where('user_role', ['id' => $role])->row_array();
+        if ($role_id == 5) {
             is_logged_inmhs();
             $data['user'] = $this->db->get_where('mahasiswa', ['nim' =>
             $this->session->userdata('nim')])->row_array();
@@ -83,27 +69,18 @@ class User extends CI_Controller
         }
     }
 
-
     public function edit()
     {
         $data['title'] = 'Edit Profile';
-        $data['user'] = $this->db->get_where('user', ['email' =>
-        $this->session->userdata('email')])->row_array();
-        $data['namarole'] = $this->db->get('user_role')->row_array();
 
         $this->form_validation->set_rules('name', 'Full Name', 'required|trim');
+        $data['namarole']  = $this->db->get_where('user_role', ['id' =>
+        $this->session->userdata('id')])->row_array();
 
         $role_id = $this->session->userdata('role_id');
 
-        $user = $this->db->get_where('user', ['role_id' => $role_id])->row_array();
-        $usermhs = $this->db->get_where('mahasiswa', ['role_id' => $role_id])->row_array();
-        $userdsn = $this->db->get_where('dosen', ['role_id' => $role_id])->row_array();
-        $userpimp = $this->db->get_where('pimpinan', ['role_id' => $role_id])->row_array();
 
-
-        if ($user['role_id'] == 1) {
-            $role = 1;
-            $data['namarole']  = $this->db->get_where('user_role', ['id' => $role])->row_array();
+        if ($role_id == 1) {
             is_logged_in();
             $data['user'] = $this->db->get_where('user', ['email' =>
             $this->session->userdata('email')])->row_array();
@@ -150,9 +127,7 @@ class User extends CI_Controller
                 redirect('user');
             }
         }
-        if ($user['role_id'] == 2) {
-            $role = 2;
-            $data['namarole']  = $this->db->get_where('user_role', ['id' => $role])->row_array();
+        if ($role_id == 2) {
             is_logged_in();
             $data['user'] = $this->db->get_where('user', ['email' =>
             $this->session->userdata('email')])->row_array();
@@ -197,9 +172,7 @@ class User extends CI_Controller
                 redirect('user');
             }
         }
-        if ($userpimp['role_id'] == 3) {
-            $role = 3;
-            $data['namarole']  = $this->db->get_where('user_role', ['id' => $role])->row_array();
+        if ($role_id == 3) {
             is_logged_inpimp();
             $data['user'] = $this->db->get_where('pimpinan', ['nidn' =>
             $this->session->userdata('nidn')])->row_array();
@@ -247,9 +220,7 @@ class User extends CI_Controller
                 redirect('user');
             }
         }
-        if ($userdsn['role_id'] == 4) {
-            $role = 4;
-            $data['namarole']  = $this->db->get_where('user_role', ['id' => $role])->row_array();
+        if ($role_id == 4) {
             is_logged_indsn();
             $data['user'] = $this->db->get_where('dosen', ['nidn' =>
             $this->session->userdata('nidn')])->row_array();
@@ -297,9 +268,7 @@ class User extends CI_Controller
                 redirect('user');
             }
         }
-        if ($usermhs['role_id'] == 5) {
-            $role = 5;
-            $data['namarole']  = $this->db->get_where('user_role', ['id' => $role])->row_array();
+        if ($role_id == 5) {
             is_logged_inmhs();
             $data['user'] = $this->db->get_where('mahasiswa', ['nim' =>
             $this->session->userdata('nim')])->row_array();
@@ -347,34 +316,22 @@ class User extends CI_Controller
         }
     }
 
-
-
-
-
     public function changePassword()
     {
         $data['title'] = 'Change Password';
-        $data['namarole'] = $this->db->get('user_role')->row_array();
+        $data['namarole']  = $this->db->get_where('user_role', ['id' =>
+        $this->session->userdata('id')])->row_array();
 
         $role_id = $this->session->userdata('role_id');
-        $user = $this->db->get_where('user', ['role_id' => $role_id])->row_array();
-        $usermhs = $this->db->get_where('mahasiswa', ['role_id' => $role_id])->row_array();
-        $userdsn = $this->db->get_where('dosen', ['role_id' => $role_id])->row_array();
-        $userpimp = $this->db->get_where('pimpinan', ['role_id' => $role_id])->row_array();
-
 
         $this->form_validation->set_rules('current_password', 'Current Password', 'required|trim');
         $this->form_validation->set_rules('new_password1', 'New Password', 'required|trim|min_length[3]|matches[new_password2]');
         $this->form_validation->set_rules('new_password2', ' Confirm New Password', 'required|trim|min_length[3]|matches[new_password1]');
 
-        if ($user['role_id'] == 1) {
-            $role = 1;
-            $data['namarole']  = $this->db->get_where('user_role', ['id' => $role])->row_array();
+        if ($role_id == 1) {
             is_logged_in();
-
             $data['user'] = $this->db->get_where('user', ['email' =>
             $this->session->userdata('email')])->row_array();
-
             if ($this->form_validation->run() == false) {
                 $this->load->view('templates/header', $data);
                 $this->load->view('templates/sidebar', $data);
@@ -408,15 +365,10 @@ class User extends CI_Controller
                 }
             }
         }
-        if ($user['role_id'] == 2) {
+        if ($role_id == 2) {
             is_logged_in();
-            $role = 2;
-            $data['namarole']  = $this->db->get_where('user_role', ['id' => $role])->row_array();
-            is_logged_in();
-
             $data['user'] = $this->db->get_where('user', ['email' =>
             $this->session->userdata('email')])->row_array();
-
             if ($this->form_validation->run() == false) {
                 $this->load->view('templates/header', $data);
                 $this->load->view('templates/sidebar', $data);
@@ -451,9 +403,7 @@ class User extends CI_Controller
             }
         }
 
-        if ($userpimp['role_id'] == 3) {
-            $role = 3;
-            $data['namarole']  = $this->db->get_where('user_role', ['id' => $role])->row_array();
+        if ($role_id == 3) {
             is_logged_inpimp();
             $data['user'] = $this->db->get_where('pimpinan', ['nidn' =>
             $this->session->userdata('nidn')])->row_array();
@@ -491,9 +441,7 @@ class User extends CI_Controller
             }
         }
 
-        if ($userdsn['role_id'] == 4) {
-            $role = 4;
-            $data['namarole']  = $this->db->get_where('user_role', ['id' => $role])->row_array();
+        if ($role_id == 4) {
             is_logged_indsn();
             $data['user'] = $this->db->get_where('dosen', ['nidn' =>
             $this->session->userdata('nidn')])->row_array();
@@ -531,9 +479,7 @@ class User extends CI_Controller
             }
         }
 
-        if ($usermhs['role_id'] == 5) {
-            $role = 5;
-            $data['namarole']  = $this->db->get_where('user_role', ['id' => $role])->row_array();
+        if ($role_id == 5) {
             is_logged_inmhs();
             $data['user'] = $this->db->get_where('mahasiswa', ['nim' =>
             $this->session->userdata('nim')])->row_array();
@@ -574,16 +520,13 @@ class User extends CI_Controller
 
     public function komentar()
     {
-        $data['namarole'] = $this->db->get('user_role')->row_array();
         $data['title'] = 'Komentar';
-        $role_id = $this->session->userdata('role_id');
-        $usermhs = $this->db->get_where('mahasiswa', ['role_id' => $role_id])->row_array();
-        $userdsn = $this->db->get_where('dosen', ['role_id' => $role_id])->row_array();
-        $userpimp = $this->db->get_where('pimpinan', ['role_id' => $role_id])->row_array();
 
-        if ($userpimp['role_id'] == 3) {
-            $role = 3;
-            $data['namarole']  = $this->db->get_where('user_role', ['id' => $role])->row_array();
+        $data['namarole']  = $this->db->get_where('user_role', ['id' =>
+        $this->session->userdata('id')])->row_array();
+        $role_id = $this->session->userdata('role_id');
+
+        if ($role_id == 3) {
             is_logged_inpimp();
             $data['user'] = $this->db->get_where('pimpinan', ['nidn' =>
             $this->session->userdata('nidn')])->row_array();
@@ -595,9 +538,7 @@ class User extends CI_Controller
         }
 
 
-        if ($userdsn['role_id'] == 4) {
-            $role = 4;
-            $data['namarole']  = $this->db->get_where('user_role', ['id' => $role])->row_array();
+        if ($role_id == 4) {
             is_logged_indsn();
             $data['user'] = $this->db->get_where('dosen', ['nidn' =>
             $this->session->userdata('nidn')])->row_array();
@@ -609,9 +550,7 @@ class User extends CI_Controller
         }
 
 
-        if ($usermhs['role_id'] == 5) {
-            $role = 5;
-            $data['namarole']  = $this->db->get_where('user_role', ['id' => $role])->row_array();
+        if ($role_id == 5) {
             is_logged_inmhs();
             $data['user'] = $this->db->get_where('mahasiswa', ['nim' =>
             $this->session->userdata('nim')])->row_array();
