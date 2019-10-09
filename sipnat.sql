@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 04 Okt 2019 pada 05.41
+-- Generation Time: 09 Okt 2019 pada 07.14
 -- Versi Server: 10.1.13-MariaDB
 -- PHP Version: 7.0.6
 
@@ -149,9 +149,9 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `name`, `email`, `image`, `password`, `role_id`, `is_active`, `date_created`) VALUES
-(3, 'Samson Sugiyarto', 'gitosamson123@gmail.com', 'DSC_2565a1.jpg', '$2y$10$y4bmK5JiJbIOYQ5ze0n4cei/QdNTnxIPcy8gsAc/9misiwt9W2keC', 1, 1, 1560654857),
+(3, 'Samson Sugiyarto', 'gitosamson123@gmail.com', 'default3.jpg', '$2y$10$y4bmK5JiJbIOYQ5ze0n4cei/QdNTnxIPcy8gsAc/9misiwt9W2keC', 1, 1, 1560654857),
 (4, 'Dila Fadillah', 'dila123@gmail.com', 'DSC_2565a.jpg', '$2y$10$dJfXzvLbBJU/aoJhY0oIlOC3rHvbSkvIow5i2I.zmR8hXX//YxaHm', 2, 1, 1560655500),
-(21, 'Samson Sugiyartoa', 'samsonsugiyarto123@gmail.com', 'default.jpg', '$2y$10$hopfz/tuCVi5hV17nqOA5OejSIogOSjxwjDR4uyWFCM7SQx4P7RnG', 2, 1, 1561087895);
+(21, 'Samson Sugiyarto', 'samsonsugiyarto123@gmail.com', 'default.jpg', '$2y$10$hopfz/tuCVi5hV17nqOA5OejSIogOSjxwjDR4uyWFCM7SQx4P7RnG', 2, 1, 1561087895);
 
 -- --------------------------------------------------------
 
@@ -190,7 +190,8 @@ INSERT INTO `user_access_menu` (`id`, `role_id`, `menu_id`) VALUES
 (33, 3, 2),
 (34, 3, 9),
 (35, 3, 10),
-(39, 2, 1);
+(39, 2, 1),
+(40, 1, 14);
 
 -- --------------------------------------------------------
 
@@ -215,7 +216,8 @@ INSERT INTO `user_menu` (`id`, `menu`) VALUES
 (7, 'Super Admin'),
 (9, 'Coblos'),
 (10, '(user) Komentar'),
-(13, 'Kandidat');
+(13, 'Kandidat'),
+(14, 'Administrator');
 
 -- --------------------------------------------------------
 
@@ -274,7 +276,8 @@ INSERT INTO `user_sub_menu` (`id`, `menu_id`, `title`, `url`, `icon`, `is_active
 (14, 6, 'Komentar', 'operation/komentar', 'fas fa-fw fa-comment', 1),
 (15, 9, 'Tentukan Pilihanmu!', 'coblos', 'fas fa-fw fa-check-square', 1),
 (16, 10, 'Komentar', 'user/komentar', 'fas fa-fw fa-comment', 1),
-(17, 13, 'Riwayat', 'operation/riwayat', 'fas fa-fw fa-history', 1);
+(17, 13, 'Riwayat', 'operation/riwayat', 'fas fa-fw fa-history', 1),
+(18, 14, 'Admin', 'administrator', 'fas fa-fw fa-user', 1);
 
 -- --------------------------------------------------------
 
@@ -371,12 +374,12 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `user_access_menu`
 --
 ALTER TABLE `user_access_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 --
 -- AUTO_INCREMENT for table `user_menu`
 --
 ALTER TABLE `user_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT for table `user_role`
 --
@@ -386,7 +389,7 @@ ALTER TABLE `user_role`
 -- AUTO_INCREMENT for table `user_sub_menu`
 --
 ALTER TABLE `user_sub_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT for table `user_token`
 --
