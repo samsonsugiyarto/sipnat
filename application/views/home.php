@@ -119,6 +119,22 @@
                         <div class="card cardfoto">
                             <img src="<?= base_url('assets/img/profile/default.jpg') ?>" class="card-img-top" alt="...">
                             <div class="card-body">
+                                <h5 class="card-title">Budi Setia</h5>
+                                <p class="card-text">Ketua Senat.</p>
+                            </div>
+                        </div>
+                        <div class="card cardfoto">
+                            <img src="<?= base_url('assets/img/profile/default.jpg') ?>" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Dani Ragil</h5>
+                                <p class="card-text">Wakil Ketua Senat.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-group">
+                        <div class="card cardfoto">
+                            <img src="<?= base_url('assets/img/profile/default.jpg') ?>" class="card-img-top" alt="...">
+                            <div class="card-body">
                                 <h5 class="card-title">Feni Lestari</h5>
                                 <p class="card-text">Ketua Senat.</p>
                             </div>
@@ -133,11 +149,13 @@
                     </div>
                 </div>
                 <div class="row justify-content-around pt-3">
-                    <h3><span>60%</span> </h3>
                     <h3><span>40%</span> </h3>
+                    <h3><span>30%</span> </h3>
+                    <h3><span>30%</span> </h3>
                 </div>
                 <div class="row justify-content-around">
                     <h6>6 suara</h6>
+                    <h6>4 Suara </h6>
                     <h6>4 Suara </h6>
                 </div>
             </div>
