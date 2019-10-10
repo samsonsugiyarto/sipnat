@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 10 Okt 2019 pada 20.39
+-- Generation Time: 10 Okt 2019 pada 21.02
 -- Versi Server: 10.1.13-MariaDB
 -- PHP Version: 7.0.6
 
@@ -197,7 +197,9 @@ INSERT INTO `user_access_menu` (`id`, `role_id`, `menu_id`) VALUES
 (33, 3, 2),
 (34, 3, 9),
 (35, 3, 10),
-(39, 2, 1);
+(39, 2, 1),
+(40, 1, 15),
+(41, 1, 16);
 
 -- --------------------------------------------------------
 
@@ -216,14 +218,15 @@ CREATE TABLE `user_menu` (
 --
 
 INSERT INTO `user_menu` (`id`, `menu`, `urutan_menu`) VALUES
-(1, 'Admin', 2),
-(2, 'User', 4),
-(3, 'Menu', 6),
-(6, 'Operation', 5),
+(1, 'Admin', 3),
+(2, 'User', 5),
+(3, 'Menu', 2),
+(6, 'Operation', 6),
 (7, 'Super Admin', 1),
-(9, 'Coblos', 3),
-(10, '(user) Komentar', 7),
-(13, 'Riwayat Senat', 8);
+(9, 'Coblos', 4),
+(10, '(user) Komentar', 8),
+(13, 'Riwayat Senat', 9),
+(15, 'Administrator', 7);
 
 -- --------------------------------------------------------
 
@@ -282,7 +285,8 @@ INSERT INTO `user_sub_menu` (`id`, `menu_id`, `title`, `url`, `icon`, `is_active
 (14, 6, 'Komentar', 'operation/komentar', 'fas fa-fw fa-comment', 1),
 (15, 9, 'Tentukan Pilihanmu!', 'coblos', 'fas fa-fw fa-check-square', 1),
 (16, 10, 'Komentar', 'user/komentar', 'fas fa-fw fa-comment', 1),
-(17, 13, 'Riwayat', 'operation/riwayat', 'fas fa-fw fa-history', 1);
+(17, 13, 'Riwayat', 'operation/riwayat', 'fas fa-fw fa-history', 1),
+(18, 15, 'Admin', 'administrator', 'fas fa-fw fa-user', 1);
 
 -- --------------------------------------------------------
 
@@ -379,12 +383,12 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `user_access_menu`
 --
 ALTER TABLE `user_access_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 --
 -- AUTO_INCREMENT for table `user_menu`
 --
 ALTER TABLE `user_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT for table `user_role`
 --
@@ -394,7 +398,7 @@ ALTER TABLE `user_role`
 -- AUTO_INCREMENT for table `user_sub_menu`
 --
 ALTER TABLE `user_sub_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT for table `user_token`
 --
