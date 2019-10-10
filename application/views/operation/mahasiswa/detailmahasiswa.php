@@ -13,16 +13,16 @@
     <div class="card mb-3 col-lg-8">
         <div class="row no-gutters">
             <div class="col-md-4">
-                <img src="<?= base_url('assets/img/profile/default.jpg'); ?>" class="card-img">
+                <img src="<?= base_url('assets/img/profile/mahasiswa/') . $mahasiswa['image']; ?>" class="card-img">
             </div>
             <div class="col-md-8">
                 <div class="card-body">
-                    <h5 class="card-title">201601001</h5>
-                    <p class="card-text">Nabilla Nur Fadillah</p>
-                    <p class="card-text">Perempuan</p>
-                    <p class="card-text">S1 Sistem Informasi</p>
-                    <p class="card-text">nurfadillaha@gmail.com</p>
-                    <p class="card-text">089563</p>
+                    <h5 class="card-title"><?= $mahasiswa['nim']; ?></h5>
+                    <p class="card-text"><?= $mahasiswa['name']; ?></p>
+                    <p class="card-text"><?= $mahasiswa['jk']; ?></p>
+                    <p class="card-text"><?= $mahasiswa['jurusan']; ?></p>
+                    <p class="card-text"><?= $mahasiswa['email']; ?></p>
+                    <p class="card-text"><?= $mahasiswa['hp']; ?></p>
                 </div>
             </div>
         </div>

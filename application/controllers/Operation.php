@@ -155,18 +155,22 @@ class Operation extends CI_Controller
         } else {
 
             $this->Mahasiswa_model->tambahDataMahasiswa();
+
+
             $this->session->set_flashdata('message', '<div class="alert
             alert-success" role="alert">Data mahasiswa baru telah ditambahkan!</div>');
             redirect('operation/mahasiswa');
         }
     }
-    public function detailmahasiswa()
+    public function detailmahasiswa($nim)
     {
         $data['title'] = 'Detail Mahasiswa';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
         $data['namarole']  = $this->db->get_where('user_role', ['id' =>
         $this->session->userdata('id')])->row_array();
+
+        $data['mahasiswa'] = $this->Mahasiswa_model->getMahasiswaById($nim);
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);

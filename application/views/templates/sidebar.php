@@ -20,7 +20,7 @@
                         FROM user_menu JOIN user_access_menu
                           ON user_menu.id = user_access_menu.menu_id
                        WHERE user_access_menu.role_id = $role_id
-                    ORDER BY user_access_menu.menu_id ASC
+                    ORDER BY user_menu.urutan_menu ASC
                      ";
         $menu = $this->db->query($queryMenu)->result_array();
 
