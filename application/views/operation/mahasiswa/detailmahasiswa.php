@@ -27,6 +27,7 @@
             </div>
         </div>
     </div>
+    <a href="<?= base_url('operation/mahasiswa'); ?>" class="btn btn-danger">Kembali</a>
 
 </div>
 <!-- /.container-fluid -->

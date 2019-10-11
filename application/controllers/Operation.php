@@ -52,8 +52,6 @@ class Operation extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
         $data['jurusan'] = $this->Jurusan_model->getJurusanById($id);
-        $data['menu'] = $this->db->get('jurusan')->result_array();
-
 
         $this->form_validation->set_rules('jurusan', 'Jurusan', 'required|trim');
         $this->form_validation->set_rules('jumlah', 'Jumlah', 'required');
@@ -178,7 +176,7 @@ class Operation extends CI_Controller
         $this->load->view('operation/mahasiswa/detailmahasiswa', $data);
         $this->load->view('templates/footer');
     }
-    public function editmahasiswa()
+    public function editmahasiswa($nim)
     {
         $data['title'] = 'Form Edit Mahasiswa';
         $data['user'] = $this->db->get_where('user', ['email' =>
@@ -186,12 +184,47 @@ class Operation extends CI_Controller
         $data['namarole']  = $this->db->get_where('user_role', ['id' =>
         $this->session->userdata('id')])->row_array();
 
+        $data['mahasiswa'] = $this->Mahasiswa_model->getMahasiswaById($nim);
+        $mhs = $this->Mahasiswa_model->getMahasiswaById($nim);
 
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar', $data);
-        $this->load->view('templates/topbar', $data);
-        $this->load->view('operation/mahasiswa/editmahasiswa', $data);
-        $this->load->view('templates/footer');
+        $data['jurusan'] = ['S1 Sistem Informasi', 'S1 Teknik Informatika', 'S1 Teknik Multimedia dan Jaringan', 'D3 Komputerisasi Akuntansi'];
+
+        $this->form_validation->set_rules('nim', 'NIM', 'required|trim');
+        $this->form_validation->set_rules('namalengkap', 'NamaLengkap', 'required|trim');
+        $this->form_validation->set_rules('passwordmhs1', 'Password', 'trim|min_length[3]|matches[passwordmhs2]', [
+            'matches' => 'password dont match!',
+            'min_length' => 'password too short!'
+        ]);
+        $this->form_validation->set_rules('passwordmhs2', 'Password', 'trim|matches[passwordmhs1]');
+        $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email');
+        $this->form_validation->set_rules('hp', 'Hp', 'required');
+
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('operation/mahasiswa/editmahasiswa', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $this->Mahasiswa_model->editupload($mhs);
+            $this->Mahasiswa_model->ubahDataMahasiswa();
+
+
+
+            $this->session->set_flashdata('message', '<div class="alert
+            alert-success" role="alert">Data mahasiswa telah diubah!</div>');
+            redirect('operation/mahasiswa');
+        }
+    }
+    public function hapusmahasiswa($nim)
+    {
+        $mhs = $this->Mahasiswa_model->getMahasiswaById($nim);
+
+        $this->Mahasiswa_model->hapusDataMahasiswa($nim, $mhs);
+        $this->session->set_flashdata('message', '<div class="alert
+        alert-success" role="alert">Dihapus!</div>');
+        redirect('operation/mahasiswa');
     }
     public function dosen()
     {

@@ -19,46 +19,74 @@
 
             <?= $this->session->flashdata('message'); ?>
 
-            <a href="<?= base_url('operation/tambahmahasiswa'); ?>" class="btn btn-primary mb-3">Tambah Mahasiswa</a>
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th scope="col">No</th>
-                        <th scope="col">NIM</th>
-                        <th scope="col">Nama</th>
-                        <th scope="col">JK</th>
-                        <th scope="col">Jurusan</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">HP</th>
-                        <th scope="col">Aktif</th>
-                        <th scope="col">Opsi</th>
-                    </tr>
-                </thead>
-                <tbody>
+            <a href="<?= base_url('operation/tambahmahasiswa'); ?>" class="btn btn-success mb-3">Tambah Mahasiswa</a>
 
-                    <?php $i = 1; ?>
-                    <?php foreach ($mahasiswa as $mhs) : ?>
-                        <tr>
-                            <th scope="row"><?= $i ?></th>
-                            <td><?= $mhs['nim']; ?></td>
-                            <td><?= $mhs['name']; ?></td>
-                            <td><?= $mhs['jk']; ?></td>
-                            <td><?= $mhs['jurusan']; ?></td>
-                            <td><?= $mhs['email']; ?></td>
-                            <td><?= $mhs['hp']; ?></td>
-                            <td><?= $mhs['is_active']; ?></td>
-                            <td>
-                                <a href="<?= base_url() ?>operation/detailmahasiswa/<?= $mhs['nim']; ?>" class="badge badge-primary">detail</a>
-                                <a href="<?= base_url() ?>operation/editmahasiswa/<?= $mhs['nim']; ?>" class="badge badge-warning">edit</a>
-                                <a href="<?= base_url() ?>operation/hapusmahasiswa/<?= $mhs['nim']; ?>" class="badge badge-danger" onclick="return confirm('yakin?');">hapus</a>
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th>No</th>
+                                        <th>NIM</th>
+                                        <th>Nama</th>
+                                        <th>JK</th>
+                                        <th>Jurusan</th>
+                                        <th>Email</th>
+                                        <th>HP</th>
+                                        <th>Aktif</th>
+                                        <th>Opsi</th>
+                                    </tr>
+                                </thead>
+                                <tfoot class="thead-dark">
+                                    <tr>
+                                        <th>No</th>
+                                        <th>NIM</th>
+                                        <th>Nama</th>
+                                        <th>JK</th>
+                                        <th>Jurusan</th>
+                                        <th>Email</th>
+                                        <th>HP</th>
+                                        <th>Aktif</th>
+                                        <th>Opsi</th>
+                                    </tr>
+                                </tfoot>
+                                <tbody>
 
-                            </td>
-                        </tr>
-                        <?php $i++; ?>
-                    <?php endforeach; ?>
+                                    <?php $i = 1; ?>
+                                    <?php foreach ($mahasiswa as $mhs) : ?>
+                                        <tr>
+                                            <th scope="row"><?= $i ?></th>
+                                            <td><?= $mhs['nim']; ?></td>
+                                            <td><?= $mhs['name']; ?></td>
+                                            <td><?= $mhs['jk']; ?></td>
+                                            <td><?= $mhs['jurusan']; ?></td>
+                                            <td><?= $mhs['email']; ?></td>
+                                            <td><?= $mhs['hp']; ?></td>
+                                            <td><?= $mhs['is_active']; ?></td>
+                                            <td>
+                                                <div class="dropdown ">
+                                                    <button class="btn btn-primary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        opsi
+                                                    </button>
+                                                    <div class="dropdown-menu animated--fade-in" aria-labelledby="dropdownMenuButton">
+                                                        <a class=" btn btn-success btn-sm" href="<?= base_url() ?>operation/detailmahasiswa/<?= $mhs['nim']; ?>">detail</a>
+                                                        <a class="btn btn-warning btn-sm" href="<?= base_url() ?>operation/editmahasiswa/<?= $mhs['nim']; ?>">edit</a>
+                                                        <a class=" btn btn-danger btn-sm" data-toggle="modal" data-target="#hapusModal" href="<?= base_url() ?>operation/hapusmahasiswa/<?= $mhs['nim']; ?>">hapus</a>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <?php $i++; ?>
+                                    <?php endforeach; ?>
 
-                </tbody>
-            </table>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -82,8 +110,9 @@
             </div>
             <div class="modal-body">Apakah Anda yakin ingin menghapus mahasiswa ini?</div>
             <div class="modal-footer">
-                <button class="btn btn-danger" type="button" data-dismiss="modal">Hapus</button>
-                <a class="btn btn-primary" href="<?= base_url('operation/mahasiswa'); ?>">Batal</a>
+
+                <a class="btn btn-danger" href="<?= base_url() ?>operation/hapusmahasiswa/<?= $mhs['nim']; ?>">Hapus</a>
+                <a class="btn btn-warning" href="<?= base_url('operation/mahasiswa'); ?>">Batal</a>
             </div>
         </div>
     </div>
