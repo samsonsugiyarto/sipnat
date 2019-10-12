@@ -13,7 +13,7 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Jurusan Terdaftar</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">4</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $jurusan ?></div>
                         </div>
                         <div class="col-auto">
                             <i class="fas  fa-graduation-cap fa-2x text-gray-300"></i>
@@ -36,7 +36,7 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Mahasiswa Aktif</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">210</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $mahasiswa ?></div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-user fa-2x text-gray-300"></i>
@@ -59,7 +59,7 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Dosen Aktif</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">9</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $dosen ?></div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-male fa-2x text-gray-300"></i>
@@ -81,7 +81,7 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Pimpinan</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">3</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $pimpinan ?></div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-user-secret fa-2x text-gray-300"></i>

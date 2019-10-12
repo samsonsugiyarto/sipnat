@@ -7,6 +7,22 @@ class Mahasiswa_model extends CI_Model
         return $this->db->get('mahasiswa')->result_array();
     }
 
+    public function getMahasiswa($limit, $start, $keyword = null)
+    {
+        if ($keyword) {
+            $this->db->like('name', $keyword);
+            $this->db->or_like('email', $keyword);
+            $this->db->or_like('nim', $keyword);
+        }
+        return $this->db->get('mahasiswa', $limit, $start)->result_array();
+    }
+
+    public function countAllMahasiswa()
+    {
+        return $this->db->get('mahasiswa')->num_rows();
+    }
+
+
     public function upload()
     {
         // cek jika ada gambar yang akan diupload

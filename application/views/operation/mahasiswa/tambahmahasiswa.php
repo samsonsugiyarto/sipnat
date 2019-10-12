@@ -91,7 +91,7 @@
                 <div class="col-sm-9">
                     <div class="row">
                         <div class="col-sm-3">
-                            <img src="<?= base_url('assets/img/profile/default.jpg') ?>" class="img-thumbnail">
+                            <img src="<?= base_url('assets/img/profile/mahasiswa/default.jpg') ?>" class="img-thumbnail">
                         </div>
                         <div class="col-sm-9">
                             <div class="custom-file">

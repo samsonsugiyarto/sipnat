@@ -18,6 +18,21 @@ class Admin extends CI_Controller
         $data['namarole']  = $this->db->get_where('user_role', ['id' =>
         $this->session->userdata('id')])->row_array();
 
+        $data['jurusan'] = $this->db->count_all_results('jurusan');
+
+        $this->db->like('is_active', 1);
+        $this->db->from('pimpinan');
+        $data['pimpinan'] = $this->db->count_all_results();
+
+        $this->db->like('is_active', 1);
+        $this->db->from('dosen');
+        $data['dosen'] = $this->db->count_all_results();
+
+        $this->db->like('is_active', 1);
+        $this->db->from('mahasiswa');
+        $data['mahasiswa'] = $this->db->count_all_results();
+
+
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);

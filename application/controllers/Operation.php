@@ -26,6 +26,7 @@ class Operation extends CI_Controller
         $this->session->userdata('id')])->row_array();
 
 
+
         if ($this->form_validation->run() == false) {
             $this->load->view('templates/header', $data);
             $this->load->view('templates/sidebar', $data);
@@ -108,9 +109,41 @@ class Operation extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
-        $data['mahasiswa'] = $this->Mahasiswa_model->getAllMahasiswa();
+
         $data['namarole']  = $this->db->get_where('user_role', ['id' =>
         $this->session->userdata('id')])->row_array();
+
+        //PAGINATION
+
+        //load library
+        $this->load->library('pagination');
+
+        //ambil data keyword
+        if ($this->input->post('submit')) {
+            $data['keyword'] = $this->input->post('keyword');
+            $this->session->set_userdata('keyword', $data['keyword']);
+        } else {
+            $data['keyword'] = $this->session->userdata('keyword');
+        }
+
+
+        //config 
+        $this->db->like('name', $data['keyword']);
+        $this->db->or_like('email', $data['keyword']);
+        $this->db->or_like('nim', $data['keyword']);
+        $this->db->from('mahasiswa');
+        $config['total_rows'] = $this->db->count_all_results();
+        $data['total_rows'] =   $config['total_rows'];
+        $config['per_page'] = 10;
+
+
+        //inisialisasi
+        $this->pagination->initialize($config);
+
+        $data['start'] = $this->uri->segment(3);
+
+        $data['mahasiswa'] = $this->Mahasiswa_model->getMahasiswa($config['per_page'], $data['start'], $data['keyword']);
+
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
@@ -155,8 +188,7 @@ class Operation extends CI_Controller
             $this->Mahasiswa_model->tambahDataMahasiswa();
 
 
-            $this->session->set_flashdata('message', '<div class="alert
-            alert-success" role="alert">Data mahasiswa baru telah ditambahkan!</div>');
+            $this->session->set_flashdata('message', 'Ditambahkan!');
             redirect('operation/mahasiswa');
         }
     }
@@ -212,8 +244,7 @@ class Operation extends CI_Controller
 
 
 
-            $this->session->set_flashdata('message', '<div class="alert
-            alert-success" role="alert">Data mahasiswa telah diubah!</div>');
+            $this->session->set_flashdata('message', 'Diubah!');
             redirect('operation/mahasiswa');
         }
     }
@@ -222,8 +253,7 @@ class Operation extends CI_Controller
         $mhs = $this->Mahasiswa_model->getMahasiswaById($nim);
 
         $this->Mahasiswa_model->hapusDataMahasiswa($nim, $mhs);
-        $this->session->set_flashdata('message', '<div class="alert
-        alert-success" role="alert">Dihapus!</div>');
+        $this->session->set_flashdata('message', 'Dihapus!');
         redirect('operation/mahasiswa');
     }
     public function dosen()
