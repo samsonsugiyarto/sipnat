@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 12 Okt 2019 pada 19.10
+-- Generation Time: 14 Okt 2019 pada 15.44
 -- Versi Server: 10.1.13-MariaDB
 -- PHP Version: 7.0.6
 
@@ -33,7 +33,7 @@ CREATE TABLE `dosen` (
   `jk` varchar(1) NOT NULL,
   `mengajar` varchar(128) NOT NULL,
   `email` varchar(128) NOT NULL,
-  `hp` int(30) NOT NULL,
+  `hp` varchar(30) NOT NULL,
   `is_active` int(1) NOT NULL,
   `image` varchar(128) NOT NULL,
   `role_id` int(1) NOT NULL
@@ -44,8 +44,10 @@ CREATE TABLE `dosen` (
 --
 
 INSERT INTO `dosen` (`nidn`, `name`, `password`, `jk`, `mengajar`, `email`, `hp`, `is_active`, `image`, `role_id`) VALUES
-(1997, 'Endang', '$2y$10$sIhxZ2Pe9CNyydtW8bscK.5NjkytG57cxWu7MnLWtkmTHmo8xcpKW', 'L', 'pemrogramman web', 'oskar@oskar.oskar', 9223, 1, 'default.jpg', 4),
-(9087, 'Dhany Faizal', '$2y$10$pU04d4t6uEWmGH6AeDojk.WzGdxIayk8LOJfpP1/57OBKkawR34su', 'L', 'Jaringan Komputer', 'dhany@gmail.com', 98654, 1, 'default.jpg', 4);
+(1997, 'Oskar Adi', '$2y$10$Pz5bYPe1VsmsiiZci1cx5erZhnGh2mjDYstICCcHKYy7u3/ZsugMm', 'L', 'pemrogramman web', 'oskar@oskar.oskar', '9223', 1, 'default.jpg', 4),
+(9087, 'Dhany Faizal', '$2y$10$pU04d4t6uEWmGH6AeDojk.WzGdxIayk8LOJfpP1/57OBKkawR34su', 'L', 'Jaringan Komputer', 'dhany@gmail.com', '98654', 1, 'default.jpg', 4),
+(11221133, 'Moko Sunyoto', '$2y$10$pSjTxud.mdwxSDNE8tgSWuCA5HwT4p23n4myECq3BNJhSJ69a4RMi', 'L', 'Pemrogramman C++', 'moko@gmail.com', '2147483647', 1, '1562396232352.jpg', 4),
+(11223344, 'Adi Prabowo', '$2y$10$lt78hVutH7U7EYXXw772tugA9cw3epDNbEMbzvVv/A6yG5ZVhpp16', 'L', 'Statistika Dasar', 'adi@gmail.com', '2147483647', 1, 'default.jpg', 4);
 
 -- --------------------------------------------------------
 
@@ -55,19 +57,18 @@ INSERT INTO `dosen` (`nidn`, `name`, `password`, `jk`, `mengajar`, `email`, `hp`
 
 CREATE TABLE `jurusan` (
   `id` int(5) NOT NULL,
-  `nama_jurusan` varchar(50) NOT NULL,
-  `jumlah_mhs` int(5) NOT NULL
+  `nama_jurusan` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 --
 -- Dumping data untuk tabel `jurusan`
 --
 
-INSERT INTO `jurusan` (`id`, `nama_jurusan`, `jumlah_mhs`) VALUES
-(2, 'S1 Teknik Multimedia dan Jaringan', 100),
-(3, 'S1 Sistem Informasi', 210),
-(8, 'S1 Teknik Informatika', 95),
-(10, 'D3 Komputerisasi Akuntansi', 80);
+INSERT INTO `jurusan` (`id`, `nama_jurusan`) VALUES
+(2, 'S1 Teknik Multimedia dan Jaringan'),
+(3, 'S1 Sistem Informasi'),
+(8, 'S1 Teknik Informatika'),
+(10, 'D3 Komputerisasi Akuntansi');
 
 -- --------------------------------------------------------
 
@@ -93,18 +94,25 @@ CREATE TABLE `mahasiswa` (
 --
 
 INSERT INTO `mahasiswa` (`nim`, `name`, `jk`, `jurusan`, `email`, `hp`, `image`, `password`, `role_id`, `is_active`) VALUES
+(20150107, 'Tuti Putria', 'P', 'S1 Sistem Informasi', 'tuti@gmail.com', '082122123456', '1563815901674.jpg', '$2y$10$xap0paDlqcYjwBNWwvb3jeDFU/N1wpRH8Q/4Toid2.R7sKsFeM5b6', 5, 1),
+(201501003, 'Peni Pambudi', 'L', 'S1 Teknik Informatika', 'peni@gmail.com', '082113234455', 'default.jpg', '$2y$10$aDPFTatMDi.1j8512mqIq.4Kk2i64IcvcpYg//LVKZ4KkFh9Li1iK', 5, 1),
 (201501054, 'Rudi Priyanto', 'L', 'S1 Teknik Informatika', 'rudi@rudi.com', '081222178545', 'default.jpg', '$2y$10$GG4AkYC1NHrxdN4QnoHrX.APOj3IRNbSez5HIW9bADBKMxbtxH9ce', 5, 1),
 (201601007, 'Foustino Asprila Gunantara', 'L', 'S1 Sistem Informasi', 'fousas@gmail.com', '085333322151', 'default.jpg', '$2y$10$Ksd37r.kiw/Z/DzSsz1cqeywmJ6apbHP.UN6JGRc5rjkOPFg7UJnS', 5, 1),
 (201601020, 'Theofilus Geon Tjeme', 'L', 'S1 Sistem Informasi', 'geon123@gmail.com', '081231234451', '1562350746250.jpg', '$2y$10$zNE7.5mYkM8WKd1fK8MNTu9Mumdr9oKkJ7OXk4epg46Lc5iVlxNOm', 5, 1),
 (201601021, 'Marcello Dani Hansen', 'L', 'S1 Sistem Informasi', 'hansen123@gmail.com', '085555123123', 'default.jpg', '$2y$10$LXpn36MpNrIt3TzHivmeI.BDIAoqWua2lj8.ttnvAAeU79xSnyRBu', 5, 0),
+(201601036, 'Fefiana', 'P', 'D3 Komputerisasi Akuntansi', 'fefiana@gmail.com', '081232123455', 'default.jpg', '$2y$10$vUUOQAMMddLNPLXv2TsErOWvqOENKJDcEDMa9GoAKGB57rsOy8CZG', 5, 1),
+(201601038, 'Reno Fahmi', 'L', 'S1 Teknik Informatika', 'reno@gmail.com', '081223234566', 'default.jpg', '$2y$10$4fVFbZcaL5vI688YBc7iMuDQT91SW8LsAeD1a2xE/iRV/F1lcaivW', 5, 1),
 (201601039, 'Yulieus Adi Pranoto', 'L', 'S1 Sistem Informasi', 'yuliusadi19@gmail.com', '081218990103', 'default.jpg', '$2y$10$GuBddu9N1VN9obcsUibWHOFLaYKxMWLmL0UL8tPtQ5VdsBdr5Vih2', 5, 1),
 (201601044, 'Ridho Ramadhan', 'L', 'S1 Sistem Informasi', 'ridho123@gmail.com', '081232267583', 'default.jpg', '$2y$10$hBXw3Yz4KIl6.ibg3rRcpujDbYSkmFvibtzolcXNa/MXYtJJl69tW', 5, 1),
-(201601045, 'Lala Wati', 'P', 'S1 Teknik Multimedia dan Jaringan', 'lala123@gmail.com', '081232212345', '1559932732837.jpg', '$2y$10$gpqHUYNh6zg9W.suYUUyCeI6eD.abgB2DuePp9OnqFHmUh4xdMKW.', 5, 1),
+(201601045, 'Lala Wati', 'P', 'D3 Komputerisasi Akuntansi', 'lala123@gmail.com', '081232212345', '1559932732837.jpg', '$2y$10$5PW.e81iugLs.VuzoBZyHOcn8QO3htnHLpUlJAQuZzNnmUNT//xIi', 5, 1),
 (201601046, 'Merli Amelia Anggraeni', 'P', 'S1 Sistem Informasi', 'merli123@gmail.com', '081234523412', 'default.jpg', '$2y$10$juW1jYi2XAzcxXrOet757OMbWv.FUlWItstqvImn6gSqnN8P/mJgS', 5, 1),
 (201601053, 'Nabilla Nur Fadillah', 'P', 'S1 Sistem Informasi', 'nabilla123@gmail.com', '0812345612', 'default.jpg', '$2y$10$hNsAuZpKhDDR1NN4Ok43auzgukEt9BA29FqE6zXJV9lrjmEvLLIyG', 5, 1),
 (201601056, 'Budi Anduk', 'L', 'S1 Sistem Informasi', 'budi345@gmail.com', '081223165123', '1557317977923.jpg', '$2y$10$Lrw/lpFrnc.l5BrvvRQ9Ye9bCidIzY/1g1qaLjl.oqqzwOfx2i0EW', 5, 1),
+(201601062, 'Dudi Santosa', 'L', 'S1 Sistem Informasi', 'dudi@gmail.com', '081223234322', 'default.jpg', '$2y$10$SVZnG5r72pc6Nnrm8zY72OPOxZDCJOxMmnWtwH.PtsVEdypFy0I4y', 5, 1),
 (201701001, 'Hanit Jatmika', 'L', 'S1 Teknik Informatika', 'hanit123@gmail.com', '081212265444', 'default.jpg', '$2y$10$ql89G/U7K/f9kzJUBchQl.IWCqklxTWKJg3VGUyXb2AmcmFAMRTAW', 5, 0),
-(201701030, 'Axel Haryanto', 'L', 'S1 Teknik Multimedia dan Jaringan', 'axel123@gmail.com', '081212156678', 'default.jpg', '$2y$10$F0E.BDL1Qd6DRe4BYyLTC.J9/mz97WpNiJk.5me2MVNP.mq6E9zVe', 5, 0);
+(201701030, 'Axel Haryanto', 'L', 'S1 Teknik Multimedia dan Jaringan', 'axel123@gmail.com', '081212156678', 'default.jpg', '$2y$10$F0E.BDL1Qd6DRe4BYyLTC.J9/mz97WpNiJk.5me2MVNP.mq6E9zVe', 5, 0),
+(201801033, 'Doni Saputra', 'L', 'S1 Teknik Multimedia dan Jaringan', 'doni@gmail.com', '081223456789', 'default.jpg', '$2y$10$N6Lhy/F7hammwo9tMnrEeOtCmtihv.dSLKFf4nl8mGSNChn1cueYa', 5, 1),
+(201801092, 'Nani Setya', 'L', 'S1 Teknik Multimedia dan Jaringan', 'nani@gmail.com', '083345672234', 'default.jpg', '$2y$10$r62EYuDbfgePBO82QgmG0O9AndTWgOT2Ztdy2nJN1brR3.E1VwJAa', 5, 1);
 
 -- --------------------------------------------------------
 
@@ -119,7 +127,7 @@ CREATE TABLE `pimpinan` (
   `jk` varchar(1) NOT NULL,
   `jabatan` varchar(30) NOT NULL,
   `email` varchar(30) NOT NULL,
-  `hp` int(20) NOT NULL,
+  `hp` varchar(20) NOT NULL,
   `is_active` int(1) NOT NULL,
   `image` varchar(50) NOT NULL,
   `role_id` int(1) NOT NULL
@@ -130,7 +138,9 @@ CREATE TABLE `pimpinan` (
 --
 
 INSERT INTO `pimpinan` (`nidn`, `name`, `password`, `jk`, `jabatan`, `email`, `hp`, `is_active`, `image`, `role_id`) VALUES
-(1234, 'Romanus', '$2y$10$K0x3OlXyePafkAVwXml23.DeeRv3QYN6ij1hapvl3luBYVgj2j3pm', 'L', 'Ketua STIKOM', 'romanus@romanus.com', 812345, 1, 'default.jpg', 3);
+(1234, 'Romanus Adi', '$2y$10$z1uHyF7hEpYgFbPo4RvP2eXK6sn622OPLpOHrNQiACS4q7138C806', 'L', 'Ketua STIKOM', 'romanus@romanus.com', '812345', 1, '1560567398155.jpg', 3),
+(12763541, 'Ir. GH Sumartono', '$2y$10$BTYkC87nnoIEQtgnAX4SxOIKnpoKJYXk9GzPVYZEnkK.VLfA18.QW', 'L', 'PUKET I', 'Gh123@gmail.com', '081236573843', 1, 'default.jpg', 3),
+(87212345, 'Dhany Faizal', '$2y$10$U/nBecdWMtQaaba7cesf1uNSRp.YcB4CTuNr.eiPEJycgtrJR/r4e', 'L', 'PUKET II', 'Dhany123@gmail.com', '089667845234', 1, '1562350751927.jpg', 3);
 
 -- --------------------------------------------------------
 
@@ -371,7 +381,7 @@ ALTER TABLE `user_token`
 -- AUTO_INCREMENT for table `jurusan`
 --
 ALTER TABLE `jurusan`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 --
 -- AUTO_INCREMENT for table `user`
 --
