@@ -18,8 +18,6 @@ class Jurusan_model extends CI_model
     {
         $data = [
             "nama_jurusan" => $this->input->post('jurusan', true),
-            "jumlah_mhs" => $this->input->post('jumlah', true)
-
         ];
         $this->db->where('id', $this->input->post('id'));
         $this->db->update('jurusan', $data);

@@ -7,20 +7,6 @@ class Mahasiswa_model extends CI_Model
         return $this->db->get('mahasiswa')->result_array();
     }
 
-    public function getMahasiswa($limit, $start, $keyword = null)
-    {
-        if ($keyword) {
-            $this->db->like('name', $keyword);
-            $this->db->or_like('email', $keyword);
-            $this->db->or_like('nim', $keyword);
-        }
-        return $this->db->get('mahasiswa', $limit, $start)->result_array();
-    }
-
-    public function countAllMahasiswa()
-    {
-        return $this->db->get('mahasiswa')->num_rows();
-    }
 
 
     public function upload()
@@ -88,14 +74,12 @@ class Mahasiswa_model extends CI_Model
     {
         $nim = $this->input->post('nim', true);
         $data = [
-            'nim' => $nim,
             'name' => $this->input->post('namalengkap', true),
             'jk' => $this->input->post('jk', true),
             'jurusan' => $this->input->post('jurusan', true),
             'email' => $this->input->post('email', true),
             'hp' => $this->input->post('hp', true),
             'password' => password_hash($this->input->post('passwordmhs1'), PASSWORD_DEFAULT),
-            'role_id' => 5,
             'is_active' => $this->input->post('aktifmhs', true),
         ];
 

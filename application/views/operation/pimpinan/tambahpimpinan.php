@@ -92,7 +92,7 @@
                         </div>
                         <div class="col-sm-9">
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="image" name="image">
+                                <input type="file" class="custom-file-input" id="imagepimpinan" name="imagepimpinan">
                                 <label class="custom-file-label" for="image">Pilih foto</label>
                             </div>
                         </div>
@@ -100,10 +100,10 @@
                 </div>
             </div>
             <div class="form-group row justify-content-end">
-                <div class="col-sm-10">
+                <div class="col-sm-9">
                     <button type="submit" class="btn btn-primary">Tambah</button>
 
-                    <button type="submit" class="btn btn-danger">Batal</button>
+                    <a href="<?= base_url('operation/pimpinan'); ?>" class="btn btn-danger">Kembali</a>
                 </div>
             </div>
 

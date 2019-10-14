@@ -3,7 +3,7 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800"><?= $title; ?></h1>
+    <h1 class="h3 mb-3 text-gray-800"><?= $title; ?></h1>
 
 
 
@@ -23,29 +23,11 @@
                 <div class="flash-data" data-flashdata="<?= $this->session->flashdata('message'); ?>"></div>
             <?php endif; ?>
 
-            <a href="<?= base_url('operation/tambahmahasiswa'); ?>" class="btn btn-success mb-1">Tambah Mahasiswa</a>
-
-            <div class="row">
-                <div class="col-md-7">
-                    <?= $this->pagination->create_links(); ?>
-                    <h6 class="pt-3">Result : <?= $total_rows; ?></h6>
-                </div>
-                <div class="col-md-5">
-                    <form action="<?= base_url('operation/mahasiswa'); ?>" method="post">
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Search keyword.." name="keyword" autocomplete="off" autofocus>
-                            <div class="input-group-append">
-                                <input class="btn btn-primary" value=" cari " type="submit" name="submit">
-                            </div>
-                        </div>
-                    </form>
-                </div>
-
-            </div>
+            <a href="<?= base_url('operation/tambahmahasiswa'); ?>" class="btn btn-success mb-3">Tambah Mahasiswa</a>
 
             <div class="table-responsive">
 
-                <table class="table table-bordered table-sm">
+                <table class="table table-bordered table-hover" id="dataTable">
                     <thead class="thead-dark">
                         <tr>
                             <th>No</th>
@@ -61,18 +43,10 @@
                     </thead>
 
                     <tbody>
-                        <?php if (empty($mahasiswa)) : ?>
-                            <tr>
-                                <td colspan="12">
-                                    <div class="alert alert-danger" role="alert">
-                                        Tidak ada Data
-                                    </div>
-                                </td>
-                            </tr>
-                        <?php endif; ?>
+                        <?php $i = 1; ?>
                         <?php foreach ($mahasiswa as $mhs) : ?>
                             <tr>
-                                <th scope="row"><?= ++$start ?></th>
+                                <th scope="row"><?= $i; ?></th>
                                 <td><?= $mhs['nim']; ?></td>
                                 <td><?= $mhs['name']; ?></td>
                                 <td><?= $mhs['jk']; ?></td>
@@ -93,6 +67,7 @@
                                     </div>
                                 </td>
                             </tr>
+                            <?php $i++; ?>
                         <?php endforeach; ?>
                     </tbody>
                 </table>

@@ -13,20 +13,21 @@
     <div class="card mb-3 col-lg-8">
         <div class="row no-gutters">
             <div class="col-md-4">
-                <img src="<?= base_url('assets/img/profile/default.jpg'); ?>" class="card-img">
+                <img src="<?= base_url('assets/img/profile/dosen/') . $dosen['image']; ?>" class="card-img">
             </div>
             <div class="col-md-8">
                 <div class="card-body">
-                    <h5 class="card-title">52739</h5>
-                    <p class="card-text">Endang Setyawati, M.Kom</p>
-                    <p class="card-text">Perempuan</p>
-                    <p class="card-text">Mengajar Mata Kuliah Ansi</p>
-                    <p class="card-text">endangb17@gmail.com</p>
-                    <p class="card-text">089563</p>
+                    <h5 class="card-title"><?= $dosen['nidn']; ?></h5>
+                    <p class="card-text"><?= $dosen['name']; ?></p>
+                    <p class="card-text"><?= $dosen['jk']; ?></p>
+                    <p class="card-text"><?= $dosen['mengajar']; ?></p>
+                    <p class="card-text"><?= $dosen['email']; ?></p>
+                    <p class="card-text"><?= $dosen['hp']; ?></p>
                 </div>
             </div>
         </div>
     </div>
+    <a href="<?= base_url('operation/dosen'); ?>" class="btn btn-danger">Kembali</a>
 
 </div>
 <!-- /.container-fluid -->

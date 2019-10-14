@@ -13,7 +13,8 @@
             <div class="form-group row">
                 <label for="nim" class="col-sm-3 col-form-label">NIM</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" id="nim" name="nim" value="<?= $mahasiswa['nim']; ?>">
+                    <input type="text" class="form-control" id="nim" name="nim" value="<?= $mahasiswa['nim']; ?>" readonly>
+                    <?= form_error('nim', ' <small class="text-danger pl-3">', '</small>'); ?>
                 </div>
             </div>
             <div class="form-group row">
@@ -54,14 +55,15 @@
                 </div>
             </div>
             <div class="form-group row">
+
                 <label for="namalengkap" class="col-sm-3 col-form-label">Jurusan</label>
                 <div class="col-sm-7">
                     <select name="jurusan" id="jurusan" class="form-control col-sm-9">
                         <?php foreach ($jurusan as $j) : ?>
-                            <?php if ($j == $mahasiswa['jurusan']) : ?>
-                                <option value="<?= $j ?>" selected><?= $j ?></option>
+                            <?php if ($j['nama_jurusan'] == $mahasiswa['jurusan']) : ?>
+                                <option value="<?= $j['nama_jurusan'] ?>" selected><?= $j['nama_jurusan'] ?></option>
                             <?php else : ?>
-                                <option value="<?= $j ?>"><?= $j ?></option>
+                                <option value="<?= $j['nama_jurusan'] ?>"><?= $j['nama_jurusan'] ?></option>
                             <?php endif; ?>
                         <?php endforeach; ?>
                     </select>
@@ -94,7 +96,7 @@
                 <div class="form-check form-check-inline">
                     <input type="radio" name="aktifmhs" <?php if ($aktif == '0') {
                                                             echo 'checked';
-                                                        } ?> value="o">
+                                                        } ?> value="0">
                     <label class="form-check-label" for="aktifmhs">Tidak</label>
                 </div>
             </div>

@@ -16,53 +16,68 @@
 
             <?php endif; ?>
 
-            <?= $this->session->flashdata('message'); ?>
+            <?php if ($this->session->flashdata('message')) : ?>
 
-            <a href="<?= base_url('operation/tambahdosen'); ?>" class="btn btn-primary mb-3">Tambah Dosen</a>
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th scope="col">No</th>
-                        <th scope="col">NIDN</th>
-                        <th scope="col">Nama</th>
-                        <th scope="col">JK</th>
-                        <th scope="col">Mengajar</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">HP</th>
-                        <th scope="col">Aktif</th>
-                        <th scope="col">Opsi</th>
-                    </tr>
-                </thead>
-                <tbody>
+                <div class="flashdatadosen" data-flashdatadosen="<?= $this->session->flashdata('message'); ?>"></div>
+            <?php endif; ?>
 
-                    <?php $i = 1; ?>
-                    <?php foreach ($dosen as $dsn) : ?>
+            <a href="<?= base_url('operation/tambahdosen'); ?>" class="btn btn-success mb-3">Tambah Dosen</a>
+            <div class="table-responsive">
+
+                <table class="table table-bordered table-hover" id="dataTable">
+                    <thead class="thead-dark">
                         <tr>
-                            <th scope="row"><?= $i ?></th>
-                            <td><?= $dsn['nidn']; ?></td>
-                            <td><?= $dsn['name']; ?></td>
-                            <td><?= $dsn['jk']; ?></td>
-                            <td><?= $dsn['mengajar']; ?></td>
-                            <td><?= $dsn['email']; ?></td>
-                            <td><?= $dsn['hp']; ?></td>
-                            <td><?= $dsn['is_active']; ?></td>
-                            <td>
-                                <a href="<?= base_url() ?>operation/detaildosen/<?= $dsn['nidn']; ?>" class="badge badge-primary">detail</a>
-                                <a href="<?= base_url() ?>operation/editdosen/<?= $dsn['nidn']; ?>" class="badge badge-warning">edit</a>
-                                <a href="<?= base_url() ?>operation/hapusdosen/<?= $dsn['nidn']; ?>" class="badge badge-danger" onclick="return confirm('yakin?');">hapus</a>
-
-                            </td>
+                            <th scope="col">No</th>
+                            <th scope="col">NIDN</th>
+                            <th scope="col">Nama</th>
+                            <th scope="col">JK</th>
+                            <th scope="col">Mengajar</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">HP</th>
+                            <th scope="col">Aktif</th>
+                            <th scope="col">Opsi</th>
                         </tr>
-                        <?php $i++; ?>
-                    <?php endforeach; ?>
+                    </thead>
+                    <tbody>
 
-                </tbody>
-            </table>
+                        <?php $i = 1; ?>
+                        <?php foreach ($dosen as $dsn) : ?>
+                            <tr>
+                                <th scope="row"><?= $i ?></th>
+                                <td><?= $dsn['nidn']; ?></td>
+                                <td><?= $dsn['name']; ?></td>
+                                <td><?= $dsn['jk']; ?></td>
+                                <td><?= $dsn['mengajar']; ?></td>
+                                <td><?= $dsn['email']; ?></td>
+                                <td><?= $dsn['hp']; ?></td>
+                                <td><?= $dsn['is_active']; ?></td>
+                                <td>
+                                    <div class="dropdown ">
+                                        <button class="btn btn-primary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            opsi
+                                        </button>
+                                        <div class="dropdown-menu animated--fade-in" aria-labelledby="dropdownMenuButton">
+                                            <a class=" btn btn-success btn-sm" href="<?= base_url() ?>operation/detaildosen/<?= $dsn['nidn']; ?>">detail</a>
+                                            <a class="btn btn-warning btn-sm" href="<?= base_url() ?>operation/editdosen/<?= $dsn['nidn']; ?>" class="badge badge-warning">edit</a>
+                                            <a class=" btn btn-danger btn-sm tombol-hapusdosen" href="<?= base_url() ?>operation/hapusdosen/<?= $dsn['nidn']; ?>">hapus</a>
+                                        </div>
+                                    </div>
+
+                                </td>
+                            </tr>
+                            <?php $i++; ?>
+                        <?php endforeach; ?>
+
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 
 </div>
 <!-- /.container-fluid -->
+
+
 
 </div>
 <!-- End of Main Content -->

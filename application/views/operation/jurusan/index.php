@@ -9,39 +9,66 @@
     <div class="row">
         <div class="col-lg">
 
-            <?= $this->session->flashdata('message'); ?>
+            <?php if ($this->session->flashdata('message')) : ?>
+
+                <div class="juru" data-juru="<?= $this->session->flashdata('message'); ?>"></div>
+            <?php endif; ?>
 
             <a href="" class="btn btn-success mb-3" data-toggle="modal" data-target="#newSubMenuModal">Tambah Jurusan</a>
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th scope="col">No</th>
-                        <th scope="col">Nama Jurusan</th>
-                        <th scope="col">Jumlah Mahasiswa</th>
-                        <th scope="col">Opsi</th>
 
-                    </tr>
-                </thead>
-
-                </tbody>
-                <tbody>
-                    <?php $i = 1; ?>
-                    <?php foreach ($menu as $m) : ?>
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover" id="dataTable">
+                    <thead class="thead-dark">
                         <tr>
-                            <th scope="row"><?= $i ?></th>
-                            <td><?= $m['nama_jurusan']; ?></td>
-                            <td><?= $m['jumlah_mhs']; ?></td>
-                            <td>
-                                <a href="<?= base_url() ?>operation/detailjurusan/<?= $m['id']; ?>" class="badge badge-primary">detail</a>
-                                <a href="<?= base_url() ?>operation/editjurusan/<?= $m['id']; ?>" class="badge badge-warning">edit</a>
-                                <a href="<?= base_url() ?>operation/hapusjurusan/<?= $m['id']; ?>" class="badge badge-danger" onclick="return confirm('yakin?');">hapus</a>
+                            <th scope="col">No</th>
+                            <th scope="col">Nama Jurusan</th>
+                            <th scope="col">Jumlah Mahasiswa</th>
+                            <th scope="col">Opsi</th>
 
-                            </td>
                         </tr>
-                        <?php $i++; ?>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
+                    </thead>
+
+                    </tbody>
+                    <tbody>
+
+                        <?php $i = 1; ?>
+                        <?php foreach ($menu as $m) : ?>
+                            <tr>
+                                <th scope="row"><?= $i ?></th>
+                                <td><?= $m['nama_jurusan']; ?></td>
+
+                                <?php foreach ($jumlah_mhs as $jum) : ?>
+
+                                    <?php if ($jum['jurusan'] == $m['nama_jurusan']) : ?>
+
+                                        <td>
+                                            <?= $jum['total']; ?>
+
+                                        </td>
+
+                                    <?php endif ?>
+
+                                <?php endforeach; ?>
+
+                                <td>
+                                    <div class="dropdown ">
+                                        <button class="btn btn-primary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            opsi
+                                        </button>
+                                        <div class="dropdown-menu animated--fade-in" aria-labelledby="dropdownMenuButton">
+                                            <a class="btn btn-warning btn-sm" href="<?= base_url() ?>operation/editjurusan/<?= $m['id']; ?>" class="badge badge-warning">edit</a>
+                                            <a class=" btn btn-danger btn-sm tombol-hapusjur" href="<?= base_url() ?>operation/hapusjurusan/<?= $m['id']; ?>">hapus</a>
+                                        </div>
+                                    </div>
+
+
+                                </td>
+                            </tr>
+                            <?php $i++; ?>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 
@@ -68,9 +95,6 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <input type="text" class="form-control" id="jurusan" name="jurusan" placeholder="Nama Jurusan" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="jumlah" name="jumlah" placeholder="Jumlah Mahasiswa" required>
                     </div>
 
 

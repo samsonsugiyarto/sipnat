@@ -17,13 +17,6 @@
                     <small class="text-danger pl-3"> <?= form_error('jurusan'); ?></small>
                 </div>
             </div>
-            <div class="form-group row">
-                <label for="jumlahmhs" class="col-sm-3 col-form-label">Jumlah Mahasiswa</label>
-                <div class="col-sm-9">
-                    <input type="text" class="form-control" id="jumlah" name="jumlah" value="<?= $jurusan['jumlah_mhs']; ?>" required>
-                    <?= form_error('jumlah', ' <small class="text-danger pl-3">', '</small>'); ?>
-                </div>
-            </div>
             <div class="form-group row justify-content-end">
                 <div class="col-sm-10 pl-4">
                     <button type="submit" class="btn btn-primary ml-5">Perbarui</button>

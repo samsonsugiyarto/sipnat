@@ -42,12 +42,55 @@
 
    <!-- Bootstrap core JavaScript-->
    <script src="<?= base_url('assets/'); ?>vendor/jquery/jquery.min.js"></script>
+
+   <script src="<?= base_url('assets/'); ?>vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
    <script src="<?= base_url('assets/'); ?>vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
    <!-- Core plugin JavaScript-->
    <script src="<?= base_url('assets/'); ?>vendor/jquery-easing/jquery.easing.min.js"></script>
    <!-- Custom scripts for all pages-->
    <script src="<?= base_url('assets/'); ?>js/sb-admin-2.min.js"></script>
+
+   <script src="<?= base_url('assets/'); ?>vendor/datatables/jquery.dataTables.min.js"></script>
+
+   <script src="<?= base_url('assets/'); ?>vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+
+   <script type="text/javascript">
+       $('#dataTable').dataTable({
+           "aLengthMenu": [
+               [5, 10, 25, 50, 100, 250, 500, -1],
+               [5, 10, 25, 50, 100, 250, 500, 'All']
+           ],
+           "oLanguage": {
+               "sInfo": 'Total _TOTAL_ Data ditampilkan (_START_ sampai _END_)',
+               "sLengthMenu": 'Tampilkan _MENU_ Data',
+               "sInfoEmpty": 'Tidak ada Data.',
+               "sSearch": 'Pencarian:',
+               "sEmptyTable": 'Tidak ada Data di dalam Database',
+               "sZeroRecords": 'Tidak ada data yang cocok',
+               "sInfoFiltered": '(tersaring dari _MAX_ total data yang masuk)',
+               "oPaginate": {
+                   "sNext": 'Selanjutnya',
+                   "sLast": 'Terakhir',
+                   "sFirst": 'Pertama',
+                   "sPrevious": 'Sebelumnya'
+               }
+           }
+       });
+   </script>
+
+
+   <!-- <script>
+       $(document).ready(function() {
+           $.noConflict();
+           var table = $('#dataTable').DataTable();
+       });
+   </script> -->
+
+
+
 
    <script>
        $('.custom-file-input').on('change', function() {

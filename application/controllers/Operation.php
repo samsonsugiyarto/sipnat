@@ -18,13 +18,20 @@ class Operation extends CI_Controller
         $data['title'] = 'Jurusan';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
-        $data['menu'] = $this->db->get('jurusan')->result_array();
+
         $this->form_validation->set_rules('jurusan', 'Jurusan', 'required');
-        $this->form_validation->set_rules('jumlah', 'Jumlah', 'required');
+
 
         $data['namarole']  = $this->db->get_where('user_role', ['id' =>
         $this->session->userdata('id')])->row_array();
 
+
+        $this->db->select('jurusan, COUNT(jurusan) as total');
+        $this->db->group_by('jurusan');
+        $data['jumlah_mhs'] = $this->db->get('mahasiswa')->result_array();
+
+
+        $data['menu'] = $this->db->get('jurusan')->result_array();
 
 
         if ($this->form_validation->run() == false) {
@@ -35,13 +42,10 @@ class Operation extends CI_Controller
             $this->load->view('templates/footer');
         } else {
             $data = [
-                'nama_jurusan' => $this->input->post('jurusan'),
-                'jumlah_mhs' => $this->input->post('jumlah'),
-
+                'nama_jurusan' => $this->input->post('jurusan')
             ];
             $this->db->insert('jurusan', $data);
-            $this->session->set_flashdata('message', '<div class="alert
-            alert-success" role="alert"> Jurusan baru ditambahkan!</div>');
+            $this->session->set_flashdata('message', 'Ditambahkan!');
             redirect('operation');
         }
     }
@@ -55,7 +59,6 @@ class Operation extends CI_Controller
         $data['jurusan'] = $this->Jurusan_model->getJurusanById($id);
 
         $this->form_validation->set_rules('jurusan', 'Jurusan', 'required|trim');
-        $this->form_validation->set_rules('jumlah', 'Jumlah', 'required');
 
 
         $data['namarole']  = $this->db->get_where('user_role', ['id' =>
@@ -70,8 +73,7 @@ class Operation extends CI_Controller
             $this->load->view('templates/footer');
         } else {
             $this->Jurusan_model->editJurusan();
-            $this->session->set_flashdata('message', '<div class="alert
-            alert-success" role="alert"> Jurusan telah diubah!</div>');
+            $this->session->set_flashdata('message', 'Diubah!');
             redirect('operation');
         }
     }
@@ -80,28 +82,11 @@ class Operation extends CI_Controller
     {
 
         $this->Jurusan_model->hapusDataJurusan($id);
-        $this->session->set_flashdata('message', '<div class="alert
-        alert-success" role="alert">Dihapus!</div>');
+        $this->session->set_flashdata('message', 'Dihapus!');
         redirect('operation');
     }
 
-    public function detailjurusan($id)
-    {
 
-        $data['title'] = 'Detail Data Jurusan';
-        $data['user'] = $this->db->get_where('user', ['email' =>
-        $this->session->userdata('email')])->row_array();
-        $data['jurusan'] = $this->Jurusan_model->getJurusanById($id);
-
-        $data['namarole']  = $this->db->get_where('user_role', ['id' =>
-        $this->session->userdata('id')])->row_array();
-
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar', $data);
-        $this->load->view('templates/topbar', $data);
-        $this->load->view('operation/jurusan/detailjurusan', $data);
-        $this->load->view('templates/footer');
-    }
 
     public function mahasiswa()
     {
@@ -113,37 +98,7 @@ class Operation extends CI_Controller
         $data['namarole']  = $this->db->get_where('user_role', ['id' =>
         $this->session->userdata('id')])->row_array();
 
-        //PAGINATION
-
-        //load library
-        $this->load->library('pagination');
-
-        //ambil data keyword
-        if ($this->input->post('submit')) {
-            $data['keyword'] = $this->input->post('keyword');
-            $this->session->set_userdata('keyword', $data['keyword']);
-        } else {
-            $data['keyword'] = $this->session->userdata('keyword');
-        }
-
-
-        //config 
-        $this->db->like('name', $data['keyword']);
-        $this->db->or_like('email', $data['keyword']);
-        $this->db->or_like('nim', $data['keyword']);
-        $this->db->from('mahasiswa');
-        $config['total_rows'] = $this->db->count_all_results();
-        $data['total_rows'] =   $config['total_rows'];
-        $config['per_page'] = 10;
-
-
-        //inisialisasi
-        $this->pagination->initialize($config);
-
-        $data['start'] = $this->uri->segment(3);
-
-        $data['mahasiswa'] = $this->Mahasiswa_model->getMahasiswa($config['per_page'], $data['start'], $data['keyword']);
-
+        $data['mahasiswa'] = $this->Mahasiswa_model->getAllMahasiswa();
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
@@ -176,6 +131,7 @@ class Operation extends CI_Controller
 
         $data['namarole']  = $this->db->get_where('user_role', ['id' =>
         $this->session->userdata('id')])->row_array();
+        $data['jurusan'] = $this->db->get('jurusan')->result_array();
 
         if ($this->form_validation->run() == false) {
             $this->load->view('templates/header', $data);
@@ -219,7 +175,8 @@ class Operation extends CI_Controller
         $data['mahasiswa'] = $this->Mahasiswa_model->getMahasiswaById($nim);
         $mhs = $this->Mahasiswa_model->getMahasiswaById($nim);
 
-        $data['jurusan'] = ['S1 Sistem Informasi', 'S1 Teknik Informatika', 'S1 Teknik Multimedia dan Jaringan', 'D3 Komputerisasi Akuntansi'];
+        $data['jurusan'] = $this->db->get('jurusan')->result_array();
+
 
         $this->form_validation->set_rules('nim', 'NIM', 'required|trim');
         $this->form_validation->set_rules('namalengkap', 'NamaLengkap', 'required|trim');
@@ -307,13 +264,12 @@ class Operation extends CI_Controller
         } else {
 
             $this->Dosen_model->tambahDataDosen();
-            $this->session->set_flashdata('message', '<div class="alert
-            alert-success" role="alert">Data dosen baru telah ditambahkan!</div>');
+            $this->session->set_flashdata('message', 'Ditambahkan!');
             redirect('operation/dosen');
         }
     }
 
-    public function detaildosen()
+    public function detaildosen($nidn)
     {
         $data['title'] = 'Detail Dosen';
         $data['user'] = $this->db->get_where('user', ['email' =>
@@ -322,13 +278,16 @@ class Operation extends CI_Controller
         $data['namarole']  = $this->db->get_where('user_role', ['id' =>
         $this->session->userdata('id')])->row_array();
 
+        $data['dosen'] = $this->Dosen_model->getDosenById($nidn);
+
+
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
         $this->load->view('operation/dosen/detaildosen', $data);
         $this->load->view('templates/footer');
     }
-    public function editdosen()
+    public function editdosen($nidn)
     {
         $data['title'] = 'Form Edit Dosen';
         $data['user'] = $this->db->get_where('user', ['email' =>
@@ -336,11 +295,42 @@ class Operation extends CI_Controller
         $data['namarole']  = $this->db->get_where('user_role', ['id' =>
         $this->session->userdata('id')])->row_array();
 
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar', $data);
-        $this->load->view('templates/topbar', $data);
-        $this->load->view('operation/dosen/editdosen', $data);
-        $this->load->view('templates/footer');
+        $data['dosen'] = $this->Dosen_model->getDosenById($nidn);
+        $dosen = $this->Dosen_model->getDosenById($nidn);
+
+
+        $this->form_validation->set_rules('namalengkap', 'NamaLengkap', 'required|trim');
+        $this->form_validation->set_rules('passworddosen1', 'Password', 'trim|min_length[3]|matches[passworddosen2]', [
+            'matches' => 'password dont match!',
+            'min_length' => 'password too short!'
+        ]);
+        $this->form_validation->set_rules('passworddosen2', 'Password', 'trim|matches[passworddosen1]');
+        $this->form_validation->set_rules('mengajar', 'Mengajar', 'required');
+        $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email');
+        $this->form_validation->set_rules('hp', 'Hp', 'required');
+
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('operation/dosen/editdosen', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $this->Dosen_model->editupload($dosen);
+            $this->Dosen_model->ubahDataDosen();
+
+            $this->session->set_flashdata('message', 'Diubah!');
+            redirect('operation/dosen');
+        }
+    }
+    public function hapusdosen($nidn)
+    {
+        $dosen = $this->Dosen_model->getDosenById($nidn);
+
+        $this->Dosen_model->hapusDataDosen($nidn, $dosen);
+        $this->session->set_flashdata('message', 'Dihapus!');
+        redirect('operation/dosen');
     }
     public function pimpinan()
     {
@@ -394,18 +384,19 @@ class Operation extends CI_Controller
         } else {
 
             $this->Pimpinan_model->tambahDataPimpinan();
-            $this->session->set_flashdata('message', '<div class="alert
-            alert-success" role="alert">Data pimpinan baru telah ditambahkan!</div>');
+            $this->session->set_flashdata('message', 'Ditambahkan!');
             redirect('operation/pimpinan');
         }
     }
-    public function detailpimpinan()
+    public function detailpimpinan($nidn)
     {
         $data['title'] = 'Detail Pimpinan STIKOM';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
         $data['namarole']  = $this->db->get_where('user_role', ['id' =>
         $this->session->userdata('id')])->row_array();
+
+        $data['pimpinan'] = $this->Pimpinan_model->getPimpinanById($nidn);
 
 
         $this->load->view('templates/header', $data);
@@ -414,7 +405,7 @@ class Operation extends CI_Controller
         $this->load->view('operation/pimpinan/detailpimpinan', $data);
         $this->load->view('templates/footer');
     }
-    public function editpimpinan()
+    public function editpimpinan($nidn)
     {
         $data['title'] = 'Form Edit Pimpinan STIKOM';
         $data['user'] = $this->db->get_where('user', ['email' =>
@@ -423,11 +414,42 @@ class Operation extends CI_Controller
         $data['namarole']  = $this->db->get_where('user_role', ['id' =>
         $this->session->userdata('id')])->row_array();
 
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar', $data);
-        $this->load->view('templates/topbar', $data);
-        $this->load->view('operation/pimpinan/editpimpinan', $data);
-        $this->load->view('templates/footer');
+        $this->form_validation->set_rules('namalengkap', 'Nama Lengkap', 'required|trim');
+        $this->form_validation->set_rules('password', 'Password', 'trim|min_length[3]|matches[password2]', [
+            'matches' => 'password dont match!',
+            'min_length' => 'password too short!'
+        ]);
+        $this->form_validation->set_rules('password2', 'Password', 'trim|matches[password]');
+        $this->form_validation->set_rules('jabatan', 'jabatan', 'required|trim');
+
+        $this->form_validation->set_rules('email', 'Email', 'required|trim');
+
+        $this->form_validation->set_rules('hp', 'Hp', 'required|trim');
+
+        $data['pimpinan'] = $this->Pimpinan_model->getPimpinanById($nidn);
+        $pimpinan = $this->Pimpinan_model->getPimpinanById($nidn);
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('operation/pimpinan/editpimpinan', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $this->Pimpinan_model->editupload($pimpinan);
+            $this->Pimpinan_model->ubahDataPimpinan();
+
+            $this->session->set_flashdata('message', 'Diubah!');
+            redirect('operation/pimpinan');
+        }
+    }
+    public function hapuspimpinan($nidn)
+    {
+        $pimpinan = $this->Pimpinan_model->getPimpinanById($nidn);
+
+        $this->Pimpinan_model->hapusDataPimpinan($nidn, $pimpinan);
+        $this->session->set_flashdata('message', 'Dihapus!');
+        redirect('operation/pimpinan');
     }
     public function kandidat()
     {

@@ -53,11 +53,12 @@
             <div class="form-group row">
                 <label for="jurusan" class="col-sm-3 col-form-label">Jurusan</label>
                 <div class="col-sm-9">
-                    <select name="jurusan" class="form-control col-sm-9">
-                        <option value="S1 Sistem Informasi" <?= set_select('jurusan', 'SI Sistem Informasi', TRUE); ?>>SI Sistem Informasi</option>
-                        <option value="S1 Teknik Multimedia dan Jaringan" <?= set_select('jurusan', 'S1 Teknik Multimedia dan Jaringan'); ?>>SI Teknik Multimedia dan Jaringan</option>
-                        <option value="S1 Teknik Informatika" <?= set_select('jurusan', 'SI Teknik Informatika'); ?>>SI Teknik Informatika</option>
-                        <option value="D3 Komputerisasi Akuntansi" <?= set_select('jurusan', 'D3 Komputerisasi Akuntansi'); ?>>D3 Komputerisasi Akuntansi</option>
+                    <select name="jurusan" id="jurusan" class="form-control col-sm-9">
+                        <?php foreach ($jurusan as $j) : ?>
+
+                            <option value="<?= $j['nama_jurusan'] ?>"><?= $j['nama_jurusan'] ?></option>
+
+                        <?php endforeach; ?>
                     </select>
                 </div>
             </div>
