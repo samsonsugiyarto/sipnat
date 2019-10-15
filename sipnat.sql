@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 15 Okt 2019 pada 09.45
+-- Generation Time: 15 Okt 2019 pada 18.52
 -- Versi Server: 10.1.13-MariaDB
 -- PHP Version: 7.0.6
 
@@ -48,6 +48,7 @@ INSERT INTO `dosen` (`nidn`, `name`, `password`, `jk`, `mengajar`, `email`, `hp`
 (7890, 'Yoshita Lianawati', '$2y$10$yy/P.zfJZ1dsiDoiepVVyuqnqRHgIz8UL.0ZL/l5/yJtkvzEdeVJq', 'P', 'Basis Data I', 'yoshita@gmail.com', '0987654', 1, '1556763143665.jpg', 4),
 (9087, 'Dhany Faizal', '$2y$10$pU04d4t6uEWmGH6AeDojk.WzGdxIayk8LOJfpP1/57OBKkawR34su', 'L', 'Jaringan Komputer', 'dhany@gmail.com', '98654', 1, 'default.jpg', 4),
 (34343, 'Diandra Chika', '$2y$10$WAbdlOVNXpVvqvQmhiFlcu/vFSvoCWIUc.DC1RkJcw1mx8Vpqidae', 'P', 'Matematika', 'chika@gmail.com', '09876', 1, '1559932673046.jpg', 4),
+(112233, 'Mutiara Chandrasari', '$2y$10$Ce02WUXW8LZg41XnG4SWk.uxpkMfAZsi/DNtInTcl.XhoaBCXAnxO', 'L', 'Pemrogramman C++', 'mutiara123@gmail.com', '089223465344', 1, 'Screenshot_(171).png', 4),
 (11221133, 'Moko Sunyoto', '$2y$10$pSjTxud.mdwxSDNE8tgSWuCA5HwT4p23n4myECq3BNJhSJ69a4RMi', 'L', 'Pemrogramman C++', 'moko@gmail.com', '2147483647', 1, '1562396232352.jpg', 4),
 (11223344, 'Adi Prabowo', '$2y$10$lt78hVutH7U7EYXXw772tugA9cw3epDNbEMbzvVv/A6yG5ZVhpp16', 'L', 'Statistika Dasar', 'adi@gmail.com', '2147483647', 1, 'default.jpg', 4);
 
@@ -115,7 +116,7 @@ INSERT INTO `mahasiswa` (`nim`, `name`, `jk`, `jurusan`, `email`, `hp`, `image`,
 (201601053, 'Nabilla Nur Fadillah', 'P', 'S1 Sistem Informasi', 'nabilla123@gmail.com', '0812345612', 'default.jpg', '$2y$10$Ufh2VSitphINUEmc7k3R5.hNstyK12XhsoC7nOBlxSC.O14ugedxW', 5, 1, 8),
 (201601056, 'Budi Anduk', 'L', 'S1 Sistem Informasi', 'budi345@gmail.com', '081223165123', '1557317977923.jpg', '$2y$10$Lrw/lpFrnc.l5BrvvRQ9Ye9bCidIzY/1g1qaLjl.oqqzwOfx2i0EW', 5, 1, 2),
 (201601062, 'Dudi Santosa', 'L', 'S1 Sistem Informasi', 'dudi@gmail.com', '081223234322', 'default.jpg', '$2y$10$SVZnG5r72pc6Nnrm8zY72OPOxZDCJOxMmnWtwH.PtsVEdypFy0I4y', 5, 1, 8),
-(201601084, 'Florentina Wua', 'P', 'S1 Teknik Multimedia dan Jaringan', 'florentinawua97@gmail.com', '081234567123', '15524969716642.jpg', '$2y$10$GMlodQmdsLRkqbfIRd9Jk.m5ewtg1qf.S.xnLBx81eBJNudcOXSqa', 5, 1, 3),
+(201601080, 'Florentina', 'P', 'S1 Teknik Multimedia dan Jaringan', 'florentinawua97@gmail.com', '081234567123', '15524969716642.jpg', '$2y$10$tPcRHm9MjYVPwmEKUpbRq.elb4gbTsC0oeIE8RsBkgtggbgC6RXRK', 5, 1, 3),
 (201701001, 'Hanit Jatmika', 'L', 'S1 Teknik Informatika', 'hanit123@gmail.com', '081212265444', 'default.jpg', '$2y$10$ql89G/U7K/f9kzJUBchQl.IWCqklxTWKJg3VGUyXb2AmcmFAMRTAW', 5, 0, 2),
 (201701030, 'Axel Haryanto', 'L', 'S1 Teknik Multimedia dan Jaringan', 'axel123@gmail.com', '081212156678', 'default.jpg', '$2y$10$F0E.BDL1Qd6DRe4BYyLTC.J9/mz97WpNiJk.5me2MVNP.mq6E9zVe', 5, 0, 3),
 (201801033, 'Doni Saputra', 'L', 'S1 Teknik Multimedia dan Jaringan', 'doni@gmail.com', '081223456789', 'default.jpg', '$2y$10$N6Lhy/F7hammwo9tMnrEeOtCmtihv.dSLKFf4nl8mGSNChn1cueYa', 5, 1, 8),
@@ -146,6 +147,7 @@ CREATE TABLE `pimpinan` (
 
 INSERT INTO `pimpinan` (`nidn`, `name`, `password`, `jk`, `jabatan`, `email`, `hp`, `is_active`, `image`, `role_id`) VALUES
 (1234, 'Romanus Adi', '$2y$10$z1uHyF7hEpYgFbPo4RvP2eXK6sn622OPLpOHrNQiACS4q7138C806', 'L', 'Ketua STIKOM', 'romanus@romanus.com', '812345', 1, '1560567398155.jpg', 3),
+(123456, 'Dodo', '$2y$10$TYk2.mVL8kTDciJdvlgt5.LUT7MDeMNNw2Nuh0wI1eCA3PwEVki7y', 'L', 'puket', 'dodo@dodo.com', '123212', 1, 'Screenshot_(170).png', 3),
 (654321, 'Antonius Ary Setyawan', '$2y$10$uiQdkodsA5XCNEU7n05PRepEtGINlEDcG9WKYLgSJVcG1UiEfFui.', 'L', 'PUKET III', 'ary@gmail.com', '876555', 1, '1557978185058.jpg', 3),
 (12763541, 'Ir. GH Sumartono', '$2y$10$BTYkC87nnoIEQtgnAX4SxOIKnpoKJYXk9GzPVYZEnkK.VLfA18.QW', 'L', 'PUKET I', 'Gh123@gmail.com', '081236573843', 1, 'default.jpg', 3),
 (87212345, 'Dhany Faizal', '$2y$10$U/nBecdWMtQaaba7cesf1uNSRp.YcB4CTuNr.eiPEJycgtrJR/r4e', 'L', 'PUKET II', 'Dhany123@gmail.com', '089667845234', 1, '1562350751927.jpg', 3);
@@ -390,7 +392,7 @@ ALTER TABLE `user_token`
 -- AUTO_INCREMENT for table `jurusan`
 --
 ALTER TABLE `jurusan`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `user`
 --
