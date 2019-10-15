@@ -50,7 +50,8 @@ class Dosen_model extends CI_Model
         $this->db->insert('dosen', $data);
     }
 
-    public function editupload($dosen)
+
+    public function ubahDataDosen($dosen, $nidn)
     {
         // cek jika ada gambar yang akan diupload
         $upload_image = $_FILES['imagedosen']['name'];
@@ -73,23 +74,31 @@ class Dosen_model extends CI_Model
                 echo $this->upload->display_errors();
             }
         }
-    }
 
-    public function ubahDataDosen()
-    {
-        $nidn = $this->input->post('nidn', true);
+        $nidnedit = $this->input->post('nidn', true);
+        $name = $this->input->post('namalengkap', true);
+        $jk = $this->input->post('jk', true);
+        $mengajar = $this->input->post('mengajar', true);
+        $email = $this->input->post('email', true);
+        $hp = $this->input->post('hp', true);
+        $password = password_hash($this->input->post('passworddosen1'), PASSWORD_DEFAULT);
+        $is_active =  $this->input->post('aktifdosen', true);
+
         $data = [
-            'name' => $this->input->post('namalengkap', true),
-            'password' => password_hash($this->input->post('passworddsn1'), PASSWORD_DEFAULT),
-            'jk' => $this->input->post('jk', true),
-            'mengajar' => $this->input->post('mengajar', true),
-            'email' => $this->input->post('email', true),
-            'hp' => $this->input->post('hp', true),
-            'is_active' => $this->input->post('aktifdosen', true),
+            'nidn' => $nidnedit,
+            'name' => $name,
+            'jk' => $jk,
+            'mengajar' => $mengajar,
+            'email' => $email,
+            'hp' => $hp,
+            'is_active' => $is_active
         ];
-
+        $this->db->set($data);
+        if ($this->input->post('passworddosen1') != null) {
+            $this->db->set('password', $password);
+        }
         $this->db->where('nidn', $nidn);
-        $this->db->update('Dosen', $data);
+        $this->db->update('dosen');
     }
 
     public function hapusDataDosen($nidn, $dosen)

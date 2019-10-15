@@ -51,7 +51,7 @@ class Mahasiswa_model extends CI_Model
         $this->db->insert('mahasiswa', $data);
     }
 
-    public function ubahDataMahasiswa($mhs)
+    public function ubahDataMahasiswa($mhs, $nim)
     {
 
         $upload_image = $_FILES['imagemhs']['name'];
@@ -74,7 +74,7 @@ class Mahasiswa_model extends CI_Model
                 echo $this->upload->display_errors();
             }
         }
-        $nim = $this->input->post('nim', true);
+        $nimedit = $this->input->post('nim', true);
         $name = $this->input->post('namalengkap', true);
         $jk = $this->input->post('jk', true);
         $jurusan = $this->input->post('jurusan', true);
@@ -84,15 +84,18 @@ class Mahasiswa_model extends CI_Model
         $is_active = $this->input->post('aktifmhs', true);
 
         $data = [
+            'nim' => $nimedit,
             'name' => $name,
             'jk' => $jk,
             'jurusan' => $jurusan,
             'email' => $email,
             'hp' => $hp,
-            'password' => $password,
             'is_active' => $is_active
         ];
         $this->db->set($data);
+        if ($this->input->post('passwordmhs1') != null) {
+            $this->db->set('password', $password);
+        }
         $this->db->where('nim', $nim);
         $this->db->update('mahasiswa');
     }

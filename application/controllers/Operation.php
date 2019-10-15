@@ -206,7 +206,7 @@ class Operation extends CI_Controller
             $this->load->view('templates/footer');
         } else {
 
-            $this->Mahasiswa_model->ubahDataMahasiswa($mhs);
+            $this->Mahasiswa_model->ubahDataMahasiswa($mhs, $nim);
 
             $this->session->set_flashdata('message', 'Diubah!');
             redirect('operation/mahasiswa');
@@ -324,8 +324,7 @@ class Operation extends CI_Controller
             $this->load->view('operation/dosen/editdosen', $data);
             $this->load->view('templates/footer');
         } else {
-            $this->Dosen_model->editupload($dosen);
-            $this->Dosen_model->ubahDataDosen();
+            $this->Dosen_model->ubahDataDosen($dosen, $nidn);
 
             $this->session->set_flashdata('message', 'Diubah!');
             redirect('operation/dosen');
@@ -443,8 +442,7 @@ class Operation extends CI_Controller
             $this->load->view('operation/pimpinan/editpimpinan', $data);
             $this->load->view('templates/footer');
         } else {
-            $this->Pimpinan_model->editupload($pimpinan);
-            $this->Pimpinan_model->ubahDataPimpinan();
+            $this->Pimpinan_model->ubahDataPimpinan($pimpinan, $nidn);
 
             $this->session->set_flashdata('message', 'Diubah!');
             redirect('operation/pimpinan');

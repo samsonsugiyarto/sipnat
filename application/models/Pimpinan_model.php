@@ -51,7 +51,8 @@ class Pimpinan_model extends CI_Model
         $this->db->insert('pimpinan', $data);
     }
 
-    public function editupload($pimpinan)
+
+    public function ubahDataPimpinan($pimpinan, $nidn)
     {
         // cek jika ada gambar yang akan diupload
         $upload_image = $_FILES['imagepimpinan']['name'];
@@ -74,23 +75,31 @@ class Pimpinan_model extends CI_Model
                 echo $this->upload->display_errors();
             }
         }
-    }
 
-    public function ubahDataPimpinan()
-    {
-        $nidn = $this->input->post('nidn', true);
+        $nidnedit = $this->input->post('nidn', true);
+        $name = $this->input->post('namalengkap', true);
+        $jk = $this->input->post('jk', true);
+        $jabatan = $this->input->post('jabatan', true);
+        $email = $this->input->post('email', true);
+        $hp = $this->input->post('hp', true);
+        $password = password_hash($this->input->post('password'), PASSWORD_DEFAULT);
+        $is_active =  $this->input->post('aktifpimpinan', true);
+
         $data = [
-            'name' => $this->input->post('namalengkap', true),
-            'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
-            'jk' => $this->input->post('jk', true),
-            'jabatan' => $this->input->post('jabatan', true),
-            'email' => $this->input->post('email', true),
-            'hp' => $this->input->post('hp', true),
-            'is_active' => $this->input->post('aktifpimpinan', true),
+            'nidn' => $nidnedit,
+            'name' => $name,
+            'jk' => $jk,
+            'jabatan' => $jabatan,
+            'email' => $email,
+            'hp' => $hp,
+            'is_active' => $is_active
         ];
-
+        $this->db->set($data);
+        if ($this->input->post('password') != null) {
+            $this->db->set('password', $password);
+        }
         $this->db->where('nidn', $nidn);
-        $this->db->update('pimpinan', $data);
+        $this->db->update('pimpinan');
     }
 
 
