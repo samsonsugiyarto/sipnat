@@ -26,9 +26,16 @@ class Operation extends CI_Controller
         $this->session->userdata('id')])->row_array();
 
 
-        $this->db->select('jurusan, COUNT(jurusan) as total');
-        $this->db->group_by('jurusan');
-        $data['jumlah_mhs'] = $this->db->get('mahasiswa')->result_array();
+
+        $query = "SELECT nama_jurusan, COUNT( nama_jurusan ) as total  
+            FROM mahasiswa INNER JOIN jurusan
+        ON mahasiswa.kode_jurusan = jurusan.id 
+        GROUP BY nama_jurusan";
+
+
+        $data['jumlah_mhs'] = $this->db->query($query)->result_array();
+
+
 
 
         $data['menu'] = $this->db->get('jurusan')->result_array();
@@ -98,7 +105,7 @@ class Operation extends CI_Controller
         $data['namarole']  = $this->db->get_where('user_role', ['id' =>
         $this->session->userdata('id')])->row_array();
 
-        $data['mahasiswa'] = $this->Mahasiswa_model->getAllMahasiswa();
+
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
@@ -123,7 +130,7 @@ class Operation extends CI_Controller
         ]);
         $this->form_validation->set_rules('passwordmhs2', 'Password', 'required|trim|matches[passwordmhs1]');
 
-        $this->form_validation->set_rules('hpmhs', 'Hpmhs', 'required|trim');
+        $this->form_validation->set_rules('hpmhs', 'Hp', 'required|trim');
 
         $this->form_validation->set_rules('emailmhs', 'Email', 'required|trim|valid_email|is_unique[mahasiswa.email]', [
             'is_unique' => 'This email has already registered!'
@@ -142,6 +149,8 @@ class Operation extends CI_Controller
         } else {
 
             $this->Mahasiswa_model->tambahDataMahasiswa();
+
+
 
 
             $this->session->set_flashdata('message', 'Ditambahkan!');
@@ -196,10 +205,8 @@ class Operation extends CI_Controller
             $this->load->view('operation/mahasiswa/editmahasiswa', $data);
             $this->load->view('templates/footer');
         } else {
-            $this->Mahasiswa_model->editupload($mhs);
-            $this->Mahasiswa_model->ubahDataMahasiswa();
 
-
+            $this->Mahasiswa_model->ubahDataMahasiswa($mhs);
 
             $this->session->set_flashdata('message', 'Diubah!');
             redirect('operation/mahasiswa');

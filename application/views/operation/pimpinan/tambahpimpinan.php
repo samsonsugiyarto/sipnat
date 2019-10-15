@@ -12,14 +12,14 @@
             <div class="form-group row">
                 <label for="nidn" class="col-sm-3 col-form-label">NIDN</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" id="nidn" name="nidn" value="<?= set_value('nidn'); ?>">
+                    <input type="text" class="form-control" id="nidn" name="nidn" placeholder="Masukkan NIDN" value="<?= set_value('nidn'); ?>">
                     <?= form_error('nidn', ' <small class="text-danger pl-3">', '</small>'); ?>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="namalengkap" class="col-sm-3 col-form-label">Nama Lengkap</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" id="namalengkap" name="namalengkap" value="<?= set_value('namalengkap'); ?>">
+                    <input type="text" class="form-control" id="namalengkap" name="namalengkap" placeholder="Masukkan Nama Lengkap" value="<?= set_value('namalengkap'); ?>">
                     <?= form_error('namalengkap', ' <small class="text-danger pl-3">', '</small>'); ?>
                 </div>
             </div>
@@ -52,7 +52,7 @@
             <div class="form-group row">
                 <label for="mengajar" class="col-sm-3 col-form-label">Jabatan</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" id="jabatan" name="jabatan" value="<?= set_value('jabatan'); ?>">
+                    <input type="text" class="form-control" id="jabatan" name="jabatan" placeholder="Masukkan Jabatan" value="<?= set_value('jabatan'); ?>">
                     <?= form_error('jabatan', ' <small class="text-danger pl-3">', '</small>'); ?>
                 </div>
             </div>
@@ -60,14 +60,14 @@
             <div class="form-group row">
                 <label for="email" class="col-sm-3 col-form-label">Email</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" id="email" name="email" value="<?= set_value('email'); ?>">
+                    <input type="text" class="form-control" id="email" name="email" placeholder="Masukkan Email" value="<?= set_value('email'); ?>">
                     <?= form_error('email', ' <small class="text-danger pl-3">', '</small>'); ?>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="hp" class="col-sm-3 col-form-label">Handphone</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" id="hp" name="hp" value="<?= set_value('hp'); ?>">
+                    <input type="text" class="form-control" id="hp" name="hp" placeholder="Masukkan Nomor HP" value="<?= set_value('hp'); ?>">
                     <?= form_error('hp', ' <small class="text-danger pl-3">', '</small>'); ?>
                 </div>
             </div>

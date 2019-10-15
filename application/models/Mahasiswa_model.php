@@ -22,13 +22,38 @@ class Mahasiswa_model extends CI_Model
 
             if ($this->upload->do_upload('imagemhs')) {
                 return $this->upload->data('file_name');
+            } else {
+                echo $this->upload->display_errors();
             }
         }
         return "default.jpg";
     }
-    public function editupload($mhs)
+
+
+    public function tambahDataMahasiswa()
     {
-        // cek jika ada gambar yang akan diupload
+        $nim = $this->input->post('nim', true);
+        $data = [
+            'nim' => $nim,
+            'name' => $this->input->post('nama', true),
+            'jk' => $this->input->post('jk', true),
+            'kode_jurusan' => $this->input->post('jurusan', true),
+            'email' => $this->input->post('emailmhs', true),
+            'hp' => $this->input->post('hpmhs', true),
+            'image' => $this->upload(),
+            'password' => password_hash($this->input->post('passwordmhs1'), PASSWORD_DEFAULT),
+            'role_id' => 5,
+            'is_active' => $this->input->post('aktif', true),
+
+
+        ];
+
+        $this->db->insert('mahasiswa', $data);
+    }
+
+    public function ubahDataMahasiswa($mhs)
+    {
+
         $upload_image = $_FILES['imagemhs']['name'];
 
         if ($upload_image) {
@@ -49,42 +74,27 @@ class Mahasiswa_model extends CI_Model
                 echo $this->upload->display_errors();
             }
         }
-    }
-
-    public function tambahDataMahasiswa()
-    {
         $nim = $this->input->post('nim', true);
+        $name = $this->input->post('namalengkap', true);
+        $jk = $this->input->post('jk', true);
+        $jurusan = $this->input->post('jurusan', true);
+        $email = $this->input->post('email', true);
+        $hp = $this->input->post('hp', true);
+        $password = password_hash($this->input->post('passwordmhs1'), PASSWORD_DEFAULT);
+        $is_active = $this->input->post('aktifmhs', true);
+
         $data = [
-            'nim' => $nim,
-            'name' => $this->input->post('nama', true),
-            'jk' => $this->input->post('jk', true),
-            'jurusan' => $this->input->post('jurusan', true),
-            'email' => $this->input->post('emailmhs', true),
-            'hp' => $this->input->post('hpmhs', true),
-            'image' => $this->upload(),
-            'password' => password_hash($this->input->post('passwordmhs1'), PASSWORD_DEFAULT),
-            'role_id' => 5,
-            'is_active' => $this->input->post('aktif', true),
+            'name' => $name,
+            'jk' => $jk,
+            'jurusan' => $jurusan,
+            'email' => $email,
+            'hp' => $hp,
+            'password' => $password,
+            'is_active' => $is_active
         ];
-
-        $this->db->insert('mahasiswa', $data);
-    }
-
-    public function ubahDataMahasiswa()
-    {
-        $nim = $this->input->post('nim', true);
-        $data = [
-            'name' => $this->input->post('namalengkap', true),
-            'jk' => $this->input->post('jk', true),
-            'jurusan' => $this->input->post('jurusan', true),
-            'email' => $this->input->post('email', true),
-            'hp' => $this->input->post('hp', true),
-            'password' => password_hash($this->input->post('passwordmhs1'), PASSWORD_DEFAULT),
-            'is_active' => $this->input->post('aktifmhs', true),
-        ];
-
+        $this->db->set($data);
         $this->db->where('nim', $nim);
-        $this->db->update('mahasiswa', $data);
+        $this->db->update('mahasiswa');
     }
 
     public function getMahasiswaById($nim)
@@ -96,8 +106,10 @@ class Mahasiswa_model extends CI_Model
     public function hapusDataMahasiswa($nim, $mhs)
     {
         $old_image = $mhs['image'];
-        $old_image != 'default.jpg';
-        unlink(FCPATH . 'assets/img/profile/mahasiswa/' . $old_image);
+        if ($old_image != 'default.jpg') {
+            unlink(FCPATH . 'assets/img/profile/mahasiswa/' . $old_image);
+        }
+
         //$this->db->where('id', $id);
         $this->db->delete('mahasiswa', ['nim' => $nim]);
     }

@@ -39,7 +39,7 @@
 
                                 <?php foreach ($jumlah_mhs as $jum) : ?>
 
-                                    <?php if ($jum['jurusan'] == $m['nama_jurusan']) : ?>
+                                    <?php if ($jum['nama_jurusan'] == $m['nama_jurusan']) : ?>
 
                                         <td>
                                             <?= $jum['total']; ?>

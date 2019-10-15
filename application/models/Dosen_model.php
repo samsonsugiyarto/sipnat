@@ -95,8 +95,10 @@ class Dosen_model extends CI_Model
     public function hapusDataDosen($nidn, $dosen)
     {
         $old_image = $dosen['image'];
-        $old_image != 'default.jpg';
-        unlink(FCPATH . 'assets/img/profile/dosen/' . $old_image);
+        if ($old_image != 'default.jpg') {
+            unlink(FCPATH . 'assets/img/profile/dosen/' . $old_image);
+        }
+
         //$this->db->where('id', $id);
         $this->db->delete('dosen', ['nidn' => $nidn]);
     }

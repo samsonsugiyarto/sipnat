@@ -13,7 +13,7 @@
             <div class="form-group row">
                 <label for="nim" class="col-sm-3 col-form-label">NIM</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" id="nim" name="nim" placeholder="Masukan NIM">
+                    <input type="text" class="form-control" id="nim" name="nim" placeholder="Masukan NIM" value="<?= set_value('nim'); ?>">
                     <?= form_error('nim', ' <small class="text-danger pl-3">', '</small>'); ?>
                 </div>
 
@@ -21,7 +21,7 @@
             <div class="form-group row">
                 <label class="col-sm-3 col-form-label">Nama Lengkap</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" id="nama" name="nama" placeholder="Masukan Nama Lengkap">
+                    <input type="text" class="form-control" id="nama" name="nama" placeholder="Masukan Nama Lengkap" value="<?= set_value('nama'); ?>">
                     <?= form_error('nama', ' <small class="text-danger pl-3">', '</small>'); ?>
                 </div>
             </div>
@@ -56,7 +56,7 @@
                     <select name="jurusan" id="jurusan" class="form-control col-sm-9">
                         <?php foreach ($jurusan as $j) : ?>
 
-                            <option value="<?= $j['nama_jurusan'] ?>"><?= $j['nama_jurusan'] ?></option>
+                            <option value="<?= $j['id'] ?>"><?= $j['nama_jurusan'] ?></option>
 
                         <?php endforeach; ?>
                     </select>
@@ -65,14 +65,16 @@
             <div class="form-group row">
                 <label for="email" class="col-sm-3 col-form-label">Email</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" id="emailmhs" name="emailmhs" placeholder="Masukan email valid">
+                    <input type="text" class="form-control" id="emailmhs" name="emailmhs" placeholder="Masukan email valid" value="<?= set_value('emailmhs'); ?>">
                     <?= form_error('emailmhs', ' <small class="text-danger pl-3">', '</small>'); ?>
                 </div>
             </div>
+
             <div class="form-group row">
                 <label for="hp" class="col-sm-3 col-form-label">Handphone</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" id="hpmhs" name="hpmhs" placeholder="Masukan Nomer HP">
+                    <input type="text" class="form-control" id="hpmhs" name="hpmhs" placeholder="Masukan Nomer HP" value="<?= set_value('hpmhs'); ?>">
+                    <?= form_error('hpmhs', ' <small class="text-danger pl-3">', '</small>'); ?>
                 </div>
             </div>
             <div class="form-group row">
@@ -97,6 +99,7 @@
                         <div class="col-sm-9">
                             <div class="custom-file">
                                 <input type="file" class="custom-file-input" id="imagemhs" name="imagemhs">
+                                <?= form_error('imagemhs', ' <small class="text-danger pl-3">', '</small>'); ?>
                                 <label class="custom-file-label" for="imagemhs">Pilih foto</label>
                             </div>
                         </div>

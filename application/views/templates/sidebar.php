@@ -28,10 +28,13 @@
         ?>
 
 
+
+
      <!-- LOOPING MENU -->
      <?php foreach ($menu as $m) : ?>
          <div class="sidebar-heading">
              <?= $m['menu']; ?>
+
          </div>
 
          <!-- SIAPKAN SUB-MENU SESUAI MENU -->

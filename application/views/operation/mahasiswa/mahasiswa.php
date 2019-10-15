@@ -38,22 +38,37 @@
                             <th>Email</th>
                             <th>HP</th>
                             <th>Aktif</th>
+
                             <th>Opsi</th>
                         </tr>
                     </thead>
 
+                    <?php
+
+                    $query = "SELECT * 
+            FROM mahasiswa INNER JOIN jurusan
+              ON mahasiswa.kode_jurusan = jurusan.id  
+              ORDER BY mahasiswa.nim ASC
+         ";
+                    $datamhs = $this->db->query($query)->result_array();
+                    ?>
+
                     <tbody>
+
                         <?php $i = 1; ?>
-                        <?php foreach ($mahasiswa as $mhs) : ?>
+                        <?php foreach ($datamhs as $mhs) : ?>
+
                             <tr>
                                 <th scope="row"><?= $i; ?></th>
                                 <td><?= $mhs['nim']; ?></td>
                                 <td><?= $mhs['name']; ?></td>
                                 <td><?= $mhs['jk']; ?></td>
-                                <td><?= $mhs['jurusan']; ?></td>
+                                <td><?= $mhs['nama_jurusan']; ?></td>
                                 <td><?= $mhs['email']; ?></td>
                                 <td><?= $mhs['hp']; ?></td>
                                 <td><?= $mhs['is_active']; ?></td>
+
+
                                 <td>
                                     <div class="dropdown ">
                                         <button class="btn btn-primary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -69,6 +84,7 @@
                             </tr>
                             <?php $i++; ?>
                         <?php endforeach; ?>
+
                     </tbody>
                 </table>
             </div>
