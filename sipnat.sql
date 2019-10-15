@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 14 Okt 2019 pada 15.44
+-- Generation Time: 15 Okt 2019 pada 09.45
 -- Versi Server: 10.1.13-MariaDB
 -- PHP Version: 7.0.6
 
@@ -45,7 +45,9 @@ CREATE TABLE `dosen` (
 
 INSERT INTO `dosen` (`nidn`, `name`, `password`, `jk`, `mengajar`, `email`, `hp`, `is_active`, `image`, `role_id`) VALUES
 (1997, 'Oskar Adi', '$2y$10$Pz5bYPe1VsmsiiZci1cx5erZhnGh2mjDYstICCcHKYy7u3/ZsugMm', 'L', 'pemrogramman web', 'oskar@oskar.oskar', '9223', 1, 'default.jpg', 4),
+(7890, 'Yoshita Lianawati', '$2y$10$yy/P.zfJZ1dsiDoiepVVyuqnqRHgIz8UL.0ZL/l5/yJtkvzEdeVJq', 'P', 'Basis Data I', 'yoshita@gmail.com', '0987654', 1, '1556763143665.jpg', 4),
 (9087, 'Dhany Faizal', '$2y$10$pU04d4t6uEWmGH6AeDojk.WzGdxIayk8LOJfpP1/57OBKkawR34su', 'L', 'Jaringan Komputer', 'dhany@gmail.com', '98654', 1, 'default.jpg', 4),
+(34343, 'Diandra Chika', '$2y$10$WAbdlOVNXpVvqvQmhiFlcu/vFSvoCWIUc.DC1RkJcw1mx8Vpqidae', 'P', 'Matematika', 'chika@gmail.com', '09876', 1, '1559932673046.jpg', 4),
 (11221133, 'Moko Sunyoto', '$2y$10$pSjTxud.mdwxSDNE8tgSWuCA5HwT4p23n4myECq3BNJhSJ69a4RMi', 'L', 'Pemrogramman C++', 'moko@gmail.com', '2147483647', 1, '1562396232352.jpg', 4),
 (11223344, 'Adi Prabowo', '$2y$10$lt78hVutH7U7EYXXw772tugA9cw3epDNbEMbzvVv/A6yG5ZVhpp16', 'L', 'Statistika Dasar', 'adi@gmail.com', '2147483647', 1, 'default.jpg', 4);
 
@@ -56,8 +58,8 @@ INSERT INTO `dosen` (`nidn`, `name`, `password`, `jk`, `mengajar`, `email`, `hp`
 --
 
 CREATE TABLE `jurusan` (
-  `id` int(5) NOT NULL,
-  `nama_jurusan` varchar(50) NOT NULL
+  `id` int(50) NOT NULL,
+  `nama_jurusan` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 --
@@ -86,33 +88,38 @@ CREATE TABLE `mahasiswa` (
   `image` varchar(128) NOT NULL,
   `password` varchar(256) NOT NULL,
   `role_id` int(15) NOT NULL,
-  `is_active` int(1) NOT NULL
+  `is_active` int(1) NOT NULL,
+  `kode_jurusan` int(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 --
 -- Dumping data untuk tabel `mahasiswa`
 --
 
-INSERT INTO `mahasiswa` (`nim`, `name`, `jk`, `jurusan`, `email`, `hp`, `image`, `password`, `role_id`, `is_active`) VALUES
-(20150107, 'Tuti Putria', 'P', 'S1 Sistem Informasi', 'tuti@gmail.com', '082122123456', '1563815901674.jpg', '$2y$10$xap0paDlqcYjwBNWwvb3jeDFU/N1wpRH8Q/4Toid2.R7sKsFeM5b6', 5, 1),
-(201501003, 'Peni Pambudi', 'L', 'S1 Teknik Informatika', 'peni@gmail.com', '082113234455', 'default.jpg', '$2y$10$aDPFTatMDi.1j8512mqIq.4Kk2i64IcvcpYg//LVKZ4KkFh9Li1iK', 5, 1),
-(201501054, 'Rudi Priyanto', 'L', 'S1 Teknik Informatika', 'rudi@rudi.com', '081222178545', 'default.jpg', '$2y$10$GG4AkYC1NHrxdN4QnoHrX.APOj3IRNbSez5HIW9bADBKMxbtxH9ce', 5, 1),
-(201601007, 'Foustino Asprila Gunantara', 'L', 'S1 Sistem Informasi', 'fousas@gmail.com', '085333322151', 'default.jpg', '$2y$10$Ksd37r.kiw/Z/DzSsz1cqeywmJ6apbHP.UN6JGRc5rjkOPFg7UJnS', 5, 1),
-(201601020, 'Theofilus Geon Tjeme', 'L', 'S1 Sistem Informasi', 'geon123@gmail.com', '081231234451', '1562350746250.jpg', '$2y$10$zNE7.5mYkM8WKd1fK8MNTu9Mumdr9oKkJ7OXk4epg46Lc5iVlxNOm', 5, 1),
-(201601021, 'Marcello Dani Hansen', 'L', 'S1 Sistem Informasi', 'hansen123@gmail.com', '085555123123', 'default.jpg', '$2y$10$LXpn36MpNrIt3TzHivmeI.BDIAoqWua2lj8.ttnvAAeU79xSnyRBu', 5, 0),
-(201601036, 'Fefiana', 'P', 'D3 Komputerisasi Akuntansi', 'fefiana@gmail.com', '081232123455', 'default.jpg', '$2y$10$vUUOQAMMddLNPLXv2TsErOWvqOENKJDcEDMa9GoAKGB57rsOy8CZG', 5, 1),
-(201601038, 'Reno Fahmi', 'L', 'S1 Teknik Informatika', 'reno@gmail.com', '081223234566', 'default.jpg', '$2y$10$4fVFbZcaL5vI688YBc7iMuDQT91SW8LsAeD1a2xE/iRV/F1lcaivW', 5, 1),
-(201601039, 'Yulieus Adi Pranoto', 'L', 'S1 Sistem Informasi', 'yuliusadi19@gmail.com', '081218990103', 'default.jpg', '$2y$10$GuBddu9N1VN9obcsUibWHOFLaYKxMWLmL0UL8tPtQ5VdsBdr5Vih2', 5, 1),
-(201601044, 'Ridho Ramadhan', 'L', 'S1 Sistem Informasi', 'ridho123@gmail.com', '081232267583', 'default.jpg', '$2y$10$hBXw3Yz4KIl6.ibg3rRcpujDbYSkmFvibtzolcXNa/MXYtJJl69tW', 5, 1),
-(201601045, 'Lala Wati', 'P', 'D3 Komputerisasi Akuntansi', 'lala123@gmail.com', '081232212345', '1559932732837.jpg', '$2y$10$5PW.e81iugLs.VuzoBZyHOcn8QO3htnHLpUlJAQuZzNnmUNT//xIi', 5, 1),
-(201601046, 'Merli Amelia Anggraeni', 'P', 'S1 Sistem Informasi', 'merli123@gmail.com', '081234523412', 'default.jpg', '$2y$10$juW1jYi2XAzcxXrOet757OMbWv.FUlWItstqvImn6gSqnN8P/mJgS', 5, 1),
-(201601053, 'Nabilla Nur Fadillah', 'P', 'S1 Sistem Informasi', 'nabilla123@gmail.com', '0812345612', 'default.jpg', '$2y$10$hNsAuZpKhDDR1NN4Ok43auzgukEt9BA29FqE6zXJV9lrjmEvLLIyG', 5, 1),
-(201601056, 'Budi Anduk', 'L', 'S1 Sistem Informasi', 'budi345@gmail.com', '081223165123', '1557317977923.jpg', '$2y$10$Lrw/lpFrnc.l5BrvvRQ9Ye9bCidIzY/1g1qaLjl.oqqzwOfx2i0EW', 5, 1),
-(201601062, 'Dudi Santosa', 'L', 'S1 Sistem Informasi', 'dudi@gmail.com', '081223234322', 'default.jpg', '$2y$10$SVZnG5r72pc6Nnrm8zY72OPOxZDCJOxMmnWtwH.PtsVEdypFy0I4y', 5, 1),
-(201701001, 'Hanit Jatmika', 'L', 'S1 Teknik Informatika', 'hanit123@gmail.com', '081212265444', 'default.jpg', '$2y$10$ql89G/U7K/f9kzJUBchQl.IWCqklxTWKJg3VGUyXb2AmcmFAMRTAW', 5, 0),
-(201701030, 'Axel Haryanto', 'L', 'S1 Teknik Multimedia dan Jaringan', 'axel123@gmail.com', '081212156678', 'default.jpg', '$2y$10$F0E.BDL1Qd6DRe4BYyLTC.J9/mz97WpNiJk.5me2MVNP.mq6E9zVe', 5, 0),
-(201801033, 'Doni Saputra', 'L', 'S1 Teknik Multimedia dan Jaringan', 'doni@gmail.com', '081223456789', 'default.jpg', '$2y$10$N6Lhy/F7hammwo9tMnrEeOtCmtihv.dSLKFf4nl8mGSNChn1cueYa', 5, 1),
-(201801092, 'Nani Setya', 'L', 'S1 Teknik Multimedia dan Jaringan', 'nani@gmail.com', '083345672234', 'default.jpg', '$2y$10$r62EYuDbfgePBO82QgmG0O9AndTWgOT2Ztdy2nJN1brR3.E1VwJAa', 5, 1);
+INSERT INTO `mahasiswa` (`nim`, `name`, `jk`, `jurusan`, `email`, `hp`, `image`, `password`, `role_id`, `is_active`, `kode_jurusan`) VALUES
+(3434, 'fdfd', 'L', '', 'yuliusadid19@gmail.com', '081218990103', 'default.jpg', '$2y$10$XxO8rpJW1WrdZrbJFUf3FOxQamr5n7xYnyy4dyw5LBQq0JyFzOeBG', 5, 1, 2),
+(20150107, 'Tuti Putria', 'P', 'S1 Sistem Informasi', 'tuti@gmail.com', '082122123456', '15599327328371.jpg', '$2y$10$iLSjZiRLPau54NotGY7IAOlpDCtYSYYJEFmSPEd0tUjb78Jr0RSPy', 5, 1, 2),
+(201501003, 'Peni Pambudi', 'L', 'S1 Teknik Informatika', 'peni@gmail.com', '082113234455', '', '$2y$10$xCm68KnaNuPK8OZG3me8wO1kaszTmoX53TcI9ZZjNF7mYwgFuyIR6', 5, 1, 8),
+(201501009, 'Pipo', 'L', 'S1 Teknik Multimedia dan Jaringan', 'pipo@gmail.com', '09876543', '1566181413822.jpg', '$2y$10$k2N9YFGI2Vs1N8GVzlg8fudslldTGzKya2Gzh5fSISgxX0HjWj9vW', 5, 1, 2),
+(201501054, 'Rudi Priyanto', 'L', 'S1 Teknik Informatika', 'rudi@rudi.com', '081222178545', '1556787854623.jpg', '$2y$10$RHbyDPD6WBCzZiLuql708eiq/7S371DQA99pkH9i/gNRLCLFBiBtq', 5, 1, 8),
+(201601007, 'Foustino Asprila Gunantara', 'L', 'S1 Sistem Informasi', 'fousas@gmail.com', '085333322151', 'default.jpg', '$2y$10$Ksd37r.kiw/Z/DzSsz1cqeywmJ6apbHP.UN6JGRc5rjkOPFg7UJnS', 5, 1, 2),
+(201601020, 'Theofilus Geon Tjeme', 'L', 'S1 Sistem Informasi', 'geon123@gmail.com', '081231234451', '1562350746250.jpg', '$2y$10$zNE7.5mYkM8WKd1fK8MNTu9Mumdr9oKkJ7OXk4epg46Lc5iVlxNOm', 5, 1, 3),
+(201601021, 'Marcello Dani Hansen', 'L', 'S1 Sistem Informasi', 'hansen123@gmail.com', '085555123123', 'default.jpg', '$2y$10$LXpn36MpNrIt3TzHivmeI.BDIAoqWua2lj8.ttnvAAeU79xSnyRBu', 5, 0, 10),
+(201601036, 'Fefiana', 'P', 'D3 Komputerisasi Akuntansi', 'fefiana@gmail.com', '081232123455', 'default.jpg', '$2y$10$vUUOQAMMddLNPLXv2TsErOWvqOENKJDcEDMa9GoAKGB57rsOy8CZG', 5, 1, 2),
+(201601038, 'Reno Fahmi', 'L', 'S1 Teknik Informatika', 'reno@gmail.com', '081223234566', 'default.jpg', '$2y$10$4fVFbZcaL5vI688YBc7iMuDQT91SW8LsAeD1a2xE/iRV/F1lcaivW', 5, 1, 8),
+(201601039, 'Yulieus Adi Pranoto', 'L', 'S1 Sistem Informasi', 'yuliusadi19@gmail.com', '081218990103', 'default.jpg', '$2y$10$GuBddu9N1VN9obcsUibWHOFLaYKxMWLmL0UL8tPtQ5VdsBdr5Vih2', 5, 1, 8),
+(201601044, 'Ridho Ramadhan', 'L', 'S1 Sistem Informasi', 'ridho123@gmail.com', '081232267583', 'default.jpg', '$2y$10$hBXw3Yz4KIl6.ibg3rRcpujDbYSkmFvibtzolcXNa/MXYtJJl69tW', 5, 1, 8),
+(201601045, 'Lala Wati', 'P', 'D3 Komputerisasi Akuntansi', 'lala123@gmail.com', '081232212345', '1559932732837.jpg', '$2y$10$5PW.e81iugLs.VuzoBZyHOcn8QO3htnHLpUlJAQuZzNnmUNT//xIi', 5, 1, 3),
+(201601046, 'Merli Amelia Anggraeni', 'P', 'S1 Sistem Informasi', 'merli123@gmail.com', '081234523412', 'default.jpg', '$2y$10$juW1jYi2XAzcxXrOet757OMbWv.FUlWItstqvImn6gSqnN8P/mJgS', 5, 1, 10),
+(201601051, 'Nabilla NF', 'P', 'S1 Teknik Multimedia dan Jaringan', 'nurfadillahnabilla@gmail.com', '0895634687760', '1560567398155.jpg', '$2y$10$5VFq9/Qu/nWORN.I0JTm.OMSOfcjTOCXvlZNVtli2gWkkIW6Uonoe', 5, 1, 3),
+(201601053, 'Nabilla Nur Fadillah', 'P', 'S1 Sistem Informasi', 'nabilla123@gmail.com', '0812345612', 'default.jpg', '$2y$10$Ufh2VSitphINUEmc7k3R5.hNstyK12XhsoC7nOBlxSC.O14ugedxW', 5, 1, 8),
+(201601056, 'Budi Anduk', 'L', 'S1 Sistem Informasi', 'budi345@gmail.com', '081223165123', '1557317977923.jpg', '$2y$10$Lrw/lpFrnc.l5BrvvRQ9Ye9bCidIzY/1g1qaLjl.oqqzwOfx2i0EW', 5, 1, 2),
+(201601062, 'Dudi Santosa', 'L', 'S1 Sistem Informasi', 'dudi@gmail.com', '081223234322', 'default.jpg', '$2y$10$SVZnG5r72pc6Nnrm8zY72OPOxZDCJOxMmnWtwH.PtsVEdypFy0I4y', 5, 1, 8),
+(201601084, 'Florentina Wua', 'P', 'S1 Teknik Multimedia dan Jaringan', 'florentinawua97@gmail.com', '081234567123', '15524969716642.jpg', '$2y$10$GMlodQmdsLRkqbfIRd9Jk.m5ewtg1qf.S.xnLBx81eBJNudcOXSqa', 5, 1, 3),
+(201701001, 'Hanit Jatmika', 'L', 'S1 Teknik Informatika', 'hanit123@gmail.com', '081212265444', 'default.jpg', '$2y$10$ql89G/U7K/f9kzJUBchQl.IWCqklxTWKJg3VGUyXb2AmcmFAMRTAW', 5, 0, 2),
+(201701030, 'Axel Haryanto', 'L', 'S1 Teknik Multimedia dan Jaringan', 'axel123@gmail.com', '081212156678', 'default.jpg', '$2y$10$F0E.BDL1Qd6DRe4BYyLTC.J9/mz97WpNiJk.5me2MVNP.mq6E9zVe', 5, 0, 3),
+(201801033, 'Doni Saputra', 'L', 'S1 Teknik Multimedia dan Jaringan', 'doni@gmail.com', '081223456789', 'default.jpg', '$2y$10$N6Lhy/F7hammwo9tMnrEeOtCmtihv.dSLKFf4nl8mGSNChn1cueYa', 5, 1, 8),
+(201801092, 'Nani Setya', 'L', 'S1 Teknik Multimedia dan Jaringan', 'nani@gmail.com', '083345672234', 'default.jpg', '$2y$10$r62EYuDbfgePBO82QgmG0O9AndTWgOT2Ztdy2nJN1brR3.E1VwJAa', 5, 1, 10);
 
 -- --------------------------------------------------------
 
@@ -139,6 +146,7 @@ CREATE TABLE `pimpinan` (
 
 INSERT INTO `pimpinan` (`nidn`, `name`, `password`, `jk`, `jabatan`, `email`, `hp`, `is_active`, `image`, `role_id`) VALUES
 (1234, 'Romanus Adi', '$2y$10$z1uHyF7hEpYgFbPo4RvP2eXK6sn622OPLpOHrNQiACS4q7138C806', 'L', 'Ketua STIKOM', 'romanus@romanus.com', '812345', 1, '1560567398155.jpg', 3),
+(654321, 'Antonius Ary Setyawan', '$2y$10$uiQdkodsA5XCNEU7n05PRepEtGINlEDcG9WKYLgSJVcG1UiEfFui.', 'L', 'PUKET III', 'ary@gmail.com', '876555', 1, '1557978185058.jpg', 3),
 (12763541, 'Ir. GH Sumartono', '$2y$10$BTYkC87nnoIEQtgnAX4SxOIKnpoKJYXk9GzPVYZEnkK.VLfA18.QW', 'L', 'PUKET I', 'Gh123@gmail.com', '081236573843', 1, 'default.jpg', 3),
 (87212345, 'Dhany Faizal', '$2y$10$U/nBecdWMtQaaba7cesf1uNSRp.YcB4CTuNr.eiPEJycgtrJR/r4e', 'L', 'PUKET II', 'Dhany123@gmail.com', '089667845234', 1, '1562350751927.jpg', 3);
 
@@ -329,7 +337,8 @@ ALTER TABLE `jurusan`
 -- Indexes for table `mahasiswa`
 --
 ALTER TABLE `mahasiswa`
-  ADD PRIMARY KEY (`nim`) USING BTREE;
+  ADD PRIMARY KEY (`nim`) USING BTREE,
+  ADD KEY `kode_jurusan` (`kode_jurusan`);
 
 --
 -- Indexes for table `pimpinan`
@@ -381,7 +390,7 @@ ALTER TABLE `user_token`
 -- AUTO_INCREMENT for table `jurusan`
 --
 ALTER TABLE `jurusan`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT for table `user`
 --
@@ -412,6 +421,16 @@ ALTER TABLE `user_sub_menu`
 --
 ALTER TABLE `user_token`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+--
+
+--
+-- Ketidakleluasaan untuk tabel `mahasiswa`
+--
+ALTER TABLE `mahasiswa`
+  ADD CONSTRAINT `mahasiswa_ibfk_1` FOREIGN KEY (`kode_jurusan`) REFERENCES `jurusan` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
