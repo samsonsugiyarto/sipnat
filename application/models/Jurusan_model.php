@@ -14,6 +14,16 @@ class Jurusan_model extends CI_model
         return $this->db->get_where('jurusan', ['id' => $id])->row_array();
     }
 
+    public function detailJurusanById($id)
+    {
+
+        $query = "SELECT nama_jurusan, COUNT(*) as total  
+        FROM mahasiswa INNER JOIN jurusan
+    ON mahasiswa.kode_jurusan = jurusan.id 
+    WHERE jurusan.id = $id";
+        return $this->db->query($query)->row_array();
+    }
+
     public function editJurusan()
     {
         $data = [

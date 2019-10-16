@@ -6,7 +6,8 @@
     <div class="card">
         <div class="card-body">
             <h5 class="card-title"><?= $jurusan['nama_jurusan']; ?></h5>
-            <p class="card-text"><?= $jurusan['jumlah_mhs']; ?></p>
+
+            <p class="card-text"><?= $jurusan['total']; ?></p>
             <a href="<?= base_url('operation'); ?>" class="btn btn-primary">Kembali</a>
         </div>
     </div>

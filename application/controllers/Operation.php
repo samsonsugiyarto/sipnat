@@ -32,14 +32,9 @@ class Operation extends CI_Controller
         ON mahasiswa.kode_jurusan = jurusan.id 
         GROUP BY nama_jurusan";
 
-
         $data['jumlah_mhs'] = $this->db->query($query)->result_array();
 
-
-
-
         $data['menu'] = $this->db->get('jurusan')->result_array();
-
 
         if ($this->form_validation->run() == false) {
             $this->load->view('templates/header', $data);
@@ -55,6 +50,26 @@ class Operation extends CI_Controller
             $this->session->set_flashdata('message', 'Ditambahkan!');
             redirect('operation');
         }
+    }
+
+    public function detailjurusan($id)
+    {
+        $data['title'] = 'Detail Jurusan';
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+        $data['namarole']  = $this->db->get_where('user_role', ['id' =>
+        $this->session->userdata('id')])->row_array();
+
+        $data['jurusan'] = $this->Jurusan_model->detailJurusanById($id);
+        
+        
+
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('operation/jurusan/detailjurusan', $data);
+        $this->load->view('templates/footer');
     }
 
     public function editjurusan($id)
@@ -85,6 +100,7 @@ class Operation extends CI_Controller
         }
     }
 
+
     public function hapusjurusan($id)
     {
 
@@ -92,8 +108,6 @@ class Operation extends CI_Controller
         $this->session->set_flashdata('message', 'Dihapus!');
         redirect('operation');
     }
-
-
 
     public function mahasiswa()
     {

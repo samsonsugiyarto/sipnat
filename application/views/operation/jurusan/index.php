@@ -57,6 +57,7 @@
                                         </button>
                                         <div class="dropdown-menu animated--fade-in" aria-labelledby="dropdownMenuButton">
                                             <a class="btn btn-warning btn-sm" href="<?= base_url() ?>operation/editjurusan/<?= $m['id']; ?>" class="badge badge-warning">edit</a>
+                                            <a class=" btn btn-success btn-sm " href="<?= base_url() ?>operation/detailjurusan/<?= $m['id']; ?>">detail</a>
                                             <a class=" btn btn-danger btn-sm tombol-hapusjur" href="<?= base_url() ?>operation/hapusjurusan/<?= $m['id']; ?>">hapus</a>
                                         </div>
                                     </div>
