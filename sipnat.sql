@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 15 Okt 2019 pada 18.52
+-- Generation Time: 17 Okt 2019 pada 07.29
 -- Versi Server: 10.1.13-MariaDB
 -- PHP Version: 7.0.6
 
@@ -72,6 +72,35 @@ INSERT INTO `jurusan` (`id`, `nama_jurusan`) VALUES
 (3, 'S1 Sistem Informasi'),
 (8, 'S1 Teknik Informatika'),
 (10, 'D3 Komputerisasi Akuntansi');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `kandidat`
+--
+
+CREATE TABLE `kandidat` (
+  `no_kandidat` int(20) NOT NULL,
+  `nama` varchar(100) NOT NULL,
+  `wakil` varchar(128) NOT NULL,
+  `jk_ketua` varchar(1) NOT NULL,
+  `jk_wakil` varchar(1) NOT NULL,
+  `email_ketua` varchar(128) NOT NULL,
+  `email_wakil` varchar(128) NOT NULL,
+  `hp_ketua` int(11) NOT NULL,
+  `hp_wakil` int(11) NOT NULL,
+  `visi` varchar(500) NOT NULL,
+  `misi` varchar(1000) NOT NULL,
+  `foto_ketua` varchar(128) NOT NULL,
+  `foto_wakil` varchar(128) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `kandidat`
+--
+
+INSERT INTO `kandidat` (`no_kandidat`, `nama`, `wakil`, `jk_ketua`, `jk_wakil`, `email_ketua`, `email_wakil`, `hp_ketua`, `hp_wakil`, `visi`, `misi`, `foto_ketua`, `foto_wakil`) VALUES
+(1, 'Feni Lestari', 'Agnes Shita', 'P', 'P', 'feni@gmail.com', 'shita@gmail.com', 87653, 98767, 'Menjadikan kampus yang sejahtera', '1. Mengadakan kegiatan baksos\r\n2. Mengadakan inisiasi', 'default.jpg', 'default.jpg');
 
 -- --------------------------------------------------------
 
@@ -146,7 +175,7 @@ CREATE TABLE `pimpinan` (
 --
 
 INSERT INTO `pimpinan` (`nidn`, `name`, `password`, `jk`, `jabatan`, `email`, `hp`, `is_active`, `image`, `role_id`) VALUES
-(1234, 'Romanus Adi', '$2y$10$z1uHyF7hEpYgFbPo4RvP2eXK6sn622OPLpOHrNQiACS4q7138C806', 'L', 'Ketua STIKOM', 'romanus@romanus.com', '812345', 1, '1560567398155.jpg', 3),
+(1234, 'Romanus Adi', '$2y$10$UpxqGSoQIRROMTjSRCnXlejtELRWI.fAeLlh35jSOYYTPggaw8KYK', 'L', 'Ketua STIKOM', 'romanus@romanus.com', '812345', 1, '1560567398155.jpg', 3),
 (123456, 'Dodo', '$2y$10$TYk2.mVL8kTDciJdvlgt5.LUT7MDeMNNw2Nuh0wI1eCA3PwEVki7y', 'L', 'puket', 'dodo@dodo.com', '123212', 1, 'Screenshot_(170).png', 3),
 (654321, 'Antonius Ary Setyawan', '$2y$10$uiQdkodsA5XCNEU7n05PRepEtGINlEDcG9WKYLgSJVcG1UiEfFui.', 'L', 'PUKET III', 'ary@gmail.com', '876555', 1, '1557978185058.jpg', 3),
 (12763541, 'Ir. GH Sumartono', '$2y$10$BTYkC87nnoIEQtgnAX4SxOIKnpoKJYXk9GzPVYZEnkK.VLfA18.QW', 'L', 'PUKET I', 'Gh123@gmail.com', '081236573843', 1, 'default.jpg', 3),
@@ -336,6 +365,12 @@ ALTER TABLE `jurusan`
   ADD PRIMARY KEY (`id`) USING BTREE;
 
 --
+-- Indexes for table `kandidat`
+--
+ALTER TABLE `kandidat`
+  ADD PRIMARY KEY (`no_kandidat`);
+
+--
 -- Indexes for table `mahasiswa`
 --
 ALTER TABLE `mahasiswa`
@@ -393,6 +428,11 @@ ALTER TABLE `user_token`
 --
 ALTER TABLE `jurusan`
   MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+--
+-- AUTO_INCREMENT for table `kandidat`
+--
+ALTER TABLE `kandidat`
+  MODIFY `no_kandidat` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `user`
 --
