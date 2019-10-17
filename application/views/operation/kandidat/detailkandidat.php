@@ -11,49 +11,53 @@
         </div>
     </div>
 
-    <div class="card mb-2 col-lg-10">
-        <div class="row no-gutters">
-            <div class="col-md-3">
-                <img src="<?= base_url('assets/img/profile/kandidat/') . $kandidat['foto_ketua']; ?>" class="card-img">
-            </div>
+    <div class="row justify-content-around">
 
-            <div class="col-md-3">
-                <div class="card-body">
-                    <h5 class="card-title"><b>Calon Ketua Senat</b></h5>
-                    <p class="card-text"> <?= $kandidat['nama']; ?></p>
-                    <p class="card-text"> <?= $kandidat['jk_ketua']; ?></p>
-                    <p class="card-text"> <?= $kandidat['email_ketua']; ?></p>
-                    <p class="card-text"> <?= $kandidat['hp_ketua']; ?></p>
+        <div class="card mb-3 col-lg-5">
+            <div class="row no-gutters">
+                <div class="col-md-6">
+                    <img src="<?= base_url('assets/img/profile/kandidat/') . $kandidat['foto_ketua']; ?>" class="card-img">
+                </div>
+                <div class="col-md-6">
+                    <div class="card-body">
+                        <h5 class="card-title"><b>Calon Ketua Senat</b></h5>
+                        <p class="card-text"> <?= $kandidat['nama']; ?></p>
+                        <p class="card-text"> <?= $kandidat['jk_ketua']; ?></p>
+                        <p class="card-text"> <?= $kandidat['email_ketua']; ?></p>
+                        <p class="card-text"> <?= $kandidat['hp_ketua']; ?></p>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-3">
-                <img src="<?= base_url('assets/img/profile/default.jpg'); ?>" class="card-img">
+        </div>
 
-            </div>
-
-            <div class="col-md-3">
-                <div class="card-body">
-                    <h5 class="card-title"><b>Calon Wakil Ketua</b></h5>
-                    <p class="card-text">No Kandidat 1</p>
-                    <p class="card-text">Agnes Shita</p>
-                    <p class="card-text">Perempuan</p>
-                    <p class="card-text">shita@gmail.com</p>
-                    <p class="card-text">080563</p>
+        <div class="card mb-3 col-lg-5">
+            <div class="row no-gutters">
+                <div class="col-md-6">
+                    <img src="<?= base_url('assets/img/profile/kandidat/') . $kandidat['foto_wakil']; ?>" class="card-img">
+                </div>
+                <div class="col-md-6">
+                    <div class="card-body">
+                        <h5 class="card-title"><b>Calon Wakil Ketua</b></h5>
+                        <p class="card-text"><?= $kandidat['wakil']; ?></p>
+                        <p class="card-text"><?= $kandidat['jk_wakil']; ?></p>
+                        <p class="card-text"><?= $kandidat['email_wakil']; ?></p>
+                        <p class="card-text"><?= $kandidat['hp_wakil']; ?></p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <br>
+
+
     <h5><b>Visi</b></h5>
-    <p>Menjadikan kampus yang humanis</p>
+    <p class="col-6"><?= $kandidat['visi']; ?></p>
     <br>
     <h5><b>Misi</b></h5>
-    <p>1. Menjadikan kampus yang humanis</p>
-    <p>2. Menjadikan kampus yang humanis</p>
-    <p>3. Menjadikan kampus yang humanis</p>
+    <p class="col-6"><?= $kandidat['misi']; ?></p>
+
     <br>
     <h5><b>Uraian</b></h5>
-    <p>Bersama kami, kampus pasti sejatera.... :)</p>
+    <p class="col-6"><?= $kandidat['uraian']; ?></p>
 
 </div>
 <!-- /.container-fluid -->
