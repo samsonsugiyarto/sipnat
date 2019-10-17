@@ -27,9 +27,16 @@
 
                           <?= base_url('assets/img/profile/') . $user['image']; ?>
 
+                          <?php elseif ($user['role_id'] == 3) : ?>
+                          <?= base_url('assets/img/profile/pimpinan/') . $user['image']; ?>
+                          
+                          <?php elseif ($user['role_id'] == 4) : ?>
+                          <?= base_url('assets/img/profile/dosen/') . $user['image']; ?>
+
                           <?php elseif ($user['role_id'] == 5) : ?>
                           <?= base_url('assets/img/profile/mahasiswa/') . $user['image']; ?>
-
+                          
+                      
                           <?php endif; ?>
                           ">
                       </a>

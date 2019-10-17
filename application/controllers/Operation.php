@@ -11,6 +11,7 @@ class Operation extends CI_Controller
         $this->load->model('Mahasiswa_model');
         $this->load->model('Dosen_model');
         $this->load->model('Pimpinan_model');
+        $this->load->model('Kandidat_model');
     }
 
     public function index()
@@ -61,8 +62,8 @@ class Operation extends CI_Controller
         $this->session->userdata('id')])->row_array();
 
         $data['jurusan'] = $this->Jurusan_model->detailJurusanById($id);
-        
-        
+
+
 
 
         $this->load->view('templates/header', $data);
@@ -476,6 +477,7 @@ class Operation extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
+        $data['kandidat'] = $this->Kandidat_model->getAllKandidat();
         $data['namarole']  = $this->db->get_where('user_role', ['id' =>
         $this->session->userdata('id')])->row_array();
 
@@ -485,11 +487,14 @@ class Operation extends CI_Controller
         $this->load->view('operation/kandidat/kandidat', $data);
         $this->load->view('templates/footer');
     }
-    public function detailkandidat()
+    public function detailkandidat($no_kandidat)
     {
         $data['title'] = 'Detail Kandidat';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
+
+        $data['kandidat'] = $this->Kandidat_model->getKandidatById($no_kandidat);
+
 
         $data['namarole']  = $this->db->get_where('user_role', ['id' =>
         $this->session->userdata('id')])->row_array();

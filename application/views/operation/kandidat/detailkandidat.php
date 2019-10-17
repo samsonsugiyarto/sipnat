@@ -3,6 +3,7 @@
 
     <!-- Page Heading -->
     <h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1>
+    <h6 class="h5 mb-2"> No Kandidat <?= $kandidat['no_kandidat']; ?></h6>
 
     <div class="row">
         <div class="col-lg-8">
@@ -13,18 +14,16 @@
     <div class="card mb-2 col-lg-10">
         <div class="row no-gutters">
             <div class="col-md-3">
-                <img src="<?= base_url('assets/img/profile/default.jpg'); ?>" class="card-img">
-
+                <img src="<?= base_url('assets/img/profile/kandidat/') . $kandidat['foto_ketua']; ?>" class="card-img">
             </div>
 
             <div class="col-md-3">
                 <div class="card-body">
                     <h5 class="card-title"><b>Calon Ketua Senat</b></h5>
-                    <p class="card-text">No Kandidat 1</p>
-                    <p class="card-text">Feni Lestari</p>
-                    <p class="card-text">Perempuan</p>
-                    <p class="card-text">feni@gmail.com</p>
-                    <p class="card-text">089563</p>
+                    <p class="card-text"> <?= $kandidat['nama']; ?></p>
+                    <p class="card-text"> <?= $kandidat['jk_ketua']; ?></p>
+                    <p class="card-text"> <?= $kandidat['email_ketua']; ?></p>
+                    <p class="card-text"> <?= $kandidat['hp_ketua']; ?></p>
                 </div>
             </div>
             <div class="col-md-3">

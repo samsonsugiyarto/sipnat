@@ -19,12 +19,19 @@
             <?= $this->session->flashdata('message'); ?>
 
             <a href="<?= base_url('operation/tambahkandidat'); ?>" class="btn btn-primary mb-3">Tambah Kandidat</a>
-            <table class="table table-hover">
-                <thead>
+            <table class="table table-bordered table-hover" id="dataTable">
+                <thead class="thead-dark">
                     <tr>
                         <th scope="col">No</th>
                         <th scope="col">No Kandidat</th>
                         <th scope="col">Nama</th>
+
+                        <th scope="col">Jenis Kelamin</th>
+
+                        <th scope="col">Email</th>
+
+                        <th scope="col">No HP</th>
+
                         <th scope="col">Visi</th>
                         <th scope="col">Misi</th>
                         <th scope="col">Opsi</th>
@@ -32,20 +39,36 @@
                 </thead>
                 <tbody>
 
-                    <tr>
+                    <?php $i = 1; ?>
+                    <?php foreach ($kandidat as $kan) : ?>
 
-                        <td>1</td>
-                        <td>1</td>
-                        <td>Feni Lestari</td>
-                        <td>Menjadikan kampus yang humanis</td>
-                        <td>Menjadikan kampus yang humanis</td>
-                        <td>
-                            <a href="<?= base_url('operation/detailkandidat'); ?>" class="badge badge-warning">detail</a>
-                            <a href="<?= base_url('operation/editkandidat'); ?>" class="badge badge-success">edit</a>
-                            <a href="" class="badge badge-danger" data-toggle="modal" data-target="#hapusModal">hapus</a>
-                        </td>
-                    </tr>
+                        <tr>
+                            <th scope="row"><?= $i; ?></th>
+                            <td><?= $kan['no_kandidat']; ?></td>
+                            <td><?= $kan['nama']; ?></td>
+                            <td><?= $kan['jk_ketua']; ?></td>
 
+                            <td><?= $kan['email_ketua']; ?></td>
+                            <td><?= $kan['hp_ketua']; ?></td>
+                            <td><?= $kan['visi']; ?></td>
+                            <td><?= $kan['misi']; ?></td>
+
+
+                            <td>
+                                <div class="dropdown ">
+                                    <button class="btn btn-primary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        opsi
+                                    </button>
+                                    <div class="dropdown-menu animated--fade-in" aria-labelledby="dropdownMenuButton">
+                                        <a class=" btn btn-success btn-sm" href="<?= base_url() ?>operation/detailkandidat/<?= $kan['no_kandidat']; ?>">detail</a>
+                                        <a class="btn btn-warning btn-sm" href="<?= base_url() ?>operation/editkandidat/<?= $kan['no_kandidat']; ?>">edit</a>
+                                        <a class="btn btn-danger btn-sm tombol-hapuskan" href="<?= base_url() ?>operation/hapuskandidat/<?= $kan['no_kandidat']; ?>">edit</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <?php $i++; ?>
+                    <?php endforeach; ?>
 
                 </tbody>
             </table>
