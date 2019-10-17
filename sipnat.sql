@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 17 Okt 2019 pada 07.29
+-- Generation Time: 17 Okt 2019 pada 11.16
 -- Versi Server: 10.1.13-MariaDB
 -- PHP Version: 7.0.6
 
@@ -92,15 +92,16 @@ CREATE TABLE `kandidat` (
   `visi` varchar(500) NOT NULL,
   `misi` varchar(1000) NOT NULL,
   `foto_ketua` varchar(128) NOT NULL,
-  `foto_wakil` varchar(128) NOT NULL
+  `foto_wakil` varchar(128) NOT NULL,
+  `uraian` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `kandidat`
 --
 
-INSERT INTO `kandidat` (`no_kandidat`, `nama`, `wakil`, `jk_ketua`, `jk_wakil`, `email_ketua`, `email_wakil`, `hp_ketua`, `hp_wakil`, `visi`, `misi`, `foto_ketua`, `foto_wakil`) VALUES
-(1, 'Feni Lestari', 'Agnes Shita', 'P', 'P', 'feni@gmail.com', 'shita@gmail.com', 87653, 98767, 'Menjadikan kampus yang sejahtera', '1. Mengadakan kegiatan baksos\r\n2. Mengadakan inisiasi', 'default.jpg', 'default.jpg');
+INSERT INTO `kandidat` (`no_kandidat`, `nama`, `wakil`, `jk_ketua`, `jk_wakil`, `email_ketua`, `email_wakil`, `hp_ketua`, `hp_wakil`, `visi`, `misi`, `foto_ketua`, `foto_wakil`, `uraian`) VALUES
+(1, 'Feni Lestari', 'Agnes Shita', 'P', 'P', 'feni@gmail.com', 'shita@gmail.com', 87653, 98767, 'Menjadikan kampus yang sejahtera', '1. Mengadakan kegiatan baksos <br>\r\n2. Mengadakan inisiasi', 'default.jpg', 'default.jpg', 'Halo, perkenalkan kami dari calon kandidat nomor 1 supaya teman-teman dapat memilih kami sebagai ketua dan wakil ketua pada periode saat ini, jangan lupa pilih nomor 1...');
 
 -- --------------------------------------------------------
 
