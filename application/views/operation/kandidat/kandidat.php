@@ -22,19 +22,19 @@
             <?php endif; ?>
 
 
-            <a href="<?= base_url('operation/tambahkandidat'); ?>" class="btn btn-primary mb-3">Tambah Kandidat</a>
+            <a href="<?= base_url('operation/tambahkandidat'); ?>" class="btn btn-success mb-3">Tambah Kandidat</a>
             <table class="table table-bordered table-hover" id="dataTable">
                 <thead class="thead-dark">
                     <tr>
                         <th scope="col">No</th>
-                        <th scope="col">No Kandidat</th>
+                        <th scope="col">No.K</th>
                         <th scope="col">Nama</th>
 
-                        <th scope="col">Jenis Kelamin</th>
+                        <th scope="col">JK</th>
 
                         <th scope="col">Email</th>
 
-                        <th scope="col">No HP</th>
+                        <th scope="col">HP</th>
 
                         <th scope="col">Visi</th>
                         <th scope="col">Misi</th>

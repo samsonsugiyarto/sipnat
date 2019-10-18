@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 18 Okt 2019 pada 07.35
+-- Generation Time: 18 Okt 2019 pada 19.21
 -- Versi Server: 10.1.13-MariaDB
 -- PHP Version: 7.0.6
 
@@ -102,12 +102,8 @@ CREATE TABLE `kandidat` (
 
 INSERT INTO `kandidat` (`no_kandidat`, `nama`, `wakil`, `jk_ketua`, `jk_wakil`, `email_ketua`, `email_wakil`, `hp_ketua`, `hp_wakil`, `visi`, `misi`, `foto_ketua`, `foto_wakil`, `uraian`) VALUES
 (1, 'Feni Lestari', 'Agnes Shita', 'P', 'P', 'feni@gmail.com', 'shita@gmail.com', 87653, 98767, 'Menjadikan kampus yang sejahtera', '1. Mengadakan kegiatan baksos <br>\r\n2. Mengadakan inisiasi', 'default.jpg', 'default.jpg', 'Halo, perkenalkan kami dari calon kandidat nomor 1 supaya teman-teman dapat memilih kami sebagai ketua dan wakil ketua pada periode saat ini, jangan lupa pilih nomor 1...'),
-(2, 'Axel Haryanto', 'Eva Ratna', 'L', 'P', 'axel@gmail.com', 'eva@gmail.com', 987, 9875, 'Menjadikan kampus yang humanis', '1. Mengadakan lomba-lomba <br>\r\n2. Mengadakan LDK', '12.jpg', 'IMG-20171211-WA0026.jpg', 'Coblos kami!!!!!!'),
-(3, 'Hanit Jatmika', 'Vebi', 'L', 'P', 'hanit@gmail.com', 'vebi@gmail.com', 898765, 8618990, 'Menjadikan kampus impian', '1. Mengadakan baksos <br>\r\n2. Mengadakan studi banding', 'IMG-20171211-WA0010.jpg', 'IMG-20171211-WA0031.jpg', 'Pilih kami, kampus akan sejahtera.....'),
-(4, 'upil', 'aye', 'P', 'L', 'hughu@gjgj.dcdc', 'cdcjg@gugu.efec', 78797, 79979, 'khihcjhodcd', 'xsbjcbscbsjbcjs', 'default.jpg', 'default.jpg', 'xsxnksnk'),
-(5, 'cedce', 'cdcd', 'L', 'L', 'dwdcw@efefe.efe', 'de@edfe.fef', 232, 322, 'ded', 'defefe', 'default.jpg', 'default.jpg', 'dede'),
-(6, 'fefef', 'dcdeced', 'L', 'L', 'ded@edfefe.efe', 'dede@cdc.cec', 72722, 323, 'dcdvc', 'dede', 'default.jpg', 'default.jpg', 'dededed'),
-(7, 'upil', 'Eva Ratna', 'L', 'L', 'axol@gmail.com', 'diiii@edfe.fef', 987, 8618990, 'Menjadikan kampus impian', 'bvjbj', 'default.jpg', 'default.jpg', 'n n');
+(2, 'Hanit Jatmika', 'Ratna eva', 'L', 'P', 'hanit@gmail.com', 'eva123@gmail.com', 2147483647, 2147483647, 'Menjadikan kampus yang humanis', '1. ikut serta kegiatan kampus <br>\r\n2. mengadakan baksos', 'avatar1.png', 'img3.png', 'jangan lupa pilih kami no 2!!!'),
+(3, 'Axel Haryanto', 'Vebi', 'L', 'P', 'axel@gmail.com', 'vebi123@gmail.com', 2147483647, 2147483647, 'Menjadikan kampus yang unggul', '1. Mengadakan Bukber <br>\r\n2. Mengadakan upacara 17 Agustus', '1557978184889.jpg', 'img1.png', 'jangan lupa pilih no 3');
 
 -- --------------------------------------------------------
 
@@ -249,7 +245,9 @@ INSERT INTO `user_access_menu` (`id`, `role_id`, `menu_id`) VALUES
 (35, 3, 10),
 (39, 2, 1),
 (40, 1, 15),
-(41, 1, 16);
+(41, 1, 16),
+(43, 1, 9),
+(44, 1, 10);
 
 -- --------------------------------------------------------
 
@@ -440,7 +438,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `user_access_menu`
 --
 ALTER TABLE `user_access_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 --
 -- AUTO_INCREMENT for table `user_menu`
 --

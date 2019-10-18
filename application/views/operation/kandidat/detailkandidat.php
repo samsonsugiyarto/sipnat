@@ -3,13 +3,18 @@
 
     <!-- Page Heading -->
     <h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1>
-    <h6 class="h5 mb-2"> No Kandidat <?= $kandidat['no_kandidat']; ?></h6>
+
 
     <div class="row">
         <div class="col-lg-8">
             <?= $this->session->flashdata('message'); ?>
         </div>
     </div>
+
+    <div class="row justify-content-center">
+        <h4 class=" mb-4" style="font-weight: bold;">KANDIDAT <?= $kandidat['no_kandidat']; ?></h4>
+    </div>
+
 
     <div class="row justify-content-around">
 
@@ -49,15 +54,29 @@
     </div>
 
 
-    <h5><b>Visi</b></h5>
-    <p class="col-6"><?= $kandidat['visi']; ?></p>
-    <br>
-    <h5><b>Misi</b></h5>
-    <p class="col-6"><?= $kandidat['misi']; ?></p>
+    <div class="row justify-content-center mt-3">
+        <div class="col-">
+            <h5><b>Visi</b></h5>
+        </div>
+    </div>
+    <div class="row justify-content-center ">
+        <div class="col-">
+            <p><?= $kandidat['visi']; ?></p>
+        </div>
+    </div>
+    <div class="row justify-content-end">
+        <div class="col-11">
+            <h5><b>Misi</b></h5>
+            <p class="col-6"><?= $kandidat['misi']; ?></p>
+        </div>
+    </div>
+    <div class="row justify-content-end">
+        <div class="col-11">
+            <h5><b>Uraian</b></h5>
+            <p class="col-6"><?= $kandidat['uraian']; ?></p>
+        </div>
+    </div>
 
-    <br>
-    <h5><b>Uraian</b></h5>
-    <p class="col-6"><?= $kandidat['uraian']; ?></p>
 
 </div>
 <!-- /.container-fluid -->

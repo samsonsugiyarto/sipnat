@@ -559,6 +559,15 @@ class Operation extends CI_Controller
         }
     }
 
+    public function hapuskandidat($no_kandidat)
+    {
+        $kandidat = $this->Kandidat_model->getKandidatById($no_kandidat);
+
+        $this->Kandidat_model->hapusDataKandidat($no_kandidat, $kandidat);
+        $this->session->set_flashdata('message', 'Dihapus!');
+        redirect('operation/Kandidat');
+    }
+
     public function riwayat()
     {
         $data['title'] = 'Riwayat';

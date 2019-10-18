@@ -70,11 +70,23 @@ class Kandidat_model extends CI_Model
             'foto_ketua' => $this->uploadketua(),
             'foto_wakil' => $this->uploadwakil(),
             'uraian' => $this->input->post('uraian', true)
-
-
-
         ];
 
         $this->db->insert('kandidat', $data);
+    }
+
+    public function hapusDataKandidat($no_kandidat, $kandidat)
+    {
+        $old_image = $kandidat['foto_ketua'];
+        $old_image2 = $kandidat['foto_wakil'];
+        if ($old_image != 'default.jpg') {
+            unlink(FCPATH . 'assets/img/profile/kandidat/' . $old_image);
+        }
+        if ($old_image2 != 'default.jpg') {
+            unlink(FCPATH . 'assets/img/profile/kandidat/' . $old_image2);
+        }
+
+        //$this->db->where('id', $id);
+        $this->db->delete('kandidat', ['no_kandidat' => $no_kandidat]);
     }
 }
