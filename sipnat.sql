@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 17 Okt 2019 pada 11.16
+-- Generation Time: 18 Okt 2019 pada 07.35
 -- Versi Server: 10.1.13-MariaDB
 -- PHP Version: 7.0.6
 
@@ -101,7 +101,13 @@ CREATE TABLE `kandidat` (
 --
 
 INSERT INTO `kandidat` (`no_kandidat`, `nama`, `wakil`, `jk_ketua`, `jk_wakil`, `email_ketua`, `email_wakil`, `hp_ketua`, `hp_wakil`, `visi`, `misi`, `foto_ketua`, `foto_wakil`, `uraian`) VALUES
-(1, 'Feni Lestari', 'Agnes Shita', 'P', 'P', 'feni@gmail.com', 'shita@gmail.com', 87653, 98767, 'Menjadikan kampus yang sejahtera', '1. Mengadakan kegiatan baksos <br>\r\n2. Mengadakan inisiasi', 'default.jpg', 'default.jpg', 'Halo, perkenalkan kami dari calon kandidat nomor 1 supaya teman-teman dapat memilih kami sebagai ketua dan wakil ketua pada periode saat ini, jangan lupa pilih nomor 1...');
+(1, 'Feni Lestari', 'Agnes Shita', 'P', 'P', 'feni@gmail.com', 'shita@gmail.com', 87653, 98767, 'Menjadikan kampus yang sejahtera', '1. Mengadakan kegiatan baksos <br>\r\n2. Mengadakan inisiasi', 'default.jpg', 'default.jpg', 'Halo, perkenalkan kami dari calon kandidat nomor 1 supaya teman-teman dapat memilih kami sebagai ketua dan wakil ketua pada periode saat ini, jangan lupa pilih nomor 1...'),
+(2, 'Axel Haryanto', 'Eva Ratna', 'L', 'P', 'axel@gmail.com', 'eva@gmail.com', 987, 9875, 'Menjadikan kampus yang humanis', '1. Mengadakan lomba-lomba <br>\r\n2. Mengadakan LDK', '12.jpg', 'IMG-20171211-WA0026.jpg', 'Coblos kami!!!!!!'),
+(3, 'Hanit Jatmika', 'Vebi', 'L', 'P', 'hanit@gmail.com', 'vebi@gmail.com', 898765, 8618990, 'Menjadikan kampus impian', '1. Mengadakan baksos <br>\r\n2. Mengadakan studi banding', 'IMG-20171211-WA0010.jpg', 'IMG-20171211-WA0031.jpg', 'Pilih kami, kampus akan sejahtera.....'),
+(4, 'upil', 'aye', 'P', 'L', 'hughu@gjgj.dcdc', 'cdcjg@gugu.efec', 78797, 79979, 'khihcjhodcd', 'xsbjcbscbsjbcjs', 'default.jpg', 'default.jpg', 'xsxnksnk'),
+(5, 'cedce', 'cdcd', 'L', 'L', 'dwdcw@efefe.efe', 'de@edfe.fef', 232, 322, 'ded', 'defefe', 'default.jpg', 'default.jpg', 'dede'),
+(6, 'fefef', 'dcdeced', 'L', 'L', 'ded@edfefe.efe', 'dede@cdc.cec', 72722, 323, 'dcdvc', 'dede', 'default.jpg', 'default.jpg', 'dededed'),
+(7, 'upil', 'Eva Ratna', 'L', 'L', 'axol@gmail.com', 'diiii@edfe.fef', 987, 8618990, 'Menjadikan kampus impian', 'bvjbj', 'default.jpg', 'default.jpg', 'n n');
 
 -- --------------------------------------------------------
 
@@ -128,10 +134,7 @@ CREATE TABLE `mahasiswa` (
 --
 
 INSERT INTO `mahasiswa` (`nim`, `name`, `jk`, `jurusan`, `email`, `hp`, `image`, `password`, `role_id`, `is_active`, `kode_jurusan`) VALUES
-(3434, 'fdfd', 'L', '', 'yuliusadid19@gmail.com', '081218990103', 'default.jpg', '$2y$10$XxO8rpJW1WrdZrbJFUf3FOxQamr5n7xYnyy4dyw5LBQq0JyFzOeBG', 5, 1, 2),
-(20150107, 'Tuti Putria', 'P', 'S1 Sistem Informasi', 'tuti@gmail.com', '082122123456', '15599327328371.jpg', '$2y$10$iLSjZiRLPau54NotGY7IAOlpDCtYSYYJEFmSPEd0tUjb78Jr0RSPy', 5, 1, 2),
 (201501003, 'Peni Pambudi', 'L', 'S1 Teknik Informatika', 'peni@gmail.com', '082113234455', '', '$2y$10$xCm68KnaNuPK8OZG3me8wO1kaszTmoX53TcI9ZZjNF7mYwgFuyIR6', 5, 1, 8),
-(201501009, 'Pipo', 'L', 'S1 Teknik Multimedia dan Jaringan', 'pipo@gmail.com', '09876543', '1566181413822.jpg', '$2y$10$k2N9YFGI2Vs1N8GVzlg8fudslldTGzKya2Gzh5fSISgxX0HjWj9vW', 5, 1, 2),
 (201501054, 'Rudi Priyanto', 'L', 'S1 Teknik Informatika', 'rudi@rudi.com', '081222178545', '1556787854623.jpg', '$2y$10$RHbyDPD6WBCzZiLuql708eiq/7S371DQA99pkH9i/gNRLCLFBiBtq', 5, 1, 8),
 (201601007, 'Foustino Asprila Gunantara', 'L', 'S1 Sistem Informasi', 'fousas@gmail.com', '085333322151', 'default.jpg', '$2y$10$Ksd37r.kiw/Z/DzSsz1cqeywmJ6apbHP.UN6JGRc5rjkOPFg7UJnS', 5, 1, 2),
 (201601020, 'Theofilus Geon Tjeme', 'L', 'S1 Sistem Informasi', 'geon123@gmail.com', '081231234451', '1562350746250.jpg', '$2y$10$zNE7.5mYkM8WKd1fK8MNTu9Mumdr9oKkJ7OXk4epg46Lc5iVlxNOm', 5, 1, 3),
@@ -177,7 +180,6 @@ CREATE TABLE `pimpinan` (
 
 INSERT INTO `pimpinan` (`nidn`, `name`, `password`, `jk`, `jabatan`, `email`, `hp`, `is_active`, `image`, `role_id`) VALUES
 (1234, 'Romanus Adi', '$2y$10$UpxqGSoQIRROMTjSRCnXlejtELRWI.fAeLlh35jSOYYTPggaw8KYK', 'L', 'Ketua STIKOM', 'romanus@romanus.com', '812345', 1, '1560567398155.jpg', 3),
-(123456, 'Dodo', '$2y$10$TYk2.mVL8kTDciJdvlgt5.LUT7MDeMNNw2Nuh0wI1eCA3PwEVki7y', 'L', 'puket', 'dodo@dodo.com', '123212', 1, 'Screenshot_(170).png', 3),
 (654321, 'Antonius Ary Setyawan', '$2y$10$uiQdkodsA5XCNEU7n05PRepEtGINlEDcG9WKYLgSJVcG1UiEfFui.', 'L', 'PUKET III', 'ary@gmail.com', '876555', 1, '1557978185058.jpg', 3),
 (12763541, 'Ir. GH Sumartono', '$2y$10$BTYkC87nnoIEQtgnAX4SxOIKnpoKJYXk9GzPVYZEnkK.VLfA18.QW', 'L', 'PUKET I', 'Gh123@gmail.com', '081236573843', 1, 'default.jpg', 3),
 (87212345, 'Dhany Faizal', '$2y$10$U/nBecdWMtQaaba7cesf1uNSRp.YcB4CTuNr.eiPEJycgtrJR/r4e', 'L', 'PUKET II', 'Dhany123@gmail.com', '089667845234', 1, '1562350751927.jpg', 3);
@@ -429,11 +431,6 @@ ALTER TABLE `user_token`
 --
 ALTER TABLE `jurusan`
   MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
---
--- AUTO_INCREMENT for table `kandidat`
---
-ALTER TABLE `kandidat`
-  MODIFY `no_kandidat` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `user`
 --
