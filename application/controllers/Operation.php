@@ -525,14 +525,38 @@ class Operation extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
+        $this->form_validation->set_rules('nokandidat', 'No Kandidat', 'required|trim|is_unique[kandidat.no_kandidat]', [
+            'is_unique' => 'This no kandidat has already registered!'
+        ]);
+        $this->form_validation->set_rules('namalengkapketua', 'Nama Lengkap Ketua', 'required|trim');
+        $this->form_validation->set_rules('namalengkapwakil', 'Nama Lengkap Wakil', 'required|trim');
+        $this->form_validation->set_rules('email_ketua', 'Email Ketua', 'required|trim|valid_email|is_unique[kandidat.email_ketua]', [
+            'is_unique' => 'This email ketua has already registered!'
+        ]);
+        $this->form_validation->set_rules('email_wakil', 'Email Ketua', 'required|trim|valid_email|is_unique[kandidat.email_wakil]', [
+            'is_unique' => 'This email wakil has already registered!'
+        ]);
+        $this->form_validation->set_rules('hp_ketua', 'HP Ketua', 'required|trim');
+        $this->form_validation->set_rules('hp_wakil', 'HP Wakil', 'required|trim');
+        $this->form_validation->set_rules('visi', 'Visi', 'required|trim');
+        $this->form_validation->set_rules('misi', 'Misi', 'required|trim');
+        $this->form_validation->set_rules('uraian', 'Uraian', 'required|trim');
+
+
         $data['namarole']  = $this->db->get_where('user_role', ['id' =>
         $this->session->userdata('id')])->row_array();
 
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar', $data);
-        $this->load->view('templates/topbar', $data);
-        $this->load->view('operation/kandidat/tambahkandidat', $data);
-        $this->load->view('templates/footer');
+        if ($this->form_validation->run() == false) {
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('operation/kandidat/tambahkandidat', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $this->Kandidat_model->tambahDataKandidat();
+            $this->session->set_flashdata('message', 'Ditambahkan!');
+            redirect('operation/kandidat');
+        }
     }
 
     public function riwayat()

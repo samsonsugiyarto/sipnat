@@ -7,18 +7,18 @@
     <div class="row">
         <div class="col-lg-8">
 
-            <?= form_open_multipart('user/edit'); ?>
+            <?= form_open_multipart('operation/tambahkandidat'); ?>
             <div class="form-group row">
                 <label for="nokandidat" class="col-sm-3 col-form-label">No Kandidat</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" id="nokandidat" name="nokandidat" value="<?= set_value('nokandidat'); ?>">
+                    <input type="text" class="form-control" id="nokandidat" name="nokandidat" placeholder="isikan no kandidat" value="<?= set_value('nokandidat'); ?>">
                     <?= form_error('nokandidat', ' <small class="text-danger pl-3">', '</small>'); ?>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="namalengkapketua" class="col-sm-3 col-form-label">Nama Lengkap Ketua</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" id="namalengkapketua" name="namalengkapketua" value="<?= set_value('namalengkapketua'); ?>">
+                    <input type="text" class="form-control" id="namalengkapketua" name="namalengkapketua" placeholder="isikan nama lengkap ketua" value="<?= set_value('namalengkapketua'); ?>">
                     <?= form_error('namalengkapketua', ' <small class="text-danger pl-3">', '</small>'); ?>
                 </div>
             </div>
@@ -26,7 +26,7 @@
             <div class="form-group row">
                 <label for="namalengkapwakil" class="col-sm-3 col-form-label">Nama Lengkap Wakil</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" id="namalengkapwakil" name="namalengkapwakil" value="<?= set_value('namalengkapwakil'); ?>">
+                    <input type="text" class="form-control" id="namalengkapwakil" name="namalengkapwakil" placeholder="isikan nama lengkap wakil" value="<?= set_value('namalengkapwakil'); ?>">
                     <?= form_error('namalengkapwakil', ' <small class="text-danger pl-3">', '</small>'); ?>
                 </div>
             </div>
@@ -55,45 +55,43 @@
             <div class="form-group row">
                 <label for="email_ketua" class="col-sm-3 col-form-label">Email Ketua</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" id="email_ketua" name="email_ketua" value="<?= set_value('email_ketua'); ?>">
+                    <input type="text" class="form-control" id="email_ketua" name="email_ketua" placeholder="isikan email ketua" value="<?= set_value('email_ketua'); ?>">
                     <?= form_error('email_ketua', ' <small class="text-danger pl-3">', '</small>'); ?>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="email_wakil" class="col-sm-3 col-form-label">Email Wakil</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" id="email_wakil" name="email_wakil" value="<?= set_value('email_wakil'); ?>">
+                    <input type="text" class="form-control" id="email_wakil" name="email_wakil" placeholder="isikan email wakil" value="<?= set_value('email_wakil'); ?>">
                     <?= form_error('email_wakil', ' <small class="text-danger pl-3">', '</small>'); ?>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="hp_ketua" class="col-sm-3 col-form-label">Hp Ketua</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" id="hp_ketua" name="hp_ketua" value="<?= set_value('hp_ketua'); ?>">
+                    <input type="text" class="form-control" id="hp_ketua" name="hp_ketua" placeholder="isikan no hp ketua" value="<?= set_value('hp_ketua'); ?>">
                     <?= form_error('hp_ketua', ' <small class="text-danger pl-3">', '</small>'); ?>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="hp_wakil" class="col-sm-3 col-form-label">Hp wakil</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" id="hp_wakil" name="hp_wakil" value="<?= set_value('hp_wakil'); ?>">
+                    <input type="text" class="form-control" id="hp_wakil" name="hp_wakil" placeholder="isikan no hp wakil" value="<?= set_value('hp_wakil'); ?>">
                     <?= form_error('hp_wakil', ' <small class="text-danger pl-3">', '</small>'); ?>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="visi" class="col-sm-3 col-form-label">Visi</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" id="visi" name="visi" value="<?= set_value('visi'); ?>">
+                    <input type="text" class="form-control" id="visi" name="visi" placeholder="isikan visi" value="<?= set_value('visi'); ?>">
                     <?= form_error('visi', ' <small class="text-danger pl-3">', '</small>'); ?>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="misi" class="col-sm-3 col-form-label">Misi</label>
                 <div class="col-sm-6">
-                    <textarea class="form-control" id="misi" name="misi" rows="5" value="<?= set_value('misi'); ?>">
+                    <textarea class="form-control" id="misi" name="misi" placeholder="isikan misi" rows="5"><?= set_value('misi'); ?></textarea>
                     <?= form_error('misi', ' <small class="text-danger pl-3">', '</small>'); ?>
-
-                    </textarea>
                 </div>
             </div>
             <div class="form-group row">
@@ -131,7 +129,9 @@
             <div class="form-group row">
                 <label for="uraian" class="col-sm-3 col-form-label">Uraian</label>
                 <div class="col-sm-8">
-                    <textarea class="form-control" id="uraian" name="uraian" rows="8"></textarea>
+                    <textarea class="form-control" id="uraian" name="uraian" rows="8" placeholder="isikan uraian..."><?= set_value('uraian'); ?></textarea>
+                    <?= form_error('uraian', ' <small class="text-danger pl-3">', '</small>'); ?>
+
                 </div>
             </div>
             <div class="form-group row justify-content-end">

@@ -119,6 +119,7 @@
    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
    <script src="<?= base_url('assets/js/sweetalert/sweetalert2.all.min.js'); ?>"></script>
    <script src="<?= base_url('assets/js/scriptsweet.js'); ?>"></script>
+   <script src="<?= base_url('assets/js/sweet2.js'); ?>"></script>
 
    </body>
 

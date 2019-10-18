@@ -16,7 +16,11 @@
 
             <?php endif; ?>
 
-            <?= $this->session->flashdata('message'); ?>
+            <?php if ($this->session->flashdata('message')) : ?>
+
+                <div class="flashkandidat" data-flashkandidat="<?= $this->session->flashdata('message'); ?>"></div>
+            <?php endif; ?>
+
 
             <a href="<?= base_url('operation/tambahkandidat'); ?>" class="btn btn-primary mb-3">Tambah Kandidat</a>
             <table class="table table-bordered table-hover" id="dataTable">
@@ -62,7 +66,7 @@
                                     <div class="dropdown-menu animated--fade-in" aria-labelledby="dropdownMenuButton">
                                         <a class=" btn btn-success btn-sm" href="<?= base_url() ?>operation/detailkandidat/<?= $kan['no_kandidat']; ?>">detail</a>
                                         <a class="btn btn-warning btn-sm" href="<?= base_url() ?>operation/editkandidat/<?= $kan['no_kandidat']; ?>">edit</a>
-                                        <a class="btn btn-danger btn-sm tombol-hapuskan" href="<?= base_url() ?>operation/hapuskandidat/<?= $kan['no_kandidat']; ?>">edit</a>
+                                        <a class="btn btn-danger btn-sm tombol-hapuskandidat" href="<?= base_url() ?>operation/hapuskandidat/<?= $kan['no_kandidat']; ?>">hapus</a>
                                     </div>
                                 </div>
                             </td>
