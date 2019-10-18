@@ -11,66 +11,89 @@
             <div class="form-group row">
                 <label for="nokandidat" class="col-sm-3 col-form-label">No Kandidat</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" id="nokandidat" name="nokandidat" value="">
+                    <input type="text" class="form-control" id="nokandidat" name="nokandidat" value="<?= set_value('nokandidat'); ?>">
+                    <?= form_error('nokandidat', ' <small class="text-danger pl-3">', '</small>'); ?>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="namalengkapketua" class="col-sm-3 col-form-label">Nama Lengkap Ketua</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" id="namalengkapketua" name="namalengkapketua" value="">
+                    <input type="text" class="form-control" id="namalengkapketua" name="namalengkapketua" value="<?= set_value('namalengkapketua'); ?>">
+                    <?= form_error('namalengkapketua', ' <small class="text-danger pl-3">', '</small>'); ?>
                 </div>
             </div>
 
             <div class="form-group row">
                 <label for="namalengkapwakil" class="col-sm-3 col-form-label">Nama Lengkap Wakil</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" id="namalengkapwakil" name="namalengkapwakil" value="">
+                    <input type="text" class="form-control" id="namalengkapwakil" name="namalengkapwakil" value="<?= set_value('namalengkapwakil'); ?>">
+                    <?= form_error('namalengkapwakil', ' <small class="text-danger pl-3">', '</small>'); ?>
                 </div>
             </div>
             <div class="form-group row">
-                <label for="jenkelketua" class="col-sm-3 col-form-label">Jenis Kelamin Ketua</label>
+                <label for="jk_ketua" class="col-sm-3 col-form-label">Jenis Kelamin Ketua</label>
                 <div class="form-check form-check-inline pl-3">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                    <label class="form-check-label" for="inlineRadio1">Laki-laki</label>
+                    <input type="radio" name="jk_ketua" value="L" <?= set_radio('jk_ketua', 'L', TRUE); ?> />
+                    <label class="form-check-label" for="jk_ketua">&nbsp;Laki-laki</label>
                 </div>
-                <div class="form-check form-check-inline  pl-3">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                    <label class="form-check-label" for="inlineRadio2">Perempuan</label>
+                <div class="form-check form-check-inline">
+                    <input type="radio" name="jk_ketua" value="P" <?= set_radio('jk_ketua', 'P'); ?> />
+                    <label class="form-check-label" for="jk_ketua">&nbsp;Perempuan</label>
                 </div>
             </div>
             <div class="form-group row">
-                <label for="jenkelwakketua" class="col-sm-3 col-form-label">Jenis Kelamin Wakil Ketua</label>
+                <label for="jk_wakil" class="col-sm-3 col-form-label">Jenis Kelamin Wakil</label>
                 <div class="form-check form-check-inline pl-3">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                    <label class="form-check-label" for="inlineRadio1">Laki-laki</label>
+                    <input type="radio" name="jk_wakil" value="L" <?= set_radio('jk_wakil', 'L', TRUE); ?> />
+                    <label class="form-check-label" for="jk_wakil">&nbsp;Laki-laki</label>
                 </div>
-                <div class="form-check form-check-inline pl-3">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                    <label class="form-check-label" for="inlineRadio2">Perempuan</label>
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="emailkan" class="col-sm-3 col-form-label">Email</label>
-                <div class="col-sm-6">
-                    <input type="text" class="form-control" id="namalengkapwakil" name="namalengkapwakil" value="">
+                <div class="form-check form-check-inline">
+                    <input type="radio" name="jk_wakil" value="P" <?= set_radio('jk_wakil', 'P'); ?> />
+                    <label class="form-check-label" for="jk_wakil">&nbsp;Perempuan</label>
                 </div>
             </div>
             <div class="form-group row">
-                <label for="hpkan" class="col-sm-3 col-form-label">Hp</label>
+                <label for="email_ketua" class="col-sm-3 col-form-label">Email Ketua</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" id="namalengkapwakil" name="namalengkapwakil" value="">
+                    <input type="text" class="form-control" id="email_ketua" name="email_ketua" value="<?= set_value('email_ketua'); ?>">
+                    <?= form_error('email_ketua', ' <small class="text-danger pl-3">', '</small>'); ?>
                 </div>
             </div>
             <div class="form-group row">
-                <label for="visikan" class="col-sm-3 col-form-label">Visi</label>
+                <label for="email_wakil" class="col-sm-3 col-form-label">Email Wakil</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" id="namalengkapwakil" name="namalengkapwakil" value="">
+                    <input type="text" class="form-control" id="email_wakil" name="email_wakil" value="<?= set_value('email_wakil'); ?>">
+                    <?= form_error('email_wakil', ' <small class="text-danger pl-3">', '</small>'); ?>
                 </div>
             </div>
             <div class="form-group row">
-                <label for="misikan" class="col-sm-3 col-form-label">Misi</label>
+                <label for="hp_ketua" class="col-sm-3 col-form-label">Hp Ketua</label>
                 <div class="col-sm-6">
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    <input type="text" class="form-control" id="hp_ketua" name="hp_ketua" value="<?= set_value('hp_ketua'); ?>">
+                    <?= form_error('hp_ketua', ' <small class="text-danger pl-3">', '</small>'); ?>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="hp_wakil" class="col-sm-3 col-form-label">Hp wakil</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="hp_wakil" name="hp_wakil" value="<?= set_value('hp_wakil'); ?>">
+                    <?= form_error('hp_wakil', ' <small class="text-danger pl-3">', '</small>'); ?>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="visi" class="col-sm-3 col-form-label">Visi</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="visi" name="visi" value="<?= set_value('visi'); ?>">
+                    <?= form_error('visi', ' <small class="text-danger pl-3">', '</small>'); ?>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="misi" class="col-sm-3 col-form-label">Misi</label>
+                <div class="col-sm-6">
+                    <textarea class="form-control" id="misi" name="misi" rows="5" value="<?= set_value('misi'); ?>">
+                    <?= form_error('misi', ' <small class="text-danger pl-3">', '</small>'); ?>
+
+                    </textarea>
                 </div>
             </div>
             <div class="form-group row">
@@ -78,12 +101,12 @@
                 <div class="col-sm-9">
                     <div class="row">
                         <div class="col-sm-3">
-                            <img src="<?= base_url('assets/img/profile/default.jpg') ?>" class="img-thumbnail">
+                            <img src="<?= base_url('assets/img/profile/kandidat/default.jpg') ?>" class="img-thumbnail">
                         </div>
                         <div class="col-sm-9">
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="image" name="image">
-                                <label class="custom-file-label" for="image">Pilih foto</label>
+                                <input type="file" class="custom-file-input" id="foto_ketua" name="foto_ketua">
+                                <label class="custom-file-label" for="foto_ketua">Pilih foto</label>
                             </div>
                         </div>
                     </div>
@@ -94,12 +117,12 @@
                 <div class="col-sm-9">
                     <div class="row">
                         <div class="col-sm-3">
-                            <img src="<?= base_url('assets/img/profile/default.jpg') ?>" class="img-thumbnail">
+                            <img src="<?= base_url('assets/img/profile/kandidat/default.jpg') ?>" class="img-thumbnail">
                         </div>
                         <div class="col-sm-9">
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="image" name="image">
-                                <label class="custom-file-label" for="image">Pilih foto</label>
+                                <input type="file" class="custom-file-input" id="foto_wakil" name="foto_wakil">
+                                <label class="custom-file-label" for="foto_wakil">Pilih foto</label>
                             </div>
                         </div>
                     </div>
@@ -107,14 +130,14 @@
             </div>
             <div class="form-group row">
                 <label for="uraian" class="col-sm-3 col-form-label">Uraian</label>
-                <div class="col-sm-6">
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                <div class="col-sm-8">
+                    <textarea class="form-control" id="uraian" name="uraian" rows="8"></textarea>
                 </div>
             </div>
             <div class="form-group row justify-content-end">
-                <div class="col-sm-10">
+                <div class="col-sm-9">
                     <button type="submit" class="btn btn-primary">Tambah</button>
-                    <button type="submit" class="btn btn-danger">Batal</button>
+                    <a href="<?= base_url('operation/kandidat'); ?>" class="btn btn-danger">Batal</a>
                 </div>
             </div>
 
