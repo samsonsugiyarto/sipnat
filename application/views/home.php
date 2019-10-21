@@ -315,41 +315,38 @@
     </div>
     </div>
     <!-- END TEAM -->
-    <div class="row justify-content-start">
-        <div class="col-6 komen">
-            <div class="row">
-                <div class="col-auto">
-                    <img style="max-width: 80px;" src="<?= base_url('assets/img/profile/default.jpg'); ?>" class="rounded-circle float-left" alt="...">
-                    <h6>Samson Sugiyarto</h6>
-                    <h5>Post on 12-10-2019 13:50</h5>
-                    <p>Hallo. jangan golput guys</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-auto komen2">
-                    <img style="max-width: 85px;" src="<?= base_url('assets/img/profile/default.jpg'); ?>" class="rounded-circle float-left" alt="...">
-                    <h6>Nabilla Nur Fadillah</h6>
-                    <h5>Post on 13-10-2019 12:53</h5>
-                    <p>Semoga pemilihan senat dilancarkan kegiatanya. amin</p>
-                </div>
-            </div>
+    <div class="row justify-content-start mt-3">
+        <div class="col-6  komen">
+            <?php foreach ($komentar as $komen) : ?>
+                <div class="row">
+                    <div class="col-auto-6">
+                        <img style="height: 4rem; width: 4rem;" src=" <?php if ($komen['role_id'] == 1 || $komen['role_id'] == 2) : ?>
+                        <?= base_url('assets/img/profile/') . $komen['image']; ?>
+                        <?php elseif ($komen['role_id'] == 3) : ?>
+                        <?= base_url('assets/img/profile/pimpinan/') . $komen['image']; ?>
 
+                        <?php elseif ($komen['role_id'] == 4) : ?>
+                        <?= base_url('assets/img/profile/dosen/') . $komen['image']; ?>
 
+                        <?php elseif ($komen['role_id'] == 5) : ?>
+                        <?= base_url('assets/img/profile/mahasiswa/') . $komen['image']; ?>
+                        <?php endif; ?>" class="img-profile rounded-circle float-left" alt="...">
+
+                        <?php if ($komen['role_id'] == 1 || $komen['role_id'] == 2) : ?>
+                            <h6><?= $komen['nama']; ?> <small class="text-muted">Admin </small></h6>
+
+                        <?php else : ?>
+                            <h6><?= $komen['nama']; ?></h6>
+                        <?php endif; ?>
+
+                        <h5> <?= timesampai(strtotime($komen['waktu'])); ?></h5>
+                        <p><?= $komen['uraian']; ?></p>
+                    </div>
+                </div>
+            <?php endforeach; ?>
         </div>
-
-
     </div>
-
-
-
-
-
-
-
     <!-- akhir container -->
-
-
-
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
@@ -359,9 +356,6 @@
             $(this).addClass('active');
         });
     </script>
-
-
-
     <script>
         src = "<?= base_url('assets/js/jquery.easing.1.3.js') ?>"
     </script>
@@ -374,7 +368,6 @@
 
     <script src="<?= base_url('assets/js/pindahnav.js'); ?>">
     </script>
-
 
 
 

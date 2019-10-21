@@ -33,6 +33,13 @@ class Admin extends CI_Controller
         $data['mahasiswa'] = $this->db->count_all_results();
 
 
+        $this->db->from('kandidat');
+        $data['kandidat'] = $this->db->count_all_results();
+
+
+        $this->db->from('komentar');
+        $data['komentar'] = $this->db->count_all_results();
+
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);

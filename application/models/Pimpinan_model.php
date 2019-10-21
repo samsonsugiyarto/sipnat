@@ -75,8 +75,6 @@ class Pimpinan_model extends CI_Model
                 echo $this->upload->display_errors();
             }
         }
-
-        $nidnedit = $this->input->post('nidn', true);
         $name = $this->input->post('namalengkap', true);
         $jk = $this->input->post('jk', true);
         $jabatan = $this->input->post('jabatan', true);
@@ -86,7 +84,6 @@ class Pimpinan_model extends CI_Model
         $is_active =  $this->input->post('aktifpimpinan', true);
 
         $data = [
-            'nidn' => $nidnedit,
             'name' => $name,
             'jk' => $jk,
             'jabatan' => $jabatan,

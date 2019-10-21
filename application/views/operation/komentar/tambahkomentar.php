@@ -7,21 +7,23 @@
     <div class="row">
         <div class="col-lg-8">
 
+            <?= form_open_multipart('operation/tambahkomentar'); ?>
+
             <div class="form-group row">
                 <label for="komentar" class="col-sm-4 col-form-label">Tambah Komentar</label>
             </div>
             <div class="form-group row">
                 <div class="col-sm-8">
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Tambah komentar disini..."></textarea>
+                    <textarea class="form-control" id="komentar" name="komentar" rows="5" placeholder="Tambah komentar disini..."></textarea>
+                    <?= form_error('komentar', ' <small class="text-danger pl-3">', '</small>'); ?>
                 </div>
             </div>
             <div class="form-group row justify-content-end">
                 <div class="col-sm-12">
-                    <button type="submit" class="btn btn-primary">Kirim</button>&nbsp;&nbsp;&nbsp;
-                    <button type="submit" class="btn btn-danger">Batal</button>
+                    <button type="submit" class="btn btn-success">Kirim</button>
+                    <a href="<?= base_url('operation/komentar'); ?>" class="btn btn-danger">Kembali</a>
                 </div>
             </div>
-
             </form>
 
 

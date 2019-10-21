@@ -12,13 +12,11 @@
         <h1 class="btn btn-danger btn-circle">
             2
         </h1>
-
         <h1 class="btn btn-warning btn-circle">
             3
         </h1>
 
     </div>
-
     <div class="row justify-content-around">
         <div class="card-group" style="width: 350px;">
             <div class="card" style="float: left;">
@@ -71,12 +69,9 @@
 
     </div>
 
-
-
-
     <div class="row justify-content-around">
         <div style=" padding-top: 10px;">
-            <a href="#" class="btn btn-success btn-icon-split">
+            <a href="#" class="btn btn-success btn-icon-split btn-sm">
                 <span class="icon text-white-50">
                     <i class="fas fa-check"></i>
                 </span>
@@ -84,7 +79,7 @@
             </a>
         </div>
         <div style=" padding-top: 10px;">
-            <a href="#" class="btn btn-danger btn-icon-split">
+            <a href="#" class="btn btn-danger btn-icon-split  btn-sm">
                 <span class="icon text-white-50">
                     <i class="fas fa-check"></i>
                 </span>
@@ -92,7 +87,7 @@
             </a>
         </div>
         <div style=" padding-top: 10px;">
-            <a href="#" class="btn btn-warning btn-icon-split">
+            <a href="#" class="btn btn-warning btn-icon-split  btn-sm">
                 <span class="icon text-white-50">
                     <i class="fas fa-check"></i>
                 </span>

@@ -16,39 +16,62 @@
 
             <?php endif; ?>
 
-            <?= $this->session->flashdata('message'); ?>
+            <?php if ($this->session->flashdata('message')) : ?>
 
-            <a href="<?= base_url('operation/tambahkomentar'); ?>" class="btn btn-primary mb-3">Tambah Komentar</a>
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th scope="col">No</th>
-                        <th scope="col">Nama</th>
-                        <th scope="col">Tanggal</th>
-                        <th scope="col">Waktu</th>
-                        <th scope="col">Uraian</th>
-                        <th scope="col">Opsi</th>
-                    </tr>
-                </thead>
-                <tbody>
+                <div class="flashdatakomen" data-flashdatakomen="<?= $this->session->flashdata('message'); ?>"></div>
+            <?php endif; ?>
 
-                    <tr>
+            <a href="<?= base_url('operation/tambahkomentar'); ?>" class="btn btn-success mb-3">Tambah Komentar</a>
+            <div class="table-responsive">
 
-                        <td>1</td>
-                        <td>Nabilla Nur Fadillah</td>
-                        <td>27/09/2019</td>
-                        <td>12.14</td>
-                        <td>Luar biasaaa</td>
-                        <td>
-                            <a href="" class="badge badge-warning">konfirmasi</a>
-                            <a href="<?= base_url('operation/detailkomentar'); ?>" class="badge badge-success">detail</a>
-                            <a href="" class="badge badge-danger" data-toggle="modal" data-target="#hapusModal">hapus</a>
-                        </td>
-                    </tr>
+                <table class="table table-bordered table-hover" id="dataTable">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">No</th>
+                            <th scope="col">Nama</th>
+                            <th scope="col">Role Id</th>
+                            <th scope="col">Role</th>
+                            <th scope="col">Waktu</th>
+                            <th scope="col">Uraian</th>
+                            <th scope="col">Opsi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
 
+                        <?php $query = "SELECT * 
+            FROM komentar LEFT JOIN konfir_komentar
+              ON komentar.id = konfir_komentar.id_komentar
+              ORDER BY komentar.waktu ASC";
+                        $data = $this->db->query($query)->result_array(); ?>
+                        <?php $i = 1; ?>
+                        <?php foreach ($data as $komen) : ?>
+                            <tr>
+                                <th scope="row"><?= $i ?></th>
+                                <td><?= $komen['nama']; ?></td>
+                                <td><?= $komen['role_id']; ?></td>
+                                <td> <?= $namarole['role']; ?> </td>
+                                <td><?= $komen['waktu']; ?></td>
+                                <td><?= word_limiter($komen['uraian'], 4); ?></td>
 
-                </tbody>
-            </table>
+                                <td>
+                                    <?php if ($komen['id'] == $komen['id_komentar']) : ?>
+                                        <a class="disable-links badge badge-warning tombol-konfir " href="<?= base_url() ?>operation/konfirkomen/<?= $komen['id']; ?>">Konfirmasi</a>
+                                    <?php else : ?>
+                                        <a class="badge badge-warning tombol-konfir " href="<?= base_url() ?>operation/konfirkomen/<?= $komen['id']; ?>">Konfirmasi</a>
+
+                                    <?php endif; ?>
+
+                                    <a class="badge badge-success " href="<?= base_url() ?>operation/detailkomentar/<?= $komen['id']; ?>">detail</a>
+                                    <a class=" badge badge-danger tombol-hapuskomen" href="<?= base_url() ?>operation/hapuskomentar/<?= $komen['id']; ?>">hapus</a>
+
+                                </td>
+                            </tr>
+                            <?php $i++; ?>
+                        <?php endforeach; ?>
+
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 

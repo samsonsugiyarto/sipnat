@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 18 Okt 2019 pada 19.21
+-- Generation Time: 21 Okt 2019 pada 17.48
 -- Versi Server: 10.1.13-MariaDB
 -- PHP Version: 7.0.6
 
@@ -87,8 +87,8 @@ CREATE TABLE `kandidat` (
   `jk_wakil` varchar(1) NOT NULL,
   `email_ketua` varchar(128) NOT NULL,
   `email_wakil` varchar(128) NOT NULL,
-  `hp_ketua` int(11) NOT NULL,
-  `hp_wakil` int(11) NOT NULL,
+  `hp_ketua` varchar(15) NOT NULL,
+  `hp_wakil` varchar(15) NOT NULL,
   `visi` varchar(500) NOT NULL,
   `misi` varchar(1000) NOT NULL,
   `foto_ketua` varchar(128) NOT NULL,
@@ -101,9 +101,56 @@ CREATE TABLE `kandidat` (
 --
 
 INSERT INTO `kandidat` (`no_kandidat`, `nama`, `wakil`, `jk_ketua`, `jk_wakil`, `email_ketua`, `email_wakil`, `hp_ketua`, `hp_wakil`, `visi`, `misi`, `foto_ketua`, `foto_wakil`, `uraian`) VALUES
-(1, 'Feni Lestari', 'Agnes Shita', 'P', 'P', 'feni@gmail.com', 'shita@gmail.com', 87653, 98767, 'Menjadikan kampus yang sejahtera', '1. Mengadakan kegiatan baksos <br>\r\n2. Mengadakan inisiasi', 'default.jpg', 'default.jpg', 'Halo, perkenalkan kami dari calon kandidat nomor 1 supaya teman-teman dapat memilih kami sebagai ketua dan wakil ketua pada periode saat ini, jangan lupa pilih nomor 1...'),
-(2, 'Hanit Jatmika', 'Ratna eva', 'L', 'P', 'hanit@gmail.com', 'eva123@gmail.com', 2147483647, 2147483647, 'Menjadikan kampus yang humanis', '1. ikut serta kegiatan kampus <br>\r\n2. mengadakan baksos', 'avatar1.png', 'img3.png', 'jangan lupa pilih kami no 2!!!'),
-(3, 'Axel Haryanto', 'Vebi', 'L', 'P', 'axel@gmail.com', 'vebi123@gmail.com', 2147483647, 2147483647, 'Menjadikan kampus yang unggul', '1. Mengadakan Bukber <br>\r\n2. Mengadakan upacara 17 Agustus', '1557978184889.jpg', 'img1.png', 'jangan lupa pilih no 3');
+(1, 'Feni Lestari', 'Agnes Shita', 'P', 'P', 'feni@gmail.com', 'shita@gmail.com', '87653', '98767', 'Menjadikan kampus yang sejahtera', '1. Mengadakan kegiatan baksos <br>\r\n2. Mengadakan inisiasi', 'default.jpg', 'default.jpg', 'Halo, perkenalkan kami dari calon kandidat nomor 1 supaya teman-teman dapat memilih kami sebagai ketua dan wakil ketua pada periode saat ini, jangan lupa pilih nomor 1...'),
+(2, 'Hanit Jatmika', 'Ratna eva', 'L', 'P', 'hanit@gmail.com', 'eva123@gmail.com', '2147483647', '2147483647', 'Menjadikan kampus yang humanis', '1. ikut serta kegiatan kampus <br>\r\n2. mengadakan baksos', '1562350746250.jpg', '1559932673046.jpg', 'jangan lupa pilih kami no 2!!!'),
+(3, 'Axel Haryanto', 'Vebi', 'L', 'P', 'axel@gmail.com', 'vebi123@gmail.com', '2147483647', '2147483647', 'Menjadikan kampus yang unggul', '1. Mengadakan Bukber <br>\r\n2. Mengadakan upacara 17 Agustus', '1557978184889.jpg', 'img1.png', 'jangan lupa pilih no 3');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `komentar`
+--
+
+CREATE TABLE `komentar` (
+  `id` int(12) NOT NULL,
+  `nama` varchar(50) NOT NULL,
+  `waktu` varchar(20) NOT NULL,
+  `uraian` varchar(500) NOT NULL,
+  `image` varchar(50) NOT NULL,
+  `role_id` int(2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `komentar`
+--
+
+INSERT INTO `komentar` (`id`, `nama`, `waktu`, `uraian`, `image`, `role_id`) VALUES
+(67, 'Samson Sugiyarto', '21-10-2019 16:29:43', 'aku dia mereka kita dulu sekarang', 'DSC_2565a1.jpg', 1),
+(71, 'Samson Sugiyarto', '21-10-2019 21:45:03', 'cek komentar bla bla bla', 'DSC_2565a1.jpg', 1),
+(72, 'Samson Sugiyarto', '21-10-2019 21:46:17', 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae, quo eius. Modi consequatur nobis tempora excepturi! Nesciunt quaerat molestias, facere, at alias pariatur iste ut repellat fuga, nostrum facilis cum.\r\n    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae, quo eius. Modi consequatur nobis tempora excepturi! Nesciunt quaerat molestias, facere, at alias pariatur iste ut repellat fuga, nostrum facilis cum.\r\n    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vi', 'DSC_2565a1.jpg', 1),
+(74, 'Samson Sugiyarto', '21-10-2019 22:18:59', 'tes 1 2 3', 'IMG-20191004-WA00261.jpg', 1),
+(75, 'Samson Sugiyarto', '21-10-2019 22:23:22', 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae, quo eius. Modi consequatur nobis tempora excepturi! Nesciunt quaerat molestias, facere, at alias pariatur iste ut repellat fuga, nostrum facilis cum.', 'IMG-20191004-WA00261.jpg', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `konfir_komentar`
+--
+
+CREATE TABLE `konfir_komentar` (
+  `id_konfir` int(12) NOT NULL,
+  `id_komentar` int(12) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `konfir_komentar`
+--
+
+INSERT INTO `konfir_komentar` (`id_konfir`, `id_komentar`) VALUES
+(18, 67),
+(22, 71),
+(23, 72),
+(24, 74);
 
 -- --------------------------------------------------------
 
@@ -130,6 +177,7 @@ CREATE TABLE `mahasiswa` (
 --
 
 INSERT INTO `mahasiswa` (`nim`, `name`, `jk`, `jurusan`, `email`, `hp`, `image`, `password`, `role_id`, `is_active`, `kode_jurusan`) VALUES
+(2323, 'dcdec', 'L', '', 'cdc@dede.vv', '123', '15524969716643.jpg', '$2y$10$z9EhOz.CS/KMl6u1xmv2bOJrDyQoQxymKJtKKV0ID/KJrA/ET.0qW', 5, 1, 2),
 (201501003, 'Peni Pambudi', 'L', 'S1 Teknik Informatika', 'peni@gmail.com', '082113234455', '', '$2y$10$xCm68KnaNuPK8OZG3me8wO1kaszTmoX53TcI9ZZjNF7mYwgFuyIR6', 5, 1, 8),
 (201501054, 'Rudi Priyanto', 'L', 'S1 Teknik Informatika', 'rudi@rudi.com', '081222178545', '1556787854623.jpg', '$2y$10$RHbyDPD6WBCzZiLuql708eiq/7S371DQA99pkH9i/gNRLCLFBiBtq', 5, 1, 8),
 (201601007, 'Foustino Asprila Gunantara', 'L', 'S1 Sistem Informasi', 'fousas@gmail.com', '085333322151', 'default.jpg', '$2y$10$Ksd37r.kiw/Z/DzSsz1cqeywmJ6apbHP.UN6JGRc5rjkOPFg7UJnS', 5, 1, 2),
@@ -189,7 +237,9 @@ INSERT INTO `pimpinan` (`nidn`, `name`, `password`, `jk`, `jabatan`, `email`, `h
 CREATE TABLE `user` (
   `id` int(11) NOT NULL,
   `name` varchar(128) NOT NULL,
+  `jk` varchar(1) NOT NULL,
   `email` varchar(128) NOT NULL,
+  `hp` varchar(15) NOT NULL,
   `image` varchar(128) NOT NULL,
   `password` varchar(256) NOT NULL,
   `role_id` int(11) NOT NULL,
@@ -201,10 +251,11 @@ CREATE TABLE `user` (
 -- Dumping data untuk tabel `user`
 --
 
-INSERT INTO `user` (`id`, `name`, `email`, `image`, `password`, `role_id`, `is_active`, `date_created`) VALUES
-(3, 'Samson Sugiyarto', 'gitosamson123@gmail.com', 'DSC_2565a1.jpg', '$2y$10$y4bmK5JiJbIOYQ5ze0n4cei/QdNTnxIPcy8gsAc/9misiwt9W2keC', 1, 1, 1560654857),
-(4, 'Dila Fadillah', 'dila123@gmail.com', 'DSC_2565a.jpg', '$2y$10$dJfXzvLbBJU/aoJhY0oIlOC3rHvbSkvIow5i2I.zmR8hXX//YxaHm', 2, 1, 1560655500),
-(21, 'Samson Sugiyartoa', 'samsonsugiyarto123@gmail.com', 'default.jpg', '$2y$10$hopfz/tuCVi5hV17nqOA5OejSIogOSjxwjDR4uyWFCM7SQx4P7RnG', 2, 1, 1561087895);
+INSERT INTO `user` (`id`, `name`, `jk`, `email`, `hp`, `image`, `password`, `role_id`, `is_active`, `date_created`) VALUES
+(3, 'Samson Sugiyarto', 'L', 'gitosamson123@gmail.com', '089213248384', 'IMG-20191004-WA00261.jpg', '$2y$10$y4bmK5JiJbIOYQ5ze0n4cei/QdNTnxIPcy8gsAc/9misiwt9W2keC', 1, 1, 1560654857),
+(4, 'Dila Fadillah', 'P', 'dila123@gmail.com', '089221238474', 'DSC_2565a.jpg', '$2y$10$dJfXzvLbBJU/aoJhY0oIlOC3rHvbSkvIow5i2I.zmR8hXX//YxaHm', 2, 1, 1560655500),
+(21, 'Samson Sugiyarto', 'L', 'samsonsugiyarto123@gmail.com', '081575224630', '15574428665641.jpg', '$2y$10$hopfz/tuCVi5hV17nqOA5OejSIogOSjxwjDR4uyWFCM7SQx4P7RnG', 2, 1, 1561087895),
+(26, 'FEDFE', 'L', 'FEF@FRFE.GFGR', '42424', 'default.jpg', '$2y$10$3wJOyEc10bsi.qiY2yDXnuJMO0Aek7.X.pPa1fmwavWLqbk/ynQT.', 2, 1, 1571564538);
 
 -- --------------------------------------------------------
 
@@ -246,8 +297,7 @@ INSERT INTO `user_access_menu` (`id`, `role_id`, `menu_id`) VALUES
 (39, 2, 1),
 (40, 1, 15),
 (41, 1, 16),
-(43, 1, 9),
-(44, 1, 10);
+(43, 1, 9);
 
 -- --------------------------------------------------------
 
@@ -372,6 +422,18 @@ ALTER TABLE `kandidat`
   ADD PRIMARY KEY (`no_kandidat`);
 
 --
+-- Indexes for table `komentar`
+--
+ALTER TABLE `komentar`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `konfir_komentar`
+--
+ALTER TABLE `konfir_komentar`
+  ADD PRIMARY KEY (`id_konfir`);
+
+--
 -- Indexes for table `mahasiswa`
 --
 ALTER TABLE `mahasiswa`
@@ -430,15 +492,25 @@ ALTER TABLE `user_token`
 ALTER TABLE `jurusan`
   MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
+-- AUTO_INCREMENT for table `komentar`
+--
+ALTER TABLE `komentar`
+  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
+--
+-- AUTO_INCREMENT for table `konfir_komentar`
+--
+ALTER TABLE `konfir_komentar`
+  MODIFY `id_konfir` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+--
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 --
 -- AUTO_INCREMENT for table `user_access_menu`
 --
 ALTER TABLE `user_access_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 --
 -- AUTO_INCREMENT for table `user_menu`
 --

@@ -75,7 +75,6 @@ class Dosen_model extends CI_Model
             }
         }
 
-        $nidnedit = $this->input->post('nidn', true);
         $name = $this->input->post('namalengkap', true);
         $jk = $this->input->post('jk', true);
         $mengajar = $this->input->post('mengajar', true);
@@ -85,7 +84,6 @@ class Dosen_model extends CI_Model
         $is_active =  $this->input->post('aktifdosen', true);
 
         $data = [
-            'nidn' => $nidnedit,
             'name' => $name,
             'jk' => $jk,
             'mengajar' => $mengajar,

@@ -8,11 +8,11 @@
         <div class="col-lg-8">
 
             <?= form_open_multipart(); ?>
-            <input type="hidden" name="nidn" value="<?= $dosen['nidn'] ?>">
+            <input type="hidden" name="nidn" value="<?= $dosen['nidn']; ?>">
             <div class="form-group row">
                 <label for="nidn" class="col-sm-3 col-form-label">NIDN</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" id="nidn" name="nidn" value="<?= $dosen['nidn']; ?>">
+                    <input type="text" class="form-control" id="nidn" name="nidn" value="<?= $dosen['nidn']; ?>" readonly>
                     <?= form_error('nidn', ' <small class="text-danger pl-3">', '</small>'); ?>
                 </div>
             </div>

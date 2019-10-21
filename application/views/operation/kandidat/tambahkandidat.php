@@ -82,14 +82,14 @@
             </div>
             <div class="form-group row">
                 <label for="visi" class="col-sm-3 col-form-label">Visi</label>
-                <div class="col-sm-6">
+                <div class="col-sm-9">
                     <input type="text" class="form-control" id="visi" name="visi" placeholder="isikan visi" value="<?= set_value('visi'); ?>">
                     <?= form_error('visi', ' <small class="text-danger pl-3">', '</small>'); ?>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="misi" class="col-sm-3 col-form-label">Misi</label>
-                <div class="col-sm-6">
+                <div class="col-sm-9">
                     <textarea class="form-control" id="misi" name="misi" placeholder="isikan misi" rows="5"><?= set_value('misi'); ?></textarea>
                     <?= form_error('misi', ' <small class="text-danger pl-3">', '</small>'); ?>
                 </div>
@@ -128,7 +128,7 @@
             </div>
             <div class="form-group row">
                 <label for="uraian" class="col-sm-3 col-form-label">Uraian</label>
-                <div class="col-sm-8">
+                <div class="col-sm-9">
                     <textarea class="form-control" id="uraian" name="uraian" rows="8" placeholder="isikan uraian..."><?= set_value('uraian'); ?></textarea>
                     <?= form_error('uraian', ' <small class="text-danger pl-3">', '</small>'); ?>
 

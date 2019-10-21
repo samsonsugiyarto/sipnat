@@ -121,6 +121,8 @@
    <script src="<?= base_url('assets/js/sweetalert/sweetalert2.all.min.js'); ?>"></script>
    <script src="<?= base_url('assets/js/scriptsweet.js'); ?>"></script>
    <script src="<?= base_url('assets/js/sweet2.js'); ?>"></script>
+   <script src="<?= base_url('assets/js/sweet3.js'); ?>"></script>
+   <script src="<?= base_url('assets/js/sweet4.js'); ?>"></script>
 
    </body>
 

@@ -12,6 +12,7 @@ class Operation extends CI_Controller
         $this->load->model('Dosen_model');
         $this->load->model('Pimpinan_model');
         $this->load->model('Kandidat_model');
+        $this->load->model('Komentar_model');
     }
 
     public function index()
@@ -202,7 +203,7 @@ class Operation extends CI_Controller
         $data['jurusan'] = $this->db->get('jurusan')->result_array();
 
 
-        $this->form_validation->set_rules('nim', 'NIM', 'required|trim');
+
         $this->form_validation->set_rules('namalengkap', 'NamaLengkap', 'required|trim');
         $this->form_validation->set_rules('passwordmhs1', 'Password', 'trim|min_length[3]|matches[passwordmhs2]', [
             'matches' => 'password dont match!',
@@ -242,6 +243,7 @@ class Operation extends CI_Controller
         $this->session->userdata('email')])->row_array();
 
         $data['dosen'] = $this->Dosen_model->getAllDosen();
+
         $data['namarole']  = $this->db->get_where('user_role', ['id' =>
         $this->session->userdata('id')])->row_array();
 
@@ -505,19 +507,42 @@ class Operation extends CI_Controller
         $this->load->view('operation/kandidat/detailkandidat', $data);
         $this->load->view('templates/footer');
     }
-    public function editkandidat()
+    public function editkandidat($no_kandidat)
     {
         $data['title'] = 'Form Edit Kandidat';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
+
+
+        $this->form_validation->set_rules('namalengkapketua', 'Nama Lengkap Ketua', 'required|trim');
+        $this->form_validation->set_rules('namalengkapwakil', 'Nama Lengkap Wakil', 'required|trim');
+        $this->form_validation->set_rules('email_ketua', 'Email Ketua', 'required|trim|valid_email');
+        $this->form_validation->set_rules('email_wakil', 'Email Ketua', 'required|trim|valid_email');
+        $this->form_validation->set_rules('hp_ketua', 'HP Ketua', 'required|trim');
+        $this->form_validation->set_rules('hp_wakil', 'HP Wakil', 'required|trim');
+        $this->form_validation->set_rules('visi', 'Visi', 'required|trim');
+        $this->form_validation->set_rules('misi', 'Misi', 'required|trim');
+        $this->form_validation->set_rules('uraian', 'Uraian', 'required|trim');
+
+
         $data['namarole']  = $this->db->get_where('user_role', ['id' =>
         $this->session->userdata('id')])->row_array();
 
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar', $data);
-        $this->load->view('templates/topbar', $data);
-        $this->load->view('operation/kandidat/editkandidat', $data);
-        $this->load->view('templates/footer');
+        $data['kandidat'] = $this->Kandidat_model->getKandidatById($no_kandidat);
+        $kandidat = $this->Kandidat_model->getKandidatById($no_kandidat);
+
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('operation/kandidat/editkandidat', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $this->Kandidat_model->ubahDataKandidat($kandidat, $no_kandidat);
+            $this->session->set_flashdata('message', 'Diubah!');
+            redirect('operation/kandidat');
+        }
     }
     public function tambahkandidat()
     {
@@ -638,6 +663,11 @@ class Operation extends CI_Controller
         $data['namarole']  = $this->db->get_where('user_role', ['id' =>
         $this->session->userdata('id')])->row_array();
 
+        $data['komentar'] = $this->Komentar_model->getAllKomentar();
+        $data['konfir'] = $this->Komentar_model->getDatakonfir();
+
+
+
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
@@ -647,32 +677,62 @@ class Operation extends CI_Controller
 
     public function tambahkomentar()
     {
-        $data['title'] = 'Tambah komentar';
+        $data['title'] = 'Komentar';
         $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+        $user = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
         $data['namarole']  = $this->db->get_where('user_role', ['id' =>
         $this->session->userdata('id')])->row_array();
 
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar', $data);
-        $this->load->view('templates/topbar', $data);
-        $this->load->view('operation/komentar/tambahkomentar', $data);
-        $this->load->view('templates/footer');
+        $this->form_validation->set_rules('komentar', 'Komentar', 'required|trim');
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('operation/komentar/tambahkomentar', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $this->Komentar_model->tambahKomentar($user);
+            $this->session->set_flashdata('message', 'Ditambahkan!');
+            redirect('operation/komentar');
+        }
     }
-    public function detailkomentar()
+    public function detailkomentar($id)
     {
-        $data['title'] = 'Detail Komentar';
+        $data['title'] = 'Komentar';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
         $data['namarole']  = $this->db->get_where('user_role', ['id' =>
         $this->session->userdata('id')])->row_array();
+
+        $data['komen'] = $this->Komentar_model->detailkomen($id);
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
         $this->load->view('operation/komentar/detailkomentar', $data);
         $this->load->view('templates/footer');
+    }
+
+    public function konfirkomen($id)
+    {
+
+        $komen = $this->Komentar_model->getKomentarById($id);
+        $this->Komentar_model->konfirKomentar($id, $komen);
+
+
+        $this->session->set_flashdata('message', 'Post!');
+        redirect('operation/komentar');
+    }
+
+    public function hapuskomentar($id)
+    {
+        $this->Komentar_model->hapusDataKomentar($id);
+        $this->session->set_flashdata('message', 'Dihapus!');
+        redirect('operation/komentar');
     }
 }

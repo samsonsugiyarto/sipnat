@@ -526,6 +526,8 @@ class User extends CI_Controller
         $this->session->userdata('id')])->row_array();
         $role_id = $this->session->userdata('role_id');
 
+
+
         if ($role_id == 3) {
             is_logged_inpimp();
             $data['user'] = $this->db->get_where('pimpinan', ['nidn' =>

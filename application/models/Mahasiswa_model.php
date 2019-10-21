@@ -74,7 +74,7 @@ class Mahasiswa_model extends CI_Model
                 echo $this->upload->display_errors();
             }
         }
-        $nimedit = $this->input->post('nim', true);
+
         $name = $this->input->post('namalengkap', true);
         $jk = $this->input->post('jk', true);
         $jurusan = $this->input->post('jurusan', true);
@@ -84,7 +84,6 @@ class Mahasiswa_model extends CI_Model
         $is_active = $this->input->post('aktifmhs', true);
 
         $data = [
-            'nim' => $nimedit,
             'name' => $name,
             'jk' => $jk,
             'jurusan' => $jurusan,

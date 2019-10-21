@@ -1,23 +1,24 @@
-const flashDataKandidat = $('.flashkandidat').data('flashkandidat');
-const kand = 'Kandidat';
+const flashDataAdmin = $('.flashdataadmin').data('flashdataadmin');
+const adm = 'Admin';
 
-if (flashDataKandidat) {
+if (flashDataAdmin) {
 	Swal.fire({
-		title: 'Data ' + kand,
-		text: 'Berhasil ' + flashDataKandidat,
+		title: 'Data ' + adm,
+		text: 'Berhasil ' + flashDataAdmin,
 		type: 'success'
 
 	});
 }
 
-// tombol-hapus
-$('.hapuskandidat').on('click', function (e) {
+
+
+$('.hapusadmin').on('click', function (e) {
 
 	e.preventDefault();
 	const href = $(this).attr('href');
 	Swal.fire({
 		title: 'Apakah anda yakin?',
-		text: "Data " + kand + " akan dihapus!",
+		text: "Data " + adm + " akan dihapus!",
 		type: 'warning',
 		showCancelButton: true,
 		confirmButtonColor: '#3085d6',
