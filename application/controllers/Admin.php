@@ -7,6 +7,7 @@ class Admin extends CI_Controller
     {
         parent::__construct();
         is_logged_in();
+        $this->load->model('Role_model');
     }
 
     public function index()
@@ -55,6 +56,7 @@ class Admin extends CI_Controller
 
         $data['role'] = $this->db->get('user_role')->result_array();
 
+
         $data['namarole']   = $this->db->get_where('user_role', ['id' =>
         $this->session->userdata('id')])->row_array();
 
@@ -74,9 +76,27 @@ class Admin extends CI_Controller
         }
     }
 
+    public function editrole()
+    {
+
+        $this->Role_model->ubahDataRole();
+        $this->session->set_flashdata('message', '<div class="alert
+        alert-success" role="alert"> Role Berhasil Diubah!</div>');
+        redirect('admin/role');
+    }
+    public function hapusrole()
+    {
+
+        $this->Role_model->hapusDataRole();
+        $this->session->set_flashdata('message', '<div class="alert
+        alert-success" role="alert"> Role Berhasil Dihapus!</div>');
+        redirect('admin/role');
+    }
+
+
     public function roleAccess($role_id)
     {
-        $data['title'] = 'Role Access';
+        $data['title'] = 'Role';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 

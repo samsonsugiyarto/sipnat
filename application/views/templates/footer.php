@@ -8,6 +8,7 @@
    </footer>
    <!-- End of Footer -->
 
+
    </div>
    <!-- End of Content Wrapper -->
 
@@ -61,8 +62,8 @@
    <script type="text/javascript">
        $('#dataTable').dataTable({
            "aLengthMenu": [
-               [5, 10, 25, 50, 100, 250, 500, -1],
-               [5, 10, 25, 50, 100, 250, 500, 'All']
+               [10, 25, 50, 100, 250, 500, -1],
+               [10, 25, 50, 100, 250, 500, 'All']
            ],
            "oLanguage": {
                "sInfo": 'Total _TOTAL_ Data ditampilkan (_START_ sampai _END_)',
@@ -89,7 +90,6 @@
            var table = $('#dataTable').DataTable();
        });
    </script> -->
-
 
 
 
@@ -123,6 +123,7 @@
    <script src="<?= base_url('assets/js/sweet2.js'); ?>"></script>
    <script src="<?= base_url('assets/js/sweet3.js'); ?>"></script>
    <script src="<?= base_url('assets/js/sweet4.js'); ?>"></script>
+   <script src="<?= base_url('assets/js/sweet5.js'); ?>"></script>
 
    </body>
 

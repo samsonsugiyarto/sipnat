@@ -581,7 +581,9 @@ pre code {
 
 .pre-scrollable {
 	max-height: 340px;
-	overflow-y: scroll
+	overflow-y: scroll;
+
+
 }
 
 .container {
@@ -12231,10 +12233,34 @@ a:focus {
 
 .sidebar {
 	width: 6.5rem;
-	min-height: 100vh
+	min-height: 100vh;
+
 }
 
-.sidebar .nav-item {
+/* width */
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: rgba(0, 0, 0, 0.103);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: rgba(85, 85, 85, 0.432);
+}
+
+
+
+
+.navbar .nav-item {
 	position: relative
 }
 
@@ -12334,7 +12360,7 @@ a:focus {
 	font-weight: 900;
 	content: '\f104';
 	font-family: 'Font Awesome 5 Free';
-	margin-right: .1rem
+	margin-right: .1rem;
 }
 
 .sidebar #sidebarToggle:hover {
@@ -12389,7 +12415,7 @@ a:focus {
 
 @media (min-width:768px) {
 	.sidebar {
-		width: 14rem !important
+		width: 15rem !important
 	}
 
 	.sidebar .nav-item .collapse {

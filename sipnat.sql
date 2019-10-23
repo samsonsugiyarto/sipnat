@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 21 Okt 2019 pada 17.48
+-- Generation Time: 23 Okt 2019 pada 19.21
 -- Versi Server: 10.1.13-MariaDB
 -- PHP Version: 7.0.6
 
@@ -129,7 +129,8 @@ INSERT INTO `komentar` (`id`, `nama`, `waktu`, `uraian`, `image`, `role_id`) VAL
 (71, 'Samson Sugiyarto', '21-10-2019 21:45:03', 'cek komentar bla bla bla', 'DSC_2565a1.jpg', 1),
 (72, 'Samson Sugiyarto', '21-10-2019 21:46:17', 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae, quo eius. Modi consequatur nobis tempora excepturi! Nesciunt quaerat molestias, facere, at alias pariatur iste ut repellat fuga, nostrum facilis cum.\r\n    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae, quo eius. Modi consequatur nobis tempora excepturi! Nesciunt quaerat molestias, facere, at alias pariatur iste ut repellat fuga, nostrum facilis cum.\r\n    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vi', 'DSC_2565a1.jpg', 1),
 (74, 'Samson Sugiyarto', '21-10-2019 22:18:59', 'tes 1 2 3', 'IMG-20191004-WA00261.jpg', 1),
-(75, 'Samson Sugiyarto', '21-10-2019 22:23:22', 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae, quo eius. Modi consequatur nobis tempora excepturi! Nesciunt quaerat molestias, facere, at alias pariatur iste ut repellat fuga, nostrum facilis cum.', 'IMG-20191004-WA00261.jpg', 1);
+(75, 'Samson Sugiyarto', '21-10-2019 22:23:22', 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae, quo eius. Modi consequatur nobis tempora excepturi! Nesciunt quaerat molestias, facere, at alias pariatur iste ut repellat fuga, nostrum facilis cum.', 'IMG-20191004-WA00261.jpg', 1),
+(76, 'Samson Sugiyarto', '22-10-2019 10:27:05', 'coba... :)', 'IMG-20191004-WA00261.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -150,7 +151,8 @@ INSERT INTO `konfir_komentar` (`id_konfir`, `id_komentar`) VALUES
 (18, 67),
 (22, 71),
 (23, 72),
-(24, 74);
+(24, 74),
+(25, 76);
 
 -- --------------------------------------------------------
 
@@ -231,6 +233,32 @@ INSERT INTO `pimpinan` (`nidn`, `name`, `password`, `jk`, `jabatan`, `email`, `h
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `riwayat`
+--
+
+CREATE TABLE `riwayat` (
+  `id` int(5) NOT NULL,
+  `th_jabatan` varchar(20) NOT NULL,
+  `no_kandidat` int(5) NOT NULL,
+  `ketua` varchar(255) NOT NULL,
+  `wakil` varchar(255) NOT NULL,
+  `visi` varchar(255) NOT NULL,
+  `misi` varchar(255) NOT NULL,
+  `fotoketua` varchar(50) NOT NULL,
+  `fotowakil` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `riwayat`
+--
+
+INSERT INTO `riwayat` (`id`, `th_jabatan`, `no_kandidat`, `ketua`, `wakil`, `visi`, `misi`, `fotoketua`, `fotowakil`) VALUES
+(3, '2016/2017', 2, 'Kevin', 'Agnes', 'Menjadikan kampus yang humanis', 'naa nana nanananan nanan nnana', '1558541105353.jpg', '1556787851893.jpg'),
+(4, '2017/2018', 3, 'Feni Lestari', 'Agnes Shita', 'Menjadikan kampus yang unggul', 'tatata nana baba', 'default.jpg', 'default.jpg');
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `user`
 --
 
@@ -281,7 +309,6 @@ INSERT INTO `user_access_menu` (`id`, `role_id`, `menu_id`) VALUES
 (16, 1, 6),
 (18, 1, 3),
 (19, 1, 8),
-(22, 1, 13),
 (23, 5, 2),
 (24, 5, 9),
 (25, 5, 10),
@@ -296,8 +323,8 @@ INSERT INTO `user_access_menu` (`id`, `role_id`, `menu_id`) VALUES
 (35, 3, 10),
 (39, 2, 1),
 (40, 1, 15),
-(41, 1, 16),
-(43, 1, 9);
+(43, 1, 9),
+(46, 1, 13);
 
 -- --------------------------------------------------------
 
@@ -323,7 +350,7 @@ INSERT INTO `user_menu` (`id`, `menu`, `urutan_menu`) VALUES
 (7, 'Super Admin', 1),
 (9, 'Coblos', 4),
 (10, '(user) Komentar', 8),
-(13, 'Riwayat Senat', 9),
+(13, 'Riwayat', 9),
 (15, 'Administrator', 7);
 
 -- --------------------------------------------------------
@@ -343,7 +370,7 @@ CREATE TABLE `user_role` (
 
 INSERT INTO `user_role` (`id`, `role`) VALUES
 (1, 'SuperAdmin'),
-(2, 'Admin'),
+(2, 'Admin '),
 (3, 'Pimpinan'),
 (4, 'Dosen'),
 (5, 'Mahasiswa');
@@ -383,7 +410,7 @@ INSERT INTO `user_sub_menu` (`id`, `menu_id`, `title`, `url`, `icon`, `is_active
 (14, 6, 'Komentar', 'operation/komentar', 'fas fa-fw fa-comment', 1),
 (15, 9, 'Tentukan Pilihanmu!', 'coblos', 'fas fa-fw fa-check-square', 1),
 (16, 10, 'Komentar', 'user/komentar', 'fas fa-fw fa-comment', 1),
-(17, 13, 'Riwayat', 'operation/riwayat', 'fas fa-fw fa-history', 1),
+(17, 13, 'Riwayat', 'riwayat/riwayat', 'fas fa-fw fa-history', 1),
 (18, 15, 'Admin', 'administrator', 'fas fa-fw fa-user', 1);
 
 -- --------------------------------------------------------
@@ -447,6 +474,12 @@ ALTER TABLE `pimpinan`
   ADD PRIMARY KEY (`nidn`);
 
 --
+-- Indexes for table `riwayat`
+--
+ALTER TABLE `riwayat`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
@@ -495,12 +528,17 @@ ALTER TABLE `jurusan`
 -- AUTO_INCREMENT for table `komentar`
 --
 ALTER TABLE `komentar`
-  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
+  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
 --
 -- AUTO_INCREMENT for table `konfir_komentar`
 --
 ALTER TABLE `konfir_komentar`
-  MODIFY `id_konfir` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id_konfir` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+--
+-- AUTO_INCREMENT for table `riwayat`
+--
+ALTER TABLE `riwayat`
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `user`
 --
@@ -510,22 +548,22 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `user_access_menu`
 --
 ALTER TABLE `user_access_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 --
 -- AUTO_INCREMENT for table `user_menu`
 --
 ALTER TABLE `user_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT for table `user_role`
 --
 ALTER TABLE `user_role`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `user_sub_menu`
 --
 ALTER TABLE `user_sub_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT for table `user_token`
 --

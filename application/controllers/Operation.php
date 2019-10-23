@@ -593,66 +593,7 @@ class Operation extends CI_Controller
         redirect('operation/Kandidat');
     }
 
-    public function riwayat()
-    {
-        $data['title'] = 'Riwayat';
-        $data['user'] = $this->db->get_where('user', ['email' =>
-        $this->session->userdata('email')])->row_array();
 
-        $data['namarole']  = $this->db->get_where('user_role', ['id' =>
-        $this->session->userdata('id')])->row_array();
-
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar', $data);
-        $this->load->view('templates/topbar', $data);
-        $this->load->view('kandidat/index', $data);
-        $this->load->view('templates/footer');
-    }
-    public function tambahriwayat()
-    {
-        $data['title'] = 'Form Tambah Riwayat';
-        $data['user'] = $this->db->get_where('user', ['email' =>
-        $this->session->userdata('email')])->row_array();
-
-        $data['namarole']  = $this->db->get_where('user_role', ['id' =>
-        $this->session->userdata('id')])->row_array();
-
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar', $data);
-        $this->load->view('templates/topbar', $data);
-        $this->load->view('kandidat/tambahriwayat', $data);
-        $this->load->view('templates/footer');
-    }
-    public function detailriwayat()
-    {
-        $data['title'] = 'Detail Riwayat';
-        $data['user'] = $this->db->get_where('user', ['email' =>
-        $this->session->userdata('email')])->row_array();
-
-        $data['namarole']  = $this->db->get_where('user_role', ['id' =>
-        $this->session->userdata('id')])->row_array();
-
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar', $data);
-        $this->load->view('templates/topbar', $data);
-        $this->load->view('kandidat/detailriwayat', $data);
-        $this->load->view('templates/footer');
-    }
-    public function editriwayat()
-    {
-        $data['title'] = 'Form Edit Riwayat';
-        $data['user'] = $this->db->get_where('user', ['email' =>
-        $this->session->userdata('email')])->row_array();
-
-        $data['namarole']  = $this->db->get_where('user_role', ['id' =>
-        $this->session->userdata('id')])->row_array();
-
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar', $data);
-        $this->load->view('templates/topbar', $data);
-        $this->load->view('kandidat/editriwayat', $data);
-        $this->load->view('templates/footer');
-    }
 
     public function komentar()
     {
