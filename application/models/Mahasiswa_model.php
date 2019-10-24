@@ -86,7 +86,7 @@ class Mahasiswa_model extends CI_Model
         $data = [
             'name' => $name,
             'jk' => $jk,
-            'jurusan' => $jurusan,
+            'kode_jurusan' => $jurusan,
             'email' => $email,
             'hp' => $hp,
             'is_active' => $is_active

@@ -7,52 +7,58 @@
     <div class="row">
         <div class="col-lg-8">
 
-            <?= form_open_multipart('dosen'); ?>
+            <?= form_open_multipart(); ?>
 
             <div class="form-group row">
                 <label for="nidn" class="col-sm-3 col-form-label">NIDN</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" id="nidn" name="nidn" value="52739" readonly> </div>
+                    <input type="text" class="form-control" id="nidn" name="nidn" value="<?= $user['nidn']; ?>" readonly> </div>
             </div>
             <div class="form-group row">
-                <label for="namalengkap" class="col-sm-3 col-form-label">Nama Lengkap</label>
+                <label for="name" class="col-sm-3 col-form-label">Nama Lengkap</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" id="namalengkap" name="namalengkap" value="Endang Setyawati, M.Kom">
+                    <input type="text" class="form-control" id="name" name="name" value="<?= $user['name']; ?>">
                     <?= form_error('name', ' <small class="text-danger pl-3">', '</small>'); ?>
                 </div>
             </div>
 
             <div class="form-group row">
+                <?php
+                $jk = $user['jk']; ?>
                 <label for="jk" class="col-sm-3 col-form-label">Jenis Kelamin</label>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input ml-3" type="radio" name="jkl" id="inlineRadio1" value="option1">
-                    <label class="form-check-label" for="jkl">Laki-laki</label>
+                <div class="form-check form-check-inline pl-3">
+                    <input type="radio" name="jk" <?php if ($jk == 'L') {
+                                                        echo 'checked';
+                                                    } ?> value="L">
+                    <label class="form-check-label" for="jk">Laki-laki</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="jkp" id="inlineRadio2" value="option2" checked>
-                    <label class="form-check-label" for="jkp">Perempuan</label>
+                    <input type="radio" name="jk" <?php if ($jk == 'P') {
+                                                        echo 'checked';
+                                                    } ?> value="P">
+                    <label class="form-check-label" for="jk">Perempuan</label>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="mengajar" class="col-sm-3 col-form-label">Mengajar</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" id="mengajar" name="mengajar" value="Ansi">
-                    <?= form_error('name', ' <small class="text-danger pl-3">', '</small>'); ?>
+                    <input type="text" class="form-control" id="mengajar" name="mengajar" value="<?= $user['mengajar']; ?>">
+                    <?= form_error('mengajar', ' <small class="text-danger pl-3">', '</small>'); ?>
                 </div>
             </div>
 
             <div class="form-group row">
                 <label for="email" class="col-sm-3 col-form-label">Email</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" id="email" name="email" value="endangb17@gmail.com">
-                    <?= form_error('name', ' <small class="text-danger pl-3">', '</small>'); ?>
+                    <input type="text" class="form-control" id="email" name="email" value="<?= $user['email']; ?>">
+                    <?= form_error('email', ' <small class="text-danger pl-3">', '</small>'); ?>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="hp" class="col-sm-3 col-form-label">Handphone</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" id="hp" name="hp" value="089563">
-                    <?= form_error('name', ' <small class="text-danger pl-3">', '</small>'); ?>
+                    <input type="text" class="form-control" id="hp" name="hp" value="<?= $user['hp']; ?>">
+                    <?= form_error('hp', ' <small class="text-danger pl-3">', '</small>'); ?>
                 </div>
 
             </div>
@@ -62,7 +68,7 @@
                 <div class="col-sm-9">
                     <div class="row">
                         <div class="col-sm-3">
-                            <img src="<?= base_url('assets/img/profile/default.jpg') ?>" class="img-thumbnail">
+                            <img src="<?= base_url('assets/img/profile/dosen/') . $user['image']; ?>" class="img-thumbnail">
                         </div>
 
                     </div>
@@ -75,11 +81,11 @@
                     </div>
                 </div>
             </div>
-            <div class="form-group row">
-                <div class="col-12 pl-5 ml-5">
-                    <button type="submit" class="btn btn-primary ml-5">Perbarui</button>
-                    <button type="submit" class="btn btn-warning">Reset</button>
-                    <button type="submit" class="btn btn-danger">Batal</button>
+            <div class="form-group row justify-content-end">
+                <div class="col-sm-9">
+                    <button type="submit" class="btn btn-primary">Perbarui</button>
+                    <button type="reset" class="btn btn-warning">Reset</button>
+                    <a href="<?= base_url('user'); ?>" class="btn btn-danger">Batal</a>
                 </div>
             </div>
 

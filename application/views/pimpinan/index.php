@@ -13,16 +13,16 @@
     <div class="card mb-3 col-lg-8">
         <div class="row no-gutters">
             <div class="col-md-4">
-                <img src="<?= base_url('assets/img/profile/default.jpg'); ?>" class="card-img">
+                <img src="<?= base_url('assets/img/profile/pimpinan/') . $user['image']; ?>" class="card-img">
             </div>
             <div class="col-md-8">
                 <div class="card-body">
-                    <h5 class="card-title">90827</h5>
-                    <p class="card-text">Romanus Edy</p>
-                    <p class="card-text">Laki-laki</p>
-                    <p class="card-text">Ketua STIKOM</p>
-                    <p class="card-text">romanus@gmail.com</p>
-                    <p class="card-text">089563</p>
+                    <h5 class="card-title"><?= $user['nidn']; ?></h5>
+                    <p class="card-text"><?= $user['name']; ?></p>
+                    <p class="card-text"><?= $user['jk']; ?></p>
+                    <p class="card-text"><?= $user['jabatan']; ?></p>
+                    <p class="card-text"><?= $user['email']; ?></p>
+                    <p class="card-text"><?= $user['hp']; ?></p>
                 </div>
             </div>
         </div>

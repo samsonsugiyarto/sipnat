@@ -59,9 +59,9 @@
                     <select name="jurusan" id="jurusan" class="form-control col-sm-9">
                         <?php foreach ($jurusan as $j) : ?>
                             <?php if ($j['nama_jurusan'] == $mahasiswa['jurusan']) : ?>
-                                <option value="<?= $j['nama_jurusan'] ?>" selected><?= $j['nama_jurusan'] ?></option>
+                                <option value="<?= $j['id'] ?>" selected><?= $j['nama_jurusan'] ?></option>
                             <?php else : ?>
-                                <option value="<?= $j['nama_jurusan'] ?>"><?= $j['nama_jurusan'] ?></option>
+                                <option value="<?= $j['id'] ?>"><?= $j['nama_jurusan'] ?></option>
                             <?php endif; ?>
                         <?php endforeach; ?>
                     </select>

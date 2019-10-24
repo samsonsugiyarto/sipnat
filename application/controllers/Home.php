@@ -13,6 +13,8 @@ class Home extends CI_Controller
               ORDER BY komentar.waktu ASC";
         $data['komentar'] = $this->db->query($query)->result_array();
 
+
+
         $this->load->view('home', $data);
     }
 

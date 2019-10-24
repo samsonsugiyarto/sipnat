@@ -43,13 +43,23 @@
               ON komentar.id = konfir_komentar.id_komentar
               ORDER BY komentar.waktu ASC";
                         $data = $this->db->query($query)->result_array(); ?>
+
                         <?php $i = 1; ?>
                         <?php foreach ($data as $komen) : ?>
+                            <?php
+                                $roleid =  $komen['role_id'];
+                                $query1 = "SELECT * 
+                                FROM komentar  JOIN user_role
+                                ON komentar.role_id = user_role.id
+                                WHERE  komentar.role_id = $roleid
+                                ORDER BY komentar.waktu ASC";
+                                $data1 = $this->db->query($query1)->row_array(); ?>
+
                             <tr>
                                 <th scope="row"><?= $i ?></th>
                                 <td><?= $komen['nama']; ?></td>
                                 <td><?= $komen['role_id']; ?></td>
-                                <td> <?= $namarole['role']; ?> </td>
+                                <td> <?= $data1['role']; ?> </td>
                                 <td><?= $komen['waktu']; ?></td>
                                 <td><?= word_limiter($komen['uraian'], 4); ?></td>
 

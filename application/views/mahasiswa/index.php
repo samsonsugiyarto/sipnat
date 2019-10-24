@@ -10,19 +10,30 @@
         </div>
     </div>
 
+    <?php
+    $nim =  $this->session->userdata('nim');
+    $query = "SELECT * 
+            FROM mahasiswa INNER JOIN jurusan
+              ON mahasiswa.kode_jurusan = jurusan.id
+              WHERE mahasiswa.nim = $nim  
+              ORDER BY mahasiswa.nim ASC
+         ";
+    $datamhs = $this->db->query($query)->row_array();
+    ?>
+
     <div class="card mb-3 col-lg-8">
         <div class="row no-gutters">
             <div class="col-md-4">
-                <img src="<?= base_url('assets/img/profile/default.jpg'); ?>" class="card-img">
+                <img src="<?= base_url('assets/img/profile/mahasiswa/') . $datamhs['image']; ?>" class="card-img">
             </div>
             <div class="col-md-8">
                 <div class="card-body">
-                    <h5 class="card-title">201601041</h5>
-                    <p class="card-text">Samson Sugiyarto</p>
-                    <p class="card-text">Laki-laki</p>
-                    <p class="card-text">S1 Sistem Informasi</p>
-                    <p class="card-text">samsonsugiyarto123@gmail.com</p>
-                    <p class="card-text">08956398745</p>
+                    <h5 class="card-title"><?= $datamhs['nim']; ?></h5>
+                    <p class="card-text"><?= $datamhs['name']; ?></p>
+                    <p class="card-text"><?= $datamhs['jk']; ?></p>
+                    <p class="card-text"><?= $datamhs['nama_jurusan']; ?></p>
+                    <p class="card-text"><?= $datamhs['email']; ?></p>
+                    <p class="card-text"><?= $datamhs['hp']; ?></p>
                 </div>
             </div>
         </div>

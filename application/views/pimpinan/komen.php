@@ -8,6 +8,7 @@
         <div class="col-lg-8">
 
             <?= form_open_multipart('user/komentar'); ?>
+            <?= $this->session->flashdata('message'); ?>
 
             <div class="form-group row">
                 <label for="komentar" class="col-sm-4 col-form-label">Tambah Komentar</label>

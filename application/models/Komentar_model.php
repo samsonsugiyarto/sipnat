@@ -44,6 +44,7 @@ class Komentar_model extends CI_Model
 
     {
 
+
         date_default_timezone_set('Asia/Jakarta');
         $data = [
             'nama' => $user['name'],
