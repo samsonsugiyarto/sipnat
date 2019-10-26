@@ -3,97 +3,111 @@
 
     <!-- Page Heading -->
     <h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1>
+    <?= $this->session->flashdata('message'); ?>
 
     <div class="row justify-content-around">
-        <h1 class="btn btn-success btn-circle">
-            1
-        </h1>
 
-        <h1 class="btn btn-danger btn-circle">
-            2
-        </h1>
-        <h1 class="btn btn-warning btn-circle">
-            3
-        </h1>
+        <?php foreach ($kandidat as $kand) : ?>
+
+            <?php if ($kand['no_kandidat'] == 1) : ?>
+                <h1 class="btn btn-success btn-circle">
+                    <?= $kand['no_kandidat']; ?>
+                </h1>
+            <?php elseif ($kand['no_kandidat'] == 2) : ?>
+                <h1 class="btn btn-danger btn-circle">
+                    <?= $kand['no_kandidat']; ?>
+                </h1>
+            <?php elseif ($kand['no_kandidat'] == 3) : ?>
+                <h1 class="btn btn-warning btn-circle">
+                    <?= $kand['no_kandidat']; ?>
+                </h1>
+
+            <?php endif; ?>
+        <?php endforeach; ?>
 
     </div>
     <div class="row justify-content-around">
-        <div class="card-group" style="width: 350px;">
-            <div class="card" style="float: left;">
-                <img src="<?= base_url('assets/img/profile/default.jpg') ?>" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Feni Lestari</h5>
-                    <p class="card-text">Calon Ketua Senat.</p>
+        <?php foreach ($kandidat as $kand) : ?>
+            <div class="card-group" style="width: 350px;">
+                <div class="card" style="float: left;">
+                    <img src="<?= base_url('assets/img/profile/kandidat/') . $kand['foto_ketua']; ?>" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title"><?= $kand['nama']; ?></h5>
+                        <p class="card-text">Calon Ketua Senat.</p>
+                    </div>
+                </div>
+                <div class="card" style="float: left;">
+                    <img src="<?= base_url('assets/img/profile/kandidat/') . $kand['foto_wakil']; ?>" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title"><?= $kand['wakil']; ?></h5>
+                        <p class="card-text">Calon Wakil Ketua Senat.</p>
+                    </div>
                 </div>
             </div>
-            <div class="card" style="float: left;">
-                <img src="<?= base_url('assets/img/profile/default.jpg') ?>" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Agnes Shita</h5>
-                    <p class="card-text">Calon Wakil Ketua Senat.</p>
-                </div>
-            </div>
-        </div>
-        <div class="card-group" style="width: 350px;">
-            <div class="card" style="float: left;">
-                <img src="<?= base_url('assets/img/profile/default.jpg') ?>" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Axel Haryanto</h5>
-                    <p class="card-text">Ketua Senat.</p>
-                </div>
-            </div>
-            <div class="card" style="float: left;">
-                <img src="<?= base_url('assets/img/profile/default.jpg') ?>" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Hanit Jatmika</h5>
-                    <p class="card-text">Calon Wakil Ketua Senat.</p>
-                </div>
-            </div>
-        </div>
-        <div class="card-group" style="width: 350px;">
-            <div class="card" style="float: left;">
-                <img src="<?= base_url('assets/img/profile/default.jpg') ?>" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Axel Haryanto</h5>
-                    <p class="card-text">Ketua Senat.</p>
-                </div>
-            </div>
-            <div class="card" style="float: left;">
-                <img src="<?= base_url('assets/img/profile/default.jpg') ?>" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Hanit Jatmika</h5>
-                    <p class="card-text">Calon Wakil Ketua Senat.</p>
-                </div>
-            </div>
-        </div>
+        <?php endforeach; ?>
 
     </div>
 
+
     <div class="row justify-content-around">
-        <div style=" padding-top: 10px;">
-            <a href="#" class="btn btn-success btn-icon-split btn-sm">
-                <span class="icon text-white-50">
-                    <i class="fas fa-check"></i>
-                </span>
-                <span class="text">Pilih Kandidat No.1</span>
-            </a>
-        </div>
-        <div style=" padding-top: 10px;">
-            <a href="#" class="btn btn-danger btn-icon-split  btn-sm">
-                <span class="icon text-white-50">
-                    <i class="fas fa-check"></i>
-                </span>
-                <span class="text">Pilih Kandidat No.2</span>
-            </a>
-        </div>
-        <div style=" padding-top: 10px;">
-            <a href="#" class="btn btn-warning btn-icon-split  btn-sm">
-                <span class="icon text-white-50">
-                    <i class="fas fa-check"></i>
-                </span>
-                <span class="text">Pilih Kandidat No.3</span>
-            </a>
-        </div>
+        <?php foreach ($kandidat as $kand) : ?>
+            <div style=" padding-top: 10px;">
+                <?php if ($pilih) : ?>
+
+                    <?php if ($kand['no_kandidat'] == 1) : ?>
+                        <a href="<?= base_url('coblos/pilih/') . $kand['no_kandidat']; ?>" class=" disable-links btn btn-secondary btn-icon-split btn-sm">
+                            <span class="icon text-white-50">
+                                <i class="fas fa-check"></i>
+                            </span>
+                            <span class="text">Pilih Kandidat No. <?= $kand['no_kandidat']; ?></span>
+                        </a>
+                    <?php elseif ($kand['no_kandidat'] == 2) : ?>
+                        <a href="<?= base_url('coblos/pilih/') . $kand['no_kandidat']; ?>" class="disable-links btn btn-secondary btn-icon-split btn-sm">
+                            <span class="icon text-white-50">
+                                <i class="fas fa-check"></i>
+                            </span>
+                            <span class="text">Pilih Kandidat No. <?= $kand['no_kandidat']; ?></span>
+                        </a>
+                    <?php elseif ($kand['no_kandidat'] == 3) : ?>
+                        <a href="<?= base_url('coblos/pilih/') . $kand['no_kandidat']; ?>" class="disable-links btn btn-secondary btn-icon-split btn-sm">
+                            <span class="icon text-white-50">
+                                <i class="fas fa-check"></i>
+                            </span>
+                            <span class="text">Pilih Kandidat No. <?= $kand['no_kandidat']; ?></span>
+                        </a>
+                    <?php endif; ?>
+
+
+
+                <?php else : ?>
+                    <?php if ($kand['no_kandidat'] == 1) : ?>
+                        <a href="<?= base_url('coblos/pilih/') . $kand['no_kandidat']; ?>" class="btn btn-success btn-icon-split btn-sm">
+                            <span class="icon text-white-50">
+                                <i class="fas fa-check"></i>
+                            </span>
+                            <span class="text">Pilih Kandidat No. <?= $kand['no_kandidat']; ?></span>
+                        </a>
+                    <?php elseif ($kand['no_kandidat'] == 2) : ?>
+                        <a href="<?= base_url('coblos/pilih/') . $kand['no_kandidat']; ?>" class="btn btn-danger btn-icon-split btn-sm">
+                            <span class="icon text-white-50">
+                                <i class="fas fa-check"></i>
+                            </span>
+                            <span class="text">Pilih Kandidat No. <?= $kand['no_kandidat']; ?></span>
+                        </a>
+                    <?php elseif ($kand['no_kandidat'] == 3) : ?>
+                        <a href="<?= base_url('coblos/pilih/') . $kand['no_kandidat']; ?>" class="btn btn-warning btn-icon-split btn-sm">
+                            <span class="icon text-white-50">
+                                <i class="fas fa-check"></i>
+                            </span>
+                            <span class="text">Pilih Kandidat No. <?= $kand['no_kandidat']; ?></span>
+                        </a>
+                    <?php endif; ?>
+
+                <?php endif; ?>
+
+            </div>
+        <?php endforeach; ?>
+
     </div>
 
 </div>

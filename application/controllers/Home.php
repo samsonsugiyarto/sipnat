@@ -13,7 +13,9 @@ class Home extends CI_Controller
               ORDER BY komentar.waktu ASC";
         $data['komentar'] = $this->db->query($query)->result_array();
 
-
+        $data['kandidat'] = $this->db->get('kandidat')->result_array();
+        $query = "SELECT sum(jumlah_suara) as jsuara FROM kandidat";
+        $data['js'] = $this->db->query($query)->row_array();
 
         $this->load->view('home', $data);
     }

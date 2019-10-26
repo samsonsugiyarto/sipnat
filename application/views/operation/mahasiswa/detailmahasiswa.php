@@ -9,6 +9,15 @@
             <?= $this->session->flashdata('message'); ?>
         </div>
     </div>
+    <?php
+    $mhs = $mahasiswa['nim'];
+    $query = "SELECT *
+    FROM mahasiswa INNER JOIN jurusan
+    ON mahasiswa.kode_jurusan = jurusan.id
+    WHERE mahasiswa.nim = $mhs
+    ";
+    $datamhs = $this->db->query($query)->row_array();
+    ?>
 
     <div class="card mb-3 col-lg-8">
         <div class="row no-gutters">
@@ -20,7 +29,7 @@
                     <h5 class="card-title"><?= $mahasiswa['nim']; ?></h5>
                     <p class="card-text"><?= $mahasiswa['name']; ?></p>
                     <p class="card-text"><?= $mahasiswa['jk']; ?></p>
-                    <p class="card-text"><?= $mahasiswa['jurusan']; ?></p>
+                    <p class="card-text"><?= $datamhs['nama_jurusan']; ?></p>
                     <p class="card-text"><?= $mahasiswa['email']; ?></p>
                     <p class="card-text"><?= $mahasiswa['hp']; ?></p>
                 </div>

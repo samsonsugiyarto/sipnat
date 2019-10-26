@@ -99,64 +99,49 @@
             <div class="col-lg">
                 <h2><span>LIVE </span>Voting </h2>
                 <div class="row justify-content-around pt-4">
-                    <div class="card-group">
-                        <div class="card cardfoto">
-                            <img src="<?= base_url('assets/img/profile/default.jpg') ?>" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Axel Haryanto</h5>
-                                <p class="card-text">Ketua Senat</p>
+                    <?php foreach ($kandidat as $kand) : ?>
+                        <div class="card-group">
+                            <div class="card cardfoto">
+                                <img src="<?= base_url('assets/img/profile/kandidat/') . $kand['foto_ketua']; ?>" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title"><?= $kand['nama']; ?></h5>
+                                    <p class="card-text">Ketua Senat</p>
+                                </div>
+                            </div>
+                            <div class="card cardfoto">
+                                <img src="<?= base_url('assets/img/profile/kandidat/') . $kand['foto_wakil']; ?>" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title"><?= $kand['wakil']; ?></h5>
+                                    <p class="card-text">Wakil Ketua Senat</p>
+                                </div>
                             </div>
                         </div>
-                        <div class="card cardfoto">
-                            <img src="<?= base_url('assets/img/profile/default.jpg') ?>" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Hanit Jatmika</h5>
-                                <p class="card-text">Wakil Ketua Senat</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-group">
-                        <div class="card cardfoto">
-                            <img src="<?= base_url('assets/img/profile/default.jpg') ?>" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Budi Setia</h5>
-                                <p class="card-text">Ketua Senat.</p>
-                            </div>
-                        </div>
-                        <div class="card cardfoto">
-                            <img src="<?= base_url('assets/img/profile/default.jpg') ?>" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Dani Ragil</h5>
-                                <p class="card-text">Wakil Ketua Senat.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-group">
-                        <div class="card cardfoto">
-                            <img src="<?= base_url('assets/img/profile/default.jpg') ?>" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Feni Lestari</h5>
-                                <p class="card-text">Ketua Senat.</p>
-                            </div>
-                        </div>
-                        <div class="card cardfoto">
-                            <img src="<?= base_url('assets/img/profile/default.jpg') ?>" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Agnes Shita</h5>
-                                <p class="card-text">Wakil Ketua Senat.</p>
-                            </div>
-                        </div>
-                    </div>
+
+                    <?php endforeach; ?>
                 </div>
-                <div class="row justify-content-around pt-3">
-                    <h3><span>40%</span> </h3>
-                    <h3><span>30%</span> </h3>
-                    <h3><span>30%</span> </h3>
+                <div class="row justify-content-around mt-2">
+                    <?php foreach ($kandidat as $kand) : ?>
+                        <div class="col-4">
+                            <?php
+                                $a = $kand['jumlah_suara'];
+                                $b = $js['jsuara'];
+                                if ($b != 0) {
+                                    $hasil = round($kand['jumlah_suara'] / $js['jsuara'] * 100);
+                                } else {
+                                    $hasil = $kand['jumlah_suara'];
+                                }
+                                ?>
+                            <h3><span><?= $hasil ?> %</span></h3>
+
+                        </div>
+                    <?php endforeach; ?>
                 </div>
                 <div class="row justify-content-around">
-                    <h6>6 suara</h6>
-                    <h6>4 Suara </h6>
-                    <h6>4 Suara </h6>
+                    <?php foreach ($kandidat as $kand) : ?>
+                        <div class="col">
+                            <h3 style="font-size: 17px;"> <?= $kand['jumlah_suara']; ?> Suara</h3>
+                        </div>
+                    <?php endforeach; ?>
                 </div>
             </div>
         </div>
@@ -314,22 +299,33 @@
         </div>
     </div>
     </div>
+
+
+
+
+
     <!-- END TEAM -->
     <div class="row justify-content-start mt-3">
         <div class="col-6  komen">
             <?php foreach ($komentar as $komen) : ?>
+                <?php
+                    $user = $this->db->get_where('user', ['name' => $komen['nama']])->row_array();
+                    $pimpinan = $this->db->get_where('pimpinan', ['name' => $komen['nama']])->row_array();
+                    $dosen = $this->db->get_where('dosen', ['name' => $komen['nama']])->row_array();
+                    $mhs = $this->db->get_where('mahasiswa', ['name' => $komen['nama']])->row_array();
+                    ?>
                 <div class="row">
                     <div class="col-auto-6">
                         <img style="height: 4rem; width: 4rem;" src=" <?php if ($komen['role_id'] == 1 || $komen['role_id'] == 2) : ?>
-                        <?= base_url('assets/img/profile/') . $komen['image']; ?>
+                        <?= base_url('assets/img/profile/') . $user['image']; ?>
                         <?php elseif ($komen['role_id'] == 3) : ?>
-                        <?= base_url('assets/img/profile/pimpinan/') . $komen['image']; ?>
+                        <?= base_url('assets/img/profile/pimpinan/') . $pimpinan['image']; ?>
 
                         <?php elseif ($komen['role_id'] == 4) : ?>
-                        <?= base_url('assets/img/profile/dosen/') . $komen['image']; ?>
+                        <?= base_url('assets/img/profile/dosen/') . $dosen['image']; ?>
 
                         <?php elseif ($komen['role_id'] == 5) : ?>
-                        <?= base_url('assets/img/profile/mahasiswa/') . $komen['image']; ?>
+                        <?= base_url('assets/img/profile/mahasiswa/') . $mhs['image']; ?>
                         <?php endif; ?>" class="img-profile rounded-circle float-left" alt="...">
 
                         <?php if ($komen['role_id'] == 1 || $komen['role_id'] == 2) : ?>

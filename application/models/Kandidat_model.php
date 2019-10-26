@@ -69,7 +69,8 @@ class Kandidat_model extends CI_Model
             'misi' => $this->input->post('misi', true),
             'foto_ketua' => $this->uploadketua(),
             'foto_wakil' => $this->uploadwakil(),
-            'uraian' => $this->input->post('uraian', true)
+            'uraian' => $this->input->post('uraian', true),
+            'jumlah_suara' => 0
         ];
 
         $this->db->insert('kandidat', $data);

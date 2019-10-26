@@ -48,6 +48,34 @@ class Admin extends CI_Controller
         $this->load->view('templates/footer');
     }
 
+    public function votelist()
+    {
+        $data['title'] = 'VOTE List';
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+        $data['kandidat'] = $this->db->get('kandidat')->result_array();
+        $data['namarole']  = $this->db->get_where('user_role', ['id' =>
+        $this->session->userdata('id')])->row_array();
+
+        $query = "SELECT sum(jumlah_suara) as jsuara FROM kandidat";
+        $data['js'] = $this->db->query($query)->row_array();
+
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('admin/votelist', $data);
+        $this->load->view('templates/footer');
+    }
+
+
+
+
+
+
+
+
+
     public function role()
     {
         $data['title'] = 'Role';
