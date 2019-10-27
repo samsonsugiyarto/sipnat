@@ -1,48 +1,172 @@
-.nomer {
-	border-radius: 100%;
-	width: 30px;
+html {
+	position: relative;
+}
+
+body {
+	margin-bottom: 100px;
+}
+
+/* Navbar */
+
+.navbar {
+	background-color: #272727;
+	padding-top: 10px;
+	color: #ffffff !important;
+
+}
+
+.nav-item {
+	color: #ffffff !important;
+}
+
+.navbar-toggler {
+	background-color: #ffffff69 !important;
+
+}
+
+.navbar-brand {
+	font: 40px Viga;
+	z-index: 9;
+	margin-bottom: -13px;
+	margin-top: -17px;
+	margin-left: 70px;
+	color: #ffffff !important;
+}
+
+.navbar-brand2 {
+	font: 12px Catamaran;
+	z-index: 9;
+	margin-bottom: -40px;
+	margin-left: -195px;
+	color: #ffffff !important;
+
+}
+
+.cover-overlay {
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.699);
+}
+
+.logo {
+	margin: -35px -85px -40px 65px;
+	float: left;
+	height: 50px;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+	text-align: center;
+}
 
 
+.jumbotron img {
+	width: 150px;
+	border: 4px solid #232323a9;
+
+}
+
+.status p {
+	font-size: 20px;
+	margin-top: -10px;
+	font-weight: 400;
+}
+
+
+hr {
+	border-top: 4px solid #0000003f;
+	width: 250px;
 }
 
 
 
-.visibtn h2,
-.misibtn h2,
-.tentangbtn h2 {
-	font-size: 28px;
-	color: #000000;
-	font-weight: 550;
-
-}
-
-
-.visi,
-.misi,
 .tentang {
-	background-color: #00000018;
-	margin-bottom: 30px;
-	border-radius: 30px;
+	background-color: #eee;
 }
 
-.figurevisi {
-	padding: 20px;
-	font-size: 20px;
+section {
+	min-height: 150px;
+}
+
+footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 100px;
+	background-color: rgb(29, 29, 29);
+	padding-top: 20px;
 
 }
 
-.figuremisi,
-.figuretentang {
-	padding: 70px;
-	font-size: 20px;
+footer p {
+	color: rgb(207, 207, 207);
+	font-size: 0.9em;
 }
 
-
-.tentang h2 span {
-	font-size: 25px;
+footer p i {
+	color: red;
 }
-
 
 
 /* RESPONSIVE */
-@media (min-width: 992px) {}
+@media (min-width: 992px) {
+	.navbar {
+		padding-top: 20px;
+		padding-bottom: 20px;
+		z-index: 99;
+		background-color: rgba(0, 0, 0, 0.856);
+	}
+
+
+
+	.navbar-brand {
+		font: 45px Viga;
+		z-index: 9;
+		margin-left: 40px;
+		margin-bottom: -10px;
+		margin-top: -30px;
+	}
+
+	.navbar-brand2 {
+		font: 19px Catamaran;
+		z-index: 9;
+		margin-bottom: -50px;
+		margin-left: -170px;
+		color: #ffffffc4;
+	}
+
+	.logo {
+		margin: -50px -30px -40px -40px;
+		float: left;
+		height: 80px;
+		text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+		text-align: center;
+	}
+
+	.navbar-brand,
+	.nav-link {
+		color: white !important;
+		text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5)
+	}
+
+	.nav-link {
+		text-transform: uppercase;
+		margin-right: 7px;
+	}
+
+	.nav-link:hover::after,
+	.nav-link.active::after {
+		content: '';
+		display: block;
+		border-bottom: 3px solid #0B63DC;
+		margin: auto;
+		margin-bottom: -8px;
+		width: 50%;
+		padding-top: 5px;
+	}
+
+
+
+
+	.jumbotron img {
+		width: 200px;
+	}
+
+}

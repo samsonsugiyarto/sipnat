@@ -8,8 +8,9 @@
     <!-- My css-->
     <link rel="stylesheet" href="assets/css/reset.css">
     <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="<?= base_url('assets/css/style.css') ?>">
 
 
     <link rel="icon" type="image/png" href="<?= base_url('assets/img/logostikom.png'); ?>">
@@ -163,7 +164,7 @@
                             </a>
                         </li>
                         <div class="overlay" id="gambar-1">
-                            <a href="#" class="close">X CLOSE</a>
+                            <a href="#gallery" class="close">X CLOSE</a>
                             <img src="assets/img/full/1.png" alt="Inisiasi">
                         </div>
                         <li>
@@ -343,6 +344,23 @@
         </div>
     </div>
     <!-- akhir container -->
+
+    <!-- Footer -->
+    <footer>
+        <div class="container text-center ">
+            <div class="row">
+                <div class="col-sm-12 ">
+                    <p>&copy; copyright 2019 | built with <i class="fas fa-heart"></i> by. <a href="http://instagram.com/samsonsugiyarto">Team A</a></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <p>Sistem Informasi Pemilihan Senat</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Akhir Footer -->
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>

@@ -403,6 +403,19 @@
 	font-size: 20px;
 }
 
+footer {
+	background-color: rgb(29, 29, 29);
+	padding-top: 20px;
+}
+
+footer p {
+	color: rgb(207, 207, 207);
+	font-size: 0.9em;
+}
+
+footer p i {
+	color: red;
+}
 
 /* RESPONSIVE */
 @media (min-width: 992px) {

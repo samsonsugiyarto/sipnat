@@ -9,7 +9,10 @@
     <link rel="stylesheet" href="../assets/css/reset.css">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="../assets/css/kampanye.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="<?= base_url('assets/css/kampanye.css') ?>">
+
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Viga" rel="stylesheet">
@@ -23,124 +26,163 @@
 
 
     <!-- Begin Page Content -->
-    <div class="container">
-
-        <div class="row ">
-            <div class="col-4">
-                <a href="<?= base_url('home'); ?>" class="btn btn-danger">Kembali</a></div>
-        </div>
-
-        <div class="row">
-            <div class="col-lg text-center">
-                <h4><span>KANDIDAT SENAT</span> </h4>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-lg-12 text-center pt-2 ">
-                <h6 class="btn btn-success btn-sm mb-3 nomer">
-                    1
-                </h6>
-            </div>
-        </div>
-
-
-        <div class="card-group">
-            <div class="row justify-content-center">
-                <div class="col-sm-2">
-                    <div class="card">
-                        <img src="<?= base_url('assets/img/profile/default.jpg') ?>" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Feni Lestari</h5>
-                            <p class="card-text">Calon Ketua Senat.</p>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <img class="logo" src="<?= base_url('assets/img/logostikom.png') ?>">
+            <a class="navbar-brand page-scroll" href="#home">SIPNAT</a>
+            <h1 class="navbar-brand2">Sistem Informasi Pemilihan Ketua SENAT</h1>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav ml-auto">
+                    <a class="nav-item nav-link  page-scroll" href="<?= base_url('home') ?>">Home <span class="sr-only"></span></a>
+                    <a class="nav-item nav-link active" href="<?= base_url('home/kampanye'); ?>">Kampanye</a>
+                    <a class="nav-item nav-link" href="<?= base_url('home/riwayatsenat'); ?>">Riwayat Senat</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link nav-item nav-link btn btn-primary text-white tombol " href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Login
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="<?= base_url('auth'); ?>">Admin</a>
+                            <a class="dropdown-item" href="<?= base_url('auth/pimpinan'); ?>">Pimpinan STIKOM</a>
+                            <a class="dropdown-item" href="<?= base_url('auth/dosen'); ?>">Dosen</a>
+                            <a class="dropdown-item" href="<?= base_url('auth/mahasiswa'); ?>">Mahasiswa</a>
                         </div>
-                    </div>
+                    </li>
                 </div>
-                <div class="col-sm-2">
-                    <div class="card">
-                        <img src="<?= base_url('assets/img/profile/default.jpg') ?>" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Agnes Shita</h5>
-                            <p class="card-text">Calon Wakil Ketua Senat.</p>
-                        </div>
-                    </div>
-                </div>
+
+            </div>
+
+        </div>
+    </nav>
+    <!-- akhir Navbar -->
+    <!-- Jumbotron -->
+    <div class="jumbotron text-center">
+        <div class="row justify-content-center">
+            <div class="col- " style="padding: 12px;">
+                <img src="<?= base_url('assets/img/profile/default.jpg') ?>" class="rounded-circle img-fluid" alt="">
+                <h4>Feni Lestari</h4>
+            </div>
+            <div class="col- " style="padding: 12px;">
+                <img src="<?= base_url('assets/img/profile/default.jpg') ?>" class="rounded-circle img-fluid" alt="">
+                <h4>Agnes Shita</h4>
             </div>
         </div>
-
-
-
-        <div class="row mt-5 justify-content-center">
-            <div class="col-md-auto visibtn">
-                <h2 class="badge badge-pill badge-success"><span>VISI</span> </h2>
+        <div class="row justify-content-center">
+            <div class="col- status">
+                <p>Calon Kandidat 1</p>
             </div>
-        </div>
-
-        <div class="row mt-3 justify-content-center">
-            <div class="col-mx-auto">
-                <figure class="figurevisi visi">
-                    Menjadikan Kampus Humanis dan Unggul dalam Bidang Cyber Akademik
-                </figure>
-
-            </div>
-        </div>
-
-        <div class="row mt-2 justify-content-center">
-            <div class="col-md-auto visibtn">
-                <h2 class="badge badge-pill badge-danger"><span>MISI</span> </h2>
-            </div>
-        </div>
-
-        <div class="row mt-3 justify-content-center">
-            <div class="col-auto">
-                <figure class="figuremisi misi">
-                    1. Ikut Serta Kegiatan Kampus <br>
-                    2. Mengadakan acara Inisiasi 2019 <br>
-                    3. Study banding ke kampus lain
-                </figure>
-            </div>
-        </div>
-
-
-        <div class="row mt-2 justify-content-center">
-            <div class="col-md-auto visibtn">
-                <h2 class="badge badge-pill badge-secondary"><span>TENTANG KANDIDAT</span> </h2>
-            </div>
-        </div>
-
-        <div class="row mt-3">
-            <div class="col">
-                <figure class="figuretentang tentang">
-                    Kami adalah kandidat no.1 <br>
-                    Ketua : Feni Lestary <br>
-                    Wakil Ketua : Agnes Shita <br><br>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod nam facere voluptates distinctio dolorum voluptatem libero molestiae magni laboriosam quidem praesentium tempore cumque est quo et fugit placeat, nobis sed.
-                    <div class="row">
-                        <div class="col-md-4 mt-3">
-                            <img src="<?= base_url('assets/img/profile/default.jpg') ?>" class="img-fluid" alt="Responsive image">
-
-                        </div>
-                        <div class="col-md-4 mt-3">
-                            <img src="<?= base_url('assets/img/profile/default.jpg') ?>" class="img-fluid" alt="Responsive image">
-
-                        </div>
-                        <div class="col-md-4 mt-3">
-                            <img src="<?= base_url('assets/img/profile/default.jpg') ?>" class="img-fluid" alt="Responsive image">
-
-                        </div>
-                    </div>
-
-                    <div class="row justify-content-center">
-                        <div class="col-md-6 mt-3">
-                            <div class="embed-responsive embed-responsive-16by9">
-                                <iframe class="embed-responsive-item" src="<?= base_url('assets/video/video.mp4'); ?>"></iframe>
-                            </div>
-                        </div>
-                    </div>
-            </div>
-            </figure>
         </div>
     </div>
+    <!-- Akhir jumbotron -->
+
+
+    <!-- visi -->
+    <section class="visi" id="visi">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12">
+                    <h2 class="text-center">VISI</h2>
+                    <hr>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-sm-9">
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit beatae sed dolor quos. Nostrum ab doloribus quam tempora dicta? Alias voluptate quibusdam ullam deleniti dolorum dolor aliquid itaque aspernatur soluta!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Akhir visi -->
+    <!-- Misi -->
+    <section class="misi" id="misi">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12">
+                    <h2 class="text-center">MISI</h2>
+                    <hr>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-sm-4">
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit beatae sed dolor quos. Nostrum ab doloribus quam tempora dicta? Alias voluptate quibusdam ullam deleniti dolorum dolor aliquid itaque aspernatur soluta!</p>
+                </div>
+                <div class="col-sm-4">
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit beatae sed dolor quos. Nostrum ab doloribus quam tempora dicta? Alias voluptate quibusdam ullam deleniti dolorum dolor aliquid itaque aspernatur soluta!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Akhir misi -->
+    <!-- Tentang -->
+    <section class="tentang" id="tentang">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12">
+                    <h2 class="text-center">TENTANG</h2>
+                    <hr>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-sm-10">
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit beatae sed dolor quos. Nostrum ab doloribus quam tempora dicta? Alias voluptate quibusdam ullam deleniti dolorum dolor aliquid itaque aspernatur soluta!</p>
+                </div>
+            </div>
+
+            <!-- Protfolio -->
+
+            <div class="row">
+                <div class="col-sm-4  mb-4">
+                    <img class="img-fluid img-thumbnail" src="<?= base_url('assets/img/2.jpeg') ?>" alt="">
+                </div>
+                <div class="col-sm-4 mb-4">
+                    <img class="img-fluid img-thumbnail" src="<?= base_url('assets/img/2.jpeg') ?>" alt="">
+                </div>
+                <div class="col-sm-4 mb-4">
+                    <img class="img-fluid img-thumbnail" src="<?= base_url('assets/img/2.jpeg') ?>" alt="">
+                </div>
+                <div class="col-sm-4 mb-4">
+                    <img class="img-fluid img-thumbnail" src="<?= base_url('assets/img/2.jpeg') ?>" alt="">
+                </div>
+                <div class="col-sm-4 mb-4">
+                    <img class="img-fluid img-thumbnail" src="<?= base_url('assets/img/2.jpeg') ?>" alt="">
+                </div>
+                <div class="col-sm-4 mb-4">
+                    <img class="img-fluid img-thumbnail" src="<?= base_url('assets/img/2.jpeg') ?>" alt="">
+                </div>
+            </div>
+        </div>
+
+        <!-- Akhir portfolio -->
+    </section>
+
+    <!-- Akhir tentang -->
+
+    <!-- Footer -->
+    <footer>
+        <div class="container text-center ">
+            <div class="row">
+                <div class="col-sm-12 ">
+                    <p>&copy; copyright 2019 | built with <i class="fas fa-heart"></i> by. <a href="http://instagram.com/samsonsugiyarto">Team A</a></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <p>Sistem Informasi Pemilihan Senat</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Akhir Footer -->
+
+
+
+
 
 
 

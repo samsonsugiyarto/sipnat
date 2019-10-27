@@ -11,3 +11,12 @@ $('.page-scroll').on('click', function (e) {
 
 	e.preventDefault();
 });
+$('.page-scroll2').on('click', function (e) {
+
+	var tujuan = $(this).attr('href');
+
+	var elemenTujuan = $(tujuan);
+	elemenTujuan.offset().top - 70
+
+	e.preventDefault();
+});
