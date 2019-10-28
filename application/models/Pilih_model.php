@@ -11,6 +11,7 @@ class Pilih_model extends CI_Model
         $data = [
             'tipe' => $tipe,
             'id_pemilih' => $user['nim'],
+            'name' => $user['name'],
             'id_kandidat' => $id,
             'waktu' => date("d-m-Y H:i:s")
         ];
@@ -26,6 +27,7 @@ class Pilih_model extends CI_Model
         $data = [
             'tipe' => $tipe,
             'id_pemilih' => $user['nidn'],
+            'name' => $user['name'],
             'id_kandidat' => $id,
             'waktu' => date("d-m-Y H:i:s")
         ];
@@ -40,6 +42,7 @@ class Pilih_model extends CI_Model
         $data = [
             'tipe' => $tipe,
             'id_pemilih' => $user['nidn'],
+            'name' => $user['name'],
             'id_kandidat' => $id,
             'waktu' => date("d-m-Y H:i:s")
         ];

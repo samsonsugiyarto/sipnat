@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 28 Okt 2019 pada 08.22
+-- Generation Time: 28 Okt 2019 pada 16.27
 -- Versi Server: 10.1.13-MariaDB
 -- PHP Version: 7.0.6
 
@@ -30,6 +30,7 @@ CREATE TABLE `data_pemilihan` (
   `id_pemilihan` int(11) NOT NULL,
   `tipe` varchar(255) NOT NULL,
   `id_pemilih` int(11) NOT NULL,
+  `name` varchar(125) NOT NULL,
   `id_kandidat` int(11) NOT NULL,
   `waktu` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -38,10 +39,10 @@ CREATE TABLE `data_pemilihan` (
 -- Dumping data untuk tabel `data_pemilihan`
 --
 
-INSERT INTO `data_pemilihan` (`id_pemilihan`, `tipe`, `id_pemilih`, `id_kandidat`, `waktu`) VALUES
-(24, 'Dosen', 1997, 3, '28-10-2019 12:32:12'),
-(25, 'Mahasiswa', 201601051, 1, '28-10-2019 12:32:45'),
-(26, 'Pimpinan', 1234, 2, '28-10-2019 12:33:06');
+INSERT INTO `data_pemilihan` (`id_pemilihan`, `tipe`, `id_pemilih`, `name`, `id_kandidat`, `waktu`) VALUES
+(27, 'Mahasiswa', 201601007, 'Foustino Asprila Gunantara', 1, '28-10-2019 21:54:25'),
+(28, 'Dosen', 1997, 'Oskar Adi', 1, '28-10-2019 21:55:02'),
+(29, 'Pimpinan', 1234, 'Romanus Adi', 3, '28-10-2019 21:55:42');
 
 -- --------------------------------------------------------
 
@@ -125,8 +126,8 @@ CREATE TABLE `kandidat` (
 --
 
 INSERT INTO `kandidat` (`no_kandidat`, `nama`, `wakil`, `jk_ketua`, `jk_wakil`, `email_ketua`, `email_wakil`, `hp_ketua`, `hp_wakil`, `visi`, `misi`, `foto_ketua`, `foto_wakil`, `uraian`, `jumlah_suara`) VALUES
-(1, 'Feni Lestari', 'Agnes Shita', 'P', 'P', 'feni@gmail.com', 'shita@gmail.com', '87653', '98767', 'Menjadikan kampus yang sejahtera', '1. Mengadakan kegiatan baksos <br>\r\n2. Mengadakan inisiasi', 'Creative-Tail-People-women_svg3.png', 'Creative-Tail-People-women_svg.png', 'Halo, perkenalkan kami dari calon kandidat nomor 1 supaya teman-teman dapat memilih kami sebagai ketua dan wakil ketua pada periode saat ini, jangan lupa pilih nomor 1...', 1),
-(2, 'Hanit Jatmika', 'Ratna eva', 'L', 'P', 'hanit@gmail.com', 'eva123@gmail.com', '2147483647', '2147483647', 'Menjadikan kampus yang humanis', '1. ikut serta kegiatan kampus <br>\r\n2. mengadakan baksos', '800px-Creative-Tail-People-superman_svg.png', 'Creative-Tail-People-women_svg1.png', 'jangan lupa pilih kami no 2!!!', 1),
+(1, 'Feni Lestari', 'Agnes Shita', 'P', 'P', 'feni@gmail.com', 'shita@gmail.com', '87653', '98767', 'Menjadikan kampus yang sejahtera', '1. Mengadakan kegiatan baksos <br>\r\n2. Mengadakan inisiasi', 'Creative-Tail-People-women_svg3.png', 'Creative-Tail-People-women_svg.png', 'Halo, perkenalkan kami dari calon kandidat nomor 1 supaya teman-teman dapat memilih kami sebagai ketua dan wakil ketua pada periode saat ini, jangan lupa pilih nomor 1...', 2),
+(2, 'Hanit Jatmika', 'Ratna eva', 'L', 'P', 'hanit@gmail.com', 'eva123@gmail.com', '2147483647', '2147483647', 'Menjadikan kampus yang humanis', '1. ikut serta kegiatan kampus <br>\r\n2. mengadakan baksos', '800px-Creative-Tail-People-superman_svg.png', 'Creative-Tail-People-women_svg1.png', 'jangan lupa pilih kami no 2!!!', 0),
 (3, 'Axel Haryanto', 'Vebi', 'L', 'P', 'axel@gmail.com', 'vebi123@gmail.com', '2147483647', '2147483647', 'Menjadikan kampus yang unggul', '1. Mengadakan Bukber <br>\r\n2. Mengadakan upacara 17 Agustus', '800px-Creative-Tail-People-police-man_svg.png', 'Creative-Tail-People-women_svg2.png', 'jangan lupa pilih no 3', 1);
 
 -- --------------------------------------------------------
@@ -157,7 +158,8 @@ INSERT INTO `komentar` (`id`, `nama`, `waktu`, `uraian`, `image`, `role_id`) VAL
 (76, 'Samson Sugiyarto', '22-10-2019 10:27:05', 'coba... :)', 'IMG-20191004-WA00261.jpg', 1),
 (77, 'Rudi Priyanto', '24-10-2019 12:38:28', 'uu', '1554741068135.jpg', 5),
 (78, 'Oskar Adi', '24-10-2019 13:11:01', 'saya oskar', '1552496971664.jpg', 4),
-(79, 'Romanus Adi', '24-10-2019 20:35:27', 'pimpinan romanus', '1560320819083.jpg', 3);
+(79, 'Romanus Adi', '24-10-2019 20:35:27', 'pimpinan romanus', '1560320819083.jpg', 3),
+(80, 'Dila Fadillah', '28-10-2019 22:04:28', 'coba ah', 'DSC_2565a.jpg', 2);
 
 -- --------------------------------------------------------
 
@@ -182,7 +184,8 @@ INSERT INTO `konfir_komentar` (`id_konfir`, `id_komentar`) VALUES
 (25, 76),
 (26, 77),
 (27, 78),
-(28, 79);
+(28, 79),
+(29, 80);
 
 -- --------------------------------------------------------
 
@@ -311,8 +314,7 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`id`, `name`, `jk`, `email`, `hp`, `image`, `password`, `role_id`, `is_active`, `date_created`) VALUES
 (3, 'Samson Sugiyarto', 'L', 'gitosamson123@gmail.com', '089213248384', 'IMG-20191004-WA00261.jpg', '$2y$10$y4bmK5JiJbIOYQ5ze0n4cei/QdNTnxIPcy8gsAc/9misiwt9W2keC', 1, 1, 1560654857),
 (4, 'Dila Fadillah', 'P', 'dila123@gmail.com', '089221238474', 'DSC_2565a.jpg', '$2y$10$dJfXzvLbBJU/aoJhY0oIlOC3rHvbSkvIow5i2I.zmR8hXX//YxaHm', 2, 1, 1560655500),
-(21, 'Samson Sugiyarto', 'L', 'samsonsugiyarto123@gmail.com', '081575224630', '15574428665641.jpg', '$2y$10$hopfz/tuCVi5hV17nqOA5OejSIogOSjxwjDR4uyWFCM7SQx4P7RnG', 2, 1, 1561087895),
-(26, 'FEDFE', 'L', 'FEF@FRFE.GFGR', '42424', 'default.jpg', '$2y$10$3wJOyEc10bsi.qiY2yDXnuJMO0Aek7.X.pPa1fmwavWLqbk/ynQT.', 2, 1, 1571564538);
+(21, 'Samson Sugiyarto', 'L', 'samsonsugiyarto123@gmail.com', '081575224630', '15574428665641.jpg', '$2y$10$hopfz/tuCVi5hV17nqOA5OejSIogOSjxwjDR4uyWFCM7SQx4P7RnG', 2, 1, 1561087895);
 
 -- --------------------------------------------------------
 
@@ -559,7 +561,7 @@ ALTER TABLE `user_token`
 -- AUTO_INCREMENT for table `data_pemilihan`
 --
 ALTER TABLE `data_pemilihan`
-  MODIFY `id_pemilihan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id_pemilihan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 --
 -- AUTO_INCREMENT for table `jurusan`
 --
@@ -569,12 +571,12 @@ ALTER TABLE `jurusan`
 -- AUTO_INCREMENT for table `komentar`
 --
 ALTER TABLE `komentar`
-  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
+  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
 --
 -- AUTO_INCREMENT for table `konfir_komentar`
 --
 ALTER TABLE `konfir_komentar`
-  MODIFY `id_konfir` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id_konfir` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 --
 -- AUTO_INCREMENT for table `riwayat`
 --
