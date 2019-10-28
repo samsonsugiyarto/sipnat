@@ -18,6 +18,34 @@ class Pilih_model extends CI_Model
         $this->db->insert('data_pemilihan', $data);
     }
 
+    public function pilihDataKandidatDosen($id, $user)
+    {
+        $tipe = 'Dosen';
+
+        date_default_timezone_set('Asia/Jakarta');
+        $data = [
+            'tipe' => $tipe,
+            'id_pemilih' => $user['nidn'],
+            'id_kandidat' => $id,
+            'waktu' => date("d-m-Y H:i:s")
+        ];
+
+        $this->db->insert('data_pemilihan', $data);
+    }
+    public function pilihDataKandidatPimpinan($id, $user)
+    {
+        $tipe = 'Pimpinan';
+
+        date_default_timezone_set('Asia/Jakarta');
+        $data = [
+            'tipe' => $tipe,
+            'id_pemilih' => $user['nidn'],
+            'id_kandidat' => $id,
+            'waktu' => date("d-m-Y H:i:s")
+        ];
+
+        $this->db->insert('data_pemilihan', $data);
+    }
     public function tambahJumlahSuara($id)
     {
         $kandidat = $this->db->get_where('kandidat', ['no_kandidat' => $id])->row_array();

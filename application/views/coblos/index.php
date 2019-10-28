@@ -3,7 +3,10 @@
 
     <!-- Page Heading -->
     <h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1>
-    <?= $this->session->flashdata('message'); ?>
+    <?php if ($this->session->flashdata('message')) : ?>
+
+        <div class="flash-pilih" data-flashpilih="<?= $this->session->flashdata('message'); ?>"></div>
+    <?php endif; ?>
 
     <div class="row justify-content-around">
 

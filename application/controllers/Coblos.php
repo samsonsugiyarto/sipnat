@@ -50,6 +50,8 @@ class Coblos extends CI_Controller
             $data['user'] = $this->db->get_where('pimpinan', ['nidn' =>
             $this->session->userdata('nidn')])->row_array();
             $data['kandidat'] = $this->db->get('kandidat')->result_array();
+            $data['pilih'] = $this->db->get_where('data_pemilihan', ['id_pemilih' =>
+            $this->session->userdata('nidn')])->row_array();
 
             $this->load->view('templates/header', $data);
             $this->load->view('templates/sidebar', $data);
@@ -66,6 +68,8 @@ class Coblos extends CI_Controller
 
 
             $data['kandidat'] = $this->db->get('kandidat')->result_array();
+            $data['pilih'] = $this->db->get_where('data_pemilihan', ['id_pemilih' =>
+            $this->session->userdata('nidn')])->row_array();
 
             $this->load->view('templates/header', $data);
             $this->load->view('templates/sidebar', $data);
@@ -130,13 +134,24 @@ class Coblos extends CI_Controller
             is_logged_inpimp();
             $data['user'] = $this->db->get_where('pimpinan', ['nidn' =>
             $this->session->userdata('nidn')])->row_array();
+            $user = $this->db->get_where('pimpinan', ['nidn' =>
+            $this->session->userdata('nidn')])->row_array();
             $data['kandidat'] = $this->db->get('kandidat')->result_array();
+            $pilih = $this->db->get_where('data_pemilihan', ['id_pemilih' =>
+            $this->session->userdata('nidn')])->row_array();
+            if ($pilih) {
+                $this->load->view('templates/header', $data);
+                $this->load->view('templates/sidebar', $data);
+                $this->load->view('templates/topbar', $data);
+                $this->load->view('coblos/index', $data);
+                $this->load->view('templates/footer');
+            } else {
 
-            $this->load->view('templates/header', $data);
-            $this->load->view('templates/sidebar', $data);
-            $this->load->view('templates/topbar', $data);
-            $this->load->view('coblos/index', $data);
-            $this->load->view('templates/footer');
+                $this->Pilih->pilihDataKandidatPimpinan($id, $user);
+                $this->Pilih->tambahJumlahSuara($id);
+                $this->session->set_flashdata('message', 'Memilih!');
+                redirect('coblos');
+            }
         }
 
 
@@ -144,15 +159,25 @@ class Coblos extends CI_Controller
             is_logged_indsn();
             $data['user'] = $this->db->get_where('dosen', ['nidn' =>
             $this->session->userdata('nidn')])->row_array();
-
+            $user = $this->db->get_where('dosen', ['nidn' =>
+            $this->session->userdata('nidn')])->row_array();
+            $pilih = $this->db->get_where('data_pemilihan', ['id_pemilih' =>
+            $this->session->userdata('nidn')])->row_array();
 
             $data['kandidat'] = $this->db->get('kandidat')->result_array();
+            if ($pilih) {
+                $this->load->view('templates/header', $data);
+                $this->load->view('templates/sidebar', $data);
+                $this->load->view('templates/topbar', $data);
+                $this->load->view('coblos/index', $data);
+                $this->load->view('templates/footer');
+            } else {
 
-            $this->load->view('templates/header', $data);
-            $this->load->view('templates/sidebar', $data);
-            $this->load->view('templates/topbar', $data);
-            $this->load->view('coblos/index', $data);
-            $this->load->view('templates/footer');
+                $this->Pilih->pilihDataKandidatDosen($id, $user);
+                $this->Pilih->tambahJumlahSuara($id);
+                $this->session->set_flashdata('message', 'Memilih!');
+                redirect('coblos');
+            }
         }
 
         if ($role_id == 5) {
