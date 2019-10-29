@@ -11,6 +11,35 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="<?= base_url('assets/css/style.css') ?>">
+    <!-- Script Diagram Pie Voting -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', {
+            'packages': ['corechart']
+        });
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+
+            var data = google.visualization.arrayToDataTable(
+                [
+                    ['Nama Kandidat', 'Suara'],
+                    <?php foreach ($kandidat as $kand) {
+                        echo "['" . $kand['nama'] . "', " . $kand['jumlah_suara'] . "],";
+                    } ?>
+
+                ]);
+
+            var options = {
+                title: 'Hasil Live Voting'
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+            chart.draw(data, options);
+        }
+    </script>
+    <!-- Akhir Script Diagram Pie -->
 
 
     <link rel="icon" type="image/png" href="<?= base_url('assets/img/logostikom.png'); ?>">
@@ -147,8 +176,15 @@
             </div>
         </div>
     </section>
-
-
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <!-- Pemanggilan Diagram Pie -->
+                <div id="piechart" style="width: 500px; height: 500px;"></div>
+                <!-- Akhir Pemanggilan Diagram Pie -->
+            </div>
+        </div>
+    </div>
     <!-- Gallery-->
 
     <div class="container2 gambar" id="gallery">

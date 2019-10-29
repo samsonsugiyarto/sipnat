@@ -112,6 +112,41 @@
         </div>
     </div>
 
+    <!-- Script Diagram Pie Voting -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', {
+            'packages': ['corechart']
+        });
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+
+            var data = google.visualization.arrayToDataTable(
+                [
+                    ['Nama Kandidat', 'Suara'],
+                    <?php foreach ($kandidat as $kand) {
+                        echo "['" . $kand['nama'] . "', " . $kand['jumlah_suara'] . "],";
+                    } ?>
+
+                ]);
+
+            var options = {
+                title: 'Hasil Live Voting'
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+            chart.draw(data, options);
+        }
+    </script>
+    <!-- Akhir Script Diagram Pie -->
+
+
+    <!-- Pemanggilan Diagram Pie -->
+    <div id="piechart" style="width: 900px; height: 500px;"></div>
+    <!-- Akhir Pemanggilan Diagram Pie -->
+
 
 
 
