@@ -7,20 +7,13 @@
 /* Navbar */
 
 .navbar {
-	background-color: #272727;
+
 	padding-top: 10px;
-	color: #ffffff !important;
-
+	background-color: rgba(0, 0, 0, 0.856) !important;
 }
 
-.nav-item {
-	color: #ffffff !important;
-}
 
-.navbar-toggler {
-	background-color: #ffffff69 !important;
 
-}
 
 .navbar-brand {
 	font: 40px Viga;
@@ -423,7 +416,7 @@ footer p i {
 		padding-top: 20px;
 		padding-bottom: 20px;
 		z-index: 99;
-		background-color: rgba(0, 0, 0, 0.856);
+		background-color: rgba(24, 24, 24, 0.856) !important;
 	}
 
 

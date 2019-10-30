@@ -9,20 +9,15 @@ body {
 /* Navbar */
 
 .navbar {
-	background-color: #272727;
-	padding-top: 10px;
-	color: #ffffff !important;
 
+	padding-top: 10px;
+	background-color: rgba(0, 0, 0, 0.856) !important;
 }
 
 .nav-item {
 	color: #ffffff !important;
 }
 
-.navbar-toggler {
-	background-color: #ffffff69 !important;
-
-}
 
 .navbar-brand {
 	font: 40px Viga;
@@ -104,6 +99,11 @@ footer p i {
 	color: red;
 }
 
+.tombol {
+	border-radius: 40px;
+	text-transform: uppercase;
+}
+
 
 /* RESPONSIVE */
 @media (min-width: 992px) {
@@ -111,7 +111,8 @@ footer p i {
 		padding-top: 20px;
 		padding-bottom: 20px;
 		z-index: 99;
-		background-color: rgba(0, 0, 0, 0.856);
+		background-color: rgb(0, 0, 0);
+
 	}
 
 

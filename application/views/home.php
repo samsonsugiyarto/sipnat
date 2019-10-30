@@ -11,35 +11,10 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="<?= base_url('assets/css/style.css') ?>">
-    <!-- Script Diagram Pie Voting -->
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-        google.charts.load('current', {
-            'packages': ['corechart']
-        });
-        google.charts.setOnLoadCallback(drawChart);
 
-        function drawChart() {
 
-            var data = google.visualization.arrayToDataTable(
-                [
-                    ['Nama Kandidat', 'Suara'],
-                    <?php foreach ($kandidat as $kand) {
-                        echo "['" . $kand['nama'] . "', " . $kand['jumlah_suara'] . "],";
-                    } ?>
 
-                ]);
 
-            var options = {
-                title: 'Hasil Live Voting'
-            };
-
-            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-
-            chart.draw(data, options);
-        }
-    </script>
-    <!-- Akhir Script Diagram Pie -->
 
 
     <link rel="icon" type="image/png" href="<?= base_url('assets/img/logostikom.png'); ?>">
@@ -60,7 +35,7 @@
 
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg sticky-top">
+    <nav class="navbar navbar-dark bg-dark navbar-expand-lg sticky-top">
         <div class="container">
             <img class="logo" src="assets/img/logostikom.png">
             <a class="navbar-brand page-scroll" href="#home">SIPNAT</a>
@@ -173,18 +148,22 @@
                         </div>
                     <?php endforeach; ?>
                 </div>
+                <div class="row justify-content-center">
+                    <div class="col-sm-5 py-4">
+                        <canvas id="myChart" width="1" height="1"></canvas>
+                    </div>
+                </div>
+                <div class="row text-center">
+                    <div class="col-sm-12">
+                        <h3 style="font-size: 21px; color:rgba(255, 255, 255, 0.750);">Total Suara Masuk : <?= $js['jsuara'] ?> Suara</h3>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-12">
-                <!-- Pemanggilan Diagram Pie -->
-                <div id="piechart" style="width: 500px; height: 500px;"></div>
-                <!-- Akhir Pemanggilan Diagram Pie -->
-            </div>
-        </div>
-    </div>
+
+
+
     <!-- Gallery-->
 
     <div class="container2 gambar" id="gallery">
@@ -336,12 +315,9 @@
         </div>
     </div>
     </div>
-
-
-
-
-
     <!-- END TEAM -->
+
+
     <div class="row justify-content-start mt-3">
         <div class="col-6  komen">
             <?php foreach ($komentar as $komen) : ?>
@@ -398,6 +374,84 @@
     </footer>
     <!-- Akhir Footer -->
     <!-- Optional JavaScript -->
+
+
+    <!-- Diagram -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>
+    <Script>
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myDoughnutChart = new Chart(ctx, {
+            type: 'doughnut',
+            // type: 'pie',
+            data: {
+                datasets: [{
+                    data: [
+
+                        <?php foreach ($kandidat as $kand) {
+
+
+                            $a = $kand['jumlah_suara'];
+                            $b = $js['jsuara'];
+                            if ($b != 0) {
+                                $hasil = round($kand['jumlah_suara'] / $js['jsuara'] * 100);
+                            } else {
+                                $hasil = $kand['jumlah_suara'];
+                            }
+
+                            echo   $hasil .  ",";
+                        } ?>
+                    ],
+                    backgroundColor: [
+                        'rgba(170, 139, 0, 0.897)',
+                        'rgba(11, 0, 170, 0.74)',
+                        'rgba(170, 0, 0, 0.74)'
+
+                    ],
+                    borderColor: [
+                        'rgb(255, 208, 0)',
+                        'rgb(0, 68, 255)',
+                        'rgb(255, 0, 0)'
+
+                    ]
+                }],
+
+                labels: [
+                    <?php foreach ($kandidat as $kand) {
+                        echo "'" . $kand['nama'] . "',";
+                    } ?>
+                ],
+
+
+
+
+
+            },
+            options: {
+
+                tooltips: {
+                    callbacks: {
+                        label: function(tooltipItem, data) {
+                            return data['labels'][tooltipItem['index']] + ': ' + data['datasets'][0]['data'][tooltipItem['index']] + '%';
+                        }
+                    },
+
+                    bodyFontSize: 18
+                },
+                legend: {
+                    labels: {
+                        fontSize: 18,
+                        fontColor: 'rgb(255, 255, 255)'
+                    }
+                }
+
+
+            },
+
+
+        });
+    </Script>
+    <!-- Akhir Diagram -->
+
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script>
@@ -418,6 +472,9 @@
 
     <script src="<?= base_url('assets/js/pindahnav.js'); ?>">
     </script>
+
+
+
 
 
 

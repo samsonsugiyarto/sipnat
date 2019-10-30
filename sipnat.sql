@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 29 Okt 2019 pada 07.13
+-- Generation Time: 30 Okt 2019 pada 17.02
 -- Versi Server: 10.1.13-MariaDB
 -- PHP Version: 7.0.6
 
@@ -43,7 +43,9 @@ INSERT INTO `data_pemilihan` (`id_pemilihan`, `tipe`, `id_pemilih`, `name`, `id_
 (27, 'Mahasiswa', 201601007, 'Foustino Asprila Gunantara', 1, '28-10-2019 21:54:25'),
 (28, 'Dosen', 1997, 'Oskar Adi', 1, '28-10-2019 21:55:02'),
 (29, 'Pimpinan', 1234, 'Romanus Adi', 3, '28-10-2019 21:55:42'),
-(30, 'Mahasiswa', 201601053, 'Nabilla Nur Fadillah', 2, '29-10-2019 12:50:22');
+(30, 'Mahasiswa', 201601053, 'Nabilla Nur Fadillah', 2, '29-10-2019 12:50:22'),
+(31, 'Mahasiswa', 201601039, 'Yulieus Adi Pranoto', 3, '30-10-2019 22:39:37'),
+(32, 'Mahasiswa', 201601044, 'Ridho Ramadhani', 1, '30-10-2019 22:45:20');
 
 -- --------------------------------------------------------
 
@@ -127,9 +129,9 @@ CREATE TABLE `kandidat` (
 --
 
 INSERT INTO `kandidat` (`no_kandidat`, `nama`, `wakil`, `jk_ketua`, `jk_wakil`, `email_ketua`, `email_wakil`, `hp_ketua`, `hp_wakil`, `visi`, `misi`, `foto_ketua`, `foto_wakil`, `uraian`, `jumlah_suara`) VALUES
-(1, 'Feni Lestari', 'Agnes Shita', 'P', 'P', 'feni@gmail.com', 'shita@gmail.com', '87653', '98767', 'Menjadikan kampus yang sejahtera', '1. Mengadakan kegiatan baksos <br>\r\n2. Mengadakan inisiasi', 'Creative-Tail-People-women_svg3.png', 'Creative-Tail-People-women_svg.png', 'Halo, perkenalkan kami dari calon kandidat nomor 1 supaya teman-teman dapat memilih kami sebagai ketua dan wakil ketua pada periode saat ini, jangan lupa pilih nomor 1...', 2),
+(1, 'Feni Lestari', 'Agnes Shita', 'P', 'P', 'feni@gmail.com', 'shita@gmail.com', '87653', '98767', 'Menjadikan kampus yang sejahtera', '1. Mengadakan kegiatan baksos <br>\r\n2. Mengadakan inisiasi', 'Creative-Tail-People-women_svg3.png', 'Creative-Tail-People-women_svg.png', 'Halo, perkenalkan kami dari calon kandidat nomor 1 supaya teman-teman dapat memilih kami sebagai ketua dan wakil ketua pada periode saat ini, jangan lupa pilih nomor 1...', 3),
 (2, 'Hanit Jatmika', 'Ratna eva', 'L', 'P', 'hanit@gmail.com', 'eva123@gmail.com', '2147483647', '2147483647', 'Menjadikan kampus yang humanis', '1. ikut serta kegiatan kampus <br>\r\n2. mengadakan baksos', '800px-Creative-Tail-People-superman_svg.png', 'Creative-Tail-People-women_svg1.png', 'jangan lupa pilih kami no 2!!!', 1),
-(3, 'Axel Haryanto', 'Vebi', 'L', 'P', 'axel@gmail.com', 'vebi123@gmail.com', '2147483647', '2147483647', 'Menjadikan kampus yang unggul', '1. Mengadakan Bukber <br>\r\n2. Mengadakan upacara 17 Agustus', '800px-Creative-Tail-People-police-man_svg.png', 'Creative-Tail-People-women_svg2.png', 'jangan lupa pilih no 3', 1);
+(3, 'Axel Haryanto', 'Vebi', 'L', 'P', 'axel@gmail.com', 'vebi123@gmail.com', '2147483647', '2147483647', 'Menjadikan kampus yang unggul', '1. Mengadakan Bukber <br>\r\n2. Mengadakan upacara 17 Agustus', '800px-Creative-Tail-People-police-man_svg.png', 'Creative-Tail-People-women_svg2.png', 'jangan lupa pilih no 3', 2);
 
 -- --------------------------------------------------------
 
@@ -220,8 +222,8 @@ INSERT INTO `mahasiswa` (`nim`, `name`, `jk`, `email`, `hp`, `image`, `password`
 (201601021, 'Marcello Dani Hansen', 'L', 'hansen123@gmail.com', '085555123123', 'default.jpg', '$2y$10$LXpn36MpNrIt3TzHivmeI.BDIAoqWua2lj8.ttnvAAeU79xSnyRBu', 5, 0, 10),
 (201601036, 'Fefiana', 'P', 'fefiana@gmail.com', '081232123455', 'default.jpg', '$2y$10$EviIor0agd50NSu6.iNc5ej1Gbr7pmI83Yh2tgm.BlJQWeSfMiTti', 5, 1, 2),
 (201601038, 'Reno Fahmi', 'L', 'reno@gmail.com', '081223234566', 'default.jpg', '$2y$10$4fVFbZcaL5vI688YBc7iMuDQT91SW8LsAeD1a2xE/iRV/F1lcaivW', 5, 1, 8),
-(201601039, 'Yulieus Adi Pranoto', 'L', 'yuliusadi19@gmail.com', '081218990103', 'default.jpg', '$2y$10$GuBddu9N1VN9obcsUibWHOFLaYKxMWLmL0UL8tPtQ5VdsBdr5Vih2', 5, 1, 8),
-(201601044, 'Ridho Ramadhan', 'L', 'ridho123@gmail.com', '081232267583', 'default.jpg', '$2y$10$hBXw3Yz4KIl6.ibg3rRcpujDbYSkmFvibtzolcXNa/MXYtJJl69tW', 5, 1, 8),
+(201601039, 'Yulieus Adi Pranoto', 'L', 'yuliusadi19@gmail.com', '081218990103', 'default.jpg', '$2y$10$artiCrTo1sLRSZNMmXakcOBgyZBZcv6cbqhCqCm.CUlW5hCPI7Psu', 5, 1, 2),
+(201601044, 'Ridho Ramadhani', 'L', 'ridho123@gmail.com', '081232267583', 'default.jpg', '$2y$10$bMRfDXqIA1jBb0UeY11ahOnsq4DNINebc17zdmtDSbh.yVjW6eQZq', 5, 1, 2),
 (201601045, 'Lala Wati', 'P', 'lala123@gmail.com', '081232212345', '1559932732837.jpg', '$2y$10$5PW.e81iugLs.VuzoBZyHOcn8QO3htnHLpUlJAQuZzNnmUNT//xIi', 5, 1, 3),
 (201601046, 'Merli Amelia Anggraeni', 'P', 'merli123@gmail.com', '081234523412', 'default.jpg', '$2y$10$juW1jYi2XAzcxXrOet757OMbWv.FUlWItstqvImn6gSqnN8P/mJgS', 5, 1, 10),
 (201601051, 'Nabilla NF', 'P', 'nurfadillahnabilla@gmail.com', '0895634687760', '1560567398155.jpg', '$2y$10$y9IxvrRuKryjxigbLEiuLOGsPYXOmvBDghH1gaMt4fdp6XX4CRoUe', 5, 1, 2),
@@ -562,7 +564,7 @@ ALTER TABLE `user_token`
 -- AUTO_INCREMENT for table `data_pemilihan`
 --
 ALTER TABLE `data_pemilihan`
-  MODIFY `id_pemilihan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id_pemilihan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 --
 -- AUTO_INCREMENT for table `jurusan`
 --

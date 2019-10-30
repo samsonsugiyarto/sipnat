@@ -7,20 +7,15 @@
 /* Navbar */
 
 .navbar {
-	background-color: #272727;
-	padding-top: 10px;
-	color: #ffffff !important;
 
+	padding-top: 10px;
+	background-color: rgba(0, 0, 0, 0.856) !important;
 }
 
 .nav-item {
 	color: #ffffff !important;
 }
 
-.navbar-toggler {
-	background-color: #ffffff69 !important;
-
-}
 
 .navbar-brand {
 	font: 40px Viga;
