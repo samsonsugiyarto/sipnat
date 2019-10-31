@@ -28,7 +28,7 @@
     <!-- Begin Page Content -->
     <!-- Navbar -->
     <nav class="navbar  navbar-dark bg-dark navbar-expand-lg sticky-top">
-        <div class="container">
+        <div class="container mb-5">
             <img class="logo" src="<?= base_url('assets/img/logostikom.png') ?>">
             <a class="navbar-brand page-scroll" href="#home">SIPNAT</a>
             <h1 class="navbar-brand2">Sistem Informasi Pemilihan Ketua SENAT</h1>
@@ -59,108 +59,112 @@
     </nav>
     <!-- akhir Navbar -->
     <!-- Jumbotron -->
-    <div class="jumbotron text-center">
-        <div class="row justify-content-center">
-            <div class="col- " style="padding: 12px;">
-                <img src="<?= base_url('assets/img/profile/default.jpg') ?>" class="rounded-circle img-fluid" alt="">
-                <h4>Feni Lestari</h4>
-            </div>
-            <div class="col- " style="padding: 12px;">
-                <img src="<?= base_url('assets/img/profile/default.jpg') ?>" class="rounded-circle img-fluid" alt="">
-                <h4>Agnes Shita</h4>
-            </div>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col- status">
-                <p>Calon Kandidat 1</p>
-            </div>
-        </div>
-    </div>
-    <!-- Akhir jumbotron -->
-
-
-    <!-- visi -->
-    <section class="visi" id="visi">
-        <div class="container">
+    <?php foreach ($kandidat as $kan) : ?>
+        <div class="jumbotron text-center">
             <div class="row justify-content-center">
-                <div class="col-12">
-                    <h2 class="text-center">VISI</h2>
-                    <hr>
+                <div class="col- " style="padding: 12px;">
+                    <img src="<?= base_url('assets/img/profile/kandidat/') . $kan['foto_ketua']; ?>" class="rounded-circle img-fluid" alt="">
+                    <h4><?= $kan['nama']; ?></h4>
+                </div>
+                <div class="col- " style="padding: 12px;">
+                    <img src="<?= base_url('assets/img/profile/kandidat/') . $kan['foto_wakil']; ?>" class="rounded-circle img-fluid" alt="">
+                    <h4><?= $kan['wakil']; ?></h4>
                 </div>
             </div>
-
             <div class="row justify-content-center">
-                <div class="col-sm-9">
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit beatae sed dolor quos. Nostrum ab doloribus quam tempora dicta? Alias voluptate quibusdam ullam deleniti dolorum dolor aliquid itaque aspernatur soluta!</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Akhir visi -->
-    <!-- Misi -->
-    <section class="misi" id="misi">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-12">
-                    <h2 class="text-center">MISI</h2>
-                    <hr>
-                </div>
-            </div>
-
-            <div class="row justify-content-center">
-                <div class="col-sm-4">
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit beatae sed dolor quos. Nostrum ab doloribus quam tempora dicta? Alias voluptate quibusdam ullam deleniti dolorum dolor aliquid itaque aspernatur soluta!</p>
-                </div>
-                <div class="col-sm-4">
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit beatae sed dolor quos. Nostrum ab doloribus quam tempora dicta? Alias voluptate quibusdam ullam deleniti dolorum dolor aliquid itaque aspernatur soluta!</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Akhir misi -->
-    <!-- Tentang -->
-    <section class="tentang" id="tentang">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-12">
-                    <h2 class="text-center">TENTANG</h2>
-                    <hr>
-                </div>
-            </div>
-
-            <div class="row justify-content-center">
-                <div class="col-sm-10">
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit beatae sed dolor quos. Nostrum ab doloribus quam tempora dicta? Alias voluptate quibusdam ullam deleniti dolorum dolor aliquid itaque aspernatur soluta!</p>
-                </div>
-            </div>
-
-            <!-- Protfolio -->
-
-            <div class="row">
-                <div class="col-sm-4  mb-4">
-                    <img class="img-fluid img-thumbnail" src="<?= base_url('assets/img/2.jpeg') ?>" alt="">
-                </div>
-                <div class="col-sm-4 mb-4">
-                    <img class="img-fluid img-thumbnail" src="<?= base_url('assets/img/2.jpeg') ?>" alt="">
-                </div>
-                <div class="col-sm-4 mb-4">
-                    <img class="img-fluid img-thumbnail" src="<?= base_url('assets/img/2.jpeg') ?>" alt="">
-                </div>
-                <div class="col-sm-4 mb-4">
-                    <img class="img-fluid img-thumbnail" src="<?= base_url('assets/img/2.jpeg') ?>" alt="">
-                </div>
-                <div class="col-sm-4 mb-4">
-                    <img class="img-fluid img-thumbnail" src="<?= base_url('assets/img/2.jpeg') ?>" alt="">
-                </div>
-                <div class="col-sm-4 mb-4">
-                    <img class="img-fluid img-thumbnail" src="<?= base_url('assets/img/2.jpeg') ?>" alt="">
+                <div class="col- status">
+                    <p>Calon Kandidat <?= $kan['no_kandidat']; ?></p>
                 </div>
             </div>
         </div>
 
-        <!-- Akhir portfolio -->
-    </section>
 
+        <!-- Akhir jumbotron -->
+
+
+        <!-- visi -->
+        <section class="visi" id="visi">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12">
+                        <h2 class="text-center">VISI</h2>
+                        <hr>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-sm-9 text-center">
+                        <p><?= $kan['visi']; ?></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Akhir visi -->
+        <!-- Misi -->
+        <section class="misi" id="misi">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12">
+                        <h2 class="text-center">MISI</h2>
+                        <hr>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-sm-6 text-center">
+                        <p><?= $kan['misi']; ?></p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Akhir misi -->
+        <!-- Tentang -->
+        <section class="tentang" id="tentang">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12">
+                        <h2 class="text-center">TENTANG</h2>
+                        <hr>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-sm-10 text-center">
+                        <p><?= $kan['uraian']; ?></p>
+                    </div>
+                </div>
+
+
+                <!-- Protfolio -->
+
+                <div class="row">
+                    <div class="col-sm-4  mb-4">
+                        <img class="img-fluid img-thumbnail" src="<?= base_url('assets/img/2.jpeg') ?>" alt="">
+                    </div>
+                    <div class="col-sm-4 mb-4">
+                        <img class="img-fluid img-thumbnail" src="<?= base_url('assets/img/2.jpeg') ?>" alt="">
+                    </div>
+                    <div class="col-sm-4 mb-4">
+                        <img class="img-fluid img-thumbnail" src="<?= base_url('assets/img/2.jpeg') ?>" alt="">
+                    </div>
+                    <div class="col-sm-4 mb-4">
+                        <img class="img-fluid img-thumbnail" src="<?= base_url('assets/img/2.jpeg') ?>" alt="">
+                    </div>
+                    <div class="col-sm-4 mb-4">
+                        <img class="img-fluid img-thumbnail" src="<?= base_url('assets/img/2.jpeg') ?>" alt="">
+                    </div>
+                    <div class="col-sm-4 mb-4">
+                        <img class="img-fluid img-thumbnail" src="<?= base_url('assets/img/2.jpeg') ?>" alt="">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Akhir portfolio -->
+        </section>
+    <?php endforeach; ?>
     <!-- Akhir tentang -->
 
     <!-- Footer -->

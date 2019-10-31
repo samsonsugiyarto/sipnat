@@ -68,70 +68,69 @@
             </div>
         </div>
     </div>
-    <div class="container">
-        <div class="row periode">
-            <div class="col-lg text-center">
-                <h4>PERIODE SENAT 2018/2019 </h4>
+    <?php foreach ($riwayat as $riw) : ?>
+        <div class="container mb-4">
+            <div class="row periode">
+                <div class="col-lg text-center">
+                    <h4>PERIODE SENAT <?= $riw['th_jabatan']; ?> </h4>
+                </div>
             </div>
         </div>
-    </div>
 
 
-    <div class="container text-center ">
-        <div class="row justify-content-center">
-            <div class="col-5">
-                <div class="card-deck">
-                    <div class="card">
-                        <img src="<?= base_url('assets/img/profile/default.jpg') ?>" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Richard Alexander</h5>
-                            <p class="card-text">Ketua Senat</p>
+        <div class="container text-center ">
+            <div class="row justify-content-center">
+                <div class="col-6">
+                    <div class="card-deck">
+                        <div class="card">
+                            <img class="img-fluid" src="<?= base_url('assets/img/profile/riwayat/') . $riw['fotoketua'];  ?>" alt="Responsive image">
+                            <div class=" card-body">
+                                <h5 class="card-title"><?= $riw['ketua']; ?></h5>
+                                <p class="card-text">Ketua Senat</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="card">
-                        <img src="<?= base_url('assets/img/profile/default.jpg') ?>" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Kevin Rian</h5>
-                            <p class="card-text">Wakil Ketua Senat</p>
+                        <div class="card">
+                            <img class="img-fluid" src="<?= base_url('assets/img/profile/riwayat/') . $riw['fotowakil']; ?>" alt="Responsive image">
+                            <div class="card-body">
+                                <h5 class="card-title"><?= $riw['wakil']; ?></h5>
+                                <p class="card-text">Wakil Ketua Senat</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
 
-
-    <div class="row mt-5 justify-content-center">
-        <div class="col-md-auto visibtn">
-            <h2 class="badge badge-pill badge-success"><span>VISI</span> </h2>
+        <div class="row mt-5 justify-content-center">
+            <div class="col-md-auto visibtn text-center">
+                <h2 class="badge badge-pill badge-success"><span>VISI</span> </h2>
+            </div>
         </div>
-    </div>
 
-    <div class="row mt-3 justify-content-center">
-        <div class="col-mx-auto">
-            <figure class="figurevisi visi">
-                Menjadikan Kampus Humanis dan Unggul dalam Bidang Cyber Akademik
-            </figure>
+        <div class="row mt-3 justify-content-center">
+            <div class="col-mx-auto">
+                <figure class="figurevisi visi">
+                    <?= $riw['visi']; ?>
+                </figure>
 
+            </div>
         </div>
-    </div>
 
-    <div class="row mt-2 justify-content-center">
-        <div class="col-md-auto visibtn">
-            <h2 class="badge badge-pill badge-danger"><span>MISI</span> </h2>
+        <div class="row mt-2 justify-content-center">
+            <div class="col-md-auto visibtn  text-center">
+                <h2 class="badge badge-pill badge-danger"><span>MISI</span> </h2>
+            </div>
         </div>
-    </div>
 
-    <div class="row mt-3 justify-content-center">
-        <div class="col-auto">
-            <figure class="figuremisi misi">
-                1. Ikut Serta Kegiatan Kampus <br>
-                2. Mengadakan acara Inisiasi 2019 <br>
-                3. Study banding ke kampus lain
-            </figure>
+        <div class="row mt-3 justify-content-center">
+            <div class="col-auto">
+                <figure class="figuremisi misi">
+                    <?= $riw['misi']; ?>
+                </figure>
+            </div>
         </div>
-    </div>
+    <?php endforeach; ?>
 
 
 

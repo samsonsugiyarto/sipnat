@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 30 Okt 2019 pada 17.02
+-- Generation Time: 31 Okt 2019 pada 07.31
 -- Versi Server: 10.1.13-MariaDB
 -- PHP Version: 7.0.6
 
@@ -76,7 +76,7 @@ INSERT INTO `dosen` (`nidn`, `name`, `password`, `jk`, `mengajar`, `email`, `hp`
 (9087, 'Dhany Faizal', '$2y$10$pU04d4t6uEWmGH6AeDojk.WzGdxIayk8LOJfpP1/57OBKkawR34su', 'L', 'Jaringan Komputer', 'dhany@gmail.com', '98654', 1, 'default.jpg', 4),
 (34343, 'Diandra Chika', '$2y$10$WAbdlOVNXpVvqvQmhiFlcu/vFSvoCWIUc.DC1RkJcw1mx8Vpqidae', 'P', 'Matematika', 'chika@gmail.com', '09876', 1, '1559932673046.jpg', 4),
 (112233, 'Mutiara Chandrasari', '$2y$10$Ce02WUXW8LZg41XnG4SWk.uxpkMfAZsi/DNtInTcl.XhoaBCXAnxO', 'L', 'Pemrogramman C++', 'mutiara123@gmail.com', '089223465344', 1, 'Screenshot_(171).png', 4),
-(11221133, 'Moko Sunyoto', '$2y$10$pSjTxud.mdwxSDNE8tgSWuCA5HwT4p23n4myECq3BNJhSJ69a4RMi', 'L', 'Pemrogramman C++', 'moko@gmail.com', '2147483647', 1, '1562396232352.jpg', 4),
+(11221133, 'Moko Sunyoto', '$2y$10$pSjTxud.mdwxSDNE8tgSWuCA5HwT4p23n4myECq3BNJhSJ69a4RMi', 'L', 'Pemrogramman C++', 'moko@gmail.com', '2147483647', 0, '1562396232352.jpg', 4),
 (11223344, 'Adi Prabowo', '$2y$10$lt78hVutH7U7EYXXw772tugA9cw3epDNbEMbzvVv/A6yG5ZVhpp16', 'L', 'Statistika Dasar', 'adi@gmail.com', '2147483647', 1, 'default.jpg', 4);
 
 -- --------------------------------------------------------
@@ -98,7 +98,8 @@ INSERT INTO `jurusan` (`id`, `nama_jurusan`) VALUES
 (2, 'S1 Teknik Multimedia dan Jaringan'),
 (3, 'S1 Sistem Informasi'),
 (8, 'S1 Teknik Informatika'),
-(10, 'D3 Komputerisasi Akuntansi');
+(10, 'D3 Komputerisasi Akuntansi'),
+(12, 'a');
 
 -- --------------------------------------------------------
 
@@ -288,8 +289,9 @@ CREATE TABLE `riwayat` (
 --
 
 INSERT INTO `riwayat` (`id`, `th_jabatan`, `no_kandidat`, `ketua`, `wakil`, `visi`, `misi`, `fotoketua`, `fotowakil`) VALUES
-(3, '2016/2017', 2, 'Kevin', 'Agnes', 'Menjadikan kampus yang humanis', 'naa nana nanananan nanan nnana', '1558541105353.jpg', '1556787851893.jpg'),
-(4, '2017/2018', 3, 'Feni Lestari', 'Agnes Shita', 'Menjadikan kampus yang unggul', 'tatata nana baba', 'default.jpg', 'default.jpg');
+(3, '2016/2017', 2, 'Kevin', 'Agnes', 'Menjadikan kampus yang humanis', 'naa nana nanananan nanan nnana', '800px-Creative-Tail-People-superman_svg.png', '1556787851893.jpg'),
+(4, '2017/2018', 3, 'Feni Lestari', 'Agnes Shita', 'Menjadikan kampus yang unggul', 'tatata nana baba', 'default.jpg', 'default.jpg'),
+(5, '2016/2017', 3, 'Samson', 'Hanit', 'Menjadikan kampus yang unggul', '1. membuat blablabla <br>\r\n1. membuat blablabla<br>\r\n1. membuat blablabla', 'IMG-20191004-WA00261.jpg', '800px-Creative-Tail-People-superman_svg1.png');
 
 -- --------------------------------------------------------
 
@@ -569,7 +571,7 @@ ALTER TABLE `data_pemilihan`
 -- AUTO_INCREMENT for table `jurusan`
 --
 ALTER TABLE `jurusan`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `komentar`
 --
@@ -584,12 +586,12 @@ ALTER TABLE `konfir_komentar`
 -- AUTO_INCREMENT for table `riwayat`
 --
 ALTER TABLE `riwayat`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 --
 -- AUTO_INCREMENT for table `user_access_menu`
 --

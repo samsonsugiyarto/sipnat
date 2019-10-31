@@ -41,6 +41,13 @@ class Admin extends CI_Controller
         $this->db->from('komentar');
         $data['komentar'] = $this->db->count_all_results();
 
+        $this->db->from('riwayat');
+        $data['riwayat'] = $this->db->count_all_results();
+
+        $this->db->like('role_id', 2);
+        $this->db->from('user');
+        $data['admin'] = $this->db->count_all_results();
+
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);

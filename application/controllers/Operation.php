@@ -29,8 +29,9 @@ class Operation extends CI_Controller
 
 
 
-        $query = "SELECT nama_jurusan, COUNT( nama_jurusan ) as total  
-            FROM mahasiswa INNER JOIN jurusan
+        $query = "SELECT nama_jurusan, COUNT(nama_jurusan) as total 
+          
+            FROM mahasiswa LEFT JOIN jurusan
         ON mahasiswa.kode_jurusan = jurusan.id 
         GROUP BY nama_jurusan";
 
