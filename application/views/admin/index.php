@@ -177,7 +177,7 @@
                         </div>
                     </div>
                 </div>
-                <a href="<?= base_url('operation/riwayat'); ?>" class="btn btn-success btn-icon-split">
+                <a href="<?= base_url('riwayat/riwayat'); ?>" class="btn btn-success btn-icon-split">
                     <span class="icon text-white-50">
                         <i class="fas fa-arrow-right"></i>
                     </span>

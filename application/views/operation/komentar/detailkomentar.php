@@ -22,7 +22,27 @@
     <div class="card col-lg-6">
         <div class="row no-gutters">
             <div class="col-md-4">
-                <img src="<?= base_url('assets/img/profile/') . $komen['image']; ?>" class="card-img">
+                <?php
+                $user = $this->db->get_where('user', ['name' => $komen['nama']])->row_array();
+                $pimpinan = $this->db->get_where('pimpinan', ['name' => $komen['nama']])->row_array();
+                $dosen = $this->db->get_where('dosen', ['name' => $komen['nama']])->row_array();
+                $mhs = $this->db->get_where('mahasiswa', ['name' => $komen['nama']])->row_array();
+                ?>
+
+                <img src=" 
+                        <?php if ($komen['role_id'] == 1 || $komen['role_id'] == 2) : ?>
+                        <?= base_url('assets/img/profile/') . $user['image']; ?>
+                        <?php elseif ($komen['role_id'] == 3) : ?>
+                        <?= base_url('assets/img/profile/pimpinan/') . $pimpinan['image']; ?>
+
+                        <?php elseif ($komen['role_id'] == 4) : ?>
+                        <?= base_url('assets/img/profile/dosen/') . $dosen['image']; ?>
+
+                        <?php elseif ($komen['role_id'] == 5) : ?>
+                        <?= base_url('assets/img/profile/mahasiswa/') . $mhs['image']; ?>
+                        <?php endif; ?>" class="card-img" alt="...">
+
+
             </div>
             <div class="col-md-6">
                 <div class="card-body">

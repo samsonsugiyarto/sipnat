@@ -125,6 +125,7 @@
    <script src="<?= base_url('assets/js/sweet4.js'); ?>"></script>
    <script src="<?= base_url('assets/js/sweet5.js'); ?>"></script>
    <script src="<?= base_url('assets/js/sweet6.js'); ?>"></script>
+   <script src="<?= base_url('assets/js/sweet7.js'); ?>"></script>
 
    </body>
 

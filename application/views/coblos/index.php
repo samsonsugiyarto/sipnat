@@ -62,21 +62,21 @@
                             <span class="icon text-white-50">
                                 <i class="fas fa-check"></i>
                             </span>
-                            <span class="text">Pilih Kandidat No. <?= $kand['no_kandidat']; ?></span>
+                            <span class="text">Anda Sudah Memilih</span>
                         </a>
                     <?php elseif ($kand['no_kandidat'] == 2) : ?>
                         <a href="<?= base_url('coblos/pilih/') . $kand['no_kandidat']; ?>" class="disable-links btn btn-secondary btn-icon-split btn-sm">
                             <span class="icon text-white-50">
                                 <i class="fas fa-check"></i>
                             </span>
-                            <span class="text">Pilih Kandidat No. <?= $kand['no_kandidat']; ?></span>
+                            <span class="text">Anda Sudah Memilih</span>
                         </a>
                     <?php elseif ($kand['no_kandidat'] == 3) : ?>
                         <a href="<?= base_url('coblos/pilih/') . $kand['no_kandidat']; ?>" class="disable-links btn btn-secondary btn-icon-split btn-sm">
                             <span class="icon text-white-50">
                                 <i class="fas fa-check"></i>
                             </span>
-                            <span class="text">Pilih Kandidat No. <?= $kand['no_kandidat']; ?></span>
+                            <span class="text">Anda Sudah Memilih</span>
                         </a>
                     <?php endif; ?>
 
@@ -84,21 +84,21 @@
 
                 <?php else : ?>
                     <?php if ($kand['no_kandidat'] == 1) : ?>
-                        <a href="<?= base_url('coblos/pilih/') . $kand['no_kandidat']; ?>" class="btn btn-success btn-icon-split btn-sm">
+                        <a class="btn btn-success btn-icon-split btn-sm pilihkon" href="<?= base_url('coblos/pilih/') . $kand['no_kandidat']; ?>">
                             <span class="icon text-white-50">
                                 <i class="fas fa-check"></i>
                             </span>
                             <span class="text">Pilih Kandidat No. <?= $kand['no_kandidat']; ?></span>
                         </a>
                     <?php elseif ($kand['no_kandidat'] == 2) : ?>
-                        <a href="<?= base_url('coblos/pilih/') . $kand['no_kandidat']; ?>" class="btn btn-danger btn-icon-split btn-sm">
+                        <a class="btn btn-danger btn-icon-split btn-sm pilihkon" href="<?= base_url('coblos/pilih/') . $kand['no_kandidat']; ?>">
                             <span class="icon text-white-50">
                                 <i class="fas fa-check"></i>
                             </span>
                             <span class="text">Pilih Kandidat No. <?= $kand['no_kandidat']; ?></span>
                         </a>
                     <?php elseif ($kand['no_kandidat'] == 3) : ?>
-                        <a href="<?= base_url('coblos/pilih/') . $kand['no_kandidat']; ?>" class="btn btn-warning btn-icon-split btn-sm">
+                        <a class="btn btn-warning btn-icon-split btn-sm pilihkon" href="<?= base_url('coblos/pilih/') . $kand['no_kandidat']; ?>">
                             <span class="icon text-white-50">
                                 <i class="fas fa-check"></i>
                             </span>

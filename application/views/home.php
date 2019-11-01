@@ -319,7 +319,7 @@
 
 
     <div class="row justify-content-start mt-3">
-        <div class="col-6  komen">
+        <div class="col-sm-5  komen">
             <?php foreach ($komentar as $komen) : ?>
                 <?php
                     $user = $this->db->get_where('user', ['name' => $komen['nama']])->row_array();
@@ -328,7 +328,7 @@
                     $mhs = $this->db->get_where('mahasiswa', ['name' => $komen['nama']])->row_array();
                     ?>
                 <div class="row">
-                    <div class="col-auto-6">
+                    <div class="col-auto-12">
                         <img style="height: 4rem; width: 4rem;" src=" <?php if ($komen['role_id'] == 1 || $komen['role_id'] == 2) : ?>
                         <?= base_url('assets/img/profile/') . $user['image']; ?>
                         <?php elseif ($komen['role_id'] == 3) : ?>

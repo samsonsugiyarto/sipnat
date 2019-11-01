@@ -28,7 +28,7 @@
     <!-- Begin Page Content -->
     <!-- Navbar -->
     <nav class="navbar  navbar-dark bg-dark navbar-expand-lg sticky-top">
-        <div class="container mb-5">
+        <div class="container">
             <img class="logo" src="<?= base_url('assets/img/logostikom.png') ?>">
             <a class="navbar-brand page-scroll" href="#home">SIPNAT</a>
             <h1 class="navbar-brand2">Sistem Informasi Pemilihan Ketua SENAT</h1>
@@ -62,20 +62,23 @@
     <?php foreach ($kandidat as $kan) : ?>
         <div class="jumbotron text-center">
             <div class="row justify-content-center">
-                <div class="col- " style="padding: 12px;">
-                    <img src="<?= base_url('assets/img/profile/kandidat/') . $kan['foto_ketua']; ?>" class="rounded-circle img-fluid" alt="">
-                    <h4><?= $kan['nama']; ?></h4>
-                </div>
-                <div class="col- " style="padding: 12px;">
-                    <img src="<?= base_url('assets/img/profile/kandidat/') . $kan['foto_wakil']; ?>" class="rounded-circle img-fluid" alt="">
-                    <h4><?= $kan['wakil']; ?></h4>
-                </div>
-            </div>
-            <div class="row justify-content-center">
                 <div class="col- status">
                     <p>Calon Kandidat <?= $kan['no_kandidat']; ?></p>
                 </div>
             </div>
+            <div class="row justify-content-center">
+                <div class="col- " style="padding: 12px;">
+                    <img src="<?= base_url('assets/img/profile/kandidat/') . $kan['foto_ketua']; ?>" class="rounded-circle img-fluid" alt="">
+                    <h4><?= $kan['nama']; ?></h4>
+                    <p>Calon Ketua Senat</p>
+                </div>
+                <div class="col- " style="padding: 12px;">
+                    <img src="<?= base_url('assets/img/profile/kandidat/') . $kan['foto_wakil']; ?>" class="rounded-circle img-fluid" alt="">
+                    <h4><?= $kan['wakil']; ?></h4>
+                    <p>Calon Wakil Ketua Senat</p>
+                </div>
+            </div>
+
         </div>
 
 
@@ -141,29 +144,25 @@
                 <!-- Protfolio -->
 
                 <div class="row">
-                    <div class="col-sm-4  mb-4">
+                    <div class="col-sm-3 mb-4">
                         <img class="img-fluid img-thumbnail" src="<?= base_url('assets/img/2.jpeg') ?>" alt="">
                     </div>
-                    <div class="col-sm-4 mb-4">
+                    <div class="col-sm-3 mb-4">
                         <img class="img-fluid img-thumbnail" src="<?= base_url('assets/img/2.jpeg') ?>" alt="">
                     </div>
-                    <div class="col-sm-4 mb-4">
+                    <div class="col-sm-3 mb-4">
                         <img class="img-fluid img-thumbnail" src="<?= base_url('assets/img/2.jpeg') ?>" alt="">
                     </div>
-                    <div class="col-sm-4 mb-4">
-                        <img class="img-fluid img-thumbnail" src="<?= base_url('assets/img/2.jpeg') ?>" alt="">
-                    </div>
-                    <div class="col-sm-4 mb-4">
-                        <img class="img-fluid img-thumbnail" src="<?= base_url('assets/img/2.jpeg') ?>" alt="">
-                    </div>
-                    <div class="col-sm-4 mb-4">
+                    <div class="col-sm-3 mb-4">
                         <img class="img-fluid img-thumbnail" src="<?= base_url('assets/img/2.jpeg') ?>" alt="">
                     </div>
                 </div>
             </div>
 
+
             <!-- Akhir portfolio -->
         </section>
+        <hr style="width: 100%;">
     <?php endforeach; ?>
     <!-- Akhir tentang -->
 

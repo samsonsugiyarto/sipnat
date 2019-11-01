@@ -7,7 +7,7 @@
 
 
     <div class="row">
-        <div class="col-lg-6">
+        <div class="col-sm-6">
             <?= form_error('menu', '<div class="alert
                     alert-danger" role="alert">', '</div>'); ?>
 
@@ -15,7 +15,7 @@
 
             <a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#newMenuModal">Add New Menu</a>
             <div class="table-responsive">
-                <table class="table table-bordered table-hover" id="dataTable">
+                <table class="table table-hover" id="dataTable">
                     <thead class="thead-dark">
                         <tr>
                             <th scope="col">No</th>
