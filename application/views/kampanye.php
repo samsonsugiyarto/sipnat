@@ -58,6 +58,7 @@
         </div>
     </nav>
     <!-- akhir Navbar -->
+
     <!-- Jumbotron -->
     <?php foreach ($kandidat as $kan) : ?>
         <div class="jumbotron text-center">

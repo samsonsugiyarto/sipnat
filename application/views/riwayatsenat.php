@@ -61,6 +61,7 @@
 
     <!-- Begin Page Content -->
 
+
     <div class="container">
         <div class="row">
             <div class="col-lg text-center">
@@ -69,6 +70,7 @@
         </div>
     </div>
     <?php foreach ($riwayat as $riw) : ?>
+
         <div class="container mb-4">
             <div class="row periode">
                 <div class="col-lg text-center">

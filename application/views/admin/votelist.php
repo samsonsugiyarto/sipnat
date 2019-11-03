@@ -112,7 +112,7 @@
         </div>
     </div>
 
-    <!-- Script Diagram Pie Voting -->
+    <!-- Script Diagram Pie/donat Voting -->
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
         google.charts.load('current', {
@@ -126,19 +126,44 @@
                 [
                     ['Nama Kandidat', 'Suara'],
                     <?php foreach ($kandidat as $kand) {
+                        $a = $kand['jumlah_suara'];
+                        $b = $js['jsuara'];
+                        if ($b != 0) {
+                            $hasil = round($kand['jumlah_suara'] / $js['jsuara'] * 100, 2);
+                        } else {
+                            $hasil = $kand['jumlah_suara'];
+                        }
+
                         echo "['" . $kand['nama'] . "', " . $kand['jumlah_suara'] . "],";
                     } ?>
 
                 ]);
 
             var options = {
-                title: 'Hasil Live Voting'
+                backgroundColor: 'transparent',
+                pieHole: 0.50,
+                pieSliceBorderColor: 'none',
+                chartArea: {
+                    left: 10,
+                    top: 20,
+                    width: "100%",
+                    height: "100%"
+                }
             };
 
             var chart = new google.visualization.PieChart(document.getElementById('piechart'));
 
             chart.draw(data, options);
         }
+        $(window).on("throttledresize", function(event) {
+            var options = {
+                width: '100%',
+                height: '100%'
+            };
+
+            var data = google.visualization.arrayToDataTable([]);
+            drawChart(data, options);
+        });
     </script>
     <!-- Akhir Script Diagram Pie -->
 

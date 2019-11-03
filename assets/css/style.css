@@ -1,15 +1,10 @@
-/*font*/
-@font-face {
-	font-family: 'BebasNeue';
-	src: url(../font/BebasNeue-Regular.woff) format ('woff');
-}
-
 /* Navbar */
 
 .navbar {
 
 	padding-top: 10px;
 	background-color: rgba(0, 0, 0, 0.856) !important;
+	font-family: 'Poppins', sans-serif;
 }
 
 
@@ -22,6 +17,8 @@
 	margin-top: -17px;
 	margin-left: 70px;
 	color: #ffffff !important;
+
+
 }
 
 .navbar-brand2 {
@@ -34,7 +31,11 @@
 }
 
 .cover-overlay {
-	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
 	height: 100%;
 	background-color: rgba(0, 0, 0, 0.699);
 }
@@ -43,10 +44,12 @@
 .jumbotron {
 
 	background: url(../img/jumbotron-bg.jpg);
-	background-size: cover;
-	height: 540px;
+	background-repeat: no-repeat;
+	background-size: contain;
+	height: 240px;
 	position: relative;
 	z-index: -1;
+	margin-bottom: -1px;
 }
 
 .jumbotron::after {
@@ -77,33 +80,40 @@
 
 .jumbotron .display-4 {
 	font-weight: 200;
-	font-size: 2.6em;
-	margin-top: 100px;
+	font-size: 2.2em;
 	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
 	margin-bottom: 50px;
+	margin-top: 50px;
 
 }
 
 .display-3 {
-	font-size: 25pt;
+	font-family: 'Poppins', sans-serif;
+	font-weight: 200;
+	font-size: 16pt;
 	margin-top: -60px;
+	color: rgba(255, 255, 255, 0.384);
 }
 
 
 .jumbotron .display-4 span {
+	font-family: 'Poppins', sans-serif;
 	font-weight: 500;
-	color: rgb(255, 255, 255);
+	color: rgba(255, 255, 255, 0.384);
 
 }
 
 /* Info Panel */
 .info-panel {
+	font-family: 'Poppins', sans-serif;
 	background-color: rgba(32, 32, 32, 0.596);
 	padding-bottom: -100px;
 	padding-top: 20px;
-	margin-top: -100px;
 	border-radius: 12px;
 	box-shadow: 0 3px 15px rgba(226, 0, 0, 0.096);
+	position: absolute;
+	margin-top: 120px !important;
+
 }
 
 .info-panel h4 {
@@ -116,7 +126,7 @@
 
 .info-panel p {
 	font-size: 14px;
-	font-weight: lighter;
+	font-weight: 300;
 	color: #ffffff;
 	text-align: center;
 }
@@ -126,18 +136,19 @@
 /* Workingspace */
 .workingspace {
 	padding-top: 40px;
-	background-color: #000000de;
+	background-color: #00000000;
 
 }
 
 
 .workingspace h2 {
+	font-family: 'Poppins', sans-serif;
 	font-size: 30px;
 	text-transform: uppercase;
-	font-weight: 200;
+	font-weight: 500;
 	text-align: center;
-	color: #ffffff;
-	text-shadow: 0 0 8px rgba(255, 255, 255, 0.274);
+	color: #000000;
+
 }
 
 .workingspace h3 {
@@ -159,7 +170,7 @@
 .workingspace h2 span {
 	font-weight: 500;
 	color: rgb(190, 0, 0);
-	text-shadow: 0 0 8px rgb(87, 0, 0);
+	text-shadow: 0 0 1px rgb(87, 0, 0);
 }
 
 
@@ -192,7 +203,7 @@
 	border: 3px solid rgb(255, 255, 255);
 	margin-top: 10px;
 	position: relative;
-	margin-left: 50px;
+	margin-left: 80px;
 }
 
 .center {
@@ -359,10 +370,16 @@
 	text-transform: uppercase;
 }
 
-.cardedit {
+.cardedit:hover {
 
-	background-color: #000000;
-	box-shadow: 0 3px 12px rgba(255, 255, 255, 0.11);
+	background-image: linear-gradient(45deg, rgb(157, 91, 254) 0%, rgb(56, 144, 254) 100%);
+
+	box-shadow: 0 5px 12px rgba(39, 39, 39, 0.11);
+}
+
+.cardedit:hover h5,
+.cardedit:hover p {
+	color: white;
 }
 
 .cardfoto {
@@ -404,11 +421,183 @@ footer {
 footer p {
 	color: rgb(207, 207, 207);
 	font-size: 0.9em;
+	font-family: 'Poppins', sans-serif;
 }
 
 footer p i {
 	color: red;
+	font-family: 'Poppins', sans-serif;
 }
+
+.chart {
+	width: 100%;
+	min-height: 300px;
+	float: left !important;
+	position: relative;
+
+}
+
+.row {
+	margin: 0 !important;
+}
+
+.vote h3 {
+	font-family: 'Poppins', sans-serif;
+	font-weight: 300;
+	color: rgba(0, 0, 0, 0.493);
+	text-transform: capitalize;
+	font-size: 24px;
+	margin-top: 10px;
+}
+
+.vote h3 span {
+	color: #000000e0;
+
+}
+
+.vote h3 p {
+	color: rgba(0, 0, 0, 0.493);
+	font-size: 20px;
+
+}
+
+/* Gallery */
+
+.container.gallery-container {
+	background-color: #fff;
+	color: #35373a;
+	border-radius: 20px;
+	box-shadow: 0 8px 15px rgba(0, 0, 0, 0.06);
+}
+
+.gallery-container h1 {
+	text-align: center;
+	font-family: 'Poppins', sans-serif;
+	font-weight: bold;
+}
+
+.gallery-container p.page-description {
+	font-family: 'Poppins', sans-serif;
+	text-align: center;
+	max-width: 800px;
+	margin: 8px auto;
+	color: #888;
+	font-size: 18px;
+}
+
+.tz-gallery {
+	padding: 40px;
+}
+
+.tz-gallery .lightbox img {
+	width: 100%;
+	margin-bottom: 30px;
+	transition: 0.2s ease-in-out;
+	box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+}
+
+
+.tz-gallery .lightbox img:hover {
+	transform: scale(1.05);
+	box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+.tz-gallery img {
+	border-radius: 4px;
+}
+
+.baguetteBox-button {
+	background-color: transparent !important;
+}
+
+
+@media(max-width: 768px) {
+
+	.container.gallery-container {
+		border-radius: 0;
+	}
+}
+
+/* Akhir Gallery */
+.card {
+	border-radius: 10px !important;
+	box-shadow: 0px 0px 15px 5px rgba(52, 69, 199, 0.4);
+	padding: 0;
+	border: 0;
+}
+
+
+
+.card-header a {
+	width: 630px;
+	text-align: left;
+	color: black;
+	text-decoration: none;
+	font-family: 'Poppins', sans-serif;
+	font-size: 24px;
+}
+
+.card-header a:hover {
+	color: white;
+
+}
+
+
+.card-header:hover {
+	background-image: linear-gradient(45deg, rgb(157, 91, 254) 0%, rgb(56, 144, 254) 100%);
+	border-radius: 10px;
+}
+
+@import url('https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css');
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+.mb-0>a {
+	display: block;
+	position: relative;
+}
+
+.mb-0>a:after {
+	content: "\f078";
+	/* fa-chevron-down */
+	font-family: 'FontAwesome';
+	position: absolute;
+	right: 230px;
+
+}
+
+.mb-0>a[aria-expanded="true"]:after {
+	content: "\f077";
+	/* fa-chevron-up */
+}
+
+.isi {
+	font-family: 'Poppins', sans-serif;
+	font-weight: 500;
+}
+
+
+.container.komen-container {
+	background-color: #fff;
+	color: #35373a;
+	border-radius: 20px;
+	box-shadow: 0 8px 15px rgba(0, 0, 0, 0.06);
+	width: 90%;
+
+}
+
+.komen-container h1 {
+
+	font-family: 'Poppins', sans-serif;
+	font-weight: bold;
+	font-size: 25px;
+}
+
+
+
+
+
+
+
 
 /* RESPONSIVE */
 @media (min-width: 992px) {
@@ -418,6 +607,56 @@ footer p i {
 		z-index: 99;
 		background-color: rgba(24, 24, 24, 0.856) !important;
 	}
+
+	.chart {
+		min-height: 400px;
+		margin-top: 20px;
+		position: relative;
+
+	}
+
+	.vote h3 {
+		font-family: 'Poppins', sans-serif;
+		font-weight: 500;
+		font-size: 60px;
+		color: rgba(0, 0, 0, 0.493);
+		margin-top: 60px;
+		text-transform: capitalize;
+		text-align: left;
+	}
+
+	.vote h3 span {
+		color: #000000c9;
+	}
+
+	.vote h3 p {
+		color: rgba(0, 0, 0, 0.493);
+		font-size: 28px;
+	}
+
+	@import url('https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css');
+	@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+	.mb-0>a {
+		display: block;
+		position: relative;
+	}
+
+	.mb-0>a:after {
+		content: "\f078";
+		/* fa-chevron-down */
+		font-family: 'FontAwesome';
+		position: absolute;
+		right: 140px;
+
+	}
+
+	.mb-0>a[aria-expanded="true"]:after {
+		content: "\f077";
+		/* fa-chevron-up */
+	}
+
+
 
 
 
@@ -450,8 +689,10 @@ footer p i {
 	.info-panel {
 		background-color: rgba(32, 32, 32, 0.596);
 		padding: 5px;
-		margin-top: -120px;
+		margin-top: 120px;
 		border-radius: 12px;
+		position: absolute;
+		margin-top: 455px !important;
 
 	}
 
@@ -463,13 +704,14 @@ footer p i {
 
 	.workingspace h2 {
 		font-size: 52px;
-		text-transform: uppercase;
-		font-weight: 200;
-		text-align: center;
+		font-family: 'Poppins', sans-serif;
+		font-weight: 700;
+
 	}
 
 	.workingspace h2 span {
-		font-weight: 500;
+		font-family: 'Poppins', sans-serif;
+		font-weight: 700;
 	}
 
 
@@ -512,8 +754,13 @@ footer p i {
 
 	.jumbotron .display-4 {
 		font-size: 5em;
-		margin-top: 150px;
+		margin-top: 220px;
+	}
 
+	.display-3 {
+		font-size: 25pt;
+		margin-top: -60px;
+		color: rgba(255, 255, 255, 0.384);
 	}
 
 
@@ -581,6 +828,14 @@ footer p i {
 		margin-left: -50px;
 	}
 
+	.container.komen-container {
+		background-color: #fff;
+		color: #35373a;
+		border-radius: 20px;
+		box-shadow: 0 8px 15px rgba(0, 0, 0, 0.06);
+		width: 70%;
+
+	}
 
 
 }
@@ -595,11 +850,12 @@ footer p i {
 
 
 
+
 .isicard h5,
 .isicard p {
-	color: #ffffff;
+	color: #000000;
+	font-family: 'Poppins', sans-serif;
 }
-
 
 
 
@@ -621,11 +877,12 @@ footer p i {
 	background-color: rgb(0, 0, 0);
 }
 
-.background1 {
-	background-color: #161616;
+.tentang h1 {
+	font-family: 'Poppins', sans-serif;
+	font-weight: 600;
 }
 
-.font {
+.aboutsenat {
 	color: white;
 	margin-bottom: 20px;
 }
@@ -639,20 +896,23 @@ footer p i {
 	font-size: 15px;
 	margin-left: 85px;
 	font-weight: bold;
+	font-family: 'Poppins', sans-serif;
 
 }
 
 .komen h5 {
+	font-family: 'Poppins', sans-serif;
 	margin-left: 85px;
 	margin-top: -8px;
 	font-size: 11px;
 }
 
 .komen p {
+
 	background-color: #0000001a;
 	margin-left: 90px;
 	padding: 7px;
-	font-size: 13px;
+	font-size: 16px;
 	border-radius: 8px;
 	margin-top: 10px;
 }

@@ -2,6 +2,7 @@
 <html lang="en" id="home">
 
 <head>
+
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -9,17 +10,15 @@
     <link rel="stylesheet" href="assets/css/reset.css">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="<?= base_url('assets/css/style.css') ?>">
-
-
-
-
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 
 
     <link rel="icon" type="image/png" href="<?= base_url('assets/img/logostikom.png'); ?>">
 
     <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Viga" rel="stylesheet">
 
     <link href="https://fonts.googleapis.com/css?family=Catamaran&display=swap" rel="stylesheet">
@@ -34,6 +33,7 @@
 </style>
 
 <body>
+
     <!-- Navbar -->
     <nav class="navbar navbar-dark bg-dark navbar-expand-lg sticky-top">
         <div class="container">
@@ -47,8 +47,8 @@
                 <div class="navbar-nav ml-auto">
                     <a class="nav-item nav-link active  page-scroll" href="#home">Home <span class="sr-only"></span></a>
                     <a class="nav-item nav-link page-scroll" href="#voting">Voting <span></span></a>
-                    <a class="nav-item nav-link  page-scroll" href="#gallery">Galeri</a>
                     <a class="nav-item nav-link  page-scroll" href="#personil">Tentang Senat</a>
+                    <a class="nav-item nav-link  page-scroll" href="#gallery">Galeri</a>
                     <a class="nav-item nav-link" href="<?= base_url('home/kampanye'); ?>">Kampanye</a>
                     <a class="nav-item nav-link" href="<?= base_url('home/riwayatsenat'); ?>">Riwayat Senat</a>
                     <li class="nav-item dropdown">
@@ -71,39 +71,39 @@
     <!-- akhir Navbar -->
 
     <!-- Jumbotron -->
-    <div class="cover-overlay ">
-        <div class="jumbotron  jumbotron-fluid">
+    <div class="jumbotron  jumbotron-fluid">
+        <div class="container">
+
+            <!-- info panel -->
+            <div class="row justify-content-center">
+                <div class="col-5 info-panel">
+                    <h4 id="teks"></h4>
+                    <p>Waktu hitung mundur.</p>
+                </div>
+            </div>
+        </div>
+        <script src="assets/js/hitungmundur.js"></script>
+        <!-- akhir info panel -->
+        <div class="cover-overlay ">
             <div class="container">
                 <h1 class="display-4"><span>Pemilihan Ketua SENAT</span> </h1>
                 <h1 class="display-3">STIKOM Yos Sudarso Purwokerto </h1>
             </div>
         </div>
+        <!-- container -->
+
     </div>
 
     <!-- akhir Jumbotron -->
 
-
-    <!-- container -->
-    <div class="container">
-
-        <!-- info panel -->
-        <div class="row justify-content-center">
-            <div class="col-5 info-panel">
-                <h4 id="teks"></h4>
-                <p>Waktu hitung mundur.</p>
-            </div>
-        </div>
-    </div>
-    <script src="assets/js/hitungmundur.js"></script>
-    <!-- akhir info panel -->
-
-
     <!-- Workingspace -->
     <section id="voting">
-        <div class="row workingspace">
-            <div class="col-lg">
-                <h2><span>LIVE </span>Voting </h2>
-                <div class="row justify-content-around pt-4">
+        <div class="container gallery-container">
+            <div class="row workingspace">
+                <div class="col-lg">
+                    <h2><span>LIVE </span>Voting </h2>
+                    <!-- desain voting card -->
+                    <!-- <div class="row justify-content-around pt-4">
                     <?php foreach ($kandidat as $kand) : ?>
                         <div class="card-group">
                             <div class="card cardfoto">
@@ -147,136 +147,73 @@
                             <h3 style="font-size: 17px;"> <?= $kand['jumlah_suara']; ?> Suara</h3>
                         </div>
                     <?php endforeach; ?>
-                </div>
-                <div class="row justify-content-center">
-                    <div class="col-sm-5 py-4">
-                        <canvas id="myChart" width="1" height="1"></canvas>
+                </div> -->
+                    <!-- Akhir desain voting card -->
+                    <div class="row vote">
+                        <!-- <canvas id="myChart" width="1" height="1"></canvas> -->
+                        <div class="col-sm-6  ">
+                            <div id="piechart" class="chart"></div>
+                        </div>
+                        <div class="col-sm-6 ">
+                            <h3>TOTAL<br>
+                                <P>Suara Masuk</P><span> <?= $js['jsuara'] ?> Suara</span>
+                            </h3>
+                        </div>
                     </div>
-                </div>
-                <div class="row text-center">
-                    <div class="col-sm-12">
-                        <h3 style="font-size: 21px; color:rgba(255, 255, 255, 0.750);">Total Suara Masuk : <?= $js['jsuara'] ?> Suara</h3>
-                    </div>
+
                 </div>
             </div>
         </div>
     </section>
 
-
-
-    <!-- Gallery-->
-
-    <div class="container2 gambar" id="gallery">
-        <h1>Gallery Kegiatan SENAT</h1>
-        <div class="row justify-content-center">
-            <div class="row">
-                <div class="center">
-                    <ul class="gambar2">
-                        <li>
-                            <a href="#gambar-1">
-                                <img src="assets/img/thumb/1.png" alt="Inisiasi">
-                                <span>Inisiasi</span>
+    <div class="row justify-content-center " id="personil">
+        <div class="col-sm-5 zero-panel text-center tentang  ">
+            <h1>TENTANG SENAT</h1>
+            <div id="accordion" class="mt-4">
+                <div class="card">
+                    <div class="card-header" id="heading-1">
+                        <h5 class="mb-0">
+                            <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-1" aria-expanded="false" aria-controls="collapse-1">
+                                VISI Senat
                             </a>
-                        </li>
-                        <div class="overlay" id="gambar-1">
-                            <a href="#gallery" class="close">X CLOSE</a>
-                            <img src="assets/img/full/1.png" alt="Inisiasi">
+                        </h5>
+                    </div>
+                    <div id="collapse-1" class="collapse" data-parent="#accordion" aria-labelledby="heading-1">
+                        <div class="card-body isi">
+                            Menjadikan Kampus yang humnis dan unggul berprestasi dalam bidang komputer
                         </div>
-                        <li>
-                            <a href="#gambar-2">
-                                <img src="assets/img/thumb/baksosthumb.png" alt="Baksos">
-                                <span>Baksos</span>
-                            </a>
-                        </li>
-                        <div class="overlay" id="gambar-2">
-                            <a href="#" class="close">X CLOSE</a>
-                            <img src="assets/img/full/baksos.png" alt="Baksos">
-                        </div>
-                        <li>
-                            <a href="#gambar-3">
-                                <img src="assets/img/thumb/diesthumb.png" alt="Dies">
-                                <span>Dies Natalis</span>
-                            </a>
-                        </li>
-                        <div class="overlay" id="gambar-3">
-                            <a href="#" class="close">X CLOSE</a>
-                            <img src="assets/img/full/dies.png" alt="Dies">
-                        </div>
-                        <li>
-                            <a href="#gambar-4">
-                                <img src="assets/img/thumb/bukberthumb.png" alt="Bukber">
-                                <span>Bukber</span>
-                            </a>
-                        </li>
-                        <div class="overlay" id="gambar-4">
-                            <a href="#" class="close">X CLOSE</a>
-                            <img src="assets/img/full/bukber.png" alt="Bukber">
-                        </div>
-                        <li>
-                            <a href="#gambar-5">
-                                <img src="assets/img/thumb/lantikthumb.png" alt="Lantik">
-                                <span>Pelantikan Senat</span>
-                            </a>
-                        </li>
-                        <div class="overlay" id="gambar-5">
-                            <a href="#" class="close">X CLOSE</a>
-                            <img src="assets/img/full/lantik.png" alt="Lantik">
-                        </div>
-
-
-                        <div class="clear"></div>
-                    </ul>
-
-
-
-
+                    </div>
                 </div>
-            </div>
 
+            </div>
+            <div id="accordion" class="mt-3">
+                <div class="card">
+                    <div class="card-header" id="heading-2">
+                        <h5 class="mb-0">
+                            <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-2" aria-expanded="false" aria-controls="collapse-2">
+                                Misi Senat Senat
+                            </a>
+                        </h5>
+                    </div>
+                    <div id="collapse-2" class="collapse" data-parent="#accordion" aria-labelledby="heading-2">
+                        <div class="card-body isi">
+                            1. Aktif dalam kegiatan kampus <br>
+                            2. Mengadakan Baksos <br>
+                            3. Mengadkan Inisiasi
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
+
+
     </div>
 
 
-    <!-- akhir Gallery -->
-    <div class="row justify-content-center" id="personil">
-        <div class="col-12 zero-panel text-center background1">
-            <div class="font">
-                <h1>TENTANG SENAT</h1>
-            </div>
-            <div class="row mt-4 justify-content-center">
-                <div class="col-md-auto visibtn">
-                    <h2 class="badge badge-pill badge-success"><span>VISI</span> </h2>
-                </div>
-            </div>
-            <div class="row mt-3 justify-content-center">
-                <div class="col-mx-auto">
-                    <figure class="figurevisi visi">
-                        Menjadikan Kampus Humanis dan Unggul dalam Bidang Cyber Akademik
-                    </figure>
-
-                </div>
-            </div>
-
-            <div class="row mt-2 justify-content-center">
-                <div class="col-md-auto visibtn">
-                    <h2 class="badge badge-pill badge-danger"><span>MISI</span> </h2>
-                </div>
-            </div>
-
-            <div class="row mt-3 justify-content-center">
-                <div class="col-auto">
-                    <figure class="figuremisi misi">
-                        1. Ikut Serta Kegiatan Kampus <br>
-                        2. Mengadakan acara Inisiasi 2019 <br>
-                        3. Study banding ke kampus lain
-                    </figure>
-                </div>
-            </div>
-        </div>
-    </div>
     <!-- TEAM -->
     <div class="row justify-content-center" id="personil">
-        <div class="col-12 zero-panel text-center background1">
+        <div class="col-12 zero-panel text-center tentang">
             <div class="row justify-content-center">
                 <div class="col-8">
                     <div class="card-deck">
@@ -318,18 +255,75 @@
     <!-- END TEAM -->
 
 
-    <div class="row justify-content-start mt-3">
-        <div class="col-sm-5  komen">
-            <?php foreach ($komentar as $komen) : ?>
-                <?php
-                    $user = $this->db->get_where('user', ['name' => $komen['nama']])->row_array();
-                    $pimpinan = $this->db->get_where('pimpinan', ['name' => $komen['nama']])->row_array();
-                    $dosen = $this->db->get_where('dosen', ['name' => $komen['nama']])->row_array();
-                    $mhs = $this->db->get_where('mahasiswa', ['name' => $komen['nama']])->row_array();
-                    ?>
-                <div class="row">
-                    <div class="col-auto-12">
-                        <img style="height: 4rem; width: 4rem;" src=" <?php if ($komen['role_id'] == 1 || $komen['role_id'] == 2) : ?>
+
+    <div class="container gallery-container" id="gallery">
+        <br>
+
+        <h1>Galeri</h1>
+
+        <p class="page-description text-center">Galeri Kegiatan Senat</p>
+
+        <div class="tz-gallery">
+
+            <div class="row">
+                <div class="col-sm-6 col-md-4">
+                    <a class="lightbox" href="<?= base_url('assets/img/gallery/park.jpg') ?>">
+                        <img src="<?= base_url('assets/img/gallery/park.jpg') ?>" alt="Park">
+                    </a>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <a class="lightbox" href="<?= base_url('assets/img/gallery/bridge.jpg') ?>">
+                        <img src="<?= base_url('assets/img/gallery/bridge.jpg') ?>" alt="Bridge">
+                    </a>
+                </div>
+                <div class="col-sm-12 col-md-4">
+                    <a class="lightbox" href="<?= base_url('assets/img/gallery/tunnel.jpg') ?>">
+                        <img src="<?= base_url('assets/img/gallery/tunnel.jpg') ?>" alt="Tunnel">
+                    </a>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <a class="lightbox" href="<?= base_url('assets/img/gallery/coast.jpg') ?>">
+                        <img src="<?= base_url('assets/img/gallery/coast.jpg') ?>" alt="Coast">
+                    </a>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <a class="lightbox" href="<?= base_url('assets/img/gallery/rails.jpg') ?>">
+                        <img src="<?= base_url('assets/img/gallery/rails.jpg') ?>" alt="Rails">
+                    </a>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <a class="lightbox" href="<?= base_url('assets/img/gallery/traffic.jpg') ?>">
+                        <img src="<?= base_url('assets/img/gallery/traffic.jpg') ?>" alt="Traffic">
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.css">
+    <script>
+        baguetteBox.run('.tz-gallery');
+    </script>
+
+    <div class="container komen-container mt-4">
+        <h1 class="py-3 pl-4">Komentar</h1>
+        <div class="row justify-content-start mt-3">
+
+            <div class="col-sm-9   komen mt-2">
+                <?php foreach ($komentar as $komen) : ?>
+                    <?php
+                        $user = $this->db->get_where('user', ['name' => $komen['nama']])->row_array();
+                        $pimpinan = $this->db->get_where('pimpinan', ['name' => $komen['nama']])->row_array();
+                        $dosen = $this->db->get_where('dosen', ['name' => $komen['nama']])->row_array();
+                        $mhs = $this->db->get_where('mahasiswa', ['name' => $komen['nama']])->row_array();
+                        ?>
+                    <div class="row">
+                        <div class="col-auto-12">
+                            <img style="height: 4rem; width: 4rem;" src=" <?php if ($komen['role_id'] == 1 || $komen['role_id'] == 2) : ?>
                         <?= base_url('assets/img/profile/') . $user['image']; ?>
                         <?php elseif ($komen['role_id'] == 3) : ?>
                         <?= base_url('assets/img/profile/pimpinan/') . $pimpinan['image']; ?>
@@ -341,18 +335,19 @@
                         <?= base_url('assets/img/profile/mahasiswa/') . $mhs['image']; ?>
                         <?php endif; ?>" class="img-profile rounded-circle float-left" alt="...">
 
-                        <?php if ($komen['role_id'] == 1 || $komen['role_id'] == 2) : ?>
-                            <h6><?= $komen['nama']; ?> <small class="text-muted">Admin </small></h6>
+                            <?php if ($komen['role_id'] == 1 || $komen['role_id'] == 2) : ?>
+                                <h6><?= $komen['nama']; ?> <small class="text-muted">Admin </small></h6>
 
-                        <?php else : ?>
-                            <h6><?= $komen['nama']; ?></h6>
-                        <?php endif; ?>
+                            <?php else : ?>
+                                <h6><?= $komen['nama']; ?></h6>
+                            <?php endif; ?>
 
-                        <h5> <?= timesampai(strtotime($komen['waktu'])); ?></h5>
-                        <p><?= $komen['uraian']; ?></p>
+                            <h5> <?= timesampai(strtotime($komen['waktu'])); ?></h5>
+                            <p><?= $komen['uraian']; ?></p>
+                        </div>
                     </div>
-                </div>
-            <?php endforeach; ?>
+                <?php endforeach; ?>
+            </div>
         </div>
     </div>
     <!-- akhir container -->
@@ -375,10 +370,81 @@
     <!-- Akhir Footer -->
     <!-- Optional JavaScript -->
 
+    <!-- Script Diagram Pie/donat Voting -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', {
+            'packages': ['corechart']
+        });
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+
+            var data = google.visualization.arrayToDataTable(
+                [
+                    ['Nama Kandidat', 'Suara'],
+                    <?php foreach ($kandidat as $kand) {
+                        // $a = $kand['jumlah_suara'];
+                        // $b = $js['jsuara'];
+                        // if ($b != 0) {
+                        //     $hasil = round($kand['jumlah_suara'] / $js['jsuara'] * 100, 2);
+                        // } else {
+                        //     $hasil = $kand['jumlah_suara'];
+                        // }
+
+                        echo "['" . $kand['nama'] . "', " . $kand['jumlah_suara'] . "],";
+                    } ?>
+
+
+                ]);
+
+            var options = {
+                backgroundColor: 'none',
+                pieHole: 0.50,
+                pieSliceBorderColor: 'none',
+                chartArea: {
+                    top: 30,
+
+
+                    width: "90%",
+                    height: "90%",
+                    backgroundColor: {
+                        stroke: '#000',
+                        strokeWidth: 10
+                    },
+
+
+                },
+
+
+                legend: {
+                    position: 'top',
+                    alignment: 'center',
+                    textStyle: {
+                        color: 'black',
+                        fontSize: '14',
+                        // bold: true,
+                        fontName: 'Poppins'
+
+                    }
+                },
+                colors: ["#3366cc", "#dc3912", "#ff9900", "#109618", "#990099", "#0099c6", "#dd4477", "#66aa00", "#b82e2e", "#316395", "#3366cc", "#994499", "#22aa99", "#aaaa11", "#6633cc", "#e67300", "#8b0707", "#651067", "#329262", "#5574a6", "#3b3eac", "#b77322", "#16d620", "#b91383", "#f4359e", "#9c5935", "#a9c413", "#2a778d", "#668d1c", "#bea413", "#0c5922", "#743411"],
+
+
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+            chart.draw(data, options);
+        }
+    </script>
+    <!-- Akhir Script Diagram Pie -->
+
+
 
     <!-- Diagram -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>
-    <Script>
+    <!-- <Script>
         var ctx = document.getElementById('myChart').getContext('2d');
         var myDoughnutChart = new Chart(ctx, {
             type: 'doughnut',
@@ -428,6 +494,7 @@
             },
             options: {
 
+
                 tooltips: {
                     callbacks: {
                         label: function(tooltipItem, data) {
@@ -438,6 +505,7 @@
                     bodyFontSize: 18
                 },
                 legend: {
+                    position: 'right',
                     labels: {
                         fontSize: 18,
                         fontColor: 'rgb(255, 255, 255)'
@@ -449,7 +517,7 @@
 
 
         });
-    </Script>
+    </Script> -->
     <!-- Akhir Diagram -->
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
