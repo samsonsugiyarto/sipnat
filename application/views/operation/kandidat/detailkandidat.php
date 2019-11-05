@@ -54,29 +54,42 @@
         </div>
     </div>
 
+    <div class="container">
+        <div class="row  mt-3">
+            <div class="col-sm-6">
+                <h5><b>Visi</b></h5>
+            </div>
+        </div>
+        <div class="row  ">
+            <div class="col-sm-6">
+                <p><?= $kandidat['visi']; ?></p>
+            </div>
+        </div>
 
-    <div class="row justify-content-center mt-3">
-        <div class="col-">
-            <h5><b>Visi</b></h5>
+        <div class="row ">
+            <div class="col-sm-6 ">
+                <h5><b>Misi</b></h5>
+            </div>
+        </div>
+        <div class="row ">
+            <div class="col-sm-6">
+                <p style="text-align: justify;"><?= $kandidat['misi']; ?></p>
+
+            </div>
+        </div>
+
+        <div class="row ">
+            <div class="col-sm-6">
+                <h5><b>Uraian</b></h5>
+            </div>
+        </div>
+        <div class="row ">
+            <div class="col-sm-9">
+                <p style="text-align: justify;"><?= $kandidat['uraian']; ?></p>
+            </div>
         </div>
     </div>
-    <div class="row justify-content-center ">
-        <div class="col-">
-            <p><?= $kandidat['visi']; ?></p>
-        </div>
-    </div>
-    <div class="row justify-content-end">
-        <div class="col-11">
-            <h5><b>Misi</b></h5>
-            <p class="col-6"><?= $kandidat['misi']; ?></p>
-        </div>
-    </div>
-    <div class="row justify-content-end">
-        <div class="col-11">
-            <h5><b>Uraian</b></h5>
-            <p class="col-6"><?= $kandidat['uraian']; ?></p>
-        </div>
-    </div>
+
 
 
 </div>

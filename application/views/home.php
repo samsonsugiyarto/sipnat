@@ -251,9 +251,8 @@
             </div>
         </div>
     </div>
-    </div>
-    <!-- END TEAM -->
 
+    <!-- END TEAM -->
 
 
     <div class="container gallery-container" id="gallery">
@@ -342,7 +341,8 @@
                                 <h6><?= $komen['nama']; ?></h6>
                             <?php endif; ?>
 
-                            <h5> <?= timesampai(strtotime($komen['waktu'])); ?></h5>
+
+                            <h5> <?= time_since(strtotime($komen['waktu'])); ?></h5>
                             <p><?= $komen['uraian']; ?></p>
                         </div>
                     </div>
@@ -404,18 +404,28 @@
                 pieSliceBorderColor: 'none',
                 chartArea: {
                     top: 30,
-
-
                     width: "90%",
                     height: "90%",
-                    backgroundColor: {
-                        stroke: '#000',
-                        strokeWidth: 10
+
+                },
+                pieSliceBorderColor: 'black',
+                pieSliceTextStyle: {
+                    fontName: 'Poppins',
+                    color: 'black',
+                    bold: true,
+                    fontSize: '16',
+
+                },
+                tooltip: {
+                    textStyle: {
+                        fontName: 'Poppins',
+                        color: 'black'
                     },
+                    showColorCode: true,
+                    // text: 'value',
 
 
                 },
-
 
                 legend: {
                     position: 'top',

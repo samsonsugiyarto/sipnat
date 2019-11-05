@@ -1,0 +1,27 @@
+.card-title {
+	font-size: 14px;
+}
+
+.card-text {
+	font-size: 14px;
+}
+
+.card-group {
+
+	width: 260px;
+
+
+}
+
+
+
+
+
+/* RESPONSIVE */
+@media (min-width: 992px) {
+	.card-group {
+
+		width: 350px;
+
+	}
+}

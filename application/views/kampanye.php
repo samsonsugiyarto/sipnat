@@ -15,6 +15,7 @@
 
 
     <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Viga" rel="stylesheet">
 
     <link href="https://fonts.googleapis.com/css?family=Catamaran&display=swap" rel="stylesheet">
@@ -61,25 +62,27 @@
 
     <!-- Jumbotron -->
     <?php foreach ($kandidat as $kan) : ?>
-        <div class="jumbotron text-center">
-            <div class="row justify-content-center">
-                <div class="col- status">
-                    <p>Calon Kandidat <?= $kan['no_kandidat']; ?></p>
+        <div class="container">
+            <div class="jumbotron text-center">
+                <div class="row justify-content-center">
+                    <div class="col- status">
+                        <p>Calon Kandidat <?= $kan['no_kandidat']; ?></p>
+                    </div>
                 </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col- " style="padding: 12px;">
-                    <img src="<?= base_url('assets/img/profile/kandidat/') . $kan['foto_ketua']; ?>" class="rounded-circle img-fluid" alt="">
-                    <h4><?= $kan['nama']; ?></h4>
-                    <p>Calon Ketua Senat</p>
+                <div class="row justify-content-center">
+                    <div class="col- " style="padding: 12px;">
+                        <img src="<?= base_url('assets/img/profile/kandidat/') . $kan['foto_ketua']; ?>" class="rounded-circle img-fluid" alt="">
+                        <h4><?= $kan['nama']; ?></h4>
+                        <p>Calon Ketua Senat</p>
+                    </div>
+                    <div class="col- " style="padding: 12px;">
+                        <img src="<?= base_url('assets/img/profile/kandidat/') . $kan['foto_wakil']; ?>" class="rounded-circle img-fluid" alt="">
+                        <h4><?= $kan['wakil']; ?></h4>
+                        <p>Calon Wakil Ketua Senat</p>
+                    </div>
                 </div>
-                <div class="col- " style="padding: 12px;">
-                    <img src="<?= base_url('assets/img/profile/kandidat/') . $kan['foto_wakil']; ?>" class="rounded-circle img-fluid" alt="">
-                    <h4><?= $kan['wakil']; ?></h4>
-                    <p>Calon Wakil Ketua Senat</p>
-                </div>
-            </div>
 
+            </div>
         </div>
 
 
@@ -88,7 +91,7 @@
 
         <!-- visi -->
         <section class="visi" id="visi">
-            <div class="container">
+            <div class="container gallery-container">
                 <div class="row justify-content-center">
                     <div class="col-12">
                         <h2 class="text-center">VISI</h2>
@@ -107,7 +110,7 @@
         <!-- Akhir visi -->
         <!-- Misi -->
         <section class="misi" id="misi">
-            <div class="container">
+            <div class="container gallery-container">
                 <div class="row justify-content-center">
                     <div class="col-12">
                         <h2 class="text-center">MISI</h2>
@@ -127,7 +130,7 @@
         <!-- Akhir misi -->
         <!-- Tentang -->
         <section class="tentang" id="tentang">
-            <div class="container">
+            <div class="container gallery-container" id="gallery">
                 <div class="row justify-content-center">
                     <div class="col-12">
                         <h2 class="text-center">TENTANG</h2>
@@ -144,26 +147,52 @@
 
                 <!-- Protfolio -->
 
-                <div class="row">
-                    <div class="col-sm-3 mb-4">
-                        <img class="img-fluid img-thumbnail" src="<?= base_url('assets/img/2.jpeg') ?>" alt="">
+
+                <div class="tz-gallery">
+
+                    <div class="row">
+                        <div class="col-sm-6 col-md-4">
+                            <a class="lightbox" href="<?= base_url('assets/img/gallery/park.jpg') ?>">
+                                <img src="<?= base_url('assets/img/gallery/park.jpg') ?>" alt="Park">
+                            </a>
+                        </div>
+                        <div class="col-sm-6 col-md-4">
+                            <a class="lightbox" href="<?= base_url('assets/img/gallery/bridge.jpg') ?>">
+                                <img src="<?= base_url('assets/img/gallery/bridge.jpg') ?>" alt="Bridge">
+                            </a>
+                        </div>
+                        <div class="col-sm-12 col-md-4">
+                            <a class="lightbox" href="<?= base_url('assets/img/gallery/tunnel.jpg') ?>">
+                                <img src="<?= base_url('assets/img/gallery/tunnel.jpg') ?>" alt="Tunnel">
+                            </a>
+                        </div>
+                        <div class="col-sm-6 col-md-4">
+                            <a class="lightbox" href="<?= base_url('assets/img/gallery/coast.jpg') ?>">
+                                <img src="<?= base_url('assets/img/gallery/coast.jpg') ?>" alt="Coast">
+                            </a>
+                        </div>
+                        <div class="col-sm-6 col-md-4">
+                            <a class="lightbox" href="<?= base_url('assets/img/gallery/rails.jpg') ?>">
+                                <img src="<?= base_url('assets/img/gallery/rails.jpg') ?>" alt="Rails">
+                            </a>
+                        </div>
+                        <div class="col-sm-6 col-md-4">
+                            <a class="lightbox" href="<?= base_url('assets/img/gallery/traffic.jpg') ?>">
+                                <img src="<?= base_url('assets/img/gallery/traffic.jpg') ?>" alt="Traffic">
+                            </a>
+                        </div>
+
                     </div>
-                    <div class="col-sm-3 mb-4">
-                        <img class="img-fluid img-thumbnail" src="<?= base_url('assets/img/2.jpeg') ?>" alt="">
-                    </div>
-                    <div class="col-sm-3 mb-4">
-                        <img class="img-fluid img-thumbnail" src="<?= base_url('assets/img/2.jpeg') ?>" alt="">
-                    </div>
-                    <div class="col-sm-3 mb-4">
-                        <img class="img-fluid img-thumbnail" src="<?= base_url('assets/img/2.jpeg') ?>" alt="">
-                    </div>
+
                 </div>
+
             </div>
 
 
             <!-- Akhir portfolio -->
         </section>
-        <hr style="width: 100%;">
+        <br>
+        <br>
     <?php endforeach; ?>
     <!-- Akhir tentang -->
 

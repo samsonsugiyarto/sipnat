@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 01 Nov 2019 pada 17.01
+-- Generation Time: 05 Nov 2019 pada 06.22
 -- Versi Server: 10.1.13-MariaDB
 -- PHP Version: 7.0.6
 
@@ -86,7 +86,7 @@ INSERT INTO `dosen` (`nidn`, `name`, `password`, `jk`, `mengajar`, `email`, `hp`
 (34343, 'Diandra Chika', '$2y$10$WAbdlOVNXpVvqvQmhiFlcu/vFSvoCWIUc.DC1RkJcw1mx8Vpqidae', 'P', 'Matematika', 'chika@gmail.com', '09876', 1, '1559932673046.jpg', 4),
 (112233, 'Mutiara Chandrasari', '$2y$10$7gsFbarWRiC4lliRWUvRwOgPJfG2FLDjPabatXcp4vNhy02Mmy7hG', 'L', 'Pemrogramman C++', 'mutiara123@gmail.com', '089223465344', 1, 'Screenshot_(171).png', 4),
 (11221133, 'Moko Sunyoto', '$2y$10$pSjTxud.mdwxSDNE8tgSWuCA5HwT4p23n4myECq3BNJhSJ69a4RMi', 'L', 'Pemrogramman C++', 'moko@gmail.com', '2147483647', 0, '1562396232352.jpg', 4),
-(11223344, 'Adi Prabowo', '$2y$10$lt78hVutH7U7EYXXw772tugA9cw3epDNbEMbzvVv/A6yG5ZVhpp16', 'L', 'Statistika Dasar', 'adi@gmail.com', '2147483647', 1, 'default.jpg', 4);
+(11223344, 'Adi Prabowo', '$2y$10$ViSNskjVARp/zIMrFRNGIe/P7/ddXVtR3vFLNTwEfEg76M9NZLMA.', 'L', 'Statistika Dasar', 'adi@gmail.com', '2147483647', 1, 'default.jpg', 4);
 
 -- --------------------------------------------------------
 
@@ -129,7 +129,7 @@ CREATE TABLE `kandidat` (
   `misi` varchar(1000) NOT NULL,
   `foto_ketua` varchar(128) NOT NULL,
   `foto_wakil` varchar(128) NOT NULL,
-  `uraian` varchar(500) NOT NULL,
+  `uraian` varchar(1000) NOT NULL,
   `jumlah_suara` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -138,7 +138,7 @@ CREATE TABLE `kandidat` (
 --
 
 INSERT INTO `kandidat` (`no_kandidat`, `nama`, `wakil`, `jk_ketua`, `jk_wakil`, `email_ketua`, `email_wakil`, `hp_ketua`, `hp_wakil`, `visi`, `misi`, `foto_ketua`, `foto_wakil`, `uraian`, `jumlah_suara`) VALUES
-(1, 'Feni Lestari', 'Agnes Shita', 'P', 'P', 'feni@gmail.com', 'shita@gmail.com', '87653', '98767', 'Menjadikan kampus yang sejahtera', '1. Mengadakan kegiatan baksos <br>\r\n2. Mengadakan inisiasi', 'Creative-Tail-People-women_svg3.png', 'Creative-Tail-People-women_svg.png', 'Halo, perkenalkan kami dari calon kandidat nomor 1 supaya teman-teman dapat memilih kami sebagai ketua dan wakil ketua pada periode saat ini, jangan lupa pilih nomor 1...', 8),
+(1, 'Feni Lestari', 'Agnes Shita', 'P', 'P', 'feni@gmail.com', 'shita@gmail.com', '87653', '98767', 'Menjadikan kampus yang sejahtera', '1. Mengadakan kegiatan baksos <br>\r\n2. Mengadakan inisiasi<br>\r\n3. Mengadakan study banding,<br>\r\n4. blalalala<br>\r\n5. blaa', 'Creative-Tail-People-women_svg3.png', 'Creative-Tail-People-women_svg.png', 'Halo, perkenalkan kami dari calon kandidat nomor 1 supaya teman-teman dapat memilih kami sebagai ketua dan wakil ketua pada periode saat ini, jangan lupa pilih nomor 1 \r\nvfvdfvdfvsdfvsdvfdsfjk ninv i ni nidnidnsicdsn nivnidncvidsn in idscnmidsv\r\nvdsvndsnv nvidnvkdsnvds nvidnsivdsvvdvd fdvdcdfcd dededed defdef efefefe efef fefefenubcjdncjud hdichdich cdichidc hcidhch chidhcidh cidjc hidchid chidch dhcidhc dhcidc dhc8hdc8hd8c 8dhc8dhc ich d8chidc hd9suv fhvu9f vhfuvf ahvufdiv hduvfa vhfapv hfv hfv cdjocndjcn cidcjid cjdicjd cjdiocjdc jcidc djci dcjidoc dhjiac jic sdhcid cjisc jidsc sjci jcisajcidnucind9uncu9 hcuhdau9c ahu9c auc huchasich chsdu cudc hcudhc uhcuo chud chducohoucu shdcus dchusd chuch udshv ufhgu fuv hfuvh fuvhus vhusd vhus vusv hsuvh suhvushv svushvushvis hvhvishiovhs vhjisvo shv jdvhsdivhdsiv hdsvhds vhsdv hdsivhids vhds vhisdhv dsh v sdh vijsdivjisdvjsdujvid vjsdi vjdsivhjd vjsdivjisdo visdv hndsovjsdovh osdhjvhsdvjoisvoish vhjsdivjsdivoisd hvi hdvo uv sdvisdvosjvc sd jio', 8),
 (2, 'Hanit Jatmika', 'Ratna eva', 'L', 'P', 'hanit@gmail.com', 'eva123@gmail.com', '2147483647', '2147483647', 'Menjadikan kampus yang humanis', '1. ikut serta kegiatan kampus <br>\r\n2. mengadakan baksos', '800px-Creative-Tail-People-superman_svg.png', 'Creative-Tail-People-women_svg1.png', 'jangan lupa pilih kami no 2!!!', 4),
 (3, 'Axel Haryanto', 'Vebi', 'L', 'P', 'axel@gmail.com', 'vebi123@gmail.com', '2147483647', '2147483647', 'Menjadikan kampus yang unggul', '1. Mengadakan Bukber <br>\r\n2. Mengadakan upacara 17 Agustus', '800px-Creative-Tail-People-police-man_svg.png', 'Creative-Tail-People-women_svg2.png', 'jangan lupa pilih no 3', 3);
 
@@ -162,7 +162,7 @@ CREATE TABLE `komentar` (
 --
 
 INSERT INTO `komentar` (`id`, `nama`, `waktu`, `uraian`, `image`, `role_id`) VALUES
-(67, 'Samson Sugiyarto', '21-10-2019 16:29:43', 'aku dia mereka kita dulu sekarang', 'DSC_2565a1.jpg', 1),
+(67, 'Samson Sugiyarto', '2019-10-18 12:29:43', 'aku dia mereka kita dulu sekarang', 'DSC_2565a1.jpg', 1),
 (71, 'Samson Sugiyarto', '21-10-2019 21:45:03', 'cek komentar bla bla bla', 'DSC_2565a1.jpg', 1),
 (72, 'Samson Sugiyarto', '21-10-2019 21:46:17', 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae, quo eius. Modi consequatur nobis tempora excepturi! Nesciunt quaerat molestias, facere, at alias pariatur iste ut repellat fuga, nostrum facilis cum.\r\n    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae, quo eius. Modi consequatur nobis tempora excepturi! Nesciunt quaerat molestias, facere, at alias pariatur iste ut repellat fuga, nostrum facilis cum.\r\n    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vi', 'DSC_2565a1.jpg', 1),
 (74, 'Samson Sugiyarto', '21-10-2019 22:18:59', 'tes 1 2 3', 'IMG-20191004-WA00261.jpg', 1),
@@ -575,12 +575,12 @@ ALTER TABLE `user_token`
 -- AUTO_INCREMENT for table `data_pemilihan`
 --
 ALTER TABLE `data_pemilihan`
-  MODIFY `id_pemilihan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id_pemilihan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 --
 -- AUTO_INCREMENT for table `jurusan`
 --
 ALTER TABLE `jurusan`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `komentar`
 --
