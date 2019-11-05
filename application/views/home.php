@@ -196,7 +196,7 @@
                         </h5>
                     </div>
                     <div id="collapse-2" class="collapse" data-parent="#accordion" aria-labelledby="heading-2">
-                        <div class="card-body isi">
+                        <div class="card-body isi" style="text-align: justify;">
                             1. Aktif dalam kegiatan kampus <br>
                             2. Mengadakan Baksos <br>
                             3. Mengadkan Inisiasi

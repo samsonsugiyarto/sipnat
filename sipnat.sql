@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 05 Nov 2019 pada 06.22
+-- Generation Time: 05 Nov 2019 pada 10.23
 -- Versi Server: 10.1.13-MariaDB
 -- PHP Version: 7.0.6
 
@@ -54,7 +54,8 @@ INSERT INTO `data_pemilihan` (`id_pemilihan`, `tipe`, `id_pemilih`, `name`, `id_
 (38, 'Mahasiswa', 201601036, 'Fefiana', 1, '01-11-2019 21:41:41'),
 (39, 'Mahasiswa', 201601038, 'Reno Fahmi', 2, '01-11-2019 21:54:34'),
 (40, 'Mahasiswa', 201601056, 'Budi Anduk', 1, '01-11-2019 21:55:54'),
-(41, 'Mahasiswa', 201801092, 'Nani Setya', 2, '01-11-2019 22:21:48');
+(41, 'Mahasiswa', 201801092, 'Nani Setya', 2, '01-11-2019 22:21:48'),
+(42, 'Mahasiswa', 201701001, 'Hanit Jatmika', 3, '05-11-2019 14:27:30');
 
 -- --------------------------------------------------------
 
@@ -140,7 +141,7 @@ CREATE TABLE `kandidat` (
 INSERT INTO `kandidat` (`no_kandidat`, `nama`, `wakil`, `jk_ketua`, `jk_wakil`, `email_ketua`, `email_wakil`, `hp_ketua`, `hp_wakil`, `visi`, `misi`, `foto_ketua`, `foto_wakil`, `uraian`, `jumlah_suara`) VALUES
 (1, 'Feni Lestari', 'Agnes Shita', 'P', 'P', 'feni@gmail.com', 'shita@gmail.com', '87653', '98767', 'Menjadikan kampus yang sejahtera', '1. Mengadakan kegiatan baksos <br>\r\n2. Mengadakan inisiasi<br>\r\n3. Mengadakan study banding,<br>\r\n4. blalalala<br>\r\n5. blaa', 'Creative-Tail-People-women_svg3.png', 'Creative-Tail-People-women_svg.png', 'Halo, perkenalkan kami dari calon kandidat nomor 1 supaya teman-teman dapat memilih kami sebagai ketua dan wakil ketua pada periode saat ini, jangan lupa pilih nomor 1 \r\nvfvdfvdfvsdfvsdvfdsfjk ninv i ni nidnidnsicdsn nivnidncvidsn in idscnmidsv\r\nvdsvndsnv nvidnvkdsnvds nvidnsivdsvvdvd fdvdcdfcd dededed defdef efefefe efef fefefenubcjdncjud hdichdich cdichidc hcidhch chidhcidh cidjc hidchid chidch dhcidhc dhcidc dhc8hdc8hd8c 8dhc8dhc ich d8chidc hd9suv fhvu9f vhfuvf ahvufdiv hduvfa vhfapv hfv hfv cdjocndjcn cidcjid cjdicjd cjdiocjdc jcidc djci dcjidoc dhjiac jic sdhcid cjisc jidsc sjci jcisajcidnucind9uncu9 hcuhdau9c ahu9c auc huchasich chsdu cudc hcudhc uhcuo chud chducohoucu shdcus dchusd chuch udshv ufhgu fuv hfuvh fuvhus vhusd vhus vusv hsuvh suhvushv svushvushvis hvhvishiovhs vhjisvo shv jdvhsdivhdsiv hdsvhds vhsdv hdsivhids vhds vhisdhv dsh v sdh vijsdivjisdvjsdujvid vjsdi vjdsivhjd vjsdivjisdo visdv hndsovjsdovh osdhjvhsdvjoisvoish vhjsdivjsdivoisd hvi hdvo uv sdvisdvosjvc sd jio', 8),
 (2, 'Hanit Jatmika', 'Ratna eva', 'L', 'P', 'hanit@gmail.com', 'eva123@gmail.com', '2147483647', '2147483647', 'Menjadikan kampus yang humanis', '1. ikut serta kegiatan kampus <br>\r\n2. mengadakan baksos', '800px-Creative-Tail-People-superman_svg.png', 'Creative-Tail-People-women_svg1.png', 'jangan lupa pilih kami no 2!!!', 4),
-(3, 'Axel Haryanto', 'Vebi', 'L', 'P', 'axel@gmail.com', 'vebi123@gmail.com', '2147483647', '2147483647', 'Menjadikan kampus yang unggul', '1. Mengadakan Bukber <br>\r\n2. Mengadakan upacara 17 Agustus', '800px-Creative-Tail-People-police-man_svg.png', 'Creative-Tail-People-women_svg2.png', 'jangan lupa pilih no 3', 3);
+(3, 'Axel Haryanto', 'Vebi', 'L', 'P', 'axel@gmail.com', 'vebi123@gmail.com', '2147483647', '2147483647', 'Menjadikan kampus yang unggul', '1. Mengadakan Bukber <br>\r\n2. Mengadakan upacara 17 Agustus', '800px-Creative-Tail-People-police-man_svg.png', 'Creative-Tail-People-women_svg2.png', 'jangan lupa pilih no 3', 4);
 
 -- --------------------------------------------------------
 
@@ -171,7 +172,8 @@ INSERT INTO `komentar` (`id`, `nama`, `waktu`, `uraian`, `image`, `role_id`) VAL
 (77, 'Rudi Priyanto', '24-10-2019 12:38:28', 'uu', '1554741068135.jpg', 5),
 (78, 'Oskar Adi', '24-10-2019 13:11:01', 'saya oskar', '1552496971664.jpg', 4),
 (79, 'Romanus Adi', '24-10-2019 20:35:27', 'pimpinan romanus', '1560320819083.jpg', 3),
-(80, 'Dila Fadillah', '28-10-2019 22:04:28', 'coba ah', 'DSC_2565a.jpg', 2);
+(80, 'Dila Fadillah', '28-10-2019 22:04:28', 'coba ah', 'DSC_2565a.jpg', 2),
+(81, 'Yulieus Adi Pranoto', '05-11-2019 14:20:09', 'Aku iyus hahaha', 'default.jpg', 5);
 
 -- --------------------------------------------------------
 
@@ -198,7 +200,8 @@ INSERT INTO `konfir_komentar` (`id_konfir`, `id_komentar`) VALUES
 (27, 78),
 (28, 79),
 (29, 80),
-(30, 75);
+(30, 75),
+(31, 81);
 
 -- --------------------------------------------------------
 
@@ -241,7 +244,7 @@ INSERT INTO `mahasiswa` (`nim`, `name`, `jk`, `email`, `hp`, `image`, `password`
 (201601056, 'Budi Anduk', 'L', 'budi345@gmail.com', '081223165123', '1557317977923.jpg', '$2y$10$8gKyALTLQbvMAIK965qE5OB9WHqSudLlyzRHrzme4JM./pm.r42lu', 5, 1, 2),
 (201601062, 'Dudi Santosa', 'L', 'dudi@gmail.com', '081223234322', 'default.jpg', '$2y$10$SVZnG5r72pc6Nnrm8zY72OPOxZDCJOxMmnWtwH.PtsVEdypFy0I4y', 5, 1, 8),
 (201601080, 'Florentina', 'P', 'florentinawua97@gmail.com', '081234567123', '15524969716642.jpg', '$2y$10$tPcRHm9MjYVPwmEKUpbRq.elb4gbTsC0oeIE8RsBkgtggbgC6RXRK', 5, 1, 3),
-(201701001, 'Hanit Jatmika', 'L', 'hanit123@gmail.com', '081212265444', 'default.jpg', '$2y$10$ql89G/U7K/f9kzJUBchQl.IWCqklxTWKJg3VGUyXb2AmcmFAMRTAW', 5, 0, 2),
+(201701001, 'Hanit Jatmika', 'L', 'hanit123@gmail.com', '081212265444', 'default.jpg', '$2y$10$FUtBsm8EOLPYuDiZuGpZaeC3UqTSYrm20JAi8eB95Z2XytDyh4YqO', 5, 1, 2),
 (201701030, 'Axel Haryanto', 'L', 'axel123@gmail.com', '081212156678', 'default.jpg', '$2y$10$F0E.BDL1Qd6DRe4BYyLTC.J9/mz97WpNiJk.5me2MVNP.mq6E9zVe', 5, 0, 3),
 (201801033, 'Doni Saputra', 'L', 'doni@gmail.com', '081223456789', 'default.jpg', '$2y$10$ZqmNdN2yvzRaYBF0I6aK5uEmhC4IwnVMgZtDUohWCS/yBnqm5Pfge', 5, 1, 2),
 (201801092, 'Nani Setya', 'L', 'nani@gmail.com', '083345672234', 'default.jpg', '$2y$10$4XzXtJMos7XxBsHg5M9H9.hrLWbuXFTpnhVDAbc1nNmMcZU09pc4G', 5, 1, 2);
@@ -585,12 +588,12 @@ ALTER TABLE `jurusan`
 -- AUTO_INCREMENT for table `komentar`
 --
 ALTER TABLE `komentar`
-  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
+  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
 --
 -- AUTO_INCREMENT for table `konfir_komentar`
 --
 ALTER TABLE `konfir_komentar`
-  MODIFY `id_konfir` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id_konfir` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 --
 -- AUTO_INCREMENT for table `riwayat`
 --
