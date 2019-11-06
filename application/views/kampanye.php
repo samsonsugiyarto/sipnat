@@ -20,7 +20,8 @@
 
     <link href="https://fonts.googleapis.com/css?family=Catamaran&display=swap" rel="stylesheet">
 
-    <title>SIPNAT | Sistem Informasi Pemilihan Senat</title>
+    <title>Kampanye | Sistem Informasi Pemilihan Senat</title>
+    <link rel="icon" type="image/png" href="<?= base_url('assets/img/logostikom.png'); ?>">
 </head>
 
 <body>

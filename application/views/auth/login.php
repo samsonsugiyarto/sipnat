@@ -5,7 +5,7 @@
 
         <div class="col-lg-5">
 
-            <div class="card o-hidden border-0 shadow-lg my-5">
+            <div class="card my-5">
                 <div class="card-body p-0">
                     <!-- Nested Row within Card Body -->
                     <div class="row">
@@ -32,9 +32,9 @@
                                     </button>
                                 </form>
                                 <hr>
-                                <div class="text-center">
+                                <!-- <div class="text-center">
                                     <a class="small" href="<?= base_url('auth/forgotpassword'); ?>">Forgot Password?</a>
-                                </div>
+                                </div> -->
 
                             </div>
                         </div>

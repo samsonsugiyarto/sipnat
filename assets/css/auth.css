@@ -17,5 +17,7 @@ body {
 
 
 .card {
+	font-family: 'Poppins', sans-serif;
 	background-color: rgba(255, 255, 255, 0.877);
+	box-shadow: 0 4px 10px rgba(255, 255, 255, 0.486);
 }
