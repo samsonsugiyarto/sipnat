@@ -488,8 +488,7 @@ class User extends CI_Controller
                 $this->load->view('templates/footer');
             } else {
                 $this->Komentar_model->tambahKomentar($user);
-                $this->session->set_flashdata('message', '<div class="alert
-                    alert-success" role="alert">kometar telah dikirim!</div>');
+                $this->session->set_flashdata('message', 'dikirim! (konfirmasi Admin)');
                 redirect('user/komentar');
             }
         }
@@ -512,8 +511,8 @@ class User extends CI_Controller
                 $this->load->view('templates/footer');
             } else {
                 $this->Komentar_model->tambahKomentar($user);
-                $this->session->set_flashdata('message', 'Ditambahkan!');
-                redirect('user');
+                $this->session->set_flashdata('message', 'dikirim! (konfirmasi Admin)');
+                redirect('user/komentar');
             }
         }
 
@@ -535,8 +534,8 @@ class User extends CI_Controller
                 $this->load->view('templates/footer');
             } else {
                 $this->Komentar_model->tambahKomentar($user);
-                $this->session->set_flashdata('message', 'Ditambahkan!');
-                redirect('user');
+                $this->session->set_flashdata('message', 'dikirim! (konfirmasi Admin)');
+                redirect('user/komentar');
             }
         }
     }

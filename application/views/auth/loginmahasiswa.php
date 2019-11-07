@@ -17,7 +17,7 @@
 
                                 <?= $this->session->flashdata('message'); ?>
 
-                                <form class="mahasiswa" method="post" action="<?= base_url('auth/mahasiswa'); ?>">
+                                <form class="user" method="post" action="<?= base_url('auth/mahasiswa'); ?>">
                                     <div class="form-group">
                                         <input type="text" class="form-control form-control-user" id="nim" name="nim" placeholder="Masukan NIM..." value="<?= set_value('nim'); ?>">
                                         <?= form_error('nim', ' <small class="text-danger pl-3">', '</small>'); ?>

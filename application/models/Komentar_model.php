@@ -48,7 +48,7 @@ class Komentar_model extends CI_Model
         date_default_timezone_set('Asia/Jakarta');
         $data = [
             'nama' => $user['name'],
-            'waktu' => date("d-m-Y H:i:s"),
+            'waktu' => time(),
             'uraian' => $this->input->post('komentar', true),
             'image' => $user['image'],
             'role_id' => $user['role_id']

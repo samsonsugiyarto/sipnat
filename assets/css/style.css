@@ -4,28 +4,28 @@
 
 	padding-top: 10px;
 	background-color: rgba(0, 0, 0, 0.856) !important;
-	font-family: 'Poppins', sans-serif;
+
 }
 
 
 
 
 .navbar-brand {
-	font: 40px Viga;
+	font: 40px Poppins;
 	z-index: 9;
 	margin-bottom: -13px;
 	margin-top: -17px;
-	margin-left: 70px;
+	margin-left: 50px;
 	color: #ffffff !important;
-
+	font-weight: 600;
 
 }
 
 .navbar-brand2 {
-	font: 12px Catamaran;
+	font: 12px Poppins;
 	z-index: 9;
 	margin-bottom: -40px;
-	margin-left: -195px;
+	margin-left: -190px;
 	color: #ffffff !important;
 
 }
@@ -414,13 +414,17 @@
 }
 
 footer {
-	background-color: rgb(29, 29, 29);
-	padding-top: 20px;
+	background-color: rgb(20, 20, 20);
+	margin-top: 70px;
+	padding-top: 30px;
+	position: relative;
+	bottom: 0 !important;
 }
 
 footer p {
+	margin-top: -10px;
 	color: rgb(207, 207, 207);
-	font-size: 0.9em;
+	font-size: 0.8em;
 	font-family: 'Poppins', sans-serif;
 }
 
@@ -908,13 +912,14 @@ footer p i {
 }
 
 .komen p {
-
+	font-family: catamaran !important;
 	background-color: #0000001a;
 	margin-left: 90px;
 	padding: 7px;
-	font-size: 16px;
+	font-size: 14px;
 	border-radius: 8px;
 	margin-top: 10px;
+	font-weight: 500;
 }
 
 .komen2 {

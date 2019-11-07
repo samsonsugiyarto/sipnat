@@ -17,7 +17,7 @@
 
                                 <?= $this->session->flashdata('message'); ?>
 
-                                <form class="dosen" method="post" action="<?= base_url('auth/dosen'); ?>">
+                                <form class="user" method="post" action="<?= base_url('auth/dosen'); ?>">
                                     <div class="form-group">
                                         <input type="text" class="form-control form-control-user" id="nidn" name="nidn" placeholder="Masukan NIDN..." value="<?= set_value('nidn'); ?>">
                                         <?= form_error('nidn', ' <small class="text-danger pl-3">', '</small>'); ?>

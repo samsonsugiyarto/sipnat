@@ -17,7 +17,7 @@
 
                                 <?= $this->session->flashdata('message'); ?>
 
-                                <form class="pimpinan" method="post" action="<?= base_url('auth/pimpinan'); ?>">
+                                <form class="user" method="post" action="<?= base_url('auth/pimpinan'); ?>">
                                     <div class="form-group">
                                         <input type="text" class="form-control form-control-user" id="nidn" name="nidn" placeholder="Masukan NIDN..." value="<?= set_value('nidn'); ?>">
                                         <?= form_error('nidn', ' <small class="text-danger pl-3">', '</small>'); ?>

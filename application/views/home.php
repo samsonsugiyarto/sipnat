@@ -21,7 +21,7 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Viga" rel="stylesheet">
 
-    <link href="https://fonts.googleapis.com/css?family=Catamaran&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
 
     <title>SIPNAT | Sistem Informasi Pemilihan Senat</title>
 </head>
@@ -154,7 +154,7 @@
                         <div class="col-sm-6  ">
                             <div id="piechart" class="chart"></div>
                         </div>
-                        <div class="col-sm-6 ">
+                        <div class="col-sm-6 py-5 ">
                             <h3>TOTAL<br>
                                 <P>Suara Masuk</P><span> <?= $js['jsuara'] ?> Suara</span>
                             </h3>
@@ -312,7 +312,7 @@
         <h1 class="py-3 pl-4">Komentar</h1>
         <div class="row justify-content-start mt-3">
 
-            <div class="col-sm-9   komen mt-2">
+            <div class="col-sm-9 komen mt-2">
                 <?php foreach ($komentar as $komen) : ?>
                     <?php
                         $user = $this->db->get_where('user', ['name' => $komen['nama']])->row_array();
@@ -342,7 +342,7 @@
                             <?php endif; ?>
 
 
-                            <h5> <?= time_since(strtotime($komen['waktu'])); ?></h5>
+                            <h5> <?= time_since($komen['waktu']); ?></h5>
                             <p><?= $komen['uraian']; ?></p>
                         </div>
                     </div>

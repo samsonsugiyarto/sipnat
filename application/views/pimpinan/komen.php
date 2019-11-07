@@ -6,9 +6,13 @@
 
     <div class="row">
         <div class="col-lg-8">
+            <?php if ($this->session->flashdata('message')) : ?>
+
+                <div class="flashdatakomen" data-flashdatakomen="<?= $this->session->flashdata('message'); ?>"></div>
+            <?php endif; ?>
 
             <?= form_open_multipart('user/komentar'); ?>
-            <?= $this->session->flashdata('message'); ?>
+
 
             <div class="form-group row">
                 <label for="komentar" class="col-sm-4 col-form-label">Tambah Komentar</label>

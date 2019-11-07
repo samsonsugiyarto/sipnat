@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 05 Nov 2019 pada 10.23
+-- Generation Time: 07 Nov 2019 pada 18.22
 -- Versi Server: 10.1.13-MariaDB
 -- PHP Version: 7.0.6
 
@@ -163,17 +163,22 @@ CREATE TABLE `komentar` (
 --
 
 INSERT INTO `komentar` (`id`, `nama`, `waktu`, `uraian`, `image`, `role_id`) VALUES
-(67, 'Samson Sugiyarto', '2019-10-18 12:29:43', 'aku dia mereka kita dulu sekarang', 'DSC_2565a1.jpg', 1),
-(71, 'Samson Sugiyarto', '21-10-2019 21:45:03', 'cek komentar bla bla bla', 'DSC_2565a1.jpg', 1),
-(72, 'Samson Sugiyarto', '21-10-2019 21:46:17', 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae, quo eius. Modi consequatur nobis tempora excepturi! Nesciunt quaerat molestias, facere, at alias pariatur iste ut repellat fuga, nostrum facilis cum.\r\n    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae, quo eius. Modi consequatur nobis tempora excepturi! Nesciunt quaerat molestias, facere, at alias pariatur iste ut repellat fuga, nostrum facilis cum.\r\n    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vi', 'DSC_2565a1.jpg', 1),
-(74, 'Samson Sugiyarto', '21-10-2019 22:18:59', 'tes 1 2 3', 'IMG-20191004-WA00261.jpg', 1),
-(75, 'Samson Sugiyarto', '21-10-2019 22:23:22', 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae, quo eius. Modi consequatur nobis tempora excepturi! Nesciunt quaerat molestias, facere, at alias pariatur iste ut repellat fuga, nostrum facilis cum.', 'IMG-20191004-WA00261.jpg', 1),
-(76, 'Samson Sugiyarto', '22-10-2019 10:27:05', 'coba... :)', 'IMG-20191004-WA00261.jpg', 1),
-(77, 'Rudi Priyanto', '24-10-2019 12:38:28', 'uu', '1554741068135.jpg', 5),
-(78, 'Oskar Adi', '24-10-2019 13:11:01', 'saya oskar', '1552496971664.jpg', 4),
-(79, 'Romanus Adi', '24-10-2019 20:35:27', 'pimpinan romanus', '1560320819083.jpg', 3),
-(80, 'Dila Fadillah', '28-10-2019 22:04:28', 'coba ah', 'DSC_2565a.jpg', 2),
-(81, 'Yulieus Adi Pranoto', '05-11-2019 14:20:09', 'Aku iyus hahaha', 'default.jpg', 5);
+(88, 'Samson Sugiyarto', '1573145863', 'Hallo sukses selalu', 'IMG-20191004-WA00261.jpg', 1),
+(89, 'Yulieus Adi Pranoto', '1573145914', 'halooo', 'default.jpg', 5),
+(90, 'Romanus Adi', '1573145932', 'holla', '1560320819083.jpg', 3),
+(91, 'Oskar Adi', '1573145954', 'hehe hoge', '15623962323521.jpg', 4),
+(93, 'Nabilla Nur Fadillah', '1573146424', 'oyy', 'Creative-Tail-People-women_svg.png', 5),
+(94, 'Samson Sugiyarto', '1573146568', 'aaa', 'IMG-20191004-WA00261.jpg', 1),
+(95, 'Nabilla Nur Fadillah', '1573146658', 'sasasa', 'Creative-Tail-People-women_svg.png', 5),
+(96, 'Nabilla Nur Fadillah', '1573146713', 'sasasasa', 'Creative-Tail-People-women_svg.png', 5),
+(98, 'Nabilla Nur Fadillah', '1573146735', 'sasas', 'Creative-Tail-People-women_svg.png', 5),
+(99, 'Nabilla Nur Fadillah', '1573146743', 'coba hahaha', 'Creative-Tail-People-women_svg.png', 5),
+(100, 'Nabilla Nur Fadillah', '1573146954', 'cdcdc', 'Creative-Tail-People-women_svg.png', 5),
+(101, 'Oskar Adi', '1573147035', 'wkwkwk', '15623962323521.jpg', 4),
+(102, 'Romanus Adi', '1573147056', 'sasaqwqw', '1560320819083.jpg', 3),
+(103, 'Romanus Adi', '1573147094', 'asadasa', '1560320819083.jpg', 3),
+(104, 'Romanus Adi', '1573147132', 'zxsxscs', '1560320819083.jpg', 3),
+(105, 'Romanus Adi', '1573147163', 'dfvsvd', '1560320819083.jpg', 3);
 
 -- --------------------------------------------------------
 
@@ -191,7 +196,6 @@ CREATE TABLE `konfir_komentar` (
 --
 
 INSERT INTO `konfir_komentar` (`id_konfir`, `id_komentar`) VALUES
-(18, 67),
 (22, 71),
 (23, 72),
 (24, 74),
@@ -201,7 +205,13 @@ INSERT INTO `konfir_komentar` (`id_konfir`, `id_komentar`) VALUES
 (28, 79),
 (29, 80),
 (30, 75),
-(31, 81);
+(31, 81),
+(32, 82),
+(33, 83),
+(34, 91),
+(35, 88),
+(36, 89),
+(37, 90);
 
 -- --------------------------------------------------------
 
@@ -588,12 +598,12 @@ ALTER TABLE `jurusan`
 -- AUTO_INCREMENT for table `komentar`
 --
 ALTER TABLE `komentar`
-  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
+  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=106;
 --
 -- AUTO_INCREMENT for table `konfir_komentar`
 --
 ALTER TABLE `konfir_komentar`
-  MODIFY `id_konfir` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id_konfir` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 --
 -- AUTO_INCREMENT for table `riwayat`
 --

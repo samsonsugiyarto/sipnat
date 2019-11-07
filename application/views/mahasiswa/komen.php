@@ -6,6 +6,10 @@
 
     <div class="row">
         <div class="col-lg-8">
+            <?php if ($this->session->flashdata('message')) : ?>
+
+                <div class="flashdatakomen" data-flashdatakomen="<?= $this->session->flashdata('message'); ?>"></div>
+            <?php endif; ?>
 
             <?= form_open_multipart('user/komentar'); ?>
 

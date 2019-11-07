@@ -60,7 +60,7 @@
                                 <td><?= $komen['nama']; ?></td>
                                 <td><?= $komen['role_id']; ?></td>
                                 <td> <?= $data1['role']; ?> </td>
-                                <td><?= $komen['waktu']; ?></td>
+                                <td><?= date('d F Y H:i:s', $komen['waktu']); ?></td>
                                 <td><?= word_limiter($komen['uraian'], 4); ?></td>
 
                                 <td>

@@ -47,7 +47,7 @@
             <div class="col-md-6">
                 <div class="card-body">
                     <h5 class="card-title"><?= $komen['nama']; ?></h5>
-                    <p class="card-text text-muted">Berkomentar sejak <?= $komen['waktu']; ?>
+                    <p class="card-text text-muted">Berkomentar sejak <br> <?= date('d F Y H:i:s', $komen['waktu']); ?>
                     </p>
                 </div>
             </div>

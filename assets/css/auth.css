@@ -2,6 +2,7 @@ body {
 	background-image: url(../img/jumbotron-bg.jpg);
 	background-size: contain;
 
+
 }
 
 .cover-overlay {
@@ -12,12 +13,27 @@ body {
 	bottom: 0;
 	right: 0;
 	height: 100%;
-	background-color: rgba(0, 0, 0, 0.712);
+	background-color: rgba(0, 0, 0, 0.788);
 }
 
 
 .card {
 	font-family: 'Poppins', sans-serif;
 	background-color: rgba(255, 255, 255, 0.877);
-	box-shadow: 0 4px 10px rgba(255, 255, 255, 0.486);
+	box-shadow: 0 2px 7px rgba(255, 255, 255, 0.486);
 }
+
+/* .form-group:focus {
+	background: yellow;
+	color: #000;
+	border: 1px solid red;
+}
+
+.form-control:focus {
+	color: #7c7e6e;
+	background-color: #fff;
+	border-color: #eff3ba;
+	outline: 0;
+	-webkit-box-shadow: 0 0 0 .2rem rgba(201, 223, 78, 0.25);
+	box-shadow: 0 0 0 .2rem rgba(213, 223, 78, 0.25)
+} */
