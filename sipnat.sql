@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 07 Nov 2019 pada 18.22
+-- Generation Time: 10 Nov 2019 pada 16.09
 -- Versi Server: 10.1.13-MariaDB
 -- PHP Version: 7.0.6
 
@@ -40,22 +40,10 @@ CREATE TABLE `data_pemilihan` (
 --
 
 INSERT INTO `data_pemilihan` (`id_pemilihan`, `tipe`, `id_pemilih`, `name`, `id_kandidat`, `waktu`) VALUES
-(27, 'Mahasiswa', 201601007, 'Foustino Asprila Gunantara', 1, '28-10-2019 21:54:25'),
-(28, 'Dosen', 1997, 'Oskar Adi', 1, '28-10-2019 21:55:02'),
-(29, 'Pimpinan', 1234, 'Romanus Adi', 3, '28-10-2019 21:55:42'),
-(30, 'Mahasiswa', 201601053, 'Nabilla Nur Fadillah', 2, '29-10-2019 12:50:22'),
-(31, 'Mahasiswa', 201601039, 'Yulieus Adi Pranoto', 3, '30-10-2019 22:39:37'),
-(32, 'Mahasiswa', 201601044, 'Ridho Ramadhani', 1, '30-10-2019 22:45:20'),
-(33, 'Dosen', 9087, 'Dhany Faizal', 3, '01-11-2019 20:16:43'),
-(34, 'Dosen', 7890, 'Yoshita Lianawati', 2, '01-11-2019 20:20:34'),
-(35, 'Dosen', 112233, 'Mutiara Chandrasari', 1, '01-11-2019 21:30:25'),
-(36, 'Mahasiswa', 201801033, 'Doni Saputra', 1, '01-11-2019 21:35:51'),
-(37, 'Mahasiswa', 201601020, 'Theofilus Geon Tjeme', 1, '01-11-2019 21:38:50'),
-(38, 'Mahasiswa', 201601036, 'Fefiana', 1, '01-11-2019 21:41:41'),
-(39, 'Mahasiswa', 201601038, 'Reno Fahmi', 2, '01-11-2019 21:54:34'),
-(40, 'Mahasiswa', 201601056, 'Budi Anduk', 1, '01-11-2019 21:55:54'),
-(41, 'Mahasiswa', 201801092, 'Nani Setya', 2, '01-11-2019 22:21:48'),
-(42, 'Mahasiswa', 201701001, 'Hanit Jatmika', 3, '05-11-2019 14:27:30');
+(50, 'Mahasiswa', 201601053, 'Nabilla Nur Fadillah', 1, '1573227813'),
+(51, 'Mahasiswa', 201601039, 'Yulieus Adi Pranoto', 2, '1573227832'),
+(52, 'Pimpinan', 1234, 'Romanus Adi', 3, '1573227851'),
+(53, 'Dosen', 1997, 'Oskar Adi', 1, '1573227880');
 
 -- --------------------------------------------------------
 
@@ -139,9 +127,9 @@ CREATE TABLE `kandidat` (
 --
 
 INSERT INTO `kandidat` (`no_kandidat`, `nama`, `wakil`, `jk_ketua`, `jk_wakil`, `email_ketua`, `email_wakil`, `hp_ketua`, `hp_wakil`, `visi`, `misi`, `foto_ketua`, `foto_wakil`, `uraian`, `jumlah_suara`) VALUES
-(1, 'Feni Lestari', 'Agnes Shita', 'P', 'P', 'feni@gmail.com', 'shita@gmail.com', '87653', '98767', 'Menjadikan kampus yang sejahtera', '1. Mengadakan kegiatan baksos <br>\r\n2. Mengadakan inisiasi<br>\r\n3. Mengadakan study banding,<br>\r\n4. blalalala<br>\r\n5. blaa', 'Creative-Tail-People-women_svg3.png', 'Creative-Tail-People-women_svg.png', 'Halo, perkenalkan kami dari calon kandidat nomor 1 supaya teman-teman dapat memilih kami sebagai ketua dan wakil ketua pada periode saat ini, jangan lupa pilih nomor 1 \r\nvfvdfvdfvsdfvsdvfdsfjk ninv i ni nidnidnsicdsn nivnidncvidsn in idscnmidsv\r\nvdsvndsnv nvidnvkdsnvds nvidnsivdsvvdvd fdvdcdfcd dededed defdef efefefe efef fefefenubcjdncjud hdichdich cdichidc hcidhch chidhcidh cidjc hidchid chidch dhcidhc dhcidc dhc8hdc8hd8c 8dhc8dhc ich d8chidc hd9suv fhvu9f vhfuvf ahvufdiv hduvfa vhfapv hfv hfv cdjocndjcn cidcjid cjdicjd cjdiocjdc jcidc djci dcjidoc dhjiac jic sdhcid cjisc jidsc sjci jcisajcidnucind9uncu9 hcuhdau9c ahu9c auc huchasich chsdu cudc hcudhc uhcuo chud chducohoucu shdcus dchusd chuch udshv ufhgu fuv hfuvh fuvhus vhusd vhus vusv hsuvh suhvushv svushvushvis hvhvishiovhs vhjisvo shv jdvhsdivhdsiv hdsvhds vhsdv hdsivhids vhds vhisdhv dsh v sdh vijsdivjisdvjsdujvid vjsdi vjdsivhjd vjsdivjisdo visdv hndsovjsdovh osdhjvhsdvjoisvoish vhjsdivjsdivoisd hvi hdvo uv sdvisdvosjvc sd jio', 8),
-(2, 'Hanit Jatmika', 'Ratna eva', 'L', 'P', 'hanit@gmail.com', 'eva123@gmail.com', '2147483647', '2147483647', 'Menjadikan kampus yang humanis', '1. ikut serta kegiatan kampus <br>\r\n2. mengadakan baksos', '800px-Creative-Tail-People-superman_svg.png', 'Creative-Tail-People-women_svg1.png', 'jangan lupa pilih kami no 2!!!', 4),
-(3, 'Axel Haryanto', 'Vebi', 'L', 'P', 'axel@gmail.com', 'vebi123@gmail.com', '2147483647', '2147483647', 'Menjadikan kampus yang unggul', '1. Mengadakan Bukber <br>\r\n2. Mengadakan upacara 17 Agustus', '800px-Creative-Tail-People-police-man_svg.png', 'Creative-Tail-People-women_svg2.png', 'jangan lupa pilih no 3', 4);
+(1, 'Feni Lestari', 'Agnes Shita', 'P', 'P', 'feni@gmail.com', 'shita@gmail.com', '87653', '98767', 'Menjadikan kampus yang sejahtera', '1. Mengadakan kegiatan baksos <br>\r\n2. Mengadakan inisiasi<br>\r\n3. Mengadakan study banding,<br>\r\n4. blalalala<br>\r\n5. blaa', 'Creative-Tail-People-women_svg3.png', 'Creative-Tail-People-women_svg.png', 'Halo, perkenalkan kami dari calon kandidat nomor 1 supaya teman-teman dapat memilih kami sebagai ketua dan wakil ketua pada periode saat ini, jangan lupa pilih nomor 1 \r\nvfvdfvdfvsdfvsdvfdsfjk ninv i ni nidnidnsicdsn nivnidncvidsn in idscnmidsv\r\nvdsvndsnv nvidnvkdsnvds nvidnsivdsvvdvd fdvdcdfcd dededed defdef efefefe efef fefefenubcjdncjud hdichdich cdichidc hcidhch chidhcidh cidjc hidchid chidch dhcidhc dhcidc dhc8hdc8hd8c 8dhc8dhc ich d8chidc hd9suv fhvu9f vhfuvf ahvufdiv hduvfa vhfapv hfv hfv cdjocndjcn cidcjid cjdicjd cjdiocjdc jcidc djci dcjidoc dhjiac jic sdhcid cjisc jidsc sjci jcisajcidnucind9uncu9 hcuhdau9c ahu9c auc huchasich chsdu cudc hcudhc uhcuo chud chducohoucu shdcus dchusd chuch udshv ufhgu fuv hfuvh fuvhus vhusd vhus vusv hsuvh suhvushv svushvushvis hvhvishiovhs vhjisvo shv jdvhsdivhdsiv hdsvhds vhsdv hdsivhids vhds vhisdhv dsh v sdh vijsdivjisdvjsdujvid vjsdi vjdsivhjd vjsdivjisdo visdv hndsovjsdovh osdhjvhsdvjoisvoish vhjsdivjsdivoisd hvi hdvo uv sdvisdvosjvc sd jio', 2),
+(2, 'Hanit Jatmika', 'Ratna eva', 'L', 'P', 'hanit@gmail.com', 'eva123@gmail.com', '2147483647', '2147483647', 'Menjadikan kampus yang humanis', '1. ikut serta kegiatan kampus <br>\r\n2. mengadakan baksos', '800px-Creative-Tail-People-superman_svg.png', 'Creative-Tail-People-women_svg1.png', 'jangan lupa pilih kami no 2!!!', 1),
+(3, 'Axel Haryanto', 'Vebi', 'L', 'P', 'axel@gmail.com', 'vebi123@gmail.com', '2147483647', '2147483647', 'Menjadikan kampus yang unggul', '1. Mengadakan Bukber <br>\r\n2. Mengadakan upacara 17 Agustus', '800px-Creative-Tail-People-police-man_svg.png', 'Creative-Tail-People-women_svg2.png', 'jangan lupa pilih no 3', 1);
 
 -- --------------------------------------------------------
 
@@ -151,6 +139,7 @@ INSERT INTO `kandidat` (`no_kandidat`, `nama`, `wakil`, `jk_ketua`, `jk_wakil`, 
 
 CREATE TABLE `komentar` (
   `id` int(12) NOT NULL,
+  `user_id` varchar(250) NOT NULL,
   `nama` varchar(50) NOT NULL,
   `waktu` varchar(20) NOT NULL,
   `uraian` varchar(500) NOT NULL,
@@ -162,23 +151,12 @@ CREATE TABLE `komentar` (
 -- Dumping data untuk tabel `komentar`
 --
 
-INSERT INTO `komentar` (`id`, `nama`, `waktu`, `uraian`, `image`, `role_id`) VALUES
-(88, 'Samson Sugiyarto', '1573145863', 'Hallo sukses selalu', 'IMG-20191004-WA00261.jpg', 1),
-(89, 'Yulieus Adi Pranoto', '1573145914', 'halooo', 'default.jpg', 5),
-(90, 'Romanus Adi', '1573145932', 'holla', '1560320819083.jpg', 3),
-(91, 'Oskar Adi', '1573145954', 'hehe hoge', '15623962323521.jpg', 4),
-(93, 'Nabilla Nur Fadillah', '1573146424', 'oyy', 'Creative-Tail-People-women_svg.png', 5),
-(94, 'Samson Sugiyarto', '1573146568', 'aaa', 'IMG-20191004-WA00261.jpg', 1),
-(95, 'Nabilla Nur Fadillah', '1573146658', 'sasasa', 'Creative-Tail-People-women_svg.png', 5),
-(96, 'Nabilla Nur Fadillah', '1573146713', 'sasasasa', 'Creative-Tail-People-women_svg.png', 5),
-(98, 'Nabilla Nur Fadillah', '1573146735', 'sasas', 'Creative-Tail-People-women_svg.png', 5),
-(99, 'Nabilla Nur Fadillah', '1573146743', 'coba hahaha', 'Creative-Tail-People-women_svg.png', 5),
-(100, 'Nabilla Nur Fadillah', '1573146954', 'cdcdc', 'Creative-Tail-People-women_svg.png', 5),
-(101, 'Oskar Adi', '1573147035', 'wkwkwk', '15623962323521.jpg', 4),
-(102, 'Romanus Adi', '1573147056', 'sasaqwqw', '1560320819083.jpg', 3),
-(103, 'Romanus Adi', '1573147094', 'asadasa', '1560320819083.jpg', 3),
-(104, 'Romanus Adi', '1573147132', 'zxsxscs', '1560320819083.jpg', 3),
-(105, 'Romanus Adi', '1573147163', 'dfvsvd', '1560320819083.jpg', 3);
+INSERT INTO `komentar` (`id`, `user_id`, `nama`, `waktu`, `uraian`, `image`, `role_id`) VALUES
+(144, '21', 'Samson Sugiyarto', '1573381314', 'halooo', '15574428665641.jpg', 2),
+(145, '3', 'Samson Sugiyarto', '1573381338', 'sasasasa', 'IMG-20191004-WA00261.jpg', 1),
+(146, '201601053', 'Nabilla Nur Fadillah', '1573381571', 'halo aku nabilla', 'Creative-Tail-People-women_svg.png', 5),
+(147, '1997', 'Oskar Adi', '1573381600', 'halooo', '15623962323521.jpg', 4),
+(148, '1234', 'Romanus Adi', '1573381629', 'yayyaya', '1560320819083.jpg', 3);
 
 -- --------------------------------------------------------
 
@@ -208,10 +186,11 @@ INSERT INTO `konfir_komentar` (`id_konfir`, `id_komentar`) VALUES
 (31, 81),
 (32, 82),
 (33, 83),
-(34, 91),
-(35, 88),
-(36, 89),
-(37, 90);
+(41, 144),
+(42, 145),
+(43, 146),
+(44, 147),
+(45, 148);
 
 -- --------------------------------------------------------
 
@@ -283,7 +262,7 @@ CREATE TABLE `pimpinan` (
 --
 
 INSERT INTO `pimpinan` (`nidn`, `name`, `password`, `jk`, `jabatan`, `email`, `hp`, `is_active`, `image`, `role_id`) VALUES
-(1234, 'Romanus Adi', '$2y$10$dWAzldNE7uV9IsQ3SfKb2uNzlf.0cIP/4HXH9b6ZDrQAK7gxvPXVS', 'L', 'Ketua STIKOM', 'romanus@romanus.com', '812345', 1, '1560320819083.jpg', 3),
+(1234, 'Romanus Adi A', '$2y$10$dWAzldNE7uV9IsQ3SfKb2uNzlf.0cIP/4HXH9b6ZDrQAK7gxvPXVS', 'L', 'Ketua STIKOM', 'romanus@romanus.com', '812345', 1, '1560320819083.jpg', 3),
 (654321, 'Antonius Ary Setyawan', '$2y$10$uiQdkodsA5XCNEU7n05PRepEtGINlEDcG9WKYLgSJVcG1UiEfFui.', 'L', 'PUKET III', 'ary@gmail.com', '876555', 1, '1557978185058.jpg', 3),
 (12763541, 'Ir. GH Sumartono', '$2y$10$BTYkC87nnoIEQtgnAX4SxOIKnpoKJYXk9GzPVYZEnkK.VLfA18.QW', 'L', 'PUKET I', 'Gh123@gmail.com', '081236573843', 1, 'default.jpg', 3),
 (87212345, 'Dhany Faizal', '$2y$10$U/nBecdWMtQaaba7cesf1uNSRp.YcB4CTuNr.eiPEJycgtrJR/r4e', 'L', 'PUKET II', 'Dhany123@gmail.com', '089667845234', 1, '1562350751927.jpg', 3);
@@ -341,7 +320,7 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`id`, `name`, `jk`, `email`, `hp`, `image`, `password`, `role_id`, `is_active`, `date_created`) VALUES
 (3, 'Samson Sugiyarto', 'L', 'gitosamson123@gmail.com', '089213248384', 'IMG-20191004-WA00261.jpg', '$2y$10$y4bmK5JiJbIOYQ5ze0n4cei/QdNTnxIPcy8gsAc/9misiwt9W2keC', 1, 1, 1560654857),
 (4, 'Dila Fadillah', 'P', 'dila123@gmail.com', '089221238474', 'DSC_2565a.jpg', '$2y$10$dJfXzvLbBJU/aoJhY0oIlOC3rHvbSkvIow5i2I.zmR8hXX//YxaHm', 2, 1, 1560655500),
-(21, 'Samson Sugiyarto', 'L', 'samsonsugiyarto123@gmail.com', '081575224630', '15574428665641.jpg', '$2y$10$hopfz/tuCVi5hV17nqOA5OejSIogOSjxwjDR4uyWFCM7SQx4P7RnG', 2, 1, 1561087895);
+(21, 'Samson', 'L', 'samsonsugiyarto123@gmail.com', '081575224630', '15574428665641.jpg', '$2y$10$hopfz/tuCVi5hV17nqOA5OejSIogOSjxwjDR4uyWFCM7SQx4P7RnG', 2, 1, 1561087895);
 
 -- --------------------------------------------------------
 
@@ -370,7 +349,6 @@ INSERT INTO `user_access_menu` (`id`, `role_id`, `menu_id`) VALUES
 (23, 5, 2),
 (24, 5, 9),
 (25, 5, 10),
-(26, 4, 2),
 (27, 4, 9),
 (28, 4, 10),
 (29, 1, 7),
@@ -381,8 +359,8 @@ INSERT INTO `user_access_menu` (`id`, `role_id`, `menu_id`) VALUES
 (35, 3, 10),
 (39, 2, 1),
 (40, 1, 15),
-(43, 1, 9),
-(46, 1, 13);
+(46, 1, 13),
+(47, 4, 2);
 
 -- --------------------------------------------------------
 
@@ -588,7 +566,7 @@ ALTER TABLE `user_token`
 -- AUTO_INCREMENT for table `data_pemilihan`
 --
 ALTER TABLE `data_pemilihan`
-  MODIFY `id_pemilihan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id_pemilihan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 --
 -- AUTO_INCREMENT for table `jurusan`
 --
@@ -598,12 +576,12 @@ ALTER TABLE `jurusan`
 -- AUTO_INCREMENT for table `komentar`
 --
 ALTER TABLE `komentar`
-  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=106;
+  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=149;
 --
 -- AUTO_INCREMENT for table `konfir_komentar`
 --
 ALTER TABLE `konfir_komentar`
-  MODIFY `id_konfir` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id_konfir` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 --
 -- AUTO_INCREMENT for table `riwayat`
 --
@@ -618,7 +596,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `user_access_menu`
 --
 ALTER TABLE `user_access_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 --
 -- AUTO_INCREMENT for table `user_menu`
 --
