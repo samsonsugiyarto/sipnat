@@ -7,7 +7,7 @@
 
 
     <div class="row">
-        <div class="col-sm-6">
+        <div class="col-sm">
             <?= form_error('menu', '<div class="alert
                     alert-danger" role="alert">', '</div>'); ?>
 

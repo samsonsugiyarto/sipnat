@@ -350,9 +350,9 @@
 
 
 .visibtn h2 {
-	font-size: 28px;
+	font-size: 22px;
 	color: #000000;
-	font-weight: 550;
+	font-weight: 500;
 
 }
 
@@ -364,14 +364,14 @@
 }
 
 .figurevisi {
-	padding: 20px;
-	font-size: 20px;
+	padding: 14px;
+	font-size: 16px;
 
 }
 
 .figuremisi {
-	padding: 30px;
-	font-size: 20px;
+	padding: 14px;
+	font-size: 16px;
 }
 
 .periode h4 {

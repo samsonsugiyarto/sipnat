@@ -11,17 +11,21 @@
                 <div class="flashdatakomen" data-flashdatakomen="<?= $this->session->flashdata('message'); ?>"></div>
             <?php endif; ?>
 
-            <?= form_open_multipart('user/komentar'); ?>
+
+            <?= form_open_multipart(); ?>
 
             <div class="form-group row">
                 <label for="komentar" class="col-sm-4 col-form-label">Tambah Komentar</label>
             </div>
             <div class="form-group row">
                 <div class="col-sm-8">
-                    <textarea class="form-control" id="komentar" name="komentar" rows="5" placeholder="Tambah komentar disini..."></textarea>
+                    <?= $this->session->flashdata('pesan') ?>
+                    <textarea class="form-control" id="komentar" name="komentar" rows="5" placeholder="Tambah komentar disini..."><?= set_value('komentar'); ?></textarea>
                     <?= form_error('komentar', ' <small class="text-danger pl-3">', '</small>'); ?>
                 </div>
             </div>
+
+            <div class="g-recaptcha" name="g-recaptcha" data-sitekey="6LeU6sEUAAAAAGlpfQ9Y32brH2IO0g8oN3A151Hj"></div>
             <div class="form-group row justify-content-end">
                 <div class="col-sm-12">
                     <button type="submit" class="btn btn-success">Kirim</button>

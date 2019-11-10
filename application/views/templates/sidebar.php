@@ -3,17 +3,17 @@
 
 
  <?php if ($namarole['id'] == 1 || $namarole['id'] == 2) :  ?>
-     <ul class="navbar-nav  bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+     <ul class="navbar-nav bg-gradient-primary sidebar   sidebar-dark accordion" id="accordionSidebar">
      <?php elseif ($namarole['id'] == 3) : ?>
-         <ul class="navbar-nav  bg-gradient-success sidebar sidebar-dark accordion" id="accordionSidebar">
+         <ul class="navbar-nav  bg-gradient-danger sidebar sidebar-dark accordion" id="accordionSidebar">
          <?php elseif ($namarole['id'] == 4) : ?>
              <ul class="navbar-nav  bg-gradient-danger sidebar sidebar-dark accordion" id="accordionSidebar">
              <?php elseif ($namarole['id'] == 5) :  ?>
-                 <ul class="navbar-nav  bg-gradient-warning sidebar sidebar-dark accordion" id="accordionSidebar">
+                 <ul class="navbar-nav  bg-gradient-danger  sidebar sidebar-dark  accordion" id="accordionSidebar">
                  <?php endif; ?>
                  <!-- Sidebar - Brand -->
-                 <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                     <div class="sidebar-brand-icon rotate-n-15">
+                 <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= base_url('user'); ?>">
+                     <div class="sidebar-brand-icon rotate-n-15 ">
                          <i class="fas fa-code"></i>
                      </div>
                      <div class="sidebar-brand-text mx-3"><?= $namarole['role']; ?> </div>

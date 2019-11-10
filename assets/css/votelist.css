@@ -1,0 +1,75 @@
+.chart {
+	min-height: 400px;
+	margin-top: 20px;
+	position: relative;
+	width: 500px;
+
+}
+
+.vote h3 {
+	font-family: 'Poppins', sans-serif;
+	font-weight: 300;
+	color: rgba(0, 0, 0, 0.493);
+	text-transform: capitalize;
+	font-size: 24px;
+	margin-top: -30px;
+
+
+}
+
+
+.vote h3 span {
+	color: #000000e0;
+
+}
+
+.vote h3 p {
+	color: rgba(0, 0, 0, 0.493);
+	font-size: 20px;
+
+}
+
+.hapuspemilih p {
+	margin-top: -15px !important;
+	font-size: small;
+}
+
+/* RESPONSIVE */
+@media (min-width: 992px) {
+
+	.hapuspemilih p {
+		margin-top: 8px !important;
+		margin-left: -20px;
+		font-size: 15px;
+	}
+
+
+
+	.vote h3 {
+		font-family: 'Poppins', sans-serif;
+		font-weight: 500;
+		font-size: 60px;
+		color: rgba(0, 0, 0, 0.493);
+		margin-top: 60px;
+		text-transform: capitalize;
+		text-align: left;
+	}
+
+	.vote h3 span {
+		color: #000000c9;
+	}
+
+	.vote h3 p {
+		color: rgba(0, 0, 0, 0.493);
+		font-size: 28px;
+	}
+
+	.chart {
+		margin-right: 140px;
+		min-height: 400px;
+		margin-top: 20px;
+		position: relative;
+
+	}
+
+}

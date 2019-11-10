@@ -13,6 +13,7 @@ class Operation extends CI_Controller
         $this->load->model('Pimpinan_model');
         $this->load->model('Kandidat_model');
         $this->load->model('Komentar_model');
+        $this->load->model('Pilih_model');
     }
 
     public function index()
@@ -681,5 +682,11 @@ class Operation extends CI_Controller
         $this->Komentar_model->hapusDataKomentar($id);
         $this->session->set_flashdata('message', 'Dihapus!');
         redirect('operation/komentar');
+    }
+    public function hapusDataPemilih()
+    {
+        $this->Pilih_model->hapusDataPemilih();
+        $this->session->set_flashdata('message', 'Dihapus!');
+        redirect('admin/votelist');
     }
 }

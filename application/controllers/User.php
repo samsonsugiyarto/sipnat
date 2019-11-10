@@ -29,9 +29,7 @@ class User extends CI_Controller
             $this->load->view('templates/topbar', $data);
             $this->load->view('user/index', $data);
             $this->load->view('templates/footer');
-        }
-
-        if ($role_id == 2) {
+        } elseif ($role_id == 2) {
             is_logged_in();
             $data['user'] = $this->db->get_where('user', ['email' =>
             $this->session->userdata('email')])->row_array();
@@ -40,8 +38,7 @@ class User extends CI_Controller
             $this->load->view('templates/topbar', $data);
             $this->load->view('user/index', $data);
             $this->load->view('templates/footer');
-        }
-        if ($role_id == 3) {
+        } elseif ($role_id == 3) {
             is_logged_inpimp();
             $data['user'] = $this->db->get_where('pimpinan', ['nidn' =>
             $this->session->userdata('nidn')])->row_array();
@@ -50,8 +47,7 @@ class User extends CI_Controller
             $this->load->view('templates/topbar', $data);
             $this->load->view('pimpinan/index', $data);
             $this->load->view('templates/footer');
-        }
-        if ($role_id == 4) {
+        } elseif ($role_id == 4) {
             is_logged_indsn();
             $data['user'] = $this->db->get_where('dosen', ['nidn' =>
             $this->session->userdata('nidn')])->row_array();
@@ -60,8 +56,7 @@ class User extends CI_Controller
             $this->load->view('templates/topbar', $data);
             $this->load->view('dosen/index', $data);
             $this->load->view('templates/footer');
-        }
-        if ($role_id == 5) {
+        } elseif ($role_id == 5) {
             is_logged_inmhs();
 
 
@@ -73,6 +68,8 @@ class User extends CI_Controller
             $this->load->view('templates/topbar', $data);
             $this->load->view('mahasiswa/index', $data);
             $this->load->view('templates/footer');
+        } else {
+            redirect('home');
         }
     }
 
@@ -133,8 +130,7 @@ class User extends CI_Controller
                 alert-success" role="alert">Your profile has been updated!</div>');
                 redirect('user');
             }
-        }
-        if ($role_id == 2) {
+        } elseif ($role_id == 2) {
             is_logged_in();
             $data['user'] = $this->db->get_where('user', ['email' =>
             $this->session->userdata('email')])->row_array();
@@ -178,8 +174,7 @@ class User extends CI_Controller
                 alert-success" role="alert">Your profile has been updated!</div>');
                 redirect('user');
             }
-        }
-        if ($role_id == 3) {
+        } elseif ($role_id == 3) {
             is_logged_inpimp();
             $data['user'] = $this->db->get_where('pimpinan', ['nidn' =>
             $this->session->userdata('nidn')])->row_array();
@@ -199,8 +194,7 @@ class User extends CI_Controller
                 alert-success" role="alert">Your profile has been updated!</div>');
                 redirect('user');
             }
-        }
-        if ($role_id == 4) {
+        } elseif ($role_id == 4) {
             is_logged_indsn();
             $data['user'] = $this->db->get_where('dosen', ['nidn' =>
             $this->session->userdata('nidn')])->row_array();
@@ -219,8 +213,7 @@ class User extends CI_Controller
                 alert-success" role="alert">Your profile has been updated!</div>');
                 redirect('user');
             }
-        }
-        if ($role_id == 5) {
+        } elseif ($role_id == 5) {
             is_logged_inmhs();
 
 
@@ -256,6 +249,8 @@ class User extends CI_Controller
                 alert-success" role="alert">Your profile has been updated!</div>');
                 redirect('user');
             }
+        } else {
+            redirect('home');
         }
     }
 
@@ -307,8 +302,7 @@ class User extends CI_Controller
                     }
                 }
             }
-        }
-        if ($role_id == 2) {
+        } elseif ($role_id == 2) {
             is_logged_in();
             $data['user'] = $this->db->get_where('user', ['email' =>
             $this->session->userdata('email')])->row_array();
@@ -344,9 +338,7 @@ class User extends CI_Controller
                     }
                 }
             }
-        }
-
-        if ($role_id == 3) {
+        } elseif ($role_id == 3) {
             is_logged_inpimp();
             $data['user'] = $this->db->get_where('pimpinan', ['nidn' =>
             $this->session->userdata('nidn')])->row_array();
@@ -383,9 +375,7 @@ class User extends CI_Controller
                     }
                 }
             }
-        }
-
-        if ($role_id == 4) {
+        } elseif ($role_id == 4) {
             is_logged_indsn();
             $data['user'] = $this->db->get_where('dosen', ['nidn' =>
             $this->session->userdata('nidn')])->row_array();
@@ -421,9 +411,7 @@ class User extends CI_Controller
                     }
                 }
             }
-        }
-
-        if ($role_id == 5) {
+        } elseif ($role_id == 5) {
             is_logged_inmhs();
             $data['user'] = $this->db->get_where('mahasiswa', ['nim' =>
             $this->session->userdata('nim')])->row_array();
@@ -459,8 +447,34 @@ class User extends CI_Controller
                     }
                 }
             }
+        } else {
+            redirect('home');
         }
     }
+
+
+    public function recaptcha()
+    {
+        $recaptchaResponse = trim($this->input->post('g-recaptcha-response'));
+
+        $userIp = $this->input->ip_address();
+
+        $secret = '6LeU6sEUAAAAAFQwiOj5CunsP8-AVoIbP1EYzOD6';
+
+        $credential = array(
+            'secret' => $secret,
+            'response' => $this->input->post('g-recaptcha-response')
+        );
+        $verify = curl_init();
+        curl_setopt($verify, CURLOPT_URL, "https://www.google.com/recaptcha/api/siteverify");
+        curl_setopt($verify, CURLOPT_POST, true);
+        curl_setopt($verify, CURLOPT_POSTFIELDS, http_build_query($credential));
+        curl_setopt($verify, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($verify, CURLOPT_RETURNTRANSFER, true);
+        $response = curl_exec($verify);
+        return json_decode($response, true);
+    }
+
 
     public function komentar()
     {
@@ -479,22 +493,36 @@ class User extends CI_Controller
             $this->session->userdata('nidn')])->row_array();
 
             $this->form_validation->set_rules('komentar', 'Komentar', 'required|trim');
-
+            $status = $this->recaptcha();
+            $this->recaptcha();
             if ($this->form_validation->run() == false) {
                 $this->load->view('templates/header', $data);
                 $this->load->view('templates/sidebar', $data);
                 $this->load->view('templates/topbar', $data);
                 $this->load->view('pimpinan/komen', $data);
                 $this->load->view('templates/footer');
+                if ($status['success']) {
+                    if ($this->form_validation->run() == false) {
+                        redirect('user/komentar');
+                    }
+                }
             } else {
-                $this->Komentar_model->tambahKomentar($user);
-                $this->session->set_flashdata('message', 'dikirim! (konfirmasi Admin)');
-                redirect('user/komentar');
+                if (!$status['success']) {
+                    $this->session->set_flashdata('pesan', '<div class="alert
+                    alert-danger" role="alert">Google Recaptcha Tidak Sukses!</div>');
+                    $this->load->view('templates/header', $data);
+                    $this->load->view('templates/sidebar', $data);
+                    $this->load->view('templates/topbar', $data);
+                    $this->load->view('mahasiswa/komen', $data);
+                    $this->load->view('templates/footer');
+                } else {
+
+                    $this->Komentar_model->tambahKomentar($user);
+                    $this->session->set_flashdata('message', 'dikirim! (konfirmasi Admin)');
+                    redirect('user/komentar');
+                }
             }
-        }
-
-
-        if ($role_id == 4) {
+        } elseif ($role_id == 4) {
             is_logged_indsn();
             $data['user'] = $this->db->get_where('dosen', ['nidn' =>
             $this->session->userdata('nidn')])->row_array();
@@ -502,41 +530,74 @@ class User extends CI_Controller
             $this->session->userdata('nidn')])->row_array();
 
             $this->form_validation->set_rules('komentar', 'Komentar', 'required|trim');
-
+            $status = $this->recaptcha();
+            $this->recaptcha();
             if ($this->form_validation->run() == false) {
                 $this->load->view('templates/header', $data);
                 $this->load->view('templates/sidebar', $data);
                 $this->load->view('templates/topbar', $data);
                 $this->load->view('dosen/komen', $data);
                 $this->load->view('templates/footer');
+                if ($status['success']) {
+                    if ($this->form_validation->run() == false) {
+                        redirect('user/komentar');
+                    }
+                }
             } else {
-                $this->Komentar_model->tambahKomentar($user);
-                $this->session->set_flashdata('message', 'dikirim! (konfirmasi Admin)');
-                redirect('user/komentar');
+
+                if (!$status['success']) {
+                    $this->session->set_flashdata('pesan', '<div class="alert
+                    alert-danger" role="alert">Google Recaptcha Tidak Sukses!</div>');
+                    $this->load->view('templates/header', $data);
+                    $this->load->view('templates/sidebar', $data);
+                    $this->load->view('templates/topbar', $data);
+                    $this->load->view('mahasiswa/komen', $data);
+                    $this->load->view('templates/footer');
+                } else {
+
+                    $this->Komentar_model->tambahKomentar($user);
+                    $this->session->set_flashdata('message', 'dikirim! (konfirmasi Admin)');
+                    redirect('user/komentar');
+                }
             }
-        }
-
-
-        if ($role_id == 5) {
+        } elseif ($role_id == 5) {
             is_logged_inmhs();
             $data['user'] = $this->db->get_where('mahasiswa', ['nim' =>
             $this->session->userdata('nim')])->row_array();
             $user = $this->db->get_where('mahasiswa', ['nim' =>
             $this->session->userdata('nim')])->row_array();
-
             $this->form_validation->set_rules('komentar', 'Komentar', 'required|trim');
-
+            $status = $this->recaptcha();
+            $this->recaptcha();
             if ($this->form_validation->run() == false) {
                 $this->load->view('templates/header', $data);
                 $this->load->view('templates/sidebar', $data);
                 $this->load->view('templates/topbar', $data);
                 $this->load->view('mahasiswa/komen', $data);
                 $this->load->view('templates/footer');
+                if ($status['success']) {
+                    if ($this->form_validation->run() == false) {
+                        redirect('user/komentar');
+                    }
+                }
             } else {
-                $this->Komentar_model->tambahKomentar($user);
-                $this->session->set_flashdata('message', 'dikirim! (konfirmasi Admin)');
-                redirect('user/komentar');
+
+                if (!$status['success']) {
+                    $this->session->set_flashdata('pesan', '<div class="alert
+                    alert-danger" role="alert">Google Recaptcha Tidak Sukses!</div>');
+                    $this->load->view('templates/header', $data);
+                    $this->load->view('templates/sidebar', $data);
+                    $this->load->view('templates/topbar', $data);
+                    $this->load->view('mahasiswa/komen', $data);
+                    $this->load->view('templates/footer');
+                } else {
+                    $this->Komentar_model->tambahKomentar($user);
+                    $this->session->set_flashdata('message', 'dikirim! (konfirmasi Admin)');
+                    redirect('user/komentar');
+                }
             }
+        } else {
+            redirect('home');
         }
     }
 }

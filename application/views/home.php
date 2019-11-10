@@ -149,7 +149,7 @@
                     <?php endforeach; ?>
                 </div> -->
                     <!-- Akhir desain voting card -->
-                    <div class="row vote">
+                    <div class="row vote ">
                         <!-- <canvas id="myChart" width="1" height="1"></canvas> -->
                         <div class="col-sm-6  ">
                             <div id="piechart" class="chart"></div>
@@ -312,13 +312,13 @@
         <h1 class="py-3 pl-4">Komentar</h1>
         <div class="row justify-content-start mt-3">
 
-            <div class="col-sm-9 komen mt-2">
+            <div class="col-sm-9 komen mt-1">
                 <?php foreach ($komentar as $komen) : ?>
                     <?php
-                        $user = $this->db->get_where('user', ['name' => $komen['nama']])->row_array();
-                        $pimpinan = $this->db->get_where('pimpinan', ['name' => $komen['nama']])->row_array();
-                        $dosen = $this->db->get_where('dosen', ['name' => $komen['nama']])->row_array();
-                        $mhs = $this->db->get_where('mahasiswa', ['name' => $komen['nama']])->row_array();
+                        $user = $this->db->get_where('user', ['id' => $komen['user_id']])->row_array();
+                        $pimpinan = $this->db->get_where('pimpinan', ['nidn' => $komen['user_id']])->row_array();
+                        $dosen = $this->db->get_where('dosen', ['nidn' => $komen['user_id']])->row_array();
+                        $mhs = $this->db->get_where('mahasiswa', ['nim' => $komen['user_id']])->row_array();
                         ?>
                     <div class="row">
                         <div class="col-auto-12">
@@ -335,11 +335,22 @@
                         <?php endif; ?>" class="img-profile rounded-circle float-left" alt="...">
 
                             <?php if ($komen['role_id'] == 1 || $komen['role_id'] == 2) : ?>
-                                <h6><?= $komen['nama']; ?> <small class="text-muted">Admin </small></h6>
+                                <h6><?= $user['name']; ?> <small class="text-muted">Admin </small></h6>
+                            <?php elseif ($komen['role_id'] == 3) : ?>
 
-                            <?php else : ?>
-                                <h6><?= $komen['nama']; ?></h6>
+                                <h6><?= $pimpinan['name']; ?></h6>
+                            <?php elseif ($komen['role_id'] == 4) : ?>
+
+                                <h6><?= $dosen['name']; ?></h6>
+
+                            <?php elseif ($komen['role_id'] == 5) : ?>
+
+                                <h6><?= $mhs['name']; ?></h6>
                             <?php endif; ?>
+
+
+
+
 
 
                             <h5> <?= time_since($komen['waktu']); ?></h5>

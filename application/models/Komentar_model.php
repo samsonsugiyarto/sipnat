@@ -43,16 +43,40 @@ class Komentar_model extends CI_Model
     public function tambahKomentar($user)
 
     {
+        if ($user['role_id'] == 1 || $user['role_id'] == 2) {
+            date_default_timezone_set('Asia/Jakarta');
+            $data = [
+                'nama' => $user['name'],
+                'user_id' => $user['id'],
+                'waktu' => time(),
+                'uraian' => $this->input->post('komentar', true),
+                'image' => $user['image'],
+                'role_id' => $user['role_id']
+            ];
+        } elseif ($user['role_id'] == 3 || $user['role_id'] == 4) { {
+                date_default_timezone_set('Asia/Jakarta');
+                $data = [
+                    'nama' => $user['name'],
+                    'user_id' => $user['nidn'],
+                    'waktu' => time(),
+                    'uraian' => $this->input->post('komentar', true),
+                    'image' => $user['image'],
+                    'role_id' => $user['role_id']
+                ];
+            }
+        } elseif ($user['role_id'] == 5) { {
+                date_default_timezone_set('Asia/Jakarta');
+                $data = [
+                    'nama' => $user['name'],
+                    'user_id' => $user['nim'],
+                    'waktu' => time(),
+                    'uraian' => $this->input->post('komentar', true),
+                    'image' => $user['image'],
+                    'role_id' => $user['role_id']
+                ];
+            }
+        }
 
-
-        date_default_timezone_set('Asia/Jakarta');
-        $data = [
-            'nama' => $user['name'],
-            'waktu' => time(),
-            'uraian' => $this->input->post('komentar', true),
-            'image' => $user['image'],
-            'role_id' => $user['role_id']
-        ];
 
         $this->db->insert('komentar', $data);
     }

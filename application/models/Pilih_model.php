@@ -13,7 +13,7 @@ class Pilih_model extends CI_Model
             'id_pemilih' => $user['nim'],
             'name' => $user['name'],
             'id_kandidat' => $id,
-            'waktu' => date("d-m-Y H:i:s")
+            'waktu' => time()
         ];
 
         $this->db->insert('data_pemilihan', $data);
@@ -29,7 +29,7 @@ class Pilih_model extends CI_Model
             'id_pemilih' => $user['nidn'],
             'name' => $user['name'],
             'id_kandidat' => $id,
-            'waktu' => date("d-m-Y H:i:s")
+            'waktu' => time()
         ];
 
         $this->db->insert('data_pemilihan', $data);
@@ -44,7 +44,7 @@ class Pilih_model extends CI_Model
             'id_pemilih' => $user['nidn'],
             'name' => $user['name'],
             'id_kandidat' => $id,
-            'waktu' => date("d-m-Y H:i:s")
+            'waktu' => time()
         ];
 
         $this->db->insert('data_pemilihan', $data);
@@ -60,5 +60,21 @@ class Pilih_model extends CI_Model
         $this->db->set($data);
         $this->db->where('no_kandidat', $id);
         $this->db->update('kandidat');
+    }
+
+    public function hapusDataPemilih()
+    {
+        $this->db->empty_table('data_pemilihan');
+
+        $kandidat =  $this->db->get('kandidat')->result_array();
+
+        foreach ($kandidat as $kan) {
+
+            $data = [
+                'jumlah_suara' => $kan['jumlah_suara'] -  $kan['jumlah_suara']
+            ];
+            $this->db->where('no_kandidat', $kan['no_kandidat']);
+            $this->db->update('kandidat', $data);
+        };
     }
 }

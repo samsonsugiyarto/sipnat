@@ -18,10 +18,12 @@
             </div>
             <div class="form-group row">
                 <div class="col-sm-8">
+                    <?= $this->session->flashdata('pesan') ?>
                     <textarea class="form-control" id="komentar" name="komentar" rows="5" placeholder="Tambah komentar disini..."></textarea>
                     <?= form_error('komentar', ' <small class="text-danger pl-3">', '</small>'); ?>
                 </div>
             </div>
+            <div class="g-recaptcha" name="g-recaptcha" data-sitekey="6LeU6sEUAAAAAGlpfQ9Y32brH2IO0g8oN3A151Hj"></div>
             <div class="form-group row justify-content-end">
                 <div class="col-sm-12">
                     <button type="submit" class="btn btn-success">Kirim</button>

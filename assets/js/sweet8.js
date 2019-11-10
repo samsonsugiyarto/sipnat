@@ -1,28 +1,29 @@
-const flashDataKandidat = $('.flashkandidat').data('flashkandidat');
-const kand = 'Kandidat';
+const flashPemilih = $('.flash-pemilih').data('flashpemilih');
+const pilih = 'Pemilih';
 
-if (flashDataKandidat) {
+if (flashPemilih) {
 	Swal.fire({
-		title: 'Data ' + kand,
-		text: 'Berhasil ' + flashDataKandidat,
+		title: 'Semua Data ' + pilih,
+		text: 'Berhasil ' + flashPemilih,
 		type: 'success'
 
 	});
 }
 
 
-$('.hapuskandidat').on('click', function (e) {
+
+$('.hapus-coblos').on('click', function (e) {
 
 	e.preventDefault();
 	const href = $(this).attr('href');
 	Swal.fire({
 		title: 'Apakah anda yakin?',
-		text: "Data " + kand + " akan dihapus!",
+		text: "Semua Data Pemilih akan dihapus!",
 		type: 'warning',
 		showCancelButton: true,
 		confirmButtonColor: '#3085d6',
 		cancelButtonColor: '#d33',
-		confirmButtonText: 'Hapus data!'
+		confirmButtonText: 'Hapus Semua data!'
 	}).then((result) => {
 		if (result.value) {
 			document.location.href = href;

@@ -31,8 +31,7 @@ class Coblos extends CI_Controller
             $this->load->view('templates/topbar', $data);
             $this->load->view('coblos/index', $data);
             $this->load->view('templates/footer');
-        }
-        if ($role_id == 2) {
+        } elseif ($role_id == 2) {
             is_logged_in();
             $data['user'] = $this->db->get_where('user', ['email' =>
             $this->session->userdata('email')])->row_array();
@@ -42,9 +41,7 @@ class Coblos extends CI_Controller
             $this->load->view('templates/topbar', $data);
             $this->load->view('coblos/index', $data);
             $this->load->view('templates/footer');
-        }
-
-        if ($role_id == 3) {
+        } elseif ($role_id == 3) {
 
             is_logged_inpimp();
             $data['user'] = $this->db->get_where('pimpinan', ['nidn' =>
@@ -58,10 +55,7 @@ class Coblos extends CI_Controller
             $this->load->view('templates/topbar', $data);
             $this->load->view('coblos/index', $data);
             $this->load->view('templates/footer');
-        }
-
-
-        if ($role_id == 4) {
+        } elseif ($role_id == 4) {
             is_logged_indsn();
             $data['user'] = $this->db->get_where('dosen', ['nidn' =>
             $this->session->userdata('nidn')])->row_array();
@@ -76,9 +70,7 @@ class Coblos extends CI_Controller
             $this->load->view('templates/topbar', $data);
             $this->load->view('coblos/index', $data);
             $this->load->view('templates/footer');
-        }
-
-        if ($role_id == 5) {
+        } elseif ($role_id == 5) {
             is_logged_inmhs();
             $data['user'] = $this->db->get_where('mahasiswa', ['nim' =>
             $this->session->userdata('nim')])->row_array();
@@ -93,6 +85,12 @@ class Coblos extends CI_Controller
             $this->load->view('templates/topbar', $data);
             $this->load->view('coblos/index', $data);
             $this->load->view('templates/footer');
+        } else {
+            if ($role_id == 1 || $role_id == 2) {
+                redirect('auth/blocked');
+            } else {
+                redirect('home');
+            }
         }
     }
     public function pilih($id)
@@ -116,8 +114,7 @@ class Coblos extends CI_Controller
             $this->load->view('templates/topbar', $data);
             $this->load->view('coblos/index', $data);
             $this->load->view('templates/footer');
-        }
-        if ($role_id == 2) {
+        } elseif ($role_id == 2) {
             is_logged_in();
             $data['user'] = $this->db->get_where('user', ['email' =>
             $this->session->userdata('email')])->row_array();
@@ -127,9 +124,7 @@ class Coblos extends CI_Controller
             $this->load->view('templates/topbar', $data);
             $this->load->view('coblos/index', $data);
             $this->load->view('templates/footer');
-        }
-
-        if ($role_id == 3) {
+        } elseif ($role_id == 3) {
 
             is_logged_inpimp();
             $data['user'] = $this->db->get_where('pimpinan', ['nidn' =>
@@ -152,10 +147,7 @@ class Coblos extends CI_Controller
                 $this->session->set_flashdata('message', 'Memilih!');
                 redirect('coblos');
             }
-        }
-
-
-        if ($role_id == 4) {
+        } elseif ($role_id == 4) {
             is_logged_indsn();
             $data['user'] = $this->db->get_where('dosen', ['nidn' =>
             $this->session->userdata('nidn')])->row_array();
@@ -178,9 +170,7 @@ class Coblos extends CI_Controller
                 $this->session->set_flashdata('message', 'Memilih!');
                 redirect('coblos');
             }
-        }
-
-        if ($role_id == 5) {
+        } elseif ($role_id == 5) {
             is_logged_inmhs();
             $data['user'] = $this->db->get_where('mahasiswa', ['nim' =>
             $this->session->userdata('nim')])->row_array();
@@ -206,6 +196,12 @@ class Coblos extends CI_Controller
                 $this->Pilih->tambahJumlahSuara($id);
                 $this->session->set_flashdata('message', 'Memilih!');
                 redirect('coblos');
+            }
+        } else {
+            if ($role_id == 1 || $role_id == 2) {
+                redirect('auth/blocked');
+            } else {
+                redirect('home');
             }
         }
     }
