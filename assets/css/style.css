@@ -8,10 +8,8 @@
 }
 
 
-
-
 .navbar-brand {
-	font: 40px Poppins;
+	font: 30px Poppins;
 	z-index: 9;
 	margin-bottom: -13px;
 	margin-top: -17px;
@@ -22,7 +20,7 @@
 }
 
 .navbar-brand2 {
-	font: 12px Poppins;
+	font: 8px Poppins;
 	z-index: 9;
 	margin-bottom: -40px;
 	margin-left: -190px;
@@ -71,9 +69,9 @@
 
 
 .logo {
-	margin: -35px -85px -40px 65px;
+	margin: -35px -107px -40px 25px;
 	float: left;
-	height: 50px;
+	height: 48px;
 	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
 	text-align: center;
 }
@@ -552,27 +550,8 @@ footer p i {
 	border-radius: 10px;
 }
 
-@import url('https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css');
-@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 
-.mb-0>a {
-	display: block;
-	position: relative;
-}
 
-.mb-0>a:after {
-	content: "\f078";
-	/* fa-chevron-down */
-	font-family: 'FontAwesome';
-	position: absolute;
-	right: 230px;
-
-}
-
-.mb-0>a[aria-expanded="true"]:after {
-	content: "\f077";
-	/* fa-chevron-up */
-}
 
 .isi {
 	font-family: 'Poppins', sans-serif;

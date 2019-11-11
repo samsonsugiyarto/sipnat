@@ -24,19 +24,21 @@ body {
 
 
 .navbar-brand {
-	font: 40px Viga;
+	font: 30px Poppins;
 	z-index: 9;
 	margin-bottom: -13px;
 	margin-top: -17px;
-	margin-left: 70px;
+	margin-left: 50px;
 	color: #ffffff !important;
+	font-weight: 600;
+
 }
 
 .navbar-brand2 {
-	font: 12px Catamaran;
+	font: 8px Poppins;
 	z-index: 9;
 	margin-bottom: -40px;
-	margin-left: -195px;
+	margin-left: -190px;
 	color: #ffffff !important;
 
 }
@@ -48,9 +50,9 @@ body {
 }
 
 .logo {
-	margin: -35px -85px -40px 65px;
+	margin: -35px -107px -40px 25px;
 	float: left;
-	height: 50px;
+	height: 48px;
 	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
 	text-align: center;
 }
