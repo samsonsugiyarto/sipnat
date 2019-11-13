@@ -91,10 +91,10 @@ class Auth extends CI_Controller
     }
     public function dosen()
     {
-        if ($this->session->userdata('nidn')) {
+        if ($this->session->userdata('nik')) {
             redirect('user');
         }
-        $this->form_validation->set_rules('nidn', 'NIDN', 'trim|required');
+        $this->form_validation->set_rules('nik', 'NIK', 'trim|required');
         $this->form_validation->set_rules('password', 'Password', 'trim|required');
         if ($this->form_validation->run() == false) {
             $data['title'] = 'Login Page';
@@ -108,10 +108,10 @@ class Auth extends CI_Controller
     }
     private function _logindosen()
     {
-        $nidn = $this->input->post('nidn');
+        $nik = $this->input->post('nik');
         $password = $this->input->post('password');
 
-        $user = $this->db->get_where('dosen', ['nidn' => $nidn])->row_array();
+        $user = $this->db->get_where('dosen', ['nik' => $nik])->row_array();
         $id_role = $user['role_id'];
         $role = $this->db->get_where('user_role', ['id' => $id_role])->row_array();
         // jika usernya ada
@@ -121,7 +121,7 @@ class Auth extends CI_Controller
                 //cek password
                 if (password_verify($password, $user['password'])) {
                     $data = [
-                        'nidn' => $user['nidn'],
+                        'nik' => $user['nik'],
                         'role_id' => $user['role_id'],
                         'id' => $role['id']
                     ];
@@ -141,12 +141,12 @@ class Auth extends CI_Controller
                 }
             } else {
                 $this->session->set_flashdata('message', '<div class="alert
-            alert-danger" role="alert"> This NIDN has not been activated!</div>');
+            alert-danger" role="alert"> This NIK has not been activated!</div>');
                 redirect('auth/dosen');
             }
         } else {
             $this->session->set_flashdata('message', '<div class="alert
-            alert-danger" role="alert">NIDN is not registered!</div>');
+            alert-danger" role="alert">NIK is not registered!</div>');
             redirect('auth/dosen');
         }
     }
@@ -176,7 +176,7 @@ class Auth extends CI_Controller
         $password = $this->input->post('password');
 
         $user = $this->db->get_where('mahasiswa', ['nim' => $nim])->row_array();
-         $id_role = $user['role_id'];
+        $id_role = $user['role_id'];
         $role = $this->db->get_where('user_role', ['id' => $id_role])->row_array();
         // jika usernya ada
         if ($user) {
@@ -409,6 +409,7 @@ class Auth extends CI_Controller
         $this->session->unset_userdata('role_id');
         $this->session->unset_userdata('nim');
         $this->session->unset_userdata('nidn');
+        $this->session->unset_userdata('nik');
 
         $this->session->set_flashdata('message', '<div class="alert
             alert-success" role="alert">You have been logged out!</div>');

@@ -261,8 +261,8 @@ class Operation extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
-        $this->form_validation->set_rules('nidn', 'NIDN', 'required|trim|is_unique[dosen.nidn]', [
-            'is_unique' => 'This nidn has already registered!'
+        $this->form_validation->set_rules('nik', 'NIK', 'required|trim|is_unique[dosen.nik]', [
+            'is_unique' => 'This nik has already registered!'
         ]);
         $this->form_validation->set_rules('namalengkap', 'Nama Lengkap', 'required|trim');
         $this->form_validation->set_rules('password', 'Password', 'required|trim|min_length[3]|matches[password2]', [
@@ -295,7 +295,7 @@ class Operation extends CI_Controller
         }
     }
 
-    public function detaildosen($nidn)
+    public function detaildosen($nik)
     {
         $data['title'] = 'Detail Dosen';
         $data['user'] = $this->db->get_where('user', ['email' =>
@@ -304,7 +304,7 @@ class Operation extends CI_Controller
         $data['namarole']  = $this->db->get_where('user_role', ['id' =>
         $this->session->userdata('id')])->row_array();
 
-        $data['dosen'] = $this->Dosen_model->getDosenById($nidn);
+        $data['dosen'] = $this->Dosen_model->getDosenById($nik);
 
 
         $this->load->view('templates/header', $data);
@@ -313,7 +313,7 @@ class Operation extends CI_Controller
         $this->load->view('operation/dosen/detaildosen', $data);
         $this->load->view('templates/footer');
     }
-    public function editdosen($nidn)
+    public function editdosen($nik)
     {
         $data['title'] = 'Form Edit Dosen';
         $data['user'] = $this->db->get_where('user', ['email' =>
@@ -321,8 +321,8 @@ class Operation extends CI_Controller
         $data['namarole']  = $this->db->get_where('user_role', ['id' =>
         $this->session->userdata('id')])->row_array();
 
-        $data['dosen'] = $this->Dosen_model->getDosenById($nidn);
-        $dosen = $this->Dosen_model->getDosenById($nidn);
+        $data['dosen'] = $this->Dosen_model->getDosenById($nik);
+        $dosen = $this->Dosen_model->getDosenById($nik);
 
 
         $this->form_validation->set_rules('namalengkap', 'NamaLengkap', 'required|trim');
@@ -343,17 +343,17 @@ class Operation extends CI_Controller
             $this->load->view('operation/dosen/editdosen', $data);
             $this->load->view('templates/footer');
         } else {
-            $this->Dosen_model->ubahDataDosen($dosen, $nidn);
+            $this->Dosen_model->ubahDataDosen($dosen, $nik);
 
             $this->session->set_flashdata('message', 'Diubah!');
             redirect('operation/dosen');
         }
     }
-    public function hapusdosen($nidn)
+    public function hapusdosen($nik)
     {
-        $dosen = $this->Dosen_model->getDosenById($nidn);
+        $dosen = $this->Dosen_model->getDosenById($nik);
 
-        $this->Dosen_model->hapusDataDosen($nidn, $dosen);
+        $this->Dosen_model->hapusDataDosen($nik, $dosen);
         $this->session->set_flashdata('message', 'Dihapus!');
         redirect('operation/dosen');
     }
@@ -380,7 +380,7 @@ class Operation extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
-        $this->form_validation->set_rules('nidn', 'NIDN', 'required|trim|is_unique[dosen.nidn]', [
+        $this->form_validation->set_rules('nidn', 'NIDN', 'required|trim|is_unique[pimpinan.nidn]', [
             'is_unique' => 'This nidn has already registered!'
         ]);
         $this->form_validation->set_rules('namalengkap', 'Nama Lengkap', 'required|trim');
@@ -391,7 +391,7 @@ class Operation extends CI_Controller
         $this->form_validation->set_rules('password2', 'Password', 'required|trim|matches[password]');
         $this->form_validation->set_rules('jabatan', 'jabatan', 'required|trim');
 
-        $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[dosen.email]', [
+        $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[pimpinan.email]', [
             'is_unique' => 'This email has already registered!'
         ]);
 

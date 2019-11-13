@@ -19,8 +19,8 @@
 
                                 <form class="user" method="post" action="<?= base_url('auth/dosen'); ?>">
                                     <div class="form-group">
-                                        <input type="text" class="form-control form-control-user" id="nidn" name="nidn" placeholder="Masukan NIDN..." value="<?= set_value('nidn'); ?>">
-                                        <?= form_error('nidn', ' <small class="text-danger pl-3">', '</small>'); ?>
+                                        <input type="text" class="form-control form-control-user" id="nik" name="nik" placeholder="Masukan NIK..." value="<?= set_value('nik'); ?>">
+                                        <?= form_error('nik', ' <small class="text-danger pl-3">', '</small>'); ?>
                                     </div>
                                     <div class="form-group mb-5">
                                         <input type="password" class="form-control form-control-user" id="password" name="password" placeholder="Password">

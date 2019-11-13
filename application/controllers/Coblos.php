@@ -57,13 +57,13 @@ class Coblos extends CI_Controller
             $this->load->view('templates/footer');
         } elseif ($role_id == 4) {
             is_logged_indsn();
-            $data['user'] = $this->db->get_where('dosen', ['nidn' =>
-            $this->session->userdata('nidn')])->row_array();
+            $data['user'] = $this->db->get_where('dosen', ['nik' =>
+            $this->session->userdata('nik')])->row_array();
 
 
             $data['kandidat'] = $this->db->get('kandidat')->result_array();
             $data['pilih'] = $this->db->get_where('data_pemilihan', ['id_pemilih' =>
-            $this->session->userdata('nidn')])->row_array();
+            $this->session->userdata('nik')])->row_array();
 
             $this->load->view('templates/header', $data);
             $this->load->view('templates/sidebar', $data);
@@ -149,12 +149,12 @@ class Coblos extends CI_Controller
             }
         } elseif ($role_id == 4) {
             is_logged_indsn();
-            $data['user'] = $this->db->get_where('dosen', ['nidn' =>
-            $this->session->userdata('nidn')])->row_array();
-            $user = $this->db->get_where('dosen', ['nidn' =>
-            $this->session->userdata('nidn')])->row_array();
+            $data['user'] = $this->db->get_where('dosen', ['nik' =>
+            $this->session->userdata('nik')])->row_array();
+            $user = $this->db->get_where('dosen', ['nik' =>
+            $this->session->userdata('nik')])->row_array();
             $pilih = $this->db->get_where('data_pemilihan', ['id_pemilih' =>
-            $this->session->userdata('nidn')])->row_array();
+            $this->session->userdata('nik')])->row_array();
 
             $data['kandidat'] = $this->db->get('kandidat')->result_array();
             if ($pilih) {

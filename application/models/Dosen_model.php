@@ -7,9 +7,9 @@ class Dosen_model extends CI_Model
         return $this->db->get('dosen')->result_array();
     }
 
-    public function getDosenById($nidn)
+    public function getDosenById($nik)
     {
-        return $this->db->get_where('dosen', ['nidn' => $nidn])->row_array();
+        return $this->db->get_where('dosen', ['nik' => $nik])->row_array();
     }
 
     public function upload()
@@ -32,9 +32,9 @@ class Dosen_model extends CI_Model
 
     public function tambahDataDosen()
     {
-        $nidn = $this->input->post('nidn', true);
+        $nik = $this->input->post('nik', true);
         $data = [
-            'nidn' => $nidn,
+            'nik' => $nik,
             'name' => $this->input->post('namalengkap', true),
             'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
             'jk' => $this->input->post('jk', true),
@@ -51,7 +51,7 @@ class Dosen_model extends CI_Model
     }
 
 
-    public function ubahDataDosen($dosen, $nidn)
+    public function ubahDataDosen($dosen, $nik)
     {
         // cek jika ada gambar yang akan diupload
         $upload_image = $_FILES['imagedosen']['name'];
@@ -95,11 +95,11 @@ class Dosen_model extends CI_Model
         if ($this->input->post('passworddosen1') != null) {
             $this->db->set('password', $password);
         }
-        $this->db->where('nidn', $nidn);
+        $this->db->where('nik', $nik);
         $this->db->update('dosen');
     }
 
-    public function hapusDataDosen($nidn, $dosen)
+    public function hapusDataDosen($nik, $dosen)
     {
         $old_image = $dosen['image'];
         if ($old_image != 'default.jpg') {
@@ -107,6 +107,6 @@ class Dosen_model extends CI_Model
         }
 
         //$this->db->where('id', $id);
-        $this->db->delete('dosen', ['nidn' => $nidn]);
+        $this->db->delete('dosen', ['nik' => $nik]);
     }
 }

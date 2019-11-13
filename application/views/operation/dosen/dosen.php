@@ -28,7 +28,7 @@
                     <thead class="thead-dark">
                         <tr>
                             <th scope="col">No</th>
-                            <th scope="col">NIDN</th>
+                            <th scope="col">NIK</th>
                             <th scope="col">Nama</th>
                             <th scope="col">JK</th>
                             <th scope="col">Mengajar</th>
@@ -44,7 +44,7 @@
                         <?php foreach ($dosen as $dsn) : ?>
                             <tr>
                                 <th scope="row"><?= $i ?></th>
-                                <td><?= $dsn['nidn']; ?></td>
+                                <td><?= $dsn['nik']; ?></td>
                                 <td><?= $dsn['name']; ?></td>
                                 <td><?= $dsn['jk']; ?></td>
                                 <td><?= $dsn['mengajar']; ?></td>
@@ -57,9 +57,9 @@
                                             opsi
                                         </button>
                                         <div class="dropdown-menu animated--fade-in" aria-labelledby="dropdownMenuButton">
-                                            <a class=" btn btn-success btn-sm" href="<?= base_url() ?>operation/detaildosen/<?= $dsn['nidn']; ?>">detail</a>
-                                            <a class="btn btn-warning btn-sm" href="<?= base_url() ?>operation/editdosen/<?= $dsn['nidn']; ?>" class="badge badge-warning">edit</a>
-                                            <a class=" btn btn-danger btn-sm tombol-hapusdosen" href="<?= base_url() ?>operation/hapusdosen/<?= $dsn['nidn']; ?>">hapus</a>
+                                            <a class=" btn btn-success btn-sm" href="<?= base_url() ?>operation/detaildosen/<?= $dsn['nik']; ?>">detail</a>
+                                            <a class="btn btn-warning btn-sm" href="<?= base_url() ?>operation/editdosen/<?= $dsn['nik']; ?>" class="badge badge-warning">edit</a>
+                                            <a class=" btn btn-danger btn-sm tombol-hapusdosen" href="<?= base_url() ?>operation/hapusdosen/<?= $dsn['nik']; ?>">hapus</a>
                                         </div>
                                     </div>
 

@@ -50,7 +50,7 @@ function is_logged_inmhs()
 function is_logged_indsn()
 {
     $ci =  get_instance();
-    if (!$ci->session->userdata('nidn')) {
+    if (!$ci->session->userdata('nik')) {
         redirect('auth');
     } else {
         $role_id = $ci->session->userdata('role_id');

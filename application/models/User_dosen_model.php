@@ -7,7 +7,7 @@ class User_dosen_model extends CI_Model
     public function ubahdosen($user)
     {
 
-        $nidn = $this->input->post('nidn');
+        $nik = $this->input->post('nik');
         $name = $this->input->post('name');
         $jk = $this->input->post('jk');
         $mengajar = $this->input->post('mengajar');
@@ -46,7 +46,7 @@ class User_dosen_model extends CI_Model
         ];
 
         $this->db->set($data);
-        $this->db->where('nidn', $nidn);
+        $this->db->where('nik', $nik);
         $this->db->update('dosen');
     }
 }

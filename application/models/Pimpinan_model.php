@@ -103,8 +103,9 @@ class Pimpinan_model extends CI_Model
     public function hapusDataPimpinan($nidn, $pimpinan)
     {
         $old_image = $pimpinan['image'];
-        $old_image != 'default.jpg';
-        unlink(FCPATH . 'assets/img/profile/pimpinan/' . $old_image);
+        if ($old_image != 'default.jpg') {
+            unlink(FCPATH . 'assets/img/profile/pimpinan/' . $old_image);
+        }
         //$this->db->where('id', $id);
         $this->db->delete('pimpinan', ['nidn' => $nidn]);
     }

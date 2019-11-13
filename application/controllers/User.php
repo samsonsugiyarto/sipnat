@@ -49,8 +49,8 @@ class User extends CI_Controller
             $this->load->view('templates/footer');
         } elseif ($role_id == 4) {
             is_logged_indsn();
-            $data['user'] = $this->db->get_where('dosen', ['nidn' =>
-            $this->session->userdata('nidn')])->row_array();
+            $data['user'] = $this->db->get_where('dosen', ['nik' =>
+            $this->session->userdata('nik')])->row_array();
             $this->load->view('templates/header', $data);
             $this->load->view('templates/sidebar', $data);
             $this->load->view('templates/topbar', $data);
@@ -196,10 +196,10 @@ class User extends CI_Controller
             }
         } elseif ($role_id == 4) {
             is_logged_indsn();
-            $data['user'] = $this->db->get_where('dosen', ['nidn' =>
-            $this->session->userdata('nidn')])->row_array();
-            $user = $this->db->get_where('dosen', ['nidn' =>
-            $this->session->userdata('nidn')])->row_array();
+            $data['user'] = $this->db->get_where('dosen', ['nik' =>
+            $this->session->userdata('nik')])->row_array();
+            $user = $this->db->get_where('dosen', ['nik' =>
+            $this->session->userdata('nik')])->row_array();
             if ($this->form_validation->run() == false) {
                 $this->load->view('templates/header', $data);
                 $this->load->view('templates/sidebar', $data);
@@ -377,8 +377,8 @@ class User extends CI_Controller
             }
         } elseif ($role_id == 4) {
             is_logged_indsn();
-            $data['user'] = $this->db->get_where('dosen', ['nidn' =>
-            $this->session->userdata('nidn')])->row_array();
+            $data['user'] = $this->db->get_where('dosen', ['nik' =>
+            $this->session->userdata('nik')])->row_array();
             if ($this->form_validation->run() == false) {
                 $this->load->view('templates/header', $data);
                 $this->load->view('templates/sidebar', $data);
@@ -402,7 +402,7 @@ class User extends CI_Controller
                         $password_hash = password_hash($new_password, PASSWORD_DEFAULT);
 
                         $this->db->set('password', $password_hash);
-                        $this->db->where('nidn', $this->session->userdata('nidn'));
+                        $this->db->where('nik', $this->session->userdata('nik'));
                         $this->db->update('dosen');
 
                         $this->session->set_flashdata('message', '<div class="alert
@@ -524,10 +524,10 @@ class User extends CI_Controller
             }
         } elseif ($role_id == 4) {
             is_logged_indsn();
-            $data['user'] = $this->db->get_where('dosen', ['nidn' =>
-            $this->session->userdata('nidn')])->row_array();
-            $user = $this->db->get_where('dosen', ['nidn' =>
-            $this->session->userdata('nidn')])->row_array();
+            $data['user'] = $this->db->get_where('dosen', ['nik' =>
+            $this->session->userdata('nik')])->row_array();
+            $user = $this->db->get_where('dosen', ['nik' =>
+            $this->session->userdata('nik')])->row_array();
 
             $this->form_validation->set_rules('komentar', 'Komentar', 'required|trim');
             $status = $this->recaptcha();

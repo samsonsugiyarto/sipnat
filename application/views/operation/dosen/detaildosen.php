@@ -17,7 +17,7 @@
             </div>
             <div class="col-md-8">
                 <div class="card-body">
-                    <h5 class="card-title"><?= $dosen['nidn']; ?></h5>
+                    <h5 class="card-title"><?= $dosen['nik']; ?></h5>
                     <p class="card-text"><?= $dosen['name']; ?></p>
                     <p class="card-text"><?= $dosen['jk']; ?></p>
                     <p class="card-text"><?= $dosen['mengajar']; ?></p>

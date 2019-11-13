@@ -25,7 +25,7 @@
                 <?php
                 $user = $this->db->get_where('user', ['id' => $komen['user_id']])->row_array();
                 $pimpinan = $this->db->get_where('pimpinan', ['nidn' => $komen['user_id']])->row_array();
-                $dosen = $this->db->get_where('dosen', ['nidn' => $komen['user_id']])->row_array();
+                $dosen = $this->db->get_where('dosen', ['nik' => $komen['user_id']])->row_array();
                 $mhs = $this->db->get_where('mahasiswa', ['nim' => $komen['user_id']])->row_array();
                 ?>
 

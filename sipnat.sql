@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 10 Nov 2019 pada 16.09
+-- Generation Time: 13 Nov 2019 pada 14.18
 -- Versi Server: 10.1.13-MariaDB
 -- PHP Version: 7.0.6
 
@@ -52,7 +52,7 @@ INSERT INTO `data_pemilihan` (`id_pemilihan`, `tipe`, `id_pemilih`, `name`, `id_
 --
 
 CREATE TABLE `dosen` (
-  `nidn` int(15) NOT NULL,
+  `nik` int(15) NOT NULL,
   `name` varchar(128) NOT NULL,
   `password` varchar(256) NOT NULL,
   `jk` varchar(1) NOT NULL,
@@ -68,8 +68,8 @@ CREATE TABLE `dosen` (
 -- Dumping data untuk tabel `dosen`
 --
 
-INSERT INTO `dosen` (`nidn`, `name`, `password`, `jk`, `mengajar`, `email`, `hp`, `is_active`, `image`, `role_id`) VALUES
-(1997, 'Oskar Adi', '$2y$10$JhEx.a4Mei2U9j747UTOKenFVXqGoHfLOedYO61dasEhqWXYDeFwO', 'L', 'pemrograman web 12', 'oskar@oskar.oskar', '9223', 1, '15623962323521.jpg', 4),
+INSERT INTO `dosen` (`nik`, `name`, `password`, `jk`, `mengajar`, `email`, `hp`, `is_active`, `image`, `role_id`) VALUES
+(1997, 'Oskar Adi', '$2y$10$B3dbQDgQVyAxtfGgwIOEredAiHeYniEsl/ObF3h3TK.pBTec55/AK', 'L', 'pemrograman web 12', 'oskar@oskar.oskar', '9223', 1, '15623962323521.jpg', 4),
 (7890, 'Yoshita Lianawati', '$2y$10$tCl9ptiszxbSH0Jaxe9KtueJnI2Q7rfEf2WO.yPYFvItZ1aoEiEtC', 'P', 'Basis Data I', 'yoshita@gmail.com', '0987654', 1, '1556763143665.jpg', 4),
 (9087, 'Dhany Faizal', '$2y$10$KfTGuBBGwSQKfnuRAWde7eXMvRsYHcuYdF7nuqRa/GJIM2LXyHrGW', 'L', 'Jaringan Komputer', 'dhany@gmail.com', '98654', 1, 'default.jpg', 4),
 (34343, 'Diandra Chika', '$2y$10$WAbdlOVNXpVvqvQmhiFlcu/vFSvoCWIUc.DC1RkJcw1mx8Vpqidae', 'P', 'Matematika', 'chika@gmail.com', '09876', 1, '1559932673046.jpg', 4),
@@ -156,7 +156,9 @@ INSERT INTO `komentar` (`id`, `user_id`, `nama`, `waktu`, `uraian`, `image`, `ro
 (145, '3', 'Samson Sugiyarto', '1573381338', 'sasasasa', 'IMG-20191004-WA00261.jpg', 1),
 (146, '201601053', 'Nabilla Nur Fadillah', '1573381571', 'halo aku nabilla', 'Creative-Tail-People-women_svg.png', 5),
 (147, '1997', 'Oskar Adi', '1573381600', 'halooo', '15623962323521.jpg', 4),
-(148, '1234', 'Romanus Adi', '1573381629', 'yayyaya', '1560320819083.jpg', 3);
+(148, '1234', 'Romanus Adi', '1573381629', 'yayyaya', '1560320819083.jpg', 3),
+(149, '1234', 'Romanus Adi A', '1573613566', 'cek cek pimpinan', '1560320819083.jpg', 3),
+(150, '1997', 'Oskar Adi', '1573613732', 'cek cek dosen', '15623962323521.jpg', 4);
 
 -- --------------------------------------------------------
 
@@ -477,7 +479,7 @@ ALTER TABLE `data_pemilihan`
 -- Indexes for table `dosen`
 --
 ALTER TABLE `dosen`
-  ADD PRIMARY KEY (`nidn`) USING BTREE;
+  ADD PRIMARY KEY (`nik`) USING BTREE;
 
 --
 -- Indexes for table `jurusan`
@@ -576,7 +578,7 @@ ALTER TABLE `jurusan`
 -- AUTO_INCREMENT for table `komentar`
 --
 ALTER TABLE `komentar`
-  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=149;
+  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=151;
 --
 -- AUTO_INCREMENT for table `konfir_komentar`
 --

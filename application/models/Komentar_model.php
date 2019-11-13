@@ -53,11 +53,22 @@ class Komentar_model extends CI_Model
                 'image' => $user['image'],
                 'role_id' => $user['role_id']
             ];
-        } elseif ($user['role_id'] == 3 || $user['role_id'] == 4) { {
+        } elseif ($user['role_id'] == 3) { {
                 date_default_timezone_set('Asia/Jakarta');
                 $data = [
                     'nama' => $user['name'],
                     'user_id' => $user['nidn'],
+                    'waktu' => time(),
+                    'uraian' => $this->input->post('komentar', true),
+                    'image' => $user['image'],
+                    'role_id' => $user['role_id']
+                ];
+            }
+        } elseif ($user['role_id'] == 4) { {
+                date_default_timezone_set('Asia/Jakarta');
+                $data = [
+                    'nama' => $user['name'],
+                    'user_id' => $user['nik'],
                     'waktu' => time(),
                     'uraian' => $this->input->post('komentar', true),
                     'image' => $user['image'],

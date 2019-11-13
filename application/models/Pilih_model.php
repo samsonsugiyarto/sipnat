@@ -26,7 +26,7 @@ class Pilih_model extends CI_Model
         date_default_timezone_set('Asia/Jakarta');
         $data = [
             'tipe' => $tipe,
-            'id_pemilih' => $user['nidn'],
+            'id_pemilih' => $user['nik'],
             'name' => $user['name'],
             'id_kandidat' => $id,
             'waktu' => time()

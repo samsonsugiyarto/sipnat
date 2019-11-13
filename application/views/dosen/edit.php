@@ -10,9 +10,9 @@
             <?= form_open_multipart(); ?>
 
             <div class="form-group row">
-                <label for="nidn" class="col-sm-3 col-form-label">NIDN</label>
+                <label for="nik" class="col-sm-3 col-form-label">NIK</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" id="nidn" name="nidn" value="<?= $user['nidn']; ?>" readonly> </div>
+                    <input type="text" class="form-control" id="nik" name="nik" value="<?= $user['nik']; ?>" readonly> </div>
             </div>
             <div class="form-group row">
                 <label for="name" class="col-sm-3 col-form-label">Nama Lengkap</label>

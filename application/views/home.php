@@ -180,7 +180,7 @@
                     </div>
                     <div id="collapse-1" class="collapse" data-parent="#accordion" aria-labelledby="heading-1">
                         <div class="card-body isi">
-                            Menjadikan Kampus yang humnis dan unggul berprestasi dalam bidang komputer
+                            “ Terwujudnya Senat Mahasiswa yang profesional dan humanis yang dapat mengayomi aspirasi mahasiswa untuk membentuk generasi yang unggul”
                         </div>
                     </div>
                 </div>
@@ -197,9 +197,10 @@
                     </div>
                     <div id="collapse-2" class="collapse" data-parent="#accordion" aria-labelledby="heading-2">
                         <div class="card-body isi" style="text-align: justify;">
-                            1. Aktif dalam kegiatan kampus <br>
-                            2. Mengadakan Baksos <br>
-                            3. Mengadkan Inisiasi
+                            Memaksimalkan fungsi Senat.<br><br>
+                            Menampung aspirasi mahasiswa dari semua golongan tanpa membeda bedakan.<br><br>
+                            Menjalankan program kerja yang dibutuhkan mahasiswa.<br><br>
+                            Menjadikan senat sebagai sumber informasi terpercaya bagi mahasiswa
                         </div>
                     </div>
                 </div>
@@ -218,28 +219,28 @@
                 <div class="col-8">
                     <div class="card-deck">
                         <div class="card cardedit">
-                            <img src="<?= base_url('assets/img/personil/feni.png') ?>" class="card-img-top" alt="...">
+                            <img src="<?= base_url('assets/img/default.jpg') ?>" class="card-img-top" alt="...">
                             <div class="card-body isicard">
                                 <h5 class="card-title">Feni Lestari</h5>
                                 <p class="card-text">Ketua Senat</p>
                             </div>
                         </div>
                         <div class="card cardedit">
-                            <img src="<?= base_url('assets/img/personil/shita.png') ?>" class="card-img-top" alt="...">
+                            <img src="<?= base_url('assets/img/default.jpg') ?>" class="card-img-top" alt="...">
                             <div class="card-body isicard">
                                 <h5 class="card-title">Agnes Shita</h5>
                                 <p class="card-text">Wakil Ketua Senat</p>
                             </div>
                         </div>
                         <div class="card cardedit">
-                            <img src="<?= base_url('assets/img/personil/vebi.png') ?>" class="card-img-top" alt="...">
+                            <img src="<?= base_url('assets/img/default.jpg') ?>" class="card-img-top" alt="...">
                             <div class="card-body isicard">
                                 <h5 class="card-title">Veby</h5>
                                 <p class="card-text">Sekretaris Senat</p>
                             </div>
                         </div>
                         <div class="card cardedit">
-                            <img src="<?= base_url('assets/img/personil/axel.png') ?>" class="card-img-top" alt="...">
+                            <img src="<?= base_url('assets/img/default.jpg') ?>" class="card-img-top" alt="...">
                             <div class="card-body isicard">
                                 <h5 class="card-title">Axel Haryanto</h5>
                                 <p class="card-text">Bendahara Senat</p>
@@ -254,10 +255,8 @@
 
     <!-- END TEAM -->
 
-
-    <div class="container gallery-container" id="gallery">
+    <div class="container gallery-container">
         <br>
-
         <h1>Galeri</h1>
 
         <p class="page-description text-center">Galeri Kegiatan Senat</p>
@@ -265,42 +264,136 @@
         <div class="tz-gallery">
 
             <div class="row">
-                <div class="col-sm-6 col-md-4">
-                    <a class="lightbox" href="<?= base_url('assets/img/gallery/park.jpg') ?>">
-                        <img src="<?= base_url('assets/img/gallery/park.jpg') ?>" alt="Park">
-                    </a>
-                </div>
-                <div class="col-sm-6 col-md-4">
-                    <a class="lightbox" href="<?= base_url('assets/img/gallery/bridge.jpg') ?>">
-                        <img src="<?= base_url('assets/img/gallery/bridge.jpg') ?>" alt="Bridge">
-                    </a>
-                </div>
-                <div class="col-sm-12 col-md-4">
-                    <a class="lightbox" href="<?= base_url('assets/img/gallery/tunnel.jpg') ?>">
-                        <img src="<?= base_url('assets/img/gallery/tunnel.jpg') ?>" alt="Tunnel">
-                    </a>
-                </div>
-                <div class="col-sm-6 col-md-4">
-                    <a class="lightbox" href="<?= base_url('assets/img/gallery/coast.jpg') ?>">
-                        <img src="<?= base_url('assets/img/gallery/coast.jpg') ?>" alt="Coast">
-                    </a>
-                </div>
-                <div class="col-sm-6 col-md-4">
-                    <a class="lightbox" href="<?= base_url('assets/img/gallery/rails.jpg') ?>">
-                        <img src="<?= base_url('assets/img/gallery/rails.jpg') ?>" alt="Rails">
-                    </a>
-                </div>
-                <div class="col-sm-6 col-md-4">
-                    <a class="lightbox" href="<?= base_url('assets/img/gallery/traffic.jpg') ?>">
-                        <img src="<?= base_url('assets/img/gallery/traffic.jpg') ?>" alt="Traffic">
-                    </a>
-                </div>
 
+                <div class="col-sm-6 col-md-3">
+                    <div class="thumbnail">
+                        <a class="lightbox" href="<?= base_url('assets/img/gallery/1.jpg') ?>">
+                            <img src="<?= base_url('assets/img/gallery/1.jpg') ?>" alt="Park">
+                        </a>
+                        <div class="caption">
+                            <h3>STUDY BANDING
+                            </h3>
+                            <p>Study Banding dengan BEM IT TELKOM PURWOKETO.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <div class="thumbnail">
+                        <a class="lightbox" href="<?= base_url('assets/img/gallery/2.jpg') ?>">
+                            <img src="<?= base_url('assets/img/gallery/2.jpg') ?>" alt="Park">
+                        </a>
+                        <div class="caption">
+                            <h3>STUDY BANDING</h3>
+                            <p>Study Banding dengan BEM Universitas AMIKOM.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <div class="thumbnail">
+                        <a class="lightbox" href="<?= base_url('assets/img/gallery/3.jpg') ?>">
+                            <img src="<?= base_url('assets/img/gallery/3.jpg') ?>" alt="Park">
+                        </a>
+                        <div class="caption">
+                            <h3>SEMINAR START-UP</h3>
+                            <p>Seminar Start-Up kolaborasi dengan Innocircle.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <div class="thumbnail">
+                        <a class="lightbox" href="<?= base_url('assets/img/gallery/4.jpg') ?>">
+                            <img src="<?= base_url('assets/img/gallery/4.jpg') ?>" alt="Park">
+                        </a>
+                        <div class="caption">
+                            <h3>UPACARA</h3>
+                            <p>Upacara dalam rangka memperingati Hari Pendidikan Nasional dan HUR RI ke 74.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <div class="thumbnail">
+                        <a class="lightbox" href="<?= base_url('assets/img/gallery/5.jpg') ?>">
+                            <img src="<?= base_url('assets/img/gallery/5.jpg') ?>" alt="Park">
+                        </a>
+                        <div class="caption">
+                            <h3>SEMINAR</h3>
+                            <p>Seminar Peran Millenials dalam Menjaga Pluralitas NKRI & Buka Bersama.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <div class="thumbnail">
+                        <a class="lightbox" href="<?= base_url('assets/img/gallery/6.jpg') ?>">
+                            <img src="<?= base_url('assets/img/gallery/6.jpg') ?>" alt="Park">
+                        </a>
+                        <div class="caption">
+                            <h3>DIES NATALIS</h3>
+                            <p>Lomba menghias tumpeng.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <div class="thumbnail">
+                        <a class="lightbox" href="<?= base_url('assets/img/gallery/7.jpg') ?>">
+                            <img src="<?= base_url('assets/img/gallery/7.jpg') ?>" alt="Park">
+                        </a>
+                        <div class="caption">
+                            <h3>DIES NATALIS</h3>
+                            <p>Kompetisi Mobile Legends.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <div class="thumbnail">
+                        <a class="lightbox" href="<?= base_url('assets/img/gallery/8.jpg') ?>">
+                            <img src="<?= base_url('assets/img/gallery/8.jpg') ?>" alt="Park">
+                        </a>
+                        <div class="caption">
+                            <h3>PORS 2019</h3>
+                            <p>Olahraga Futsal.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <div class="thumbnail">
+                        <a class="lightbox" href="<?= base_url('assets/img/gallery/9.jpg') ?>">
+                            <img src="<?= base_url('assets/img/gallery/9.jpg') ?>" alt="Park">
+                        </a>
+                        <div class="caption">
+                            <h3>PORS 2019</h3>
+                            <p>Olahraga Bulu Tangkis.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <div class="thumbnail">
+                        <a class="lightbox" href="<?= base_url('assets/img/gallery/10.jpg') ?>">
+                            <img src="<?= base_url('assets/img/gallery/10.jpg') ?>" alt="Park">
+                        </a>
+                        <div class="caption">
+                            <h3>BANYUMAS CAMPUS EXPO</h3>
+                            <p>Tim Formatur Banyumas Campus Expo 2020.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <div class="thumbnail">
+                        <a class="lightbox" href="<?= base_url('assets/img/gallery/11.jpg') ?>">
+                            <img src="<?= base_url('assets/img/gallery/11.jpg') ?>" alt="Park">
+                        </a>
+                        <div class="caption">
+                            <h3>EVENT Bersama GUSDURIAN</h3>
+                            <p>Nobar dan doa bersama untuk para pahlawan dalam rangka memperingati hari pahlawan.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
 
         </div>
 
     </div>
+
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.css">
@@ -317,7 +410,7 @@
                     <?php
                         $user = $this->db->get_where('user', ['id' => $komen['user_id']])->row_array();
                         $pimpinan = $this->db->get_where('pimpinan', ['nidn' => $komen['user_id']])->row_array();
-                        $dosen = $this->db->get_where('dosen', ['nidn' => $komen['user_id']])->row_array();
+                        $dosen = $this->db->get_where('dosen', ['nik' => $komen['user_id']])->row_array();
                         $mhs = $this->db->get_where('mahasiswa', ['nim' => $komen['user_id']])->row_array();
                         ?>
                     <div class="row">
