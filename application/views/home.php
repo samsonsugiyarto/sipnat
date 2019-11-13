@@ -255,7 +255,7 @@
 
     <!-- END TEAM -->
 
-    <div class="container gallery-container">
+    <div class="container gallery-container" id="gallery">
         <br>
         <h1>Galeri</h1>
 
