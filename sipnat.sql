@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 13 Nov 2019 pada 14.18
+-- Generation Time: 15 Nov 2019 pada 10.33
 -- Versi Server: 10.1.13-MariaDB
 -- PHP Version: 7.0.6
 
@@ -40,10 +40,11 @@ CREATE TABLE `data_pemilihan` (
 --
 
 INSERT INTO `data_pemilihan` (`id_pemilihan`, `tipe`, `id_pemilih`, `name`, `id_kandidat`, `waktu`) VALUES
-(50, 'Mahasiswa', 201601053, 'Nabilla Nur Fadillah', 1, '1573227813'),
-(51, 'Mahasiswa', 201601039, 'Yulieus Adi Pranoto', 2, '1573227832'),
-(52, 'Pimpinan', 1234, 'Romanus Adi', 3, '1573227851'),
-(53, 'Dosen', 1997, 'Oskar Adi', 1, '1573227880');
+(54, 'Mahasiswa', 201601053, 'Nabilla Nur Fadillah', 1, '1573746217'),
+(55, 'Mahasiswa', 201601039, 'Yulieus Adi Pranoto', 3, '1573746266'),
+(56, 'Pimpinan', 1234, 'Romanus Adi A', 2, '1573746295'),
+(57, 'Dosen', 1997, 'Oskar Adi', 1, '1573746315'),
+(58, 'Mahasiswa', 201601046, 'Merli Amelia Anggraeni', 4, '1573746501');
 
 -- --------------------------------------------------------
 
@@ -101,6 +102,56 @@ INSERT INTO `jurusan` (`id`, `nama_jurusan`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `kampanye`
+--
+
+CREATE TABLE `kampanye` (
+  `id` int(11) NOT NULL,
+  `no_kandidat` int(11) NOT NULL,
+  `file_name` varchar(255) NOT NULL,
+  `created` varchar(255) NOT NULL,
+  `modified` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `kampanye`
+--
+
+INSERT INTO `kampanye` (`id`, `no_kandidat`, `file_name`, `created`, `modified`) VALUES
+(112, 1, 'tunnel.jpg', '2019-11-14 22:13:26', '2019-11-14 22:13:26'),
+(113, 1, 'rocks.jpg', '2019-11-14 22:13:49', '2019-11-14 22:13:49'),
+(114, 1, 'sky.jpg', '2019-11-14 22:13:49', '2019-11-14 22:13:49'),
+(115, 3, 'benches.jpg', '2019-11-14 22:38:57', '2019-11-14 22:38:57'),
+(116, 3, 'bridge.jpg', '2019-11-14 22:38:57', '2019-11-14 22:38:57'),
+(117, 3, 'coast.jpg', '2019-11-14 22:38:57', '2019-11-14 22:38:57'),
+(118, 3, 'rails.jpg', '2019-11-14 22:38:57', '2019-11-14 22:38:57'),
+(119, 3, '1562350747958.jpg', '2019-11-15 11:51:31', '2019-11-15 11:51:31'),
+(126, 3, 'coast1.jpg', '2019-11-15 12:25:11', '2019-11-15 12:25:11');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `kampanyevideo`
+--
+
+CREATE TABLE `kampanyevideo` (
+  `id` int(11) NOT NULL,
+  `no_kandidat` int(11) NOT NULL,
+  `file_name` varchar(255) NOT NULL,
+  `created` varchar(255) NOT NULL,
+  `modified` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `kampanyevideo`
+--
+
+INSERT INTO `kampanyevideo` (`id`, `no_kandidat`, `file_name`, `created`, `modified`) VALUES
+(1, 3, 'Membuat_GALERI_FOTO_+_LIGHTBOX_dengan_HTML_CSS3_(Bagian_1)_-_YouTube1.mp4', '2019-11-15 13:06:28', '2019-11-15 13:06:28');
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `kandidat`
 --
 
@@ -129,7 +180,7 @@ CREATE TABLE `kandidat` (
 INSERT INTO `kandidat` (`no_kandidat`, `nama`, `wakil`, `jk_ketua`, `jk_wakil`, `email_ketua`, `email_wakil`, `hp_ketua`, `hp_wakil`, `visi`, `misi`, `foto_ketua`, `foto_wakil`, `uraian`, `jumlah_suara`) VALUES
 (1, 'Feni Lestari', 'Agnes Shita', 'P', 'P', 'feni@gmail.com', 'shita@gmail.com', '87653', '98767', 'Menjadikan kampus yang sejahtera', '1. Mengadakan kegiatan baksos <br>\r\n2. Mengadakan inisiasi<br>\r\n3. Mengadakan study banding,<br>\r\n4. blalalala<br>\r\n5. blaa', 'Creative-Tail-People-women_svg3.png', 'Creative-Tail-People-women_svg.png', 'Halo, perkenalkan kami dari calon kandidat nomor 1 supaya teman-teman dapat memilih kami sebagai ketua dan wakil ketua pada periode saat ini, jangan lupa pilih nomor 1 \r\nvfvdfvdfvsdfvsdvfdsfjk ninv i ni nidnidnsicdsn nivnidncvidsn in idscnmidsv\r\nvdsvndsnv nvidnvkdsnvds nvidnsivdsvvdvd fdvdcdfcd dededed defdef efefefe efef fefefenubcjdncjud hdichdich cdichidc hcidhch chidhcidh cidjc hidchid chidch dhcidhc dhcidc dhc8hdc8hd8c 8dhc8dhc ich d8chidc hd9suv fhvu9f vhfuvf ahvufdiv hduvfa vhfapv hfv hfv cdjocndjcn cidcjid cjdicjd cjdiocjdc jcidc djci dcjidoc dhjiac jic sdhcid cjisc jidsc sjci jcisajcidnucind9uncu9 hcuhdau9c ahu9c auc huchasich chsdu cudc hcudhc uhcuo chud chducohoucu shdcus dchusd chuch udshv ufhgu fuv hfuvh fuvhus vhusd vhus vusv hsuvh suhvushv svushvushvis hvhvishiovhs vhjisvo shv jdvhsdivhdsiv hdsvhds vhsdv hdsivhids vhds vhisdhv dsh v sdh vijsdivjisdvjsdujvid vjsdi vjdsivhjd vjsdivjisdo visdv hndsovjsdovh osdhjvhsdvjoisvoish vhjsdivjsdivoisd hvi hdvo uv sdvisdvosjvc sd jio', 2),
 (2, 'Hanit Jatmika', 'Ratna eva', 'L', 'P', 'hanit@gmail.com', 'eva123@gmail.com', '2147483647', '2147483647', 'Menjadikan kampus yang humanis', '1. ikut serta kegiatan kampus <br>\r\n2. mengadakan baksos', '800px-Creative-Tail-People-superman_svg.png', 'Creative-Tail-People-women_svg1.png', 'jangan lupa pilih kami no 2!!!', 1),
-(3, 'Axel Haryanto', 'Vebi', 'L', 'P', 'axel@gmail.com', 'vebi123@gmail.com', '2147483647', '2147483647', 'Menjadikan kampus yang unggul', '1. Mengadakan Bukber <br>\r\n2. Mengadakan upacara 17 Agustus', '800px-Creative-Tail-People-police-man_svg.png', 'Creative-Tail-People-women_svg2.png', 'jangan lupa pilih no 3', 1);
+(3, 'Dani Sentosa', 'Putri Sariawati', 'L', 'P', 'dani123@gmil.com', 'putri@gmail.com', '089212123212', '081223232232', 'Menjadikan kampus yang maju', 'bla bla', 'coast.jpg', 'rocks.jpg', 'bla bla', 1);
 
 -- --------------------------------------------------------
 
@@ -229,7 +280,7 @@ INSERT INTO `mahasiswa` (`nim`, `name`, `jk`, `email`, `hp`, `image`, `password`
 (201601039, 'Yulieus Adi Pranoto', 'L', 'yuliusadi19@gmail.com', '081218990103', 'default.jpg', '$2y$10$artiCrTo1sLRSZNMmXakcOBgyZBZcv6cbqhCqCm.CUlW5hCPI7Psu', 5, 1, 2),
 (201601044, 'Ridho Ramadhani', 'L', 'ridho123@gmail.com', '081232267583', 'default.jpg', '$2y$10$bMRfDXqIA1jBb0UeY11ahOnsq4DNINebc17zdmtDSbh.yVjW6eQZq', 5, 1, 2),
 (201601045, 'Lala Wati', 'P', 'lala123@gmail.com', '081232212345', '1559932732837.jpg', '$2y$10$5PW.e81iugLs.VuzoBZyHOcn8QO3htnHLpUlJAQuZzNnmUNT//xIi', 5, 1, 3),
-(201601046, 'Merli Amelia Anggraeni', 'P', 'merli123@gmail.com', '081234523412', 'default.jpg', '$2y$10$juW1jYi2XAzcxXrOet757OMbWv.FUlWItstqvImn6gSqnN8P/mJgS', 5, 1, 10),
+(201601046, 'Merli Amelia Anggraeni', 'P', 'merli123@gmail.com', '081234523412', 'default.jpg', '$2y$10$UUVC5p049uns2URTAMvg4OVqu8Q9BagtztXV6npMlW05gcqiE2yym', 5, 1, 2),
 (201601051, 'Nabilla NF', 'P', 'nurfadillahnabilla@gmail.com', '0895634687760', '1560567398155.jpg', '$2y$10$y9IxvrRuKryjxigbLEiuLOGsPYXOmvBDghH1gaMt4fdp6XX4CRoUe', 5, 1, 2),
 (201601053, 'Nabilla Nur Fadillah', 'P', 'nabilla1123@gmail.com', '0812345612', 'Creative-Tail-People-women_svg.png', '$2y$10$Ctm5i5QNcFAWXYgGuU0io.Coy3S17kZKhxdTi1gnk1Nn8rnGAX2Gy', 5, 1, 8),
 (201601056, 'Budi Anduk', 'L', 'budi345@gmail.com', '081223165123', '1557317977923.jpg', '$2y$10$8gKyALTLQbvMAIK965qE5OB9WHqSudLlyzRHrzme4JM./pm.r42lu', 5, 1, 2),
@@ -488,6 +539,18 @@ ALTER TABLE `jurusan`
   ADD PRIMARY KEY (`id`) USING BTREE;
 
 --
+-- Indexes for table `kampanye`
+--
+ALTER TABLE `kampanye`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `kampanyevideo`
+--
+ALTER TABLE `kampanyevideo`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `kandidat`
 --
 ALTER TABLE `kandidat`
@@ -568,12 +631,22 @@ ALTER TABLE `user_token`
 -- AUTO_INCREMENT for table `data_pemilihan`
 --
 ALTER TABLE `data_pemilihan`
-  MODIFY `id_pemilihan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `id_pemilihan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 --
 -- AUTO_INCREMENT for table `jurusan`
 --
 ALTER TABLE `jurusan`
   MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+--
+-- AUTO_INCREMENT for table `kampanye`
+--
+ALTER TABLE `kampanye`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=132;
+--
+-- AUTO_INCREMENT for table `kampanyevideo`
+--
+ALTER TABLE `kampanyevideo`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `komentar`
 --

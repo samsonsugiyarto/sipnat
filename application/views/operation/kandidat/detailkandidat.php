@@ -88,6 +88,35 @@
                 <p style="text-align: justify;"><?= $kandidat['uraian']; ?></p>
             </div>
         </div>
+        <?php
+
+        $id_kan = $kandidat['no_kandidat'];
+        $query = "SELECT kampanye.file_name
+        FROM kampanye INNER JOIN kandidat
+        ON kandidat.no_kandidat = kampanye.no_kandidat
+        WHERE kampanye.no_kandidat = $id_kan ; ";
+        $kampanye = $this->db->query($query)->result_array();
+        ?>
+
+        <div class="form-group row  ">
+            <div class="col-sm-9">
+                <div class="row">
+                    <?php foreach ($kampanye as $panye) : ?>
+
+                        <div class="col-sm-3">
+                            <img src="<?= base_url('assets/img/kampanye/') . $panye['file_name']; ?>" class="img-thumbnail">
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
 

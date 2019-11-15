@@ -2,7 +2,7 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1>
+    <h1 class="h3 mb-4 text-gray-800">Form Edit Kandidat</h1>
 
     <div class="row">
         <div class="col-lg-8">
@@ -138,6 +138,42 @@
                 </div>
             </div>
             <div class="form-group row">
+                <div class="col-sm-3">Foto kampanye</div>
+                <div class="col-sm-9">
+                    <div class="row">
+                        <div class="col-sm-9">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="foto_kampanye" name="upload_Files[]" multiple />
+                                <label class="custom-file-label" for="foto_kampanye">Pilih beberapa foto</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <?php
+
+            $id_kan = $kandidat['no_kandidat'];
+            $query = "SELECT kampanye.file_name
+            FROM kampanye INNER JOIN kandidat
+            ON kandidat.no_kandidat = kampanye.no_kandidat
+            WHERE kampanye.no_kandidat = $id_kan ; ";
+            $kampanye = $this->db->query($query)->result_array();
+            ?>
+
+            <div class="form-group row justify-content-end ">
+                <div class="col-sm-9">
+                    <div class="row">
+                        <?php foreach ($kampanye as $panye) : ?>
+
+                            <div class="col-sm-3">
+                                <img src="<?= base_url('assets/img/kampanye/') . $panye['file_name']; ?>" class="img-thumbnail">
+                                <a class="btn btn-danger btn-sm hapuskampanye" href="<?= base_url() ?>operation/hapuskampanye/<?= $panye['file_name']; ?>">hapus</a>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
                 <label for="uraian" class="col-sm-3 col-form-label">Uraian</label>
                 <div class="col-sm-9">
                     <textarea class="form-control" id="uraian" name="uraian" rows="8"><?= $kandidat['uraian']; ?></textarea>
@@ -147,7 +183,7 @@
             </div>
             <div class="form-group row justify-content-end">
                 <div class="col-sm-9">
-                    <button type="submit" class="btn btn-primary">Perbarui</button>
+                    <input type="submit" class="btn btn-primary" name="submitForm" id="submitForm " value="Edit"></input>
                     <button type="reset" class="btn btn-warning">Reset</button>
                     <a href="<?= base_url('operation/kandidat'); ?>" class="btn btn-danger">Kembali</a>
                 </div>

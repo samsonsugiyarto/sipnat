@@ -21,7 +21,10 @@ class Home extends CI_Controller
     }
 
     public function kampanye()
+
     {
+
+
         $data['kandidat'] = $this->db->get('kandidat')->result_array();
         $this->load->view('kampanye', $data);
     }

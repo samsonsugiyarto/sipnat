@@ -11,6 +11,14 @@ class Kandidat_model extends CI_Model
     {
         return $this->db->get_where('kandidat', ['no_kandidat' => $no_kandidat])->row_array();
     }
+    public function getKampanyeById($no_kandidat)
+    {
+        return $this->db->get_where('kampanye', ['no_kandidat' => $no_kandidat])->result_array();
+    }
+    public function getKampanyeByfile_name($file_name)
+    {
+        return $this->db->get_where('kampanye', ['file_name' => $file_name])->row_array();
+    }
 
     public function uploadketua()
     {
@@ -50,6 +58,32 @@ class Kandidat_model extends CI_Model
             }
         }
         return "default.jpg";
+    }
+
+    public function getRows($id = '')
+    {
+        $this->db->select('id,file_name,created');
+        $this->db->from('kampanye');
+        if ($id) {
+            $this->db->where('id', $id);
+            $query = $this->db->get();
+            $result = $query->row_array();
+        } else {
+            $this->db->order_by('created', 'desc');
+            $query = $this->db->get();
+            $result = $query->result_array();
+        }
+        return !empty($result) ? $result : false;
+    }
+    public function insert($data = array())
+    {
+        $insert = $this->db->insert_batch('kampanye', $data);
+        return $insert ? true : false;
+    }
+    public function insertvideo($data = array())
+    {
+        $insert = $this->db->insert_batch('kampanyevideo', $data);
+        return $insert ? true : false;
     }
 
     public function tambahDataKandidat()
@@ -152,8 +186,21 @@ class Kandidat_model extends CI_Model
         $this->db->update('kandidat');
     }
 
-    public function hapusDataKandidat($no_kandidat, $kandidat)
+    public function hapusDataKampanye($file_name, $kampanye)
     {
+        $this->db->delete('kampanye', ['file_name' => $file_name]);
+        $old_image = $kampanye['file_name'];
+        unlink(FCPATH . 'assets/img/kampanye/' . $old_image);
+    }
+
+    public function hapusDataKandidat($no_kandidat, $kandidat, $kampanye)
+    {
+        foreach ($kampanye as $kamp) {
+
+            $old_image3 = $kamp['file_name'];
+            unlink(FCPATH . 'assets/img/kampanye/' . $old_image3);
+        }
+
         $old_image = $kandidat['foto_ketua'];
         $old_image2 = $kandidat['foto_wakil'];
         if ($old_image != 'default.jpg') {
@@ -163,7 +210,9 @@ class Kandidat_model extends CI_Model
             unlink(FCPATH . 'assets/img/profile/kandidat/' . $old_image2);
         }
 
+
         //$this->db->where('id', $id);
         $this->db->delete('kandidat', ['no_kandidat' => $no_kandidat]);
+        $this->db->delete('kampanye', ['no_kandidat' => $no_kandidat]);
     }
 }

@@ -2,12 +2,14 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1>
+    <h1 class="h3 mb-4 text-gray-800">Tambah Kandidat</h1>
 
     <div class="row">
         <div class="col-lg-8">
 
-            <?= form_open_multipart('operation/tambahkandidat'); ?>
+
+
+            <?php echo form_open_multipart(); ?>
             <div class="form-group row">
                 <label for="nokandidat" class="col-sm-3 col-form-label">No Kandidat</label>
                 <div class="col-sm-6">
@@ -127,6 +129,33 @@
                 </div>
             </div>
             <div class="form-group row">
+                <div class="col-sm-3">Foto kampanye</div>
+                <div class="col-sm-9">
+                    <div class="row">
+                        <div class="col-sm-9">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="foto_kampanye" name="upload_Files[]" multiple />
+                                <label class="custom-file-label" for="foto_kampanye">Pilih beberapa foto</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <div class="form-group row">
+                <div class="col-sm-3">Video Kampanye</div>
+                <div class="col-sm-9">
+                    <div class="row">
+                        <div class="col-sm-9">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="video_kampanye" name="video_kampanye">
+                                <label class="custom-file-label" for="video_kampanye">Pilih video</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            <div class="form-group row">
                 <label for="uraian" class="col-sm-3 col-form-label">Uraian</label>
                 <div class="col-sm-9">
                     <textarea class="form-control" id="uraian" name="uraian" rows="8" placeholder="isikan uraian..."><?= set_value('uraian'); ?></textarea>
@@ -136,11 +165,10 @@
             </div>
             <div class="form-group row justify-content-end">
                 <div class="col-sm-9">
-                    <button type="submit" class="btn btn-primary">Tambah</button>
+                    <input type="submit" class="btn btn-primary" name="submitForm" id="submitForm " value="Tambah"></input>
                     <a href="<?= base_url('operation/kandidat'); ?>" class="btn btn-danger">Batal</a>
                 </div>
             </div>
-
             </form>
 
 

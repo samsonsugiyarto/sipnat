@@ -67,7 +67,7 @@
                                         <div class="dropdown-menu animated--fade-in" aria-labelledby="dropdownMenuButton">
                                             <a class=" btn btn-success btn-sm" href="<?= base_url() ?>operation/detailkandidat/<?= $kan['no_kandidat']; ?>">detail</a>
                                             <a class="btn btn-warning btn-sm" href="<?= base_url() ?>operation/editkandidat/<?= $kan['no_kandidat']; ?>">edit</a>
-                                            <a class="btn btn-danger btn-sm tombol-hapuskandidat" href="<?= base_url() ?>operation/hapuskandidat/<?= $kan['no_kandidat']; ?>">hapus</a>
+                                            <a class="btn btn-danger btn-sm hapuskandidat" href="<?= base_url() ?>operation/hapuskandidat/<?= $kan['no_kandidat']; ?>">hapus</a>
                                         </div>
                                     </div>
                                 </td>

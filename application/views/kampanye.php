@@ -146,46 +146,32 @@
                 </div>
 
 
+                <?php
+
+                    $id_kan = $kan['no_kandidat'];
+                    $query = "SELECT kampanye.file_name
+                    FROM kampanye INNER JOIN kandidat
+                    ON kandidat.no_kandidat = kampanye.no_kandidat
+                    WHERE kampanye.no_kandidat = $id_kan ; ";
+                    $kampanye = $this->db->query($query)->result_array();
+
+                    ?>
+
                 <!-- Protfolio -->
-
-
                 <div class="tz-gallery ">
-
                     <div class="row">
-                        <div class="col-sm-6 col-md-4">
-                            <a class="lightbox" href="<?= base_url('assets/img/gallery/park.jpg') ?>">
-                                <img src="<?= base_url('assets/img/gallery/park.jpg') ?>" alt="Park">
-                            </a>
-                        </div>
-                        <div class="col-sm-6 col-md-4">
-                            <a class="lightbox" href="<?= base_url('assets/img/gallery/bridge.jpg') ?>">
-                                <img src="<?= base_url('assets/img/gallery/bridge.jpg') ?>" alt="Bridge">
-                            </a>
-                        </div>
-                        <div class="col-sm-12 col-md-4">
-                            <a class="lightbox" href="<?= base_url('assets/img/gallery/tunnel.jpg') ?>">
-                                <img src="<?= base_url('assets/img/gallery/tunnel.jpg') ?>" alt="Tunnel">
-                            </a>
-                        </div>
-                        <div class="col-sm-6 col-md-4">
-                            <a class="lightbox" href="<?= base_url('assets/img/gallery/coast.jpg') ?>">
-                                <img src="<?= base_url('assets/img/gallery/coast.jpg') ?>" alt="Coast">
-                            </a>
-                        </div>
-                        <div class="col-sm-6 col-md-4">
-                            <a class="lightbox" href="<?= base_url('assets/img/gallery/rails.jpg') ?>">
-                                <img src="<?= base_url('assets/img/gallery/rails.jpg') ?>" alt="Rails">
-                            </a>
-                        </div>
-                        <div class="col-sm-6 col-md-4">
-                            <a class="lightbox" href="<?= base_url('assets/img/gallery/traffic.jpg') ?>">
-                                <img src="<?= base_url('assets/img/gallery/traffic.jpg') ?>" alt="Traffic">
-                            </a>
-                        </div>
-
+                        <?php foreach ($kampanye as $panye) : ?>
+                            <div class="col-sm-6 col-md-4">
+                                <a class="lightbox" href="<?= base_url('assets/img/kampanye/') . $panye['file_name']; ?>">
+                                    <img src="<?= base_url('assets/img/kampanye/') . $panye['file_name'] ?>" alt="Park">
+                                </a>
+                            </div>
+                        <?php endforeach; ?>
                     </div>
 
                 </div>
+
+
 
             </div>
 

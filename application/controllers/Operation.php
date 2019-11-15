@@ -511,7 +511,7 @@ class Operation extends CI_Controller
     }
     public function editkandidat($no_kandidat)
     {
-        $data['title'] = 'Form Edit Kandidat';
+        $data['title'] = 'Kandidat';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
@@ -542,13 +542,68 @@ class Operation extends CI_Controller
             $this->load->view('templates/footer');
         } else {
             $this->Kandidat_model->ubahDataKandidat($kandidat, $no_kandidat);
+
+            $data = array();
+            if ($this->input->post('submitForm') && !empty($_FILES['upload_Files']['name'])) {
+                $filesCount = count($_FILES['upload_Files']['name']);
+                for ($i = 0; $i < $filesCount; $i++) {
+                    $_FILES['upload_File']['name'] = $_FILES['upload_Files']['name'][$i];
+                    $_FILES['upload_File']['type'] = $_FILES['upload_Files']['type'][$i];
+                    $_FILES['upload_File']['tmp_name'] = $_FILES['upload_Files']['tmp_name'][$i];
+                    $_FILES['upload_File']['error'] = $_FILES['upload_Files']['error'][$i];
+                    $_FILES['upload_File']['size'] = $_FILES['upload_Files']['size'][$i];
+
+                    // var_dump($_FILES['upload_Files']['type'][$i]);
+                    // die;
+                    $type = $_FILES['upload_Files']['type'][$i];
+
+                    if ($type  == 'image/jpg' || $type  == 'image/png' || $type  == 'image/gif') {
+
+                        $uploadPath = 'assets/img/kampanye';
+                    } elseif ($type  == 'video/mp4' || $type == 'video/avi') {
+                        $uploadPath = 'assets/video/kampanye';
+                    }
+                    $config['max_size'] = '6000000';
+                    $config['upload_path'] = $uploadPath;
+                    $config['allowed_types'] = 'gif|jpg|png|avi|mp4';
+                    $this->load->library('upload', $config);
+                    $this->upload->initialize($config);
+                    if ($this->upload->do_upload('upload_File')) {
+                        $fileData = $this->upload->data();
+                        $uploadData[$i]['no_kandidat'] = $this->input->post('nokandidat', true);
+
+                        $uploadData[$i]['file_name'] = $fileData['file_name'];
+
+                        $uploadData[$i]['created'] = date("Y-m-d H:i:s");
+                        $uploadData[$i]['modified'] = date("Y-m-d H:i:s");
+                    }
+                }
+                if (!empty($uploadData)) {
+                    //Insert file information into the database
+                    if ($type  == 'image/jpg' || $type  == 'image/png' || $type  == 'image/gif') {
+
+                        $insert = $this->Kandidat_model->insert($uploadData);
+                    } elseif ($type  == 'video/mp4' || $type == 'video/avi') {
+
+                        $insert = $this->Kandidat_model->insertvideo($uploadData);
+                    }
+
+                    $statusMsg = $insert ? 'Files uploaded successfully.' : 'Some problem occurred, please try again.';
+                    $this->session->set_flashdata('statusMsg', $statusMsg);
+                }
+            }
+            //Get files data from database
+            $data['gallery'] = $this->Kandidat_model->getRows();
+
             $this->session->set_flashdata('message', 'Diubah!');
             redirect('operation/kandidat');
         }
     }
+
+
     public function tambahkandidat()
     {
-        $data['title'] = 'Tambah Kandidat';
+        $data['title'] = 'Kandidat';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
@@ -569,9 +624,10 @@ class Operation extends CI_Controller
         $this->form_validation->set_rules('misi', 'Misi', 'required|trim');
         $this->form_validation->set_rules('uraian', 'Uraian', 'required|trim');
 
-
         $data['namarole']  = $this->db->get_where('user_role', ['id' =>
         $this->session->userdata('id')])->row_array();
+
+
 
         if ($this->form_validation->run() == false) {
             $this->load->view('templates/header', $data);
@@ -581,18 +637,64 @@ class Operation extends CI_Controller
             $this->load->view('templates/footer');
         } else {
             $this->Kandidat_model->tambahDataKandidat();
+
+            $data = array();
+            if ($this->input->post('submitForm') && !empty($_FILES['upload_Files']['name'])) {
+                $filesCount = count($_FILES['upload_Files']['name']);
+                for ($i = 0; $i < $filesCount; $i++) {
+                    $_FILES['upload_File']['name'] = $_FILES['upload_Files']['name'][$i];
+                    $_FILES['upload_File']['type'] = $_FILES['upload_Files']['type'][$i];
+                    $_FILES['upload_File']['tmp_name'] = $_FILES['upload_Files']['tmp_name'][$i];
+                    $_FILES['upload_File']['error'] = $_FILES['upload_Files']['error'][$i];
+                    $_FILES['upload_File']['size'] = $_FILES['upload_Files']['size'][$i];
+                    $uploadPath = 'assets/img/kampanye';
+                    $config['upload_path'] = $uploadPath;
+                    $config['max_size'] = '6000000';
+                    $config['allowed_types'] = 'gif|jpg|png|avi|flv|wmv|mp3|mp4';
+                    $this->load->library('upload', $config);
+                    $this->upload->initialize($config);
+                    if ($this->upload->do_upload('upload_File')) {
+                        $fileData = $this->upload->data();
+                        $uploadData[$i]['no_kandidat'] = $this->input->post('nokandidat', true);
+                        $uploadData[$i]['file_name'] = $fileData['file_name'];
+                        $uploadData[$i]['created'] = date("Y-m-d H:i:s");
+                        $uploadData[$i]['modified'] = date("Y-m-d H:i:s");
+                    }
+                }
+                if (!empty($uploadData)) {
+                    //Insert file information into the database
+                    $insert = $this->Kandidat_model->insert($uploadData);
+                    $statusMsg = $insert ? 'Files uploaded successfully.' : 'Some problem occurred, please try again.';
+                    $this->session->set_flashdata('statusMsg', $statusMsg);
+                }
+            }
+            //Get files data from database
+            $data['gallery'] = $this->Kandidat_model->getRows();
+
+
+
             $this->session->set_flashdata('message', 'Ditambahkan!');
             redirect('operation/kandidat');
         }
     }
 
+
     public function hapuskandidat($no_kandidat)
     {
         $kandidat = $this->Kandidat_model->getKandidatById($no_kandidat);
+        $kampanye = $this->Kandidat_model->getKampanyeById($no_kandidat);
 
-        $this->Kandidat_model->hapusDataKandidat($no_kandidat, $kandidat);
+        $this->Kandidat_model->hapusDataKandidat($no_kandidat, $kandidat, $kampanye);
         $this->session->set_flashdata('message', 'Dihapus!');
         redirect('operation/Kandidat');
+    }
+
+    public function hapusKampanye($file_name)
+    {
+
+        $kampanye = $this->Kandidat_model->getKampanyeByfile_name($file_name);
+        $this->Kandidat_model->hapusDataKampanye($file_name, $kampanye);
+        redirect('operation/editkandidat/' . $kampanye['no_kandidat']);
     }
 
 
