@@ -150,14 +150,34 @@
                     </div>
                 </div>
             </div>
+            <div class="form-group row">
+                <div class="col-sm-3">Video kampanye</div>
+                <div class="col-sm-9">
+                    <div class="row">
+                        <div class="col-sm-9">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="foto_kampanye" name="upload_FilesVideo[]" multiple />
+                                <label class="custom-file-label" for="foto_kampanye">Pilih beberapa video</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <?php
 
             $id_kan = $kandidat['no_kandidat'];
-            $query = "SELECT kampanye.file_name
+            $query = "SELECT kampanye.*
             FROM kampanye INNER JOIN kandidat
             ON kandidat.no_kandidat = kampanye.no_kandidat
-            WHERE kampanye.no_kandidat = $id_kan ; ";
+            WHERE kampanye.no_kandidat = $id_kan ";
             $kampanye = $this->db->query($query)->result_array();
+
+
+            $query1 = "SELECT kampanyevideo.*
+            FROM kampanyevideo INNER JOIN kandidat
+            ON kandidat.no_kandidat = kampanyevideo.no_kandidat
+            WHERE kampanyevideo.no_kandidat = $id_kan ";
+            $kampanyevideo = $this->db->query($query1)->result_array();
             ?>
 
             <div class="form-group row justify-content-end ">
@@ -167,7 +187,18 @@
 
                             <div class="col-sm-3">
                                 <img src="<?= base_url('assets/img/kampanye/') . $panye['file_name']; ?>" class="img-thumbnail">
-                                <a class="btn btn-danger btn-sm hapuskampanye" href="<?= base_url() ?>operation/hapuskampanye/<?= $panye['file_name']; ?>">hapus</a>
+                                <a class="btn btn-danger btn-sm hapuskampanye" href="<?= base_url() ?>operation/hapuskampanye/<?= $panye['id']; ?>">hapus</a>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                    <div class="row py-2">
+                        <?php foreach ($kampanyevideo as $panyevideo) : ?>
+                            <div class="col-sm-6">
+                                <div class="embed-responsive embed-responsive-16by9">
+                                    <video controls>
+                                        <source src="<?= base_url('assets/video/kampanye/') . $panyevideo['file_name']; ?>"> </video>
+                                    </div>
+                                    <a class="btn btn-danger btn-sm hapuskampanyevideo" href="<?= base_url() ?>operation/hapuskampanyevideo/<?= $panyevideo['id']; ?>">hapus</a>
                             </div>
                         <?php endforeach; ?>
                     </div>
@@ -183,7 +214,7 @@
             </div>
             <div class="form-group row justify-content-end">
                 <div class="col-sm-9">
-                    <input type="submit" class="btn btn-primary" name="submitForm" id="submitForm " value="Edit"></input>
+                    <input type="submit" class="btn btn-primary" name="submitForm" id="submitForm " value="Edit">
                     <button type="reset" class="btn btn-warning">Reset</button>
                     <a href="<?= base_url('operation/kandidat'); ?>" class="btn btn-danger">Kembali</a>
                 </div>

@@ -180,6 +180,7 @@
    <script src="<?= base_url('assets/js/sweet7.js'); ?>"></script>
    <script src="<?= base_url('assets/js/sweet8.js'); ?>"></script>
    <script src="<?= base_url('assets/js/sweet9.js'); ?>"></script>
+   <script src="<?= base_url('assets/js/sweet10.js'); ?>"></script>
 
    </body>
 

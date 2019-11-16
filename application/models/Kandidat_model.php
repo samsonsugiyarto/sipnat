@@ -11,13 +11,23 @@ class Kandidat_model extends CI_Model
     {
         return $this->db->get_where('kandidat', ['no_kandidat' => $no_kandidat])->row_array();
     }
-    public function getKampanyeById($no_kandidat)
+
+    public function getKampanyeByno_kandidat($no_kandidat)
     {
         return $this->db->get_where('kampanye', ['no_kandidat' => $no_kandidat])->result_array();
     }
-    public function getKampanyeByfile_name($file_name)
+    public function getKampanyeVideoByno_kandidat($no_kandidat)
     {
-        return $this->db->get_where('kampanye', ['file_name' => $file_name])->row_array();
+        return $this->db->get_where('kampanyevideo', ['no_kandidat' => $no_kandidat])->result_array();
+    }
+
+    public function getKampanyeById($id)
+    {
+        return $this->db->get_where('kampanye', ['id' => $id])->row_array();
+    }
+    public function getKampanyeVideoById($id)
+    {
+        return $this->db->get_where('kampanyevideo', ['id' => $id])->row_array();
     }
 
     public function uploadketua()
@@ -60,21 +70,7 @@ class Kandidat_model extends CI_Model
         return "default.jpg";
     }
 
-    public function getRows($id = '')
-    {
-        $this->db->select('id,file_name,created');
-        $this->db->from('kampanye');
-        if ($id) {
-            $this->db->where('id', $id);
-            $query = $this->db->get();
-            $result = $query->row_array();
-        } else {
-            $this->db->order_by('created', 'desc');
-            $query = $this->db->get();
-            $result = $query->result_array();
-        }
-        return !empty($result) ? $result : false;
-    }
+   
     public function insert($data = array())
     {
         $insert = $this->db->insert_batch('kampanye', $data);
@@ -186,19 +182,30 @@ class Kandidat_model extends CI_Model
         $this->db->update('kandidat');
     }
 
-    public function hapusDataKampanye($file_name, $kampanye)
+    public function hapusDataKampanye($id, $kampanye)
     {
-        $this->db->delete('kampanye', ['file_name' => $file_name]);
+        $this->db->delete('kampanye', ['id' => $id]);
         $old_image = $kampanye['file_name'];
         unlink(FCPATH . 'assets/img/kampanye/' . $old_image);
     }
+    public function hapusDataKampanyeVideo($id, $kampanye)
+    {
+        $this->db->delete('kampanyevideo', ['id' => $id]);
+        $old_image = $kampanye['file_name'];
+        unlink(FCPATH . 'assets/video/kampanye/' . $old_image);
+    }
 
-    public function hapusDataKandidat($no_kandidat, $kandidat, $kampanye)
+    public function hapusDataKandidat($no_kandidat, $kandidat, $kampanye, $kampanyevideo)
     {
         foreach ($kampanye as $kamp) {
 
             $old_image3 = $kamp['file_name'];
             unlink(FCPATH . 'assets/img/kampanye/' . $old_image3);
+        }
+        foreach ($kampanyevideo as $kampvideo) {
+
+            $old_video = $kampvideo['file_name'];
+            unlink(FCPATH . 'assets/video/kampanye/' . $old_video);
         }
 
         $old_image = $kandidat['foto_ketua'];
@@ -214,5 +221,6 @@ class Kandidat_model extends CI_Model
         //$this->db->where('id', $id);
         $this->db->delete('kandidat', ['no_kandidat' => $no_kandidat]);
         $this->db->delete('kampanye', ['no_kandidat' => $no_kandidat]);
+        $this->db->delete('kampanyevideo', ['no_kandidat' => $no_kandidat]);
     }
 }

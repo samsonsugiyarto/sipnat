@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.9.1
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 15 Nov 2019 pada 10.33
--- Versi Server: 10.1.13-MariaDB
--- PHP Version: 7.0.6
+-- Waktu pembuatan: 16 Nov 2019 pada 10.09
+-- Versi server: 10.4.8-MariaDB
+-- Versi PHP: 7.3.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -124,9 +126,7 @@ INSERT INTO `kampanye` (`id`, `no_kandidat`, `file_name`, `created`, `modified`)
 (115, 3, 'benches.jpg', '2019-11-14 22:38:57', '2019-11-14 22:38:57'),
 (116, 3, 'bridge.jpg', '2019-11-14 22:38:57', '2019-11-14 22:38:57'),
 (117, 3, 'coast.jpg', '2019-11-14 22:38:57', '2019-11-14 22:38:57'),
-(118, 3, 'rails.jpg', '2019-11-14 22:38:57', '2019-11-14 22:38:57'),
-(119, 3, '1562350747958.jpg', '2019-11-15 11:51:31', '2019-11-15 11:51:31'),
-(126, 3, 'coast1.jpg', '2019-11-15 12:25:11', '2019-11-15 12:25:11');
+(118, 3, 'rails.jpg', '2019-11-14 22:38:57', '2019-11-14 22:38:57');
 
 -- --------------------------------------------------------
 
@@ -521,177 +521,190 @@ CREATE TABLE `user_token` (
 --
 
 --
--- Indexes for table `data_pemilihan`
+-- Indeks untuk tabel `data_pemilihan`
 --
 ALTER TABLE `data_pemilihan`
   ADD PRIMARY KEY (`id_pemilihan`);
 
 --
--- Indexes for table `dosen`
+-- Indeks untuk tabel `dosen`
 --
 ALTER TABLE `dosen`
   ADD PRIMARY KEY (`nik`) USING BTREE;
 
 --
--- Indexes for table `jurusan`
+-- Indeks untuk tabel `jurusan`
 --
 ALTER TABLE `jurusan`
   ADD PRIMARY KEY (`id`) USING BTREE;
 
 --
--- Indexes for table `kampanye`
+-- Indeks untuk tabel `kampanye`
 --
 ALTER TABLE `kampanye`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `kampanyevideo`
+-- Indeks untuk tabel `kampanyevideo`
 --
 ALTER TABLE `kampanyevideo`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `kandidat`
+-- Indeks untuk tabel `kandidat`
 --
 ALTER TABLE `kandidat`
   ADD PRIMARY KEY (`no_kandidat`);
 
 --
--- Indexes for table `komentar`
+-- Indeks untuk tabel `komentar`
 --
 ALTER TABLE `komentar`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `konfir_komentar`
+-- Indeks untuk tabel `konfir_komentar`
 --
 ALTER TABLE `konfir_komentar`
   ADD PRIMARY KEY (`id_konfir`);
 
 --
--- Indexes for table `mahasiswa`
+-- Indeks untuk tabel `mahasiswa`
 --
 ALTER TABLE `mahasiswa`
   ADD PRIMARY KEY (`nim`) USING BTREE,
   ADD KEY `kode_jurusan` (`kode_jurusan`);
 
 --
--- Indexes for table `pimpinan`
+-- Indeks untuk tabel `pimpinan`
 --
 ALTER TABLE `pimpinan`
   ADD PRIMARY KEY (`nidn`);
 
 --
--- Indexes for table `riwayat`
+-- Indeks untuk tabel `riwayat`
 --
 ALTER TABLE `riwayat`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `user`
+-- Indeks untuk tabel `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`) USING BTREE;
 
 --
--- Indexes for table `user_access_menu`
+-- Indeks untuk tabel `user_access_menu`
 --
 ALTER TABLE `user_access_menu`
   ADD PRIMARY KEY (`id`) USING BTREE;
 
 --
--- Indexes for table `user_menu`
+-- Indeks untuk tabel `user_menu`
 --
 ALTER TABLE `user_menu`
   ADD PRIMARY KEY (`id`) USING BTREE;
 
 --
--- Indexes for table `user_role`
+-- Indeks untuk tabel `user_role`
 --
 ALTER TABLE `user_role`
   ADD PRIMARY KEY (`id`) USING BTREE;
 
 --
--- Indexes for table `user_sub_menu`
+-- Indeks untuk tabel `user_sub_menu`
 --
 ALTER TABLE `user_sub_menu`
   ADD PRIMARY KEY (`id`) USING BTREE;
 
 --
--- Indexes for table `user_token`
+-- Indeks untuk tabel `user_token`
 --
 ALTER TABLE `user_token`
   ADD PRIMARY KEY (`id`) USING BTREE;
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `data_pemilihan`
+-- AUTO_INCREMENT untuk tabel `data_pemilihan`
 --
 ALTER TABLE `data_pemilihan`
   MODIFY `id_pemilihan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+
 --
--- AUTO_INCREMENT for table `jurusan`
+-- AUTO_INCREMENT untuk tabel `jurusan`
 --
 ALTER TABLE `jurusan`
   MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
 --
--- AUTO_INCREMENT for table `kampanye`
+-- AUTO_INCREMENT untuk tabel `kampanye`
 --
 ALTER TABLE `kampanye`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=132;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=139;
+
 --
--- AUTO_INCREMENT for table `kampanyevideo`
+-- AUTO_INCREMENT untuk tabel `kampanyevideo`
 --
 ALTER TABLE `kampanyevideo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
 --
--- AUTO_INCREMENT for table `komentar`
+-- AUTO_INCREMENT untuk tabel `komentar`
 --
 ALTER TABLE `komentar`
   MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=151;
+
 --
--- AUTO_INCREMENT for table `konfir_komentar`
+-- AUTO_INCREMENT untuk tabel `konfir_komentar`
 --
 ALTER TABLE `konfir_komentar`
   MODIFY `id_konfir` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+
 --
--- AUTO_INCREMENT for table `riwayat`
+-- AUTO_INCREMENT untuk tabel `riwayat`
 --
 ALTER TABLE `riwayat`
   MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+
 --
--- AUTO_INCREMENT for table `user_access_menu`
+-- AUTO_INCREMENT untuk tabel `user_access_menu`
 --
 ALTER TABLE `user_access_menu`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+
 --
--- AUTO_INCREMENT for table `user_menu`
+-- AUTO_INCREMENT untuk tabel `user_menu`
 --
 ALTER TABLE `user_menu`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
 --
--- AUTO_INCREMENT for table `user_role`
+-- AUTO_INCREMENT untuk tabel `user_role`
 --
 ALTER TABLE `user_role`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
 --
--- AUTO_INCREMENT for table `user_sub_menu`
+-- AUTO_INCREMENT untuk tabel `user_sub_menu`
 --
 ALTER TABLE `user_sub_menu`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+
 --
--- AUTO_INCREMENT for table `user_token`
+-- AUTO_INCREMENT untuk tabel `user_token`
 --
 ALTER TABLE `user_token`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
@@ -701,6 +714,7 @@ ALTER TABLE `user_token`
 --
 ALTER TABLE `mahasiswa`
   ADD CONSTRAINT `mahasiswa_ibfk_1` FOREIGN KEY (`kode_jurusan`) REFERENCES `jurusan` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

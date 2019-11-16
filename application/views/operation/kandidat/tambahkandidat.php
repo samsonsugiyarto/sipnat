@@ -142,19 +142,20 @@
                 </div>
             </div>
 
-            <!-- <div class="form-group row">
-                <div class="col-sm-3">Video Kampanye</div>
+            <div class="form-group row">
+                <div class="col-sm-3">Video kampanye</div>
                 <div class="col-sm-9">
                     <div class="row">
                         <div class="col-sm-9">
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="video_kampanye" name="video_kampanye">
-                                <label class="custom-file-label" for="video_kampanye">Pilih video</label>
+                                <input type="file" class="custom-file-input" id="foto_kampanye" name="upload_FilesVideo[]" multiple />
+                                <label class="custom-file-label" for="foto_kampanye">Pilih beberapa video</label>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div> -->
+            </div>
+
             <div class="form-group row">
                 <label for="uraian" class="col-sm-3 col-form-label">Uraian</label>
                 <div class="col-sm-9">
@@ -165,7 +166,7 @@
             </div>
             <div class="form-group row justify-content-end">
                 <div class="col-sm-9">
-                    <input type="submit" class="btn btn-primary" name="submitForm" id="submitForm " value="Tambah"></input>
+                    <input type="submit" class="btn btn-primary" name="submitForm" id="submitForm " value="Tambah">
                     <a href="<?= base_url('operation/kandidat'); ?>" class="btn btn-danger">Batal</a>
                 </div>
             </div>

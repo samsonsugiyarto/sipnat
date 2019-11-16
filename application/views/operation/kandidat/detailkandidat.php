@@ -96,6 +96,12 @@
         ON kandidat.no_kandidat = kampanye.no_kandidat
         WHERE kampanye.no_kandidat = $id_kan ; ";
         $kampanye = $this->db->query($query)->result_array();
+
+        $query1 = "SELECT kampanyevideo.*
+        FROM kampanyevideo INNER JOIN kandidat
+        ON kandidat.no_kandidat = kampanyevideo.no_kandidat
+        WHERE kampanyevideo.no_kandidat = $id_kan ";
+        $kampanyevideo = $this->db->query($query1)->result_array();
         ?>
 
         <div class="form-group row  ">
@@ -108,13 +114,17 @@
                         </div>
                     <?php endforeach; ?>
                 </div>
-                <div class="row">
-                    <div class="col-sm-6">
-                        <div class="embed-responsive embed-responsive-16by9">
-                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
-                        </div>
+                <div class="row py-4">
+                        <?php foreach ($kampanyevideo as $panyevideo) : ?>
+                            <div class="col-sm-6">
+                                <div class="embed-responsive embed-responsive-16by9">
+                                    <video controls>
+                                        <source src="<?= base_url('assets/video/kampanye/') . $panyevideo['file_name']; ?>"> </video>
+                                    </div>
+                                    
+                            </div>
+                        <?php endforeach; ?>
                     </div>
-                </div>
             </div>
         </div>
     </div>

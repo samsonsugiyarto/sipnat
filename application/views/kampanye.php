@@ -155,6 +155,12 @@
                     WHERE kampanye.no_kandidat = $id_kan ; ";
                     $kampanye = $this->db->query($query)->result_array();
 
+                    $query1 = "SELECT kampanyevideo.file_name
+                    FROM kampanyevideo INNER JOIN kandidat
+                    ON kandidat.no_kandidat = kampanyevideo.no_kandidat
+                    WHERE kampanyevideo.no_kandidat = $id_kan ";
+                    $kampanyevideo = $this->db->query($query1)->result_array();
+
                     ?>
 
                 <!-- Protfolio -->
@@ -165,6 +171,16 @@
                                 <a class="lightbox" href="<?= base_url('assets/img/kampanye/') . $panye['file_name']; ?>">
                                     <img src="<?= base_url('assets/img/kampanye/') . $panye['file_name'] ?>" alt="Park">
                                 </a>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                    <div class="row">
+                        <?php foreach ($kampanyevideo as $panyevideo) : ?>
+                            <div class="col-sm-6 col-md-6">
+                                <div class="embed-responsive embed-responsive-16by9">
+                                    <video controls>
+                                        <source src="<?= base_url('assets/video/kampanye/') . $panyevideo['file_name']; ?>"> </video>
+                                </div>
                             </div>
                         <?php endforeach; ?>
                     </div>
