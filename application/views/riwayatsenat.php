@@ -135,6 +135,24 @@
         </div>
     <?php endforeach; ?>
 
+    <!-- Footer -->
+    <footer>
+        <div class="container text-center ">
+            <div class="row">
+                <div class="col-sm-12 ">
+                    <p>&copy; copyright 2019 | STIKOM Yos Sudarso Purwokerto</p>
+                    <!-- <p>&copy; copyright 2019 | built with <i class="fas fa-heart"></i> by. <a href="http://instagram.com/samsonsugiyarto">Team A</a></p> -->
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <p>Sistem Informasi Pemilihan Senat</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Akhir Footer -->
+
 
 
 

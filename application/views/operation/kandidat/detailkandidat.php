@@ -2,7 +2,7 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1>
+    <h1 class="h3 mb-4 text-gray-800">Detail Kandidat</h1>
     <a href="<?= base_url('operation/kandidat'); ?>" class="btn btn-danger">Kembali</a>
 
 
@@ -115,16 +115,16 @@
                     <?php endforeach; ?>
                 </div>
                 <div class="row py-4">
-                        <?php foreach ($kampanyevideo as $panyevideo) : ?>
-                            <div class="col-sm-6">
-                                <div class="embed-responsive embed-responsive-16by9">
-                                    <video controls>
-                                        <source src="<?= base_url('assets/video/kampanye/') . $panyevideo['file_name']; ?>"> </video>
-                                    </div>
-                                    
+                    <?php foreach ($kampanyevideo as $panyevideo) : ?>
+                        <div class="col-sm-6">
+                            <div class="embed-responsive embed-responsive-16by9">
+                                <video controls>
+                                    <source src="<?= base_url('assets/video/kampanye/') . $panyevideo['file_name']; ?>"> </video>
                             </div>
-                        <?php endforeach; ?>
-                    </div>
+
+                        </div>
+                    <?php endforeach; ?>
+                </div>
             </div>
         </div>
     </div>

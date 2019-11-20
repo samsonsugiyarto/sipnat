@@ -21,6 +21,11 @@ class Admin extends CI_Controller
 
         $data['jurusan'] = $this->db->count_all_results('jurusan');
 
+
+        $data['pimp'] = $this->db->count_all('pimpinan');
+        $data['dsn'] = $this->db->count_all('dosen');
+        $data['mhs'] = $this->db->count_all('mahasiswa');
+
         $this->db->like('is_active', 1);
         $this->db->from('pimpinan');
         $data['pimpinan'] = $this->db->count_all_results();
@@ -37,6 +42,9 @@ class Admin extends CI_Controller
         $this->db->from('kandidat');
         $data['kandidat'] = $this->db->count_all_results();
 
+
+        $this->db->from('konfir_komentar');
+        $data['kon_komentar'] = $this->db->count_all_results();
 
         $this->db->from('komentar');
         $data['komentar'] = $this->db->count_all_results();
@@ -79,6 +87,76 @@ class Admin extends CI_Controller
     }
 
 
+    public function statistik()
+    {
+        $data['title'] = 'Statistik';
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+
+        $data['namarole']  = $this->db->get_where('user_role', ['id' =>
+        $this->session->userdata('id')])->row_array();
+
+        $data['kandidat'] = $this->db->get('kandidat')->result_array();
+        $query = "SELECT sum(jumlah_suara) as jsuara FROM kandidat";
+        $data['js'] = $this->db->query($query)->row_array();
+
+
+        $data['role'] = $this->db->get('user_role')->result_array();
+
+        $query = "SELECT 
+        SUM(tipe LIKE 'Dosen') AS dosen,
+        SUM(tipe LIKE 'Mahasiswa') AS mahasiswa,
+        SUM(tipe LIKE 'Pimpinan') AS pimpinan
+        FROM data_pemilihan ";
+        $data['tipe'] = $this->db->query($query)->row_array();
+
+        $this->db->like('is_active', 1);
+        $this->db->from('pimpinan');
+        $data['pimpinan'] = $this->db->count_all_results();
+
+        $this->db->from('pimpinan');
+        $data['totalpimp'] = $this->db->count_all_results();
+
+        $data['tdkpimp'] =  $data['totalpimp'] - $data['pimpinan'];
+
+
+        $this->db->like('is_active', 1);
+        $this->db->from('dosen');
+        $data['dosen'] = $this->db->count_all_results();
+
+        $this->db->from('dosen');
+        $data['totaldsn'] = $this->db->count_all_results();
+
+        $data['tdkdsn'] =  $data['totaldsn'] - $data['dosen'];
+
+        $this->db->like('is_active', 1);
+        $this->db->from('mahasiswa');
+        $data['mahasiswa'] = $this->db->count_all_results();
+
+        $this->db->from('mahasiswa');
+        $data['totalmhs'] = $this->db->count_all_results();
+
+        $data['tdkmhs'] =  $data['totalmhs'] - $data['mahasiswa'];
+
+        $this->db->from('data_pemilihan');
+        $data['totalpilih'] = $this->db->count_all_results();
+
+        $data['totalaktif'] =   $data['pimpinan'] + $data['dosen'] + $data['mahasiswa'];
+
+        $data['tdkaktif'] =    $data['tdkpimp'] +  $data['tdkdsn']  +  $data['tdkmhs'];
+
+        $data['total'] =  $data['totalpimp'] + $data['totaldsn'] + $data['totalmhs'];
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('admin/statistik', $data);
+        $this->load->view('templates/footer');
+    }
+
+
+
+    // SuperAdmin Punya
     public function role()
     {
         $data['title'] = 'Role';

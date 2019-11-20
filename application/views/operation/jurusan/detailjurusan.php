@@ -2,7 +2,7 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1>
+    <h1 class="h3 mb-4 text-gray-800">Detail Jurusan</h1>
     <div class="card">
         <div class="card-body">
             <h5 class="card-title"><?= $jurusan['nama_jurusan']; ?></h5>

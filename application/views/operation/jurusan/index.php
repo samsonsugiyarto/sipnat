@@ -32,33 +32,23 @@
                     <tbody>
 
                         <?php $i = 1; ?>
-                        <?php foreach ($menu as $m) : ?>
+
+                        <?php foreach ($jur_mhs as $jum) : ?>
                             <tr>
                                 <th scope="row"><?= $i ?></th>
-                                <td><?= $m['nama_jurusan']; ?></td>
-
-                                <?php foreach ($jumlah_mhs as $jum) : ?>
-
-                                    <?php if ($jum['nama_jurusan'] == $m['nama_jurusan']) : ?>
-
-                                        <td>
-                                            <?= $jum['total']; ?>
-
-                                        </td>
-
-                                    <?php endif ?>
-
-                                <?php endforeach; ?>
-
+                                <td><?= $jum['nama_jurusan']; ?></td>
+                                <td>
+                                    <?= $jum['total']; ?>
+                                </td>
                                 <td>
                                     <div class="dropdown ">
                                         <button class="btn btn-primary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             opsi
                                         </button>
                                         <div class="dropdown-menu animated--fade-in" aria-labelledby="dropdownMenuButton">
-                                            <a class="btn btn-warning btn-sm" href="<?= base_url() ?>operation/editjurusan/<?= $m['id']; ?>" class="badge badge-warning">edit</a>
-                                            <a class=" btn btn-success btn-sm " href="<?= base_url() ?>operation/detailjurusan/<?= $m['id']; ?>">detail</a>
-                                            <a class=" btn btn-danger btn-sm tombol-hapusjur" href="<?= base_url() ?>operation/hapusjurusan/<?= $m['id']; ?>">hapus</a>
+                                            <a class="btn btn-warning btn-sm" href="<?= base_url() ?>operation/editjurusan/<?= $jum['id']; ?>" class="badge badge-warning">edit</a>
+                                            <a class=" btn btn-success btn-sm " href="<?= base_url() ?>operation/detailjurusan/<?= $jum['id']; ?>">detail</a>
+                                            <a class=" btn btn-danger btn-sm tombol-hapusjur" href="<?= base_url() ?>operation/hapusjurusan/<?= $jum['id']; ?>">hapus</a>
                                         </div>
                                     </div>
 

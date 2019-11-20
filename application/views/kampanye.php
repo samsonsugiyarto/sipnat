@@ -204,7 +204,7 @@
         <div class="container text-center ">
             <div class="row">
                 <div class="col-sm-12 ">
-                    <p>&copy; copyright 2019 | built with <i class="fas fa-heart"></i> by. <a href="http://instagram.com/samsonsugiyarto">Team A</a></p>
+                    <p>&copy; copyright 2019 | STIKOM Yos Sudarso Purwokerto</p>
                 </div>
             </div>
             <div class="row">

@@ -12,7 +12,7 @@
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Jurusan Terdaftar</div>
+                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Jurusan</div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $jurusan ?></div>
                         </div>
                         <div class="col-auto">
@@ -36,13 +36,16 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Mahasiswa Aktif</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $mahasiswa ?></div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $mahasiswa ?>
+                            </div>
+
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-user fa-2x text-gray-300"></i>
                         </div>
                     </div>
                 </div>
+                <div class=" pl-4 text-xs font-weight-bold text-gray-600 text-uppercase mb-1">Dari <?= $mhs ?> Mahasiswa Terdaftar</div>
                 <a href="<?= base_url('operation/mahasiswa'); ?>" class="btn btn-warning btn-icon-split">
                     <span class="icon text-white-50">
                         <i class="fas fa-arrow-right"></i>
@@ -66,6 +69,7 @@
                         </div>
                     </div>
                 </div>
+                <div class=" pl-4 text-xs font-weight-bold text-gray-600 text-uppercase mb-1">Dari <?= $dsn ?> Dosen Terdaftar</div>
                 <a href="<?= base_url('operation/dosen'); ?>" class="btn btn-info btn-icon-split">
                     <span class="icon text-white-50">
                         <i class="fas fa-arrow-right"></i>
@@ -80,7 +84,7 @@
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Pimpinan</div>
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Pimpinan Aktif</div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $pimpinan ?></div>
                         </div>
                         <div class="col-auto">
@@ -88,6 +92,7 @@
                         </div>
                     </div>
                 </div>
+                <div class=" pl-4 text-xs font-weight-bold text-gray-600 text-uppercase mb-1">Dari <?= $pimp ?> Pimpinan Terdaftar</div>
                 <a href="<?= base_url('operation/pimpinan'); ?>" class="btn btn-primary btn-icon-split">
                     <span class="icon text-white-50">
                         <i class="fas fa-arrow-right"></i>
@@ -124,14 +129,15 @@
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-secondary text-uppercase mb-1">Komentar</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $komentar ?></div>
+                            <div class="text-xs font-weight-bold text-secondary text-uppercase mb-1">Komentar Terkonfirmasi</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $kon_komentar ?></div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-comments fa-2x text-gray-300"></i>
                         </div>
                     </div>
                 </div>
+                <div class=" pl-4 text-xs font-weight-bold text-gray-600 text-uppercase mb-1">Dari <?= $komentar ?> Komentar</div>
                 <a href="<?= base_url('operation/komentar'); ?>" class="btn btn-secondary btn-icon-split">
                     <span class="icon text-white-50">
                         <i class="fas fa-arrow-right"></i>

@@ -60,7 +60,7 @@ class Riwayat extends CI_Controller
     }
     public function detailriwayat($id)
     {
-        $data['title'] = 'Detail Riwayat';
+        $data['title'] = 'Riwayat';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 

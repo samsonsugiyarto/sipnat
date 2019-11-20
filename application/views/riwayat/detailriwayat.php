@@ -2,7 +2,7 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1>
+    <h1 class="h3 mb-4 text-gray-800">Detail Riwayat</h1>
     <a href="<?= base_url('riwayat/riwayat'); ?>" class="btn btn-danger">Kembali</a>
 
 

@@ -14,7 +14,6 @@
     <link rel="stylesheet" href="<?= base_url('assets/css/style.css') ?>">
     <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 
-
     <link rel="icon" type="image/png" href="<?= base_url('assets/img/logostikom.png'); ?>">
 
     <!-- Google Fonts -->
@@ -32,10 +31,11 @@
     }
 </style>
 
-<body>
+<body data-spy="scroll" data-target="#navbar-example2" data-offset="160">
+
 
     <!-- Navbar -->
-    <nav class="navbar navbar-dark bg-dark navbar-expand-lg sticky-top">
+    <nav class="navbar navbar-dark bg-dark navbar-expand-lg sticky-top" id="navbar-example2">
         <div class="container">
             <img class="logo" src="assets/img/logostikom.png">
             <a class="navbar-brand page-scroll" href="#home">SIPNAT</a>
@@ -44,11 +44,11 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav ml-auto">
-                    <a class="nav-item nav-link active  page-scroll" href="#home">Home <span class="sr-only"></span></a>
+                <div class="navbar-nav    ml-auto">
+                    <a class="nav-item nav-link active   page-scroll" href="#home">Home <span class="sr-only"></span></a>
                     <a class="nav-item nav-link page-scroll" href="#voting">Voting <span></span></a>
                     <a class="nav-item nav-link  page-scroll" href="#personil">Tentang Senat</a>
-                    <a class="nav-item nav-link  page-scroll" href="#gallery">Galeri</a>
+                    <a class="nav-item nav-link  page-scroll" href="#gallery">Galeri </a>
                     <a class="nav-item nav-link" href="<?= base_url('home/kampanye'); ?>">Kampanye</a>
                     <a class="nav-item nav-link" href="<?= base_url('home/riwayatsenat'); ?>">Riwayat Senat</a>
                     <li class="nav-item dropdown">
@@ -66,7 +66,7 @@
 
             </div>
 
-        </div>
+            </data-spy="scroll">
     </nav>
     <!-- akhir Navbar -->
 
@@ -76,15 +76,15 @@
 
             <!-- info panel -->
             <div class="row justify-content-center">
-                <div class="col-5 info-panel">
+                <div class="col-7 col-md-5 info-panel">
+                    <p>Waktu hitung mundur</p>
                     <h4 id="teks"></h4>
-                    <p>Waktu hitung mundur.</p>
                 </div>
             </div>
         </div>
-        <script src="assets/js/hitungmundur.js"></script>
+        <script src=" <?= base_url('assets/js/hitungmundur.js'); ?>"></script>
         <!-- akhir info panel -->
-        <div class="cover-overlay ">
+        <div class="cover-overlay  ">
             <div class="container">
                 <h1 class="display-4"><span>Pemilihan Ketua SENAT</span> </h1>
                 <h1 class="display-3">STIKOM Yos Sudarso Purwokerto </h1>
@@ -213,7 +213,7 @@
 
 
     <!-- TEAM -->
-    <div class="row justify-content-center" id="personil">
+    <!-- <div class="row justify-content-center" id="personil">
         <div class="col-12 zero-panel text-center tentang">
             <div class="row justify-content-center">
                 <div class="col-8">
@@ -251,7 +251,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <!-- END TEAM -->
 
@@ -387,6 +387,86 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-sm-6 col-md-3">
+                    <div class="thumbnail">
+                        <a class="lightbox" href="<?= base_url('assets/img/gallery/12.jpg') ?>">
+                            <img src="<?= base_url('assets/img/gallery/12.jpg') ?>" alt="Park">
+                        </a>
+                        <div class="caption">
+                            <h3>MAKRAB 2019</h3>
+                            <p>Seni Tari dalam Acara Malam Keakraban Mahasiswa Baru 2019</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <div class="thumbnail">
+                        <a class="lightbox" href="<?= base_url('assets/img/gallery/13.jpg') ?>">
+                            <img src="<?= base_url('assets/img/gallery/13.jpg') ?>" alt="Park">
+                        </a>
+                        <div class="caption">
+                            <h3>MAKRAB 2019</h3>
+                            <p>Suasana dalam Acara Malam Keakraban Mahasiswa Baru 2019</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <div class="thumbnail">
+                        <a class="lightbox" href="<?= base_url('assets/img/gallery/14.jpg') ?>">
+                            <img src="<?= base_url('assets/img/gallery/14.jpg') ?>" alt="Park">
+                        </a>
+                        <div class="caption">
+                            <h3>BAKSOS 2019</h3>
+                            <p>Bakti Sosial SEMA bersama Mahasiswa baru 2019</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <div class="thumbnail">
+                        <a class="lightbox" href="<?= base_url('assets/img/gallery/15.jpg') ?>">
+                            <img src="<?= base_url('assets/img/gallery/15.jpg') ?>" alt="Park">
+                        </a>
+                        <div class="caption">
+                            <h3>BAKSOS 2019</h3>
+                            <p>Bakti Sosial SEMA bersama Mahasiswa Baru 2019</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <div class="thumbnail">
+                        <a class="lightbox" href="<?= base_url('assets/img/gallery/16.jpg') ?>">
+                            <img src="<?= base_url('assets/img/gallery/16.jpg') ?>" alt="Park">
+                        </a>
+                        <div class="caption">
+                            <h3>INISIASI MABA 2019</h3>
+                            <p>Inisiasi Mahasiswa Baru 2019</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <div class="thumbnail">
+                        <a class="lightbox" href="<?= base_url('assets/img/gallery/17.jpg') ?>">
+                            <img src="<?= base_url('assets/img/gallery/17.jpg') ?>" alt="Park">
+                        </a>
+                        <div class="caption">
+                            <h3>LDK 2019</h3>
+                            <p>Latihan Dasar Kepemimpinan 2019</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="col-sm-6 col-md-6">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <video controls>
+                            <source src="<?= base_url('assets/video/INISIASI_2019.mp4'); ?>"> </video>
+                    </div>
+                    <div class="caption">
+                        <h3 class="mt-2">INISIASI 2019</h3>
+                        <p>Cuplikan video kegiatan inisisasi 2019</p>
+                    </div>
+                </div>
+
             </div>
 
         </div>
@@ -395,27 +475,32 @@
 
 
 
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.css">
     <script>
         baguetteBox.run('.tz-gallery');
     </script>
+    <div class="container komen-container  mt-4" id="komen">
+        <div class="overflow-auto" style=" width:auto; height:600px; ;
+        ">
+            <div class="sticky-top" style="background-color: white; border-radius: 30px;">
 
-    <div class="container komen-container mt-4">
-        <h1 class="py-3 pl-4">Komentar</h1>
-        <div class="row justify-content-start mt-3">
+                <h1 class="py-3  pl-4 ">Komentar</h1>
+            </div>
+            <div class="row justify-content-start  mt-3">
 
-            <div class="col-sm-9 komen mt-1">
-                <?php foreach ($komentar as $komen) : ?>
-                    <?php
-                        $user = $this->db->get_where('user', ['id' => $komen['user_id']])->row_array();
-                        $pimpinan = $this->db->get_where('pimpinan', ['nidn' => $komen['user_id']])->row_array();
-                        $dosen = $this->db->get_where('dosen', ['nik' => $komen['user_id']])->row_array();
-                        $mhs = $this->db->get_where('mahasiswa', ['nim' => $komen['user_id']])->row_array();
-                        ?>
-                    <div class="row">
-                        <div class="col-auto-12">
-                            <img style="height: 4rem; width: 4rem;" src=" <?php if ($komen['role_id'] == 1 || $komen['role_id'] == 2) : ?>
+                <div class="col-sm-7 komen  mt-1">
+                    <?php foreach ($komentar as $komen) : ?>
+                        <?php
+                            $user = $this->db->get_where('user', ['id' => $komen['user_id']])->row_array();
+                            $pimpinan = $this->db->get_where('pimpinan', ['nidn' => $komen['user_id']])->row_array();
+                            $dosen = $this->db->get_where('dosen', ['nik' => $komen['user_id']])->row_array();
+                            $mhs = $this->db->get_where('mahasiswa', ['nim' => $komen['user_id']])->row_array();
+                            ?>
+                        <div class="row">
+                            <div class="col-auto-12">
+                                <img style="height: 3rem; width: 3rem;" src=" <?php if ($komen['role_id'] == 1 || $komen['role_id'] == 2) : ?>
                         <?= base_url('assets/img/profile/') . $user['image']; ?>
                         <?php elseif ($komen['role_id'] == 3) : ?>
                         <?= base_url('assets/img/profile/pimpinan/') . $pimpinan['image']; ?>
@@ -427,33 +512,35 @@
                         <?= base_url('assets/img/profile/mahasiswa/') . $mhs['image']; ?>
                         <?php endif; ?>" class="img-profile rounded-circle float-left" alt="...">
 
-                            <?php if ($komen['role_id'] == 1 || $komen['role_id'] == 2) : ?>
-                                <h6><?= $user['name']; ?> <small class="text-muted">Admin </small></h6>
-                            <?php elseif ($komen['role_id'] == 3) : ?>
+                                <?php if ($komen['role_id'] == 1 || $komen['role_id'] == 2) : ?>
+                                    <h6><?= $user['name']; ?> <small class="text-muted">Admin </small></h6>
+                                <?php elseif ($komen['role_id'] == 3) : ?>
 
-                                <h6><?= $pimpinan['name']; ?></h6>
-                            <?php elseif ($komen['role_id'] == 4) : ?>
+                                    <h6><?= $pimpinan['name']; ?></h6>
+                                <?php elseif ($komen['role_id'] == 4) : ?>
 
-                                <h6><?= $dosen['name']; ?></h6>
+                                    <h6><?= $dosen['name']; ?></h6>
 
-                            <?php elseif ($komen['role_id'] == 5) : ?>
+                                <?php elseif ($komen['role_id'] == 5) : ?>
 
-                                <h6><?= $mhs['name']; ?></h6>
-                            <?php endif; ?>
-
-
+                                    <h6><?= $mhs['name']; ?></h6>
+                                <?php endif; ?>
 
 
 
 
-                            <h5> <?= time_since($komen['waktu']); ?></h5>
-                            <p><?= $komen['uraian']; ?></p>
+
+
+                                <h5> <?= time_since($komen['waktu']); ?></h5>
+                                <p><?= $komen['uraian']; ?></p>
+                            </div>
                         </div>
-                    </div>
-                <?php endforeach; ?>
+                    <?php endforeach; ?>
+                </div>
             </div>
         </div>
     </div>
+
     <!-- akhir container -->
 
     <!-- Footer -->
@@ -461,7 +548,8 @@
         <div class="container text-center ">
             <div class="row">
                 <div class="col-sm-12 ">
-                    <p>&copy; copyright 2019 | built with <i class="fas fa-heart"></i> by. <a href="http://instagram.com/samsonsugiyarto">Team A</a></p>
+                    <p>&copy; copyright 2019 | STIKOM Yos Sudarso Purwokerto</p>
+                    <!-- <p>&copy; copyright 2019 | built with <i class="fas fa-heart"></i> by. <a href="http://instagram.com/samsonsugiyarto">Team A</a></p> -->
                 </div>
             </div>
             <div class="row">

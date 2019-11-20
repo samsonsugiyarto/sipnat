@@ -24,20 +24,24 @@ class Operation extends CI_Controller
 
         $this->form_validation->set_rules('jurusan', 'Jurusan', 'required');
 
-
         $data['namarole']  = $this->db->get_where('user_role', ['id' =>
         $this->session->userdata('id')])->row_array();
 
-
-
-        $query = "SELECT nama_jurusan, COUNT(nama_jurusan) as total 
-          
-            FROM mahasiswa LEFT JOIN jurusan
+        $query = "SELECT nama_jurusan,id,kode_jurusan,count(kode_jurusan) as total
+        FROM mahasiswa  RIGHT JOIN  jurusan
         ON mahasiswa.kode_jurusan = jurusan.id 
-        GROUP BY nama_jurusan";
+        GROUP BY id";
 
-        $data['jumlah_mhs'] = $this->db->query($query)->result_array();
+        $data['jur_mhs'] = $this->db->query($query)->result_array();
 
+        // $this->db->select('nama_jurusan,COUNT(nama_jurusan) ');
+        // $this->db->from('mahasiswa');
+        // $this->db->join(' jurusan', ' mahasiswa.kode_jurusan = jurusan.id ', 'left outer');
+        // $this->db->group_by('nama_jurusan');
+        // $query = $this->db->get()->result_array();
+
+        // var_dump($query);
+        // die;
         $data['menu'] = $this->db->get('jurusan')->result_array();
 
         if ($this->form_validation->run() == false) {
@@ -58,7 +62,7 @@ class Operation extends CI_Controller
 
     public function detailjurusan($id)
     {
-        $data['title'] = 'Detail Jurusan';
+        $data['title'] = 'Jurusan';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
         $data['namarole']  = $this->db->get_where('user_role', ['id' =>
@@ -79,7 +83,7 @@ class Operation extends CI_Controller
     public function editjurusan($id)
     {
 
-        $data['title'] = 'Edit Jurusan';
+        $data['title'] = 'Jurusan';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
         $data['jurusan'] = $this->Jurusan_model->getJurusanById($id);
@@ -134,7 +138,7 @@ class Operation extends CI_Controller
     public function tambahmahasiswa()
     {
 
-        $data['title'] = 'Tambah Mahasiswa';
+        $data['title'] = 'Mahasiswa';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
@@ -177,7 +181,7 @@ class Operation extends CI_Controller
     }
     public function detailmahasiswa($nim)
     {
-        $data['title'] = 'Detail Mahasiswa';
+        $data['title'] = 'Mahasiswa';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
         $data['namarole']  = $this->db->get_where('user_role', ['id' =>
@@ -193,7 +197,7 @@ class Operation extends CI_Controller
     }
     public function editmahasiswa($nim)
     {
-        $data['title'] = 'Form Edit Mahasiswa';
+        $data['title'] = 'Mahasiswa';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
         $data['namarole']  = $this->db->get_where('user_role', ['id' =>
@@ -257,7 +261,7 @@ class Operation extends CI_Controller
     }
     public function tambahdosen()
     {
-        $data['title'] = 'Tambah Dosen';
+        $data['title'] = 'Dosen';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
@@ -297,7 +301,7 @@ class Operation extends CI_Controller
 
     public function detaildosen($nik)
     {
-        $data['title'] = 'Detail Dosen';
+        $data['title'] = 'Dosen';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
@@ -315,7 +319,7 @@ class Operation extends CI_Controller
     }
     public function editdosen($nik)
     {
-        $data['title'] = 'Form Edit Dosen';
+        $data['title'] = 'Dosen';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
         $data['namarole']  = $this->db->get_where('user_role', ['id' =>
@@ -415,7 +419,7 @@ class Operation extends CI_Controller
     }
     public function detailpimpinan($nidn)
     {
-        $data['title'] = 'Detail Pimpinan STIKOM';
+        $data['title'] = 'Pimpinan';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
         $data['namarole']  = $this->db->get_where('user_role', ['id' =>
@@ -432,7 +436,7 @@ class Operation extends CI_Controller
     }
     public function editpimpinan($nidn)
     {
-        $data['title'] = 'Form Edit Pimpinan STIKOM';
+        $data['title'] = 'Pimpinan';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
@@ -493,7 +497,7 @@ class Operation extends CI_Controller
     }
     public function detailkandidat($no_kandidat)
     {
-        $data['title'] = 'Detail Kandidat';
+        $data['title'] = 'Kandidat';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
@@ -545,7 +549,7 @@ class Operation extends CI_Controller
 
             $this->uploadvideokampanye();
             $this->uploadimgkampanye();
-                
+
             $this->session->set_flashdata('message', 'Diubah!');
             redirect('operation/kandidat');
         }
@@ -611,9 +615,8 @@ class Operation extends CI_Controller
             }
             if (!empty($uploadData)) {
                 //Insert file information into the database
-            
+
                 return $this->Kandidat_model->insertvideo($uploadData);
-                
             }
         }
     }

@@ -21,7 +21,7 @@
                 <div class="flashriwayat" data-flashriwayat="<?= $this->session->flashdata('message'); ?>"></div>
             <?php endif; ?>
 
-            <a href="<?= base_url('riwayat/tambahriwayat'); ?>" class="btn btn-primary mb-3">Tambah Riwayat</a>
+            <a href="<?= base_url('riwayat/tambahriwayat'); ?>" class="btn btn-success mb-3">Tambah Riwayat</a>
             <div class="table-responsive">
 
                 <table class="table table-bordered table-hover" id="dataTable">

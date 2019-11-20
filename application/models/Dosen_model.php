@@ -53,6 +53,7 @@ class Dosen_model extends CI_Model
 
     public function ubahDataDosen($dosen, $nik)
     {
+
         // cek jika ada gambar yang akan diupload
         $upload_image = $_FILES['imagedosen']['name'];
 

@@ -2,7 +2,7 @@
    <footer class="sticky-footer bg-white">
        <div class="container my-auto">
            <div class="copyright text-center my-auto">
-               <span>Copyright &copy; Web PPL <?= date('Y'); ?></span>
+               <span>Copyright &copy; STIKOM Yos Sudarso Purwokerto <?= date('Y'); ?></span>
            </div>
        </div>
    </footer>
@@ -96,10 +96,45 @@
                        "sPrevious": 'Sebelumnya'
                    }
                },
+
                "initComplete": function() {
                    $("#reminders").show();
                },
-               "buttons": ['copy', 'csv', 'excel', 'pdf', 'print', 'colvis']
+               "buttons": ['copy', 'excel', 'pdf', 'print']
+               //    bisa ditambah csv,colvis
+           });
+           table.buttons().container().appendTo(`#reminders_wrapper .col-md-6:eq(0)`);
+       });
+   </script>
+   <script>
+       $(document).ready(function() {
+           var table = $('table.display').DataTable({
+               //"dom": 'Blfrtip',
+               "aLengthMenu": [
+                   [10, 25, 50, 100, 250, 500, -1],
+                   [10, 25, 50, 100, 250, 500, 'All']
+               ],
+               "oLanguage": {
+                   "sInfo": 'Total _TOTAL_ Data ditampilkan (_START_ sampai _END_)',
+                   "sLengthMenu": 'Tampilkan _MENU_ Data',
+                   "sInfoEmpty": 'Tidak ada Data.',
+                   "sSearch": 'Pencarian:',
+                   "sEmptyTable": 'Tidak ada Data di dalam Database',
+                   "sZeroRecords": 'Tidak ada data yang cocok',
+                   "sInfoFiltered": '(tersaring dari _MAX_ total data yang masuk)',
+                   "oPaginate": {
+                       "sNext": 'Selanjutnya',
+                       "sLast": 'Terakhir',
+                       "sFirst": 'Pertama',
+                       "sPrevious": 'Sebelumnya'
+                   }
+               },
+
+               "initComplete": function() {
+                   $("table.display").show();
+               },
+               "buttons": ['copy', 'excel', 'pdf', 'print']
+               //    bisa ditambah csv,colvis
            });
            table.buttons().container().appendTo(`#reminders_wrapper .col-md-6:eq(0)`);
        });
