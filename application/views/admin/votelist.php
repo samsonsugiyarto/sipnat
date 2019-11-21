@@ -109,6 +109,16 @@
                             <th scope="col">Waktu</th>
                         </tr>
                     </thead>
+
+                    <?php
+
+                    $query = "SELECT data_pemilihan.* , mahasiswa.name, pimpinan.name, dosen.name, user_role.role
+                    FROM data_pemilihan INNER JOIN mahasiswa
+                    ON mahasiswa.kode_jurusan = jurusan.id  
+                    ORDER BY mahasiswa.nim ASC
+                    ";
+                    $datamhs = $this->db->query($query)->result_array();
+                    ?>
                     <tbody>
 
                         <?php $i = 1; ?>

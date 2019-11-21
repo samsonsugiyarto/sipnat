@@ -5,13 +5,11 @@ class Pilih_model extends CI_Model
 
     public function pilihDataKandidat($id, $user)
     {
-        $tipe = 'Mahasiswa';
 
         date_default_timezone_set('Asia/Jakarta');
         $data = [
-            'tipe' => $tipe,
+            'role' => $user['role_id'],
             'id_pemilih' => $user['nim'],
-            'name' => $user['name'],
             'id_kandidat' => $id,
             'waktu' => time()
         ];
