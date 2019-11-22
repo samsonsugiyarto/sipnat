@@ -572,12 +572,26 @@ class Operation extends CI_Controller
                 $config['upload_path'] = $uploadPath;
                 $config['max_size'] = '6000000';
                 $config['allowed_types'] = 'gif|jpg|png';
-                $this->load->library('upload', $config);
+                // $this->load->library('upload', $config);
                 $this->upload->initialize($config);
                 if ($this->upload->do_upload('upload_File')) {
                     $fileData = $this->upload->data();
+                    // //Compress Image
+                    // $config['image_library'] = 'gd2';
+                    // $config['source_image'] = './assets/img/kampanye/' . $fileData['file_name'];
+                    // $config['create_thumb'] = FALSE;
+                    // $config['maintain_ratio'] = FALSE;
+                    // $config['quality'] = '50%';
+                    // $config['width'] = 1024;
+                    // $config['height'] = 1024;
+                    // $config['new_image'] = './assets/img/kampanye/' . $fileData['file_name'];
+                    // $this->load->library('image_lib', $config);
+                    // $this->image_lib->resize();
+
+                    $gambar = $fileData['file_name'];
+
                     $uploadData[$i]['no_kandidat'] = $this->input->post('nokandidat', true);
-                    $uploadData[$i]['file_name'] = $fileData['file_name'];
+                    $uploadData[$i]['file_name'] =  $gambar;
                     $uploadData[$i]['created'] = date("Y-m-d H:i:s");
                     $uploadData[$i]['modified'] = date("Y-m-d H:i:s");
                 }
