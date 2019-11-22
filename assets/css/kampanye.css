@@ -5,7 +5,21 @@ html {
 
 body {
 	margin-bottom: 100px;
-	font-family: 'Poppins', sans-serif !important;
+	font-family: 'Nunito Sans', sans-serif;
+}
+
+.misi p,
+.visi p,
+.tentang p {
+	font-size: 16px;
+	font-weight: 600;
+}
+
+.misi h2,
+.visi h2,
+.tentang h2 {
+	font-size: 30px;
+	font-weight: 700;
 }
 
 
@@ -67,8 +81,12 @@ body {
 .status p {
 	font-size: 30px;
 	margin-top: -10px;
-	font-weight: 350;
+	font-weight: 800;
 
+}
+
+.calon h4 {
+	font-weight: 800;
 }
 
 

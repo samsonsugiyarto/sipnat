@@ -13,7 +13,7 @@
 
     <link rel="stylesheet" href="<?= base_url('assets/css/kampanye.css') ?>">
 
-
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200i,300,400,600,700,800&display=swap" rel="stylesheet">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Viga" rel="stylesheet">
@@ -70,7 +70,7 @@
                         <p>Calon Kandidat <?= $kan['no_kandidat']; ?></p>
                     </div>
                 </div>
-                <div class="row justify-content-center">
+                <div class="row calon justify-content-center">
                     <div class="col- " style="padding: 12px;">
                         <img src="<?= base_url('assets/img/profile/kandidat/') . $kan['foto_ketua']; ?>" class="rounded-circle img-fluid" alt="">
                         <h4><?= $kan['nama']; ?></h4>
@@ -100,7 +100,7 @@
                     </div>
                 </div>
 
-                <div class="row justify-content-center">
+                <div class=" visi row justify-content-center">
                     <div class="col-sm-9 text-center">
                         <p><?= $kan['visi']; ?></p>
                     </div>
@@ -110,7 +110,7 @@
 
         <!-- Akhir visi -->
         <!-- Misi -->
-        <section class="misi" id="misi">
+        <section class="misi mt-4" id="misi">
             <div class="container gallery-container">
                 <div class="row justify-content-center">
                     <div class="col-12">
@@ -119,8 +119,8 @@
                     </div>
                 </div>
 
-                <div class="row justify-content-center">
-                    <div class="col-sm-6 " style="text-align: justify;">
+                <div class="row misi justify-content-center">
+                    <div class="col-sm-10 text-justify ">
                         <p><?= $kan['misi']; ?></p>
                     </div>
 
@@ -130,7 +130,7 @@
 
         <!-- Akhir misi -->
         <!-- Tentang -->
-        <section class="tentang" id="tentang">
+        <section class="tentang mt-4" id="tentang">
             <div class="container gallery-container" id="gallery">
                 <div class="row justify-content-center">
                     <div class="col-12">
@@ -139,7 +139,7 @@
                     </div>
                 </div>
 
-                <div class="row justify-content-center">
+                <div class="row tentang justify-content-center">
                     <div class="col-sm-10 " style="text-align: justify;">
                         <p><?= $kan['uraian']; ?></p>
                     </div>
@@ -152,7 +152,8 @@
                     $query = "SELECT kampanye.file_name
                     FROM kampanye INNER JOIN kandidat
                     ON kandidat.no_kandidat = kampanye.no_kandidat
-                    WHERE kampanye.no_kandidat = $id_kan ; ";
+                    WHERE kampanye.no_kandidat = $id_kan ; 
+                   ";
                     $kampanye = $this->db->query($query)->result_array();
 
                     $query1 = "SELECT kampanyevideo.file_name

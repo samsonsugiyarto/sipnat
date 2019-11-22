@@ -30,7 +30,7 @@
                         <tr>
                             <th><?= 1 ?></th>
                             <td>Pimpinan</td>
-                            <td><?= $tipe['pimpinan']; ?></td>
+                            <td><?= $coblospimp['coblos']; ?></td>
                             <td><?= $pimpinan; ?></td>
                             <td><?= $tdkpimp; ?></td>
                             <td><?= $totalpimp; ?></td>
@@ -39,7 +39,7 @@
                         <tr>
                             <th><?= 2 ?></th>
                             <td>Dosen</td>
-                            <td><?= $tipe['dosen']; ?></td>
+                            <td><?= $coblosdsn['coblos']; ?></td>
                             <td><?= $dosen; ?></td>
                             <td><?= $tdkdsn; ?></td>
                             <td><?= $totaldsn; ?></td>
@@ -48,11 +48,12 @@
                         <tr>
                             <th><?= 3 ?></th>
                             <td>Mahasiswa</td>
-                            <td><?= $tipe['mahasiswa']; ?></td>
+                            <td><?= $coblosmhs['coblos']; ?></td>
                             <td><?= $mahasiswa; ?></td>
                             <td><?= $tdkmhs; ?></td>
                             <td><?= $totalmhs; ?></td>
                         </tr>
+
                         <tr>
                             <th style="display: none;">4</th>
                             <td colspan="2" style="font-weight: bold;">TOTAL PENYOBLOS</td>

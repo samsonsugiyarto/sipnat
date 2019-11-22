@@ -37,7 +37,7 @@ class Kandidat_model extends CI_Model
 
         if ($upload_image) {
             $config['allowed_types'] = 'gif|jpg|png';
-            $config['max_size']     = '2048';
+            $config['max_size']     = '100000';
             $config['upload_path'] = './assets/img/profile/kandidat';
             $this->load->library('upload', $config);
 
@@ -57,7 +57,7 @@ class Kandidat_model extends CI_Model
 
         if ($upload_image) {
             $config['allowed_types'] = 'gif|jpg|png';
-            $config['max_size']     = '2048';
+            $config['max_size']     = '100000';
             $config['upload_path'] = './assets/img/profile/kandidat';
             $this->load->library('upload', $config);
 
@@ -70,7 +70,7 @@ class Kandidat_model extends CI_Model
         return "default.jpg";
     }
 
-   
+
     public function insert($data = array())
     {
         $insert = $this->db->insert_batch('kampanye', $data);
@@ -112,7 +112,7 @@ class Kandidat_model extends CI_Model
 
         if ($upload_image) {
             $config['allowed_types'] = 'gif|jpg|png';
-            $config['max_size']     = '2048';
+            $config['max_size']     = '100000';
             $config['upload_path'] = './assets/img/profile/kandidat';
             $this->load->library('upload', $config);
 
@@ -134,7 +134,7 @@ class Kandidat_model extends CI_Model
 
         if ($upload_imagewakil) {
             $config2['allowed_types'] = 'gif|jpg|png';
-            $config2['max_size']     = '2048';
+            $config2['max_size']     = '100000';
             $config2['upload_path'] = './assets/img/profile/kandidat';
             $this->load->library('upload', $config2);
 

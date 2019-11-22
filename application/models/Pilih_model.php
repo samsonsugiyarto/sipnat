@@ -8,7 +8,6 @@ class Pilih_model extends CI_Model
 
         date_default_timezone_set('Asia/Jakarta');
         $data = [
-            'role' => $user['role_id'],
             'id_pemilih' => $user['nim'],
             'id_kandidat' => $id,
             'waktu' => time()
@@ -19,13 +18,10 @@ class Pilih_model extends CI_Model
 
     public function pilihDataKandidatDosen($id, $user)
     {
-        $tipe = 'Dosen';
-
         date_default_timezone_set('Asia/Jakarta');
         $data = [
-            'tipe' => $tipe,
+
             'id_pemilih' => $user['nik'],
-            'name' => $user['name'],
             'id_kandidat' => $id,
             'waktu' => time()
         ];
@@ -34,13 +30,9 @@ class Pilih_model extends CI_Model
     }
     public function pilihDataKandidatPimpinan($id, $user)
     {
-        $tipe = 'Pimpinan';
-
         date_default_timezone_set('Asia/Jakarta');
         $data = [
-            'tipe' => $tipe,
             'id_pemilih' => $user['nidn'],
-            'name' => $user['name'],
             'id_kandidat' => $id,
             'waktu' => time()
         ];

@@ -103,12 +103,25 @@ class Admin extends CI_Controller
 
         $data['role'] = $this->db->get('user_role')->result_array();
 
-        $query = "SELECT 
-        SUM(tipe LIKE 'Dosen') AS dosen,
-        SUM(tipe LIKE 'Mahasiswa') AS mahasiswa,
-        SUM(tipe LIKE 'Pimpinan') AS pimpinan
-        FROM data_pemilihan ";
-        $data['tipe'] = $this->db->query($query)->row_array();
+        $query = "SELECT  COUNT(id_pemilih) AS coblos
+        FROM mahasiswa m 
+        JOIN  data_pemilihan dp on dp.id_pemilih = m.nim
+         ";
+        $data['coblosmhs'] = $this->db->query($query)->row_array();
+
+        $query = "SELECT  COUNT(id_pemilih) AS coblos
+        FROM pimpinan p 
+        JOIN  data_pemilihan dp on dp.id_pemilih = p.nidn
+         ";
+        $data['coblospimp'] = $this->db->query($query)->row_array();
+
+        $query = "SELECT  COUNT(id_pemilih) AS coblos
+        FROM dosen d
+        JOIN  data_pemilihan dp on dp.id_pemilih = d.nik
+         ";
+        $data['coblosdsn'] = $this->db->query($query)->row_array();
+
+
 
         $this->db->like('is_active', 1);
         $this->db->from('pimpinan');

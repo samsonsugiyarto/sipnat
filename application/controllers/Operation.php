@@ -601,7 +601,7 @@ class Operation extends CI_Controller
 
                 $uploadPath = 'assets/video/kampanye';
                 $config['upload_path'] = $uploadPath;
-                $config['max_size'] = '6000000';
+                $config['max_size'] = '900000000';
                 $config['allowed_types'] = 'avi|flv|wmv|mp3|mp4';
                 $this->load->library('upload', $config);
                 $this->upload->initialize($config);

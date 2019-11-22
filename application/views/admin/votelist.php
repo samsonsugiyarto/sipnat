@@ -112,22 +112,31 @@
 
                     <?php
 
-                    $query = "SELECT data_pemilihan.* , mahasiswa.name, pimpinan.name, dosen.name, user_role.role
-                    FROM data_pemilihan INNER JOIN mahasiswa
-                    ON mahasiswa.kode_jurusan = jurusan.id  
-                    ORDER BY mahasiswa.nim ASC
+                    $query = "(SELECT m.name, m.nim AS id, ur.role, dp.waktu FROM  mahasiswa m 
+                    JOIN data_pemilihan dp ON m.nim = dp.id_pemilih 
+                    JOIN user_role ur ON ur.id = m.role_id)
+                    UNION ALL
+                    (SELECT p.name, p.nidn AS id, ur.role, dp.waktu FROM pimpinan p
+                    JOIN data_pemilihan dp ON p.nidn = dp.id_pemilih  
+                    JOIN user_role ur ON ur.id = p.role_id)
+                    UNION ALL
+                    (SELECT d.name, d.nik AS id, ur.role, dp.waktu FROM dosen d
+                    JOIN data_pemilihan dp ON d.nik = dp.id_pemilih   
+                    JOIN user_role ur ON ur.id = d.role_id) ORDER BY waktu ASC 
                     ";
-                    $datamhs = $this->db->query($query)->result_array();
+                    $data = $this->db->query($query)->result_array();
+
                     ?>
+
                     <tbody>
 
                         <?php $i = 1; ?>
-                        <?php foreach ($datapemilih as $pemilih) : ?>
+                        <?php foreach ($data as $pemilih) : ?>
                             <tr>
                                 <th scope="row"><?= $i ?></th>
-                                <td><?= $pemilih['id_pemilih']; ?></td>
+                                <td><?= $pemilih['id']; ?></td>
                                 <td><?= $pemilih['name']; ?></td>
-                                <td><?= $pemilih['tipe']; ?></td>
+                                <td><?= $pemilih['role']; ?></td>
                                 <td><?= date('d F Y H:i:s', $pemilih['waktu']); ?></td>
                             </tr>
                             <?php $i++; ?>

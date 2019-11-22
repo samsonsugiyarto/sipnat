@@ -55,7 +55,7 @@
 
                                 <td><?= $kan['email_ketua']; ?></td>
                                 <td><?= $kan['hp_ketua']; ?></td>
-                                <td><?= $kan['visi']; ?></td>
+                                <td><?= word_limiter($kan['visi'], 4); ?></td>
                                 <td><?= word_limiter($kan['misi'], 4); ?></td>
 
 
