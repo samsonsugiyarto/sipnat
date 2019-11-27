@@ -56,38 +56,12 @@
 
                         <tr>
                             <th style="display: none;">4</th>
-                            <td colspan="2" style="font-weight: bold;">TOTAL PENYOBLOS</td>
-                            <td style="display: none;"></td>
-                            <td colspan="4" style="font-weight: bold;"><?= $totalpilih; ?></td>
-                            <td style="display: none;"></td>
-                            <td style="display: none;"></td>
+                            <td colspan="2" style="font-weight: bold;">TOTAL SELURUH</td>
+                            <td style="font-weight: bold;"><?= $totalpilih; ?></td>
+                            <td style="font-weight: bold;"><?= $totalaktif; ?></td>
+                            <td style="font-weight: bold;"><?= $tdkaktif; ?></td>
+                            <td style="font-weight: bold;"><?= $total; ?></td>
                         </tr>
-                        <tr>
-                            <th style="display: none;">5</th>
-                            <td colspan="2" style="font-weight: bold;">TOTAL AKTIF</td>
-                            <td style="display: none;"></td>
-                            <td colspan="4" style="font-weight: bold;"><?= $totalaktif; ?></td>
-                            <td style="display: none;"></td>
-                            <td style="display: none;"></td>
-                        </tr>
-                        <tr>
-                            <th style="display: none;">6</th>
-                            <td colspan="2" style="font-weight: bold;">TOTAL TIDAK AKTIF</td>
-                            <td style="display: none;"></td>
-                            <td colspan="4" style="font-weight: bold;"><?= $tdkaktif; ?></td>
-                            <td style="display: none;"></td>
-                            <td style="display: none;"></td>
-                        </tr>
-                        <tr>
-                            <th style="display: none;">7</th>
-                            <td colspan="2" style="font-weight: bold;">TOTAL KESELURUHAN</td>
-                            <td style="display: none;"></td>
-                            <td colspan="4" style="font-weight: bold;"><?= $total; ?></td>
-                            <td style="display: none;"></td>
-                            <td style="display: none;"></td>
-                        </tr>
-
-
                     </tbody>
                 </table>
             </div>

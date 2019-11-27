@@ -18,39 +18,33 @@
 	background: rgba(85, 85, 85, 0.205);
 }
 
-
-
-
 /* Navbar */
 
 .navbar {
-
-	padding-top: 10px;
 	background-color: rgba(0, 0, 0, 0.856) !important;
 	position: sticky;
-	z-index: 9999;
-
+	width: 100%;
+	z-index: 9999999999;
 }
 
+#logo {
+	vertical-align: middle;
+}
 
-.navbar-brand {
-	font: 30px Poppins;
-	z-index: 9;
-	margin-bottom: -13px;
-	margin-top: -17px;
-	margin-left: 50px;
-	color: #ffffff !important;
+.navbar-brand span {
+	font: Poppins;
+	font-size: 1.8rem;
+	line-height: 1.2;
 	font-weight: 600;
-
+	display: inline-block;
+	vertical-align: middle;
 }
 
-.navbar-brand2 {
-	font: 8px Poppins;
-	z-index: 9;
-	margin-bottom: -40px;
-	margin-left: -190px;
-	color: #ffffff !important;
-
+.navbar-brand b {
+	font-weight: 300;
+	display: block;
+	font-size: 40%;
+	line-height: 1;
 }
 
 .cover-overlay {
@@ -68,7 +62,7 @@
 
 	background: url(../img/jumbotron-bg.jpg);
 	background-repeat: no-repeat;
-	background-size: contain;
+	background-size: cover;
 	height: 240px;
 	position: relative;
 	z-index: -1;
@@ -93,17 +87,10 @@
 }
 
 
-.logo {
-	margin: -35px -107px -40px 25px;
-	float: left;
-	height: 48px;
-	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
-	text-align: center;
-}
 
 .jumbotron .display-4 {
 	font-weight: 200;
-	font-size: 2.2em;
+	font-size: 1.4em;
 	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
 	margin-bottom: 50px;
 	margin-top: 50px;
@@ -113,8 +100,8 @@
 .display-3 {
 	font-family: 'Poppins', sans-serif;
 	font-weight: 200;
-	font-size: 16pt;
-	margin-top: -60px;
+	font-size: 13pt;
+	margin-top: -50px;
 	color: rgba(255, 255, 255, 0.384);
 }
 
@@ -175,6 +162,8 @@
 	color: #000000;
 
 }
+
+
 
 .workingspace h3 {
 	font-size: 30px;
@@ -463,8 +452,8 @@ footer p i {
 	min-height: 400px;
 	margin-top: 20px;
 	position: relative;
-	width: 450px;
-	margin-left: -30px;
+	width: 380px;
+	margin-left: -35px;
 
 }
 
@@ -625,21 +614,22 @@ footer p i {
 	font-size: 21px;
 }
 
-
-
-
-
-
-
-
 /* RESPONSIVE */
 @media (min-width: 992px) {
 	.navbar {
-		padding-top: 20px;
-		padding-bottom: 20px;
-
+		margin-top: -10px;
 		background-color: rgba(24, 24, 24, 0.856) !important;
 	}
+
+	.navbar-brand span {
+		font-size: 2.3rem;
+	}
+
+	.navbar-brand b {
+		font-weight: 300;
+		font-size: 40%;
+	}
+
 
 
 	.info-panel p {
@@ -698,27 +688,6 @@ footer p i {
 	}
 
 
-
-
-
-	.navbar-brand {
-		font: 42px Viga;
-		z-index: 9;
-		margin-left: 40px;
-		margin-bottom: -10px;
-		margin-top: -30px;
-	}
-
-	.navbar-brand2 {
-		font: 13px Catamaran;
-		z-index: 9;
-		margin-bottom: -50px;
-		margin-left: -160px;
-		color: #ffffffc4;
-		margin-top: -7px;
-	}
-
-
 	.info-panel h4 {
 
 		font-size: 30px;
@@ -753,16 +722,6 @@ footer p i {
 	.workingspace h2 span {
 		font-family: 'Poppins', sans-serif;
 		font-weight: 700;
-	}
-
-
-
-	.logo {
-		margin: -45px -37px -40px -40px;
-		float: left;
-		height: 70px;
-		text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
-		text-align: center;
 	}
 
 	.navbar-brand,

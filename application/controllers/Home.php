@@ -30,6 +30,7 @@ class Home extends CI_Controller
     }
     public function riwayatsenat()
     {
+        $this->db->order_by('th_jabatan', 'desc');
         $data['riwayat'] = $this->db->get('riwayat')->result_array();
         $this->load->view('riwayatsenat', $data);
     }

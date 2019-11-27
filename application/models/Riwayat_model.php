@@ -4,6 +4,8 @@ class Riwayat_model extends CI_Model
 {
     public function getAllRiwayat()
     {
+
+        $this->db->order_by('th_jabatan', 'desc');
         return $this->db->get('riwayat')->result_array();
     }
 

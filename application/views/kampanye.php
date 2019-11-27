@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- My css-->
-    <link rel="stylesheet" href="../assets/css/reset.css">
+    <link rel="stylesheet" href="<?= base_url('assets/css/reset.css'); ?>">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
@@ -20,7 +20,7 @@
 
     <link href="https://fonts.googleapis.com/css?family=Catamaran&display=swap" rel="stylesheet">
 
-    <title>Kampanye | Sistem Informasi Pemilihan Senat</title>
+    <title>Kampanye | Sistem Informasi Pemilihan Senat Mahasiswa</title>
     <link rel="icon" type="image/png" href="<?= base_url('assets/img/logostikom.png'); ?>">
 </head>
 
@@ -29,11 +29,9 @@
 
     <!-- Begin Page Content -->
     <!-- Navbar -->
-    <nav class="navbar  navbar-dark bg-dark navbar-expand-lg sticky-top">
+    <nav class="navbar  navbar-dark bg-dark navbar-expand-lg sticky-top ">
         <div class="container">
-            <img class="logo" src="<?= base_url('assets/img/logostikom.png') ?>">
-            <a class="navbar-brand page-scroll" href="#home">SIPNAT</a>
-            <h1 class="navbar-brand2">Sistem Informasi Pemilihan Ketua SENAT</h1>
+            <a class="navbar-brand page-scroll" href="#home"> <img id="logo" alt="Logo" src="<?= base_url('assets/img/logostikom.png') ?>" width="65" height="65"> <span>SIPNAT<b>Sistem Informasi Pemilihan Senat Mahasiswa</b></span> </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -206,6 +204,7 @@
             <div class="row">
                 <div class="col-sm-12 ">
                     <p>&copy; copyright 2019 | STIKOM Yos Sudarso Purwokerto</p>
+                    <!-- <p>&copy; copyright 2019 | built with <i class="fas fa-heart"></i> by. <a href="http://instagram.com/samsonsugiyarto">Team A</a></p> -->
                 </div>
             </div>
             <div class="row">
@@ -216,7 +215,6 @@
         </div>
     </footer>
     <!-- Akhir Footer -->
-
 
 
 

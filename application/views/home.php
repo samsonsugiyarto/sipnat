@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- My css-->
-    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="<?= base_url('assets/css/reset.css'); ?>">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -22,7 +22,7 @@
 
     <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
 
-    <title>SIPNAT | Sistem Informasi Pemilihan Senat</title>
+    <title>SIPNAT | Sistem Informasi Pemilihan Senat Mahasiswa</title>
 </head>
 
 <style>
@@ -37,14 +37,13 @@
     <!-- Navbar -->
     <nav class="navbar navbar-dark bg-dark navbar-expand-lg sticky-top" id="navbar-example2">
         <div class="container">
-            <img class="logo" src="assets/img/logostikom.png">
-            <a class="navbar-brand page-scroll" href="#home">SIPNAT</a>
-            <h1 class="navbar-brand2">Sistem Informasi Pemilihan Ketua SENAT</h1>
+            <a class="navbar-brand page-scroll" href="#home"> <img id="logo" alt="Logo" src="<?= base_url('assets/img/logostikom.png') ?>" width="65" height="65"> <span>SIPNAT<b>Sistem Informasi Pemilihan Senat Mahasiswa</b></span> </a>
+
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav    ml-auto">
+                <div class="navbar-nav ml-auto">
                     <a class="nav-item nav-link active   page-scroll" href="#home">Home <span class="sr-only"></span></a>
                     <a class="nav-item nav-link page-scroll" href="#voting">Voting <span></span></a>
                     <a class="nav-item nav-link  page-scroll" href="#personil">Tentang Senat</a>
@@ -62,9 +61,11 @@
                             <a class="dropdown-item" href="<?= base_url('auth/mahasiswa'); ?>">Mahasiswa</a>
                         </div>
                     </li>
+
                 </div>
 
             </div>
+
 
             </data-spy="scroll">
     </nav>
@@ -86,8 +87,8 @@
         <!-- akhir info panel -->
         <div class="cover-overlay  ">
             <div class="container">
-                <h1 class="display-4"><span>Pemilihan Ketua SENAT</span> </h1>
-                <h1 class="display-3">STIKOM Yos Sudarso Purwokerto </h1>
+                <h1 class="display-4"><span>Pemilihan Ketua Senat Mahasiswa</span> </h1>
+                <h1 class="display-3 ">STIKOM Yos Sudarso Purwokerto </h1>
             </div>
         </div>
         <!-- container -->
@@ -168,13 +169,13 @@
 
     <div class="row justify-content-center " id="personil">
         <div class="col-sm-5 zero-panel text-center tentang  ">
-            <h1>TENTANG SENAT</h1>
+            <h1 class="h2">TENTANG SEMA SYS</h1>
             <div id="accordion" class="mt-4">
                 <div class="card">
                     <div class="card-header" id="heading-1">
                         <h5 class="mb-0">
                             <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-1" aria-expanded="false" aria-controls="collapse-1">
-                                VISI Senat
+                                VISI SEMA SYS
                             </a>
                         </h5>
                     </div>
@@ -191,7 +192,7 @@
                     <div class="card-header" id="heading-2">
                         <h5 class="mb-0">
                             <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-2" aria-expanded="false" aria-controls="collapse-2">
-                                Misi Senat Senat
+                                Misi SEMA SYS
                             </a>
                         </h5>
                     </div>
@@ -513,22 +514,18 @@
                         <?php endif; ?>" class="img-profile rounded-circle float-left" alt="...">
 
                                 <?php if ($komen['role_id'] == 1 || $komen['role_id'] == 2) : ?>
-                                    <h6><?= $user['name']; ?> <small class="text-muted">Admin </small></h6>
+                                    <h6><?= ucwords(strtolower($user['name'])); ?> <small class="text-muted">Admin </small></h6>
                                 <?php elseif ($komen['role_id'] == 3) : ?>
 
-                                    <h6><?= $pimpinan['name']; ?></h6>
+                                    <h6><?= ucwords(strtolower($pimpinan['name'])); ?></h6>
                                 <?php elseif ($komen['role_id'] == 4) : ?>
 
-                                    <h6><?= $dosen['name']; ?></h6>
+                                    <h6><?= ucwords(strtolower($dosen['name'])); ?></h6>
 
                                 <?php elseif ($komen['role_id'] == 5) : ?>
 
-                                    <h6><?= $mhs['name']; ?></h6>
+                                    <h6><?= ucwords(strtolower($mhs['name'])); ?></h6>
                                 <?php endif; ?>
-
-
-
-
 
 
                                 <h5> <?= time_since($komen['waktu']); ?></h5>

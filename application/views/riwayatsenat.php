@@ -6,20 +6,20 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- My css-->
-    <link rel="stylesheet" href="../assets/css/reset.css">
+    <link rel="stylesheet" href="<?= base_url('assets/css/reset.css'); ?>">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="../assets/css/riwayat.css">
-
-
-
+    <link rel="stylesheet" href="<?= base_url('assets/css/riwayat.css'); ?>">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Viga" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,900&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200i,300,400,600,700,800&display=swap" rel="stylesheet">
 
     <link href="https://fonts.googleapis.com/css?family=Catamaran&display=swap" rel="stylesheet">
 
-    <title>Riwayat | Sistem Informasi Pemilihan Senat</title>
+    <title>Riwayat | Sistem Informasi Pemilihan Senat Mahasiswa</title>
     <link rel="icon" type="image/png" href="<?= base_url('assets/img/logostikom.png'); ?>">
 </head>
 
@@ -27,11 +27,9 @@
 
 
     <!-- Navbar -->
-    <nav class="navbar  navbar-dark bg-dark navbar-expand-lg sticky-top">
+    <nav class="navbar  navbar-dark bg-dark navbar-expand-lg sticky-top ">
         <div class="container">
-            <img class="logo" src="<?= base_url('assets/img/logostikom.png') ?>">
-            <a class="navbar-brand page-scroll" href="#home">SIPNAT</a>
-            <h1 class="navbar-brand2">Sistem Informasi Pemilihan Ketua SENAT</h1>
+            <a class="navbar-brand page-scroll" href="#home"> <img id="logo" alt="Logo" src="<?= base_url('assets/img/logostikom.png') ?>" width="65" height="65"> <span>SIPNAT<b>Sistem Informasi Pemilihan Senat Mahasiswa</b></span> </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -65,8 +63,8 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-lg text-center">
-                <h2><span>RIWAYAT SENAT</span> </h2>
+            <div class="col-lg col-12 text-center title">
+                <h2><span>RIWAYAT SENAT MAHASISWA</span> </h2>
             </div>
         </div>
     </div>
@@ -75,7 +73,7 @@
         <div class="container mb-4">
             <div class="row periode">
                 <div class="col-lg text-center">
-                    <h4>PERIODE SENAT <?= $riw['th_jabatan']; ?> </h4>
+                    <h4>PERIODE SENAT MAHASISWA <?= $riw['th_jabatan']; ?> </h4>
                 </div>
             </div>
         </div>
@@ -106,30 +104,30 @@
 
 
         <div class="row mt-5 justify-content-center">
-            <div class="col-md-auto visibtn text-center">
+            <div class="col-md-8 visibtn text-center">
                 <h2 class="badge badge-pill badge-success"><span>VISI</span> </h2>
             </div>
         </div>
 
         <div class="row mt-3 justify-content-center">
-            <div class="col-mx-auto">
-                <figure class="figurevisi visi">
-                    <?= $riw['visi']; ?>
+            <div class="col-md-8">
+                <figure class="figurevisi text-center visi">
+                    <p> <?= $riw['visi']; ?></p>
                 </figure>
 
             </div>
         </div>
 
         <div class="row mt-2 justify-content-center">
-            <div class="col-md-auto visibtn  text-center">
+            <div class="col-md-8 visibtn  text-center">
                 <h2 class="badge badge-pill badge-danger"><span>MISI</span> </h2>
             </div>
         </div>
 
         <div class="row mt-3 justify-content-center">
-            <div class="col-auto">
-                <figure class="figuremisi misi">
-                    <?= $riw['misi']; ?>
+            <div class="col-md-8">
+                <figure class="figuremisi text-justify misi">
+                    <p><?= $riw['misi']; ?></p>
                 </figure>
             </div>
         </div>

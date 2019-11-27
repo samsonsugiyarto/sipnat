@@ -1,13 +1,3 @@
-html {
-	position: relative;
-
-}
-
-body {
-	margin-bottom: 100px;
-	font-family: 'Nunito Sans', sans-serif;
-}
-
 .misi p,
 .visi p,
 .tentang p {
@@ -26,10 +16,33 @@ body {
 
 /* Navbar */
 
-.navbar {
 
-	padding-top: 10px;
+
+.navbar {
 	background-color: rgba(0, 0, 0, 0.856) !important;
+	position: sticky;
+	width: 100%;
+	z-index: 9999999999;
+}
+
+#logo {
+	vertical-align: middle;
+}
+
+.navbar-brand span {
+	font: Poppins;
+	font-size: 1.8rem;
+	line-height: 1.2;
+	font-weight: 600;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.navbar-brand b {
+	font-weight: 300;
+	display: block;
+	font-size: 40%;
+	line-height: 1;
 }
 
 .nav-item {
@@ -37,25 +50,6 @@ body {
 }
 
 
-.navbar-brand {
-	font: 30px Poppins;
-	z-index: 9;
-	margin-bottom: -13px;
-	margin-top: -17px;
-	margin-left: 50px;
-	color: #ffffff !important;
-	font-weight: 600;
-
-}
-
-.navbar-brand2 {
-	font: 8px Poppins;
-	z-index: 9;
-	margin-bottom: -40px;
-	margin-left: -190px;
-	color: #ffffff !important;
-
-}
 
 .cover-overlay {
 	width: 100%;
@@ -63,13 +57,6 @@ body {
 	background-color: rgba(0, 0, 0, 0.699);
 }
 
-.logo {
-	margin: -35px -107px -40px 25px;
-	float: left;
-	height: 48px;
-	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
-	text-align: center;
-}
 
 
 .jumbotron img {
@@ -106,22 +93,23 @@ section {
 }
 
 footer {
-	position: absolute;
-	bottom: 0;
-	width: 100%;
-	height: 100px;
-	background-color: rgb(29, 29, 29);
-	padding-top: 20px;
-
+	background-color: rgb(20, 20, 20);
+	margin-top: 70px;
+	padding-top: 30px;
+	position: relative;
+	bottom: 0 !important;
 }
 
 footer p {
+	margin-top: -10px;
 	color: rgb(207, 207, 207);
-	font-size: 0.9em;
+	font-size: 0.8em;
+	font-family: 'Poppins', sans-serif;
 }
 
 footer p i {
 	color: red;
+	font-family: 'Poppins', sans-serif;
 }
 
 .tombol {
@@ -194,43 +182,18 @@ footer p i {
 /* RESPONSIVE */
 @media (min-width: 992px) {
 
-
-
-
 	.navbar {
-		padding-top: 20px;
-		padding-bottom: 20px;
-		z-index: 99;
-		background-color: rgb(0, 0, 0);
-
+		margin-top: -10px;
+		background-color: rgba(24, 24, 24, 0.856) !important;
 	}
 
-
-
-
-
-	.navbar-brand {
-		font: 45px Viga;
-		z-index: 9;
-		margin-left: 40px;
-		margin-bottom: -10px;
-		margin-top: -30px;
+	.navbar-brand span {
+		font-size: 2.3rem;
 	}
 
-	.navbar-brand2 {
-		font: 19px Catamaran;
-		z-index: 9;
-		margin-bottom: -50px;
-		margin-left: -170px;
-		color: #ffffffc4;
-	}
-
-	.logo {
-		margin: -50px -30px -40px -40px;
-		float: left;
-		height: 80px;
-		text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
-		text-align: center;
+	.navbar-brand b {
+		font-weight: 300;
+		font-size: 40%;
 	}
 
 	.navbar-brand,

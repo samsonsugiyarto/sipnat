@@ -4,37 +4,38 @@
 	src: url(../font/BebasNeue-Regular.woff) format ('woff');
 }
 
+
 /* Navbar */
 
 .navbar {
-
-	padding-top: 10px;
 	background-color: rgba(0, 0, 0, 0.856) !important;
+	position: sticky;
+	width: 100%;
+	z-index: 9999999999;
+}
+
+#logo {
+	vertical-align: middle;
+}
+
+.navbar-brand span {
+	font: Poppins;
+	font-size: 1.8rem;
+	line-height: 1.2;
+	font-weight: 600;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.navbar-brand b {
+	font-weight: 300;
+	display: block;
+	font-size: 40%;
+	line-height: 1;
 }
 
 .nav-item {
 	color: #ffffff !important;
-}
-
-
-.navbar-brand {
-	font: 30px Poppins;
-	z-index: 9;
-	margin-bottom: -13px;
-	margin-top: -17px;
-	margin-left: 50px;
-	color: #ffffff !important;
-	font-weight: 600;
-
-}
-
-.navbar-brand2 {
-	font: 8px Poppins;
-	z-index: 9;
-	margin-bottom: -40px;
-	margin-left: -190px;
-	color: #ffffff !important;
-
 }
 
 .cover-overlay {
@@ -100,65 +101,14 @@
 
 }
 
-/* Info Panel */
-.info-panel {
-	background-color: rgba(32, 32, 32, 0.596);
-	padding-bottom: -100px;
-	padding-top: 20px;
-	margin-top: -100px;
-	border-radius: 12px;
-	box-shadow: 0 3px 20px rgba(226, 0, 0, 0.6);
-}
-
-.info-panel h4 {
-	color: #ffffffc5;
-	font-size: 15px;
+.title h2 {
+	font-size: 25px;
 	font-weight: bold;
-	text-align: center;
-	text-transform: uppercase;
-}
-
-.info-panel p {
-	font-size: 14px;
-	font-weight: lighter;
-	color: #ffffff;
-	text-align: center;
+	margin-top: 10px;
 }
 
 
 
-/* Workingspace */
-.workingspace {
-	padding-top: 40px;
-	text-align: center;
-
-}
-
-.workingspace h2 {
-	font-size: 30px;
-	text-transform: uppercase;
-	font-weight: 200;
-	text-align: center;
-}
-
-.workingspace h4 {
-	font-size: 30px;
-	text-transform: uppercase;
-	font-weight: 300;
-	text-align: center;
-	padding-bottom: 10px;
-
-}
-
-.workingspace h2 span {
-	font-weight: 500;
-}
-
-.workingspace p {
-	font-size: 15px;
-	color: rgb(0, 0, 0);
-	font-weight: 300;
-}
 
 /* gambar menu gallery */
 .gambar h1 {
@@ -377,7 +327,8 @@
 }
 
 .periode h4 {
-	font-weight: 350;
+	font-weight: bold;
+	font-size: 20px;
 }
 
 /* Gallery */
@@ -463,36 +414,18 @@ footer p i {
 /* RESPONSIVE */
 @media (min-width: 992px) {
 	.navbar {
-		padding-top: 20px;
-		padding-bottom: 20px;
-		z-index: 99;
-		background-color: rgba(0, 0, 0, 0.973);
+		margin-top: -10px;
+		background-color: rgba(24, 24, 24, 0.856) !important;
 	}
 
-	.logo {
-		margin: -50px -30px -40px -40px;
-		float: left;
-		height: 80px;
-		text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
-		text-align: center;
+	.navbar-brand span {
+		font-size: 2.3rem;
 	}
 
-	.navbar-brand {
-		font: 45px Viga;
-		z-index: 9;
-		margin-left: 40px;
-		margin-bottom: -10px;
-		margin-top: -30px;
+	.navbar-brand b {
+		font-weight: 300;
+		font-size: 40%;
 	}
-
-	.navbar-brand2 {
-		font: 19px Catamaran;
-		z-index: 9;
-		margin-bottom: -50px;
-		margin-left: -170px;
-		color: #ffffffc4;
-	}
-
 
 	.info-panel h4 {
 		color: #acacac;

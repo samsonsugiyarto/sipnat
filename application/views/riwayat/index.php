@@ -47,7 +47,7 @@
                                 <td><?= $r['no_kandidat']; ?></td>
                                 <td><?= $r['ketua']; ?></td>
                                 <td><?= $r['wakil']; ?></td>
-                                <td><?= $r['visi']; ?></td>
+                                <td><?=  word_limiter($r['visi'], 4); ?></td>
                                 <td><?= word_limiter($r['misi'], 4); ?></td>
 
 
