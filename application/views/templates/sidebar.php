@@ -1,15 +1,46 @@
  <!-- Sidebar -->
 
+ <style>
+     /* Menambahkan sidebar scrollable */
+     .sidebar {
+         position: fixed;
+         top: 0;
+         bottom: 0;
+         left: 0;
+         z-index: 100;
+         /* Behind the navbar */
+         padding: 48px 0 0;
+         /* Height of navbar */
+         box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+     }
+
+     .sidebar-sticky {
+         position: relative;
+         top: 0;
+         height: calc(100vh - 48px);
+         padding-top: .5rem;
+         overflow-x: hidden;
+         overflow-y: auto;
+         /* Scrollable contents if viewport is shorter than content. */
+     }
+
+     @supports ((position: -webkit-sticky) or (position: sticky)) {
+         .sidebar-sticky {
+             position: -webkit-sticky;
+             position: sticky;
+         }
+     }
+ </style>
 
 
  <?php if ($namarole['id'] == 1 || $namarole['id'] == 2) :  ?>
-     <ul class="navbar-nav bg-gradient-primary sidebar   sidebar-dark accordion" id="accordionSidebar">
+     <ul class="navbar-nav bg-gradient-primary sidebar  sidebar-sticky  sidebar-dark accordion" id="accordionSidebar">
      <?php elseif ($namarole['id'] == 3) : ?>
-         <ul class="navbar-nav  bg-gradient-danger sidebar sidebar-dark accordion" id="accordionSidebar">
+         <ul class="navbar-nav  bg-gradient-danger sidebar sidebar-sticky sidebar-dark accordion" id="accordionSidebar">
          <?php elseif ($namarole['id'] == 4) : ?>
-             <ul class="navbar-nav  bg-gradient-danger sidebar sidebar-dark accordion" id="accordionSidebar">
+             <ul class="navbar-nav  bg-gradient-danger sidebar sidebar-sticky sidebar-dark accordion" id="accordionSidebar">
              <?php elseif ($namarole['id'] == 5) :  ?>
-                 <ul class="navbar-nav  bg-gradient-danger  sidebar sidebar-dark  accordion" id="accordionSidebar">
+                 <ul class="navbar-nav  bg-gradient-danger  sidebar-sticky sidebar sidebar-dark  accordion" id="accordionSidebar">
                  <?php endif; ?>
                  <!-- Sidebar - Brand -->
                  <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= base_url('user'); ?>">
