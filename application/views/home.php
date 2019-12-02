@@ -487,7 +487,7 @@
         ">
             <div class="sticky-top" style="background-color: white; border-radius: 30px;">
 
-                <h1 class="py-3  pl-4 ">Komentar</h1>
+                <h1 class="py-3  pl-4 "><?= $hitungkomen ?> Komentar</h1>
             </div>
             <div class="row justify-content-start  mt-3">
 

@@ -572,8 +572,9 @@ class Operation extends CI_Controller
                 $config['upload_path'] = $uploadPath;
                 $config['max_size'] = '6000000';
                 $config['allowed_types'] = 'gif|jpg|png';
-                // $this->load->library('upload', $config);
+                $this->load->library('upload', $config);
                 $this->upload->initialize($config);
+
                 if ($this->upload->do_upload('upload_File')) {
                     $fileData = $this->upload->data();
                     // //Compress Image
@@ -614,11 +615,13 @@ class Operation extends CI_Controller
                 $_FILES['upload_File']['size'] = $_FILES['upload_FilesVideo']['size'][$i];
 
                 $uploadPath = 'assets/video/kampanye';
+
                 $config['upload_path'] = $uploadPath;
                 $config['max_size'] = '900000000';
-                $config['allowed_types'] = 'avi|flv|wmv|mp3|mp4';
+                $config['allowed_types'] = 'avi|flv|wmv|mp4';
                 $this->load->library('upload', $config);
                 $this->upload->initialize($config);
+
                 if ($this->upload->do_upload('upload_File')) {
                     $fileData = $this->upload->data();
                     $uploadData[$i]['no_kandidat'] = $this->input->post('nokandidat', true);
