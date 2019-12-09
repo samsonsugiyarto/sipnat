@@ -182,7 +182,7 @@ class Admin extends CI_Controller
         $data['namarole']   = $this->db->get_where('user_role', ['id' =>
         $this->session->userdata('id')])->row_array();
 
-        $this->form_validation->set_rules('role', 'Role', 'required');
+        $this->form_validation->set_rules('role', 'Role', 'required|trim');
 
         if ($this->form_validation->run() == false) {
             $this->load->view('templates/header', $data);
@@ -200,11 +200,23 @@ class Admin extends CI_Controller
 
     public function editrole()
     {
+        $data['title'] = 'Role';
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+        $this->form_validation->set_rules('roleedit', 'Role', 'required|trim');
 
-        $this->Role_model->ubahDataRole();
-        $this->session->set_flashdata('message', '<div class="alert
-        alert-success" role="alert"> Role Berhasil Diubah!</div>');
-        redirect('admin/role');
+        if ($this->form_validation->run() == false) {
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('admin/role', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $this->Role_model->ubahDataRole();
+            $this->session->set_flashdata('message', '<div class="alert
+            alert-success" role="alert"> Role Berhasil Diubah!</div>');
+            redirect('admin/role');
+        }
     }
     public function hapusrole()
     {

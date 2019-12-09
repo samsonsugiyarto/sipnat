@@ -18,7 +18,7 @@ class Menu extends CI_Controller
 
         $data['menu'] = $this->db->get('user_menu')->result_array();
 
-        $this->form_validation->set_rules('menu', 'Menu', 'required');
+        $this->form_validation->set_rules('menu', 'Menu', 'required|trim');
 
         $data['namarole']  = $this->db->get_where('user_role', ['id' =>
         $this->session->userdata('id')])->row_array();
@@ -40,10 +40,23 @@ class Menu extends CI_Controller
     public function editmenu()
     {
 
-        $this->Menu_model->ubahDataMenu();
-        $this->session->set_flashdata('message', '<div class="alert
-        alert-success" role="alert"> Menu Berhasil Diubah!</div>');
-        redirect('menu');
+        $data['title'] = 'Menu Management';
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+        $this->form_validation->set_rules('menuedit', 'Menu', 'required|trim');
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('menu/index', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $this->Menu_model->ubahDataMenu();
+            $this->session->set_flashdata('message', '<div class="alert
+            alert-success" role="alert"> Menu Berhasil Diubah!</div>');
+            redirect('menu');
+        }
     }
 
     public function hapusmenu()
@@ -70,10 +83,10 @@ class Menu extends CI_Controller
         $data['subMenu'] = $this->menu->getSubMenu();
         $data['menu'] = $this->db->get('user_menu')->result_array();
 
-        $this->form_validation->set_rules('title', 'Title', 'required');
-        $this->form_validation->set_rules('menu_id', 'Menu', 'required');
-        $this->form_validation->set_rules('url', 'URL', 'required');
-        $this->form_validation->set_rules('icon', 'icon', 'required');
+        $this->form_validation->set_rules('title', 'Title', 'required|trim');
+        $this->form_validation->set_rules('menu_id', 'Menu', 'required|trim');
+        $this->form_validation->set_rules('url', 'URL', 'required|trim');
+        $this->form_validation->set_rules('icon', 'icon', 'required|trim');
 
         if ($this->form_validation->run() == false) {
             $this->load->view('templates/header', $data);
@@ -98,11 +111,26 @@ class Menu extends CI_Controller
 
     public function editSubmenu()
     {
+        $data['title'] = 'Submenu Management';
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+        $this->form_validation->set_rules('title', 'Title', 'required|trim');
+        $this->form_validation->set_rules('menu_id', 'Menu', 'required|trim');
+        $this->form_validation->set_rules('url', 'URL', 'required|trim');
+        $this->form_validation->set_rules('icon', 'icon', 'required|trim');
 
-        $this->Submenu->ubahDataSubMenu();
-        $this->session->set_flashdata('message', '<div class="alert
-        alert-success" role="alert"> Sub Menu Berhasil Diubah!</div>');
-        redirect('menu/submenu');
+        if ($this->form_validation->run() == false) {
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('menu/submenu', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $this->Submenu->ubahDataSubMenu();
+            $this->session->set_flashdata('message', '<div class="alert
+            alert-success" role="alert"> Sub Menu Berhasil Diubah!</div>');
+            redirect('menu/submenu');
+        }
     }
 
     public function hapussubmenu()

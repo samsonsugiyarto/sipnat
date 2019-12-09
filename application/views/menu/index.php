@@ -32,11 +32,11 @@
                                 <td>
                                     <a href="" class="badge badge-success" data-toggle="modal" data-target="#editMenuModal<?= $m['id']; ?>">edit</a>
 
-                                    <div class="modal fade" id="editMenuModal<?= $m['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="newRoleModalLabel" aria-hidden="true">
+                                    <div class="modal fade" id="editMenuModal<?= $m['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="editMenuModal" aria-hidden="true">
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h5 class="modal-title" id="newRoleModalLabel">Edit Menu</h5>
+                                                    <h5 class="modal-title" id="editMenuModal">Edit Menu</h5>
                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                         <span aria-hidden="true">&times;</span>
                                                     </button>
@@ -61,12 +61,12 @@
 
                                     <a href="" class="badge badge-danger" data-toggle="modal" data-target="#hapusMenuModal<?= $m['id']; ?>">delete</a>
 
-                                    <div class="modal fade" id="hapusMenuModal<?= $m['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal fade" id="hapusMenuModal<?= $m['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="hapusMenuModal" aria-hidden="true">
 
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Hapus Menu</h5>
+                                                    <h5 class="modal-title" id="hapusMenuModal">Hapus Menu</h5>
                                                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                                                         <span aria-hidden="true">×</span>
                                                     </button>

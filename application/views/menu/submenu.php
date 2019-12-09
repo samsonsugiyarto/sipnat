@@ -57,7 +57,7 @@
                                                     <div class="modal-body">
                                                         <div class="form-group">
 
-                                                            <input type="text" class="form-control" id="title" name="title" value="<?= $sm['title']; ?>">
+                                                            <input type="text" class="form-control" id="title" name="title" value="<?= $sm['title']; ?>" required>
                                                         </div>
                                                         <div class="form-group">
                                                             <select name="menu_id" id="menu_id" class="form-control">
@@ -72,10 +72,10 @@
                                                         </div>
 
                                                         <div class="form-group">
-                                                            <input type="text" class="form-control" id="url" name="url" value="<?= $sm['url']; ?>">
+                                                            <input type="text" class="form-control" id="url" name="url" value="<?= $sm['url']; ?>" required>
                                                         </div>
                                                         <div class="form-group">
-                                                            <input type="text" class="form-control" id="icon" name="icon" value="<?= $sm['icon']; ?>">
+                                                            <input type="text" class="form-control" id="icon" name="icon" value="<?= $sm['icon']; ?>" required>
                                                         </div>
                                                         <div class="form-group row">
                                                             <?php
@@ -107,11 +107,11 @@
                                     <a href="" data-toggle="modal" data-target="#hapusSubMenuModal<?= $sm['id']; ?>" class="badge badge-danger">delete</a>
 
 
-                                    <div class="modal fade" id="hapusSubMenuModal<?= $sm['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal fade" id="hapusSubMenuModal<?= $sm['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="hapusSubMenuModalLabel" aria-hidden="true">
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Hapus SubMenu</h5>
+                                                    <h5 class="modal-title" id="hapusSubMenuModalLabel">Hapus SubMenu</h5>
                                                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                                                         <span aria-hidden="true">×</span>
                                                     </button>
