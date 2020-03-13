@@ -8,6 +8,7 @@ class Admin extends CI_Controller
         parent::__construct();
         is_logged_in();
         $this->load->model('Role_model');
+        $this->load->model('Admin_model');
     }
 
     public function index()
@@ -84,6 +85,33 @@ class Admin extends CI_Controller
         $this->load->view('templates/topbar', $data);
         $this->load->view('admin/votelist', $data);
         $this->load->view('templates/footer');
+    }
+
+    public function countdown()
+    {
+        $data['title'] = 'Countdown Timer';
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+        $data['namarole']  = $this->db->get_where('user_role', ['id' =>
+        $this->session->userdata('id')])->row_array();
+        $data['countdown'] = $this->db->get('countdown')->row_array();
+
+        $this->form_validation->set_rules('date', 'Date', 'required|trim');
+        $this->form_validation->set_rules('time', 'Time', 'required|trim');
+
+        if ($this->form_validation->run() == false) {
+
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('admin/countdown', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $this->Admin_model->updateCountDown();
+            $this->session->set_flashdata('message', '<div class="alert
+            alert-success" role="alert"> Waktu Hitung Mundur Telah Diatur!</div>');
+            redirect('admin/countdown');
+        }
     }
 
 

@@ -20,6 +20,8 @@ class Home extends CI_Controller
 
         $data['hitungkomen'] = $this->db->count_all('konfir_komentar');
 
+        $data['countdown'] = $this->db->get('countdown')->row_array();
+
 
         $this->load->view('home', $data);
     }

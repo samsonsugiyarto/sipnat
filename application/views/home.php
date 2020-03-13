@@ -83,7 +83,7 @@
                 </div>
             </div>
         </div>
-        <script src=" <?= base_url('assets/js/hitungmundur.js'); ?>"></script>
+        <!-- <script src=" <?= base_url('assets/js/hitungmundur.js'); ?>"></script> -->
         <!-- akhir info panel -->
         <div class="cover-overlay  ">
             <div class="container">
@@ -129,14 +129,14 @@
                     <?php foreach ($kandidat as $kand) : ?>
                         <div class="col-4">
                             <?php
-                                $a = $kand['jumlah_suara'];
-                                $b = $js['jsuara'];
-                                if ($b != 0) {
-                                    $hasil = round($kand['jumlah_suara'] / $js['jsuara'] * 100);
-                                } else {
-                                    $hasil = $kand['jumlah_suara'];
-                                }
-                                ?>
+                            $a = $kand['jumlah_suara'];
+                            $b = $js['jsuara'];
+                            if ($b != 0) {
+                                $hasil = round($kand['jumlah_suara'] / $js['jsuara'] * 100);
+                            } else {
+                                $hasil = $kand['jumlah_suara'];
+                            }
+                            ?>
                             <h3><span><?= $hasil ?> %</span></h3>
 
                         </div>
@@ -494,11 +494,11 @@
                 <div class="col-sm-7 komen  mt-1">
                     <?php foreach ($komentar as $komen) : ?>
                         <?php
-                            $user = $this->db->get_where('user', ['id' => $komen['user_id']])->row_array();
-                            $pimpinan = $this->db->get_where('pimpinan', ['nidn' => $komen['user_id']])->row_array();
-                            $dosen = $this->db->get_where('dosen', ['nik' => $komen['user_id']])->row_array();
-                            $mhs = $this->db->get_where('mahasiswa', ['nim' => $komen['user_id']])->row_array();
-                            ?>
+                        $user = $this->db->get_where('user', ['id' => $komen['user_id']])->row_array();
+                        $pimpinan = $this->db->get_where('pimpinan', ['nidn' => $komen['user_id']])->row_array();
+                        $dosen = $this->db->get_where('dosen', ['nik' => $komen['user_id']])->row_array();
+                        $mhs = $this->db->get_where('mahasiswa', ['nim' => $komen['user_id']])->row_array();
+                        ?>
                         <div class="row">
                             <div class="col-auto-12">
                                 <img style="height: 3rem; width: 3rem;" src=" <?php if ($komen['role_id'] == 1 || $komen['role_id'] == 2) : ?>
@@ -718,6 +718,61 @@
         });
     </Script> -->
     <!-- Akhir Diagram -->
+    <!-- Hitung Mundur -->
+    <?php
+    $date = $countdown['date'];
+    $tt = strtotime($date);
+    $newDateY = date("Y", $tt);
+    $newDateMD = date("M d", $tt);
+    $time = $countdown['time'];
+    ?>
+
+    <script>
+        const tanggalTujuan = new Date('<?= $newDateMD; ?>, <?= $newDateY; ?> <?= $time; ?>').getTime();
+        // const tanggalTujuan = new Date('Dec 02, 2021 16:00:00').getTime();
+
+
+        const hitungMundur = setInterval(function() {
+
+            const sekarang = new Date().getTime();
+            const selisih = tanggalTujuan - sekarang;
+
+
+            const hari = Math.floor(selisih / (1000 * 60 * 60 * 24));
+
+            const jam = Math.floor(selisih % (1000 * 60 * 60 * 24) / (1000 * 60 * 60));
+
+            const menit = Math.floor(selisih % (1000 * 60 * 60) / (1000 * 60));
+
+            const detik = Math.floor(selisih % (1000 * 60) / 1000);
+
+            var txtj = " jam ";
+            var tjam = txtj.fontsize(2);
+            var txtm = " menit ";
+            var tmenit = txtm.fontsize(2);
+            var txtd = " detik ";
+            var tdetik = txtd.fontsize(2);
+
+            const teks = document.getElementById('teks');
+            teks.innerHTML = jam + tjam + menit + tmenit + detik + tdetik;
+
+            if (selisih < 0) {
+                clearInterval(hitungMundur);
+                teks.innerHTML = 'Waktu Anda HABIS!';
+
+            }
+
+        }, 1000);
+    </script>
+    <!-- Akhir Hitung Mundur -->
+
+
+
+
+
+
+
+
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
