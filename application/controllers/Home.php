@@ -16,6 +16,7 @@ class Home extends CI_Controller
         $data['kandidat'] = $this->db->get('kandidat')->result_array();
         $query = "SELECT sum(jumlah_suara) as jsuara FROM kandidat";
         $data['js'] = $this->db->query($query)->row_array();
+         $data['countdown'] = $this->db->get('countdown')->row_array();
 
 
         $data['hitungkomen'] = $this->db->count_all('konfir_komentar');

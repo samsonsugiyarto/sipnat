@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Waktu pembuatan: 02 Des 2019 pada 10.31
--- Versi server: 10.2.29-MariaDB
--- Versi PHP: 7.2.24
+-- Host: 127.0.0.1
+-- Generation Time: Mar 25, 2020 at 03:46 AM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,13 +19,33 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `u5929052_senma`
+-- Database: `sipnat`
 --
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `data_pemilihan`
+-- Table structure for table `countdown`
+--
+
+CREATE TABLE `countdown` (
+  `id` int(11) NOT NULL,
+  `date` date NOT NULL,
+  `time` time NOT NULL,
+  `status` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `countdown`
+--
+
+INSERT INTO `countdown` (`id`, `date`, `time`, `status`) VALUES
+(1, '2020-03-24', '23:12:00', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `data_pemilihan`
 --
 
 CREATE TABLE `data_pemilihan` (
@@ -36,7 +56,7 @@ CREATE TABLE `data_pemilihan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `data_pemilihan`
+-- Dumping data for table `data_pemilihan`
 --
 
 INSERT INTO `data_pemilihan` (`id_pemilihan`, `id_pemilih`, `id_kandidat`, `waktu`) VALUES
@@ -252,7 +272,7 @@ INSERT INTO `data_pemilihan` (`id_pemilihan`, `id_pemilih`, `id_kandidat`, `wakt
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `dosen`
+-- Table structure for table `dosen`
 --
 
 CREATE TABLE `dosen` (
@@ -269,7 +289,7 @@ CREATE TABLE `dosen` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 --
--- Dumping data untuk tabel `dosen`
+-- Dumping data for table `dosen`
 --
 
 INSERT INTO `dosen` (`nik`, `name`, `password`, `jk`, `mengajar`, `email`, `hp`, `is_active`, `image`, `role_id`) VALUES
@@ -313,7 +333,7 @@ INSERT INTO `dosen` (`nik`, `name`, `password`, `jk`, `mengajar`, `email`, `hp`,
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `jurusan`
+-- Table structure for table `jurusan`
 --
 
 CREATE TABLE `jurusan` (
@@ -322,7 +342,7 @@ CREATE TABLE `jurusan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 --
--- Dumping data untuk tabel `jurusan`
+-- Dumping data for table `jurusan`
 --
 
 INSERT INTO `jurusan` (`id`, `nama_jurusan`) VALUES
@@ -334,7 +354,7 @@ INSERT INTO `jurusan` (`id`, `nama_jurusan`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `kampanye`
+-- Table structure for table `kampanye`
 --
 
 CREATE TABLE `kampanye` (
@@ -346,7 +366,7 @@ CREATE TABLE `kampanye` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `kampanye`
+-- Dumping data for table `kampanye`
 --
 
 INSERT INTO `kampanye` (`id`, `no_kandidat`, `file_name`, `created`, `modified`) VALUES
@@ -357,7 +377,7 @@ INSERT INTO `kampanye` (`id`, `no_kandidat`, `file_name`, `created`, `modified`)
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `kampanyevideo`
+-- Table structure for table `kampanyevideo`
 --
 
 CREATE TABLE `kampanyevideo` (
@@ -369,7 +389,7 @@ CREATE TABLE `kampanyevideo` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `kampanyevideo`
+-- Dumping data for table `kampanyevideo`
 --
 
 INSERT INTO `kampanyevideo` (`id`, `no_kandidat`, `file_name`, `created`, `modified`) VALUES
@@ -380,7 +400,7 @@ INSERT INTO `kampanyevideo` (`id`, `no_kandidat`, `file_name`, `created`, `modif
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `kandidat`
+-- Table structure for table `kandidat`
 --
 
 CREATE TABLE `kandidat` (
@@ -402,7 +422,7 @@ CREATE TABLE `kandidat` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `kandidat`
+-- Dumping data for table `kandidat`
 --
 
 INSERT INTO `kandidat` (`no_kandidat`, `nama`, `wakil`, `jk_ketua`, `jk_wakil`, `email_ketua`, `email_wakil`, `hp_ketua`, `hp_wakil`, `visi`, `misi`, `foto_ketua`, `foto_wakil`, `uraian`, `jumlah_suara`) VALUES
@@ -413,7 +433,7 @@ INSERT INTO `kandidat` (`no_kandidat`, `nama`, `wakil`, `jk_ketua`, `jk_wakil`, 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `komentar`
+-- Table structure for table `komentar`
 --
 
 CREATE TABLE `komentar` (
@@ -427,7 +447,7 @@ CREATE TABLE `komentar` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `komentar`
+-- Dumping data for table `komentar`
 --
 
 INSERT INTO `komentar` (`id`, `user_id`, `nama`, `waktu`, `uraian`, `image`, `role_id`) VALUES
@@ -444,7 +464,7 @@ INSERT INTO `komentar` (`id`, `user_id`, `nama`, `waktu`, `uraian`, `image`, `ro
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `konfir_komentar`
+-- Table structure for table `konfir_komentar`
 --
 
 CREATE TABLE `konfir_komentar` (
@@ -453,7 +473,7 @@ CREATE TABLE `konfir_komentar` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `konfir_komentar`
+-- Dumping data for table `konfir_komentar`
 --
 
 INSERT INTO `konfir_komentar` (`id_konfir`, `id_komentar`) VALUES
@@ -470,7 +490,7 @@ INSERT INTO `konfir_komentar` (`id_konfir`, `id_komentar`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `mahasiswa`
+-- Table structure for table `mahasiswa`
 --
 
 CREATE TABLE `mahasiswa` (
@@ -487,7 +507,7 @@ CREATE TABLE `mahasiswa` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 --
--- Dumping data untuk tabel `mahasiswa`
+-- Dumping data for table `mahasiswa`
 --
 
 INSERT INTO `mahasiswa` (`nim`, `name`, `jk`, `email`, `hp`, `image`, `password`, `role_id`, `is_active`, `kode_jurusan`) VALUES
@@ -922,7 +942,7 @@ INSERT INTO `mahasiswa` (`nim`, `name`, `jk`, `email`, `hp`, `image`, `password`
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pimpinan`
+-- Table structure for table `pimpinan`
 --
 
 CREATE TABLE `pimpinan` (
@@ -939,7 +959,7 @@ CREATE TABLE `pimpinan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `pimpinan`
+-- Dumping data for table `pimpinan`
 --
 
 INSERT INTO `pimpinan` (`nidn`, `name`, `password`, `jk`, `jabatan`, `email`, `hp`, `is_active`, `image`, `role_id`) VALUES
@@ -951,7 +971,7 @@ INSERT INTO `pimpinan` (`nidn`, `name`, `password`, `jk`, `jabatan`, `email`, `h
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `riwayat`
+-- Table structure for table `riwayat`
 --
 
 CREATE TABLE `riwayat` (
@@ -967,7 +987,7 @@ CREATE TABLE `riwayat` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `riwayat`
+-- Dumping data for table `riwayat`
 --
 
 INSERT INTO `riwayat` (`id`, `th_jabatan`, `no_kandidat`, `ketua`, `wakil`, `visi`, `misi`, `fotoketua`, `fotowakil`) VALUES
@@ -979,7 +999,7 @@ INSERT INTO `riwayat` (`id`, `th_jabatan`, `no_kandidat`, `ketua`, `wakil`, `vis
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -996,7 +1016,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 --
--- Dumping data untuk tabel `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`id`, `name`, `jk`, `email`, `hp`, `image`, `password`, `role_id`, `is_active`, `date_created`) VALUES
@@ -1011,7 +1031,7 @@ INSERT INTO `user` (`id`, `name`, `jk`, `email`, `hp`, `image`, `password`, `rol
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user_access_menu`
+-- Table structure for table `user_access_menu`
 --
 
 CREATE TABLE `user_access_menu` (
@@ -1021,7 +1041,7 @@ CREATE TABLE `user_access_menu` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 --
--- Dumping data untuk tabel `user_access_menu`
+-- Dumping data for table `user_access_menu`
 --
 
 INSERT INTO `user_access_menu` (`id`, `role_id`, `menu_id`) VALUES
@@ -1048,7 +1068,7 @@ INSERT INTO `user_access_menu` (`id`, `role_id`, `menu_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user_menu`
+-- Table structure for table `user_menu`
 --
 
 CREATE TABLE `user_menu` (
@@ -1058,7 +1078,7 @@ CREATE TABLE `user_menu` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 --
--- Dumping data untuk tabel `user_menu`
+-- Dumping data for table `user_menu`
 --
 
 INSERT INTO `user_menu` (`id`, `menu`, `urutan_menu`) VALUES
@@ -1075,7 +1095,7 @@ INSERT INTO `user_menu` (`id`, `menu`, `urutan_menu`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user_role`
+-- Table structure for table `user_role`
 --
 
 CREATE TABLE `user_role` (
@@ -1084,7 +1104,7 @@ CREATE TABLE `user_role` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 --
--- Dumping data untuk tabel `user_role`
+-- Dumping data for table `user_role`
 --
 
 INSERT INTO `user_role` (`id`, `role`) VALUES
@@ -1097,7 +1117,7 @@ INSERT INTO `user_role` (`id`, `role`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user_sub_menu`
+-- Table structure for table `user_sub_menu`
 --
 
 CREATE TABLE `user_sub_menu` (
@@ -1110,7 +1130,7 @@ CREATE TABLE `user_sub_menu` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 --
--- Dumping data untuk tabel `user_sub_menu`
+-- Dumping data for table `user_sub_menu`
 --
 
 INSERT INTO `user_sub_menu` (`id`, `menu_id`, `title`, `url`, `icon`, `is_active`) VALUES
@@ -1132,12 +1152,13 @@ INSERT INTO `user_sub_menu` (`id`, `menu_id`, `title`, `url`, `icon`, `is_active
 (17, 13, 'Riwayat', 'riwayat/riwayat', 'fas fa-fw fa-history', 1),
 (18, 15, 'Admin', 'administrator', 'fas fa-fw fa-user', 1),
 (19, 1, 'VOTE List', 'admin/votelist', 'fas fa-fw fa-users', 1),
-(20, 1, 'Statistik', 'Admin/statistik', 'fas fa-fw fa-chart-bar', 1);
+(20, 1, 'Statistik', 'Admin/statistik', 'fas fa-fw fa-chart-bar', 1),
+(21, 1, 'Countdown Timer', 'admin/countdown', 'fas fa-fw fa-clock', 1);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user_token`
+-- Table structure for table `user_token`
 --
 
 CREATE TABLE `user_token` (
@@ -1152,196 +1173,208 @@ CREATE TABLE `user_token` (
 --
 
 --
--- Indeks untuk tabel `data_pemilihan`
+-- Indexes for table `countdown`
+--
+ALTER TABLE `countdown`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `data_pemilihan`
 --
 ALTER TABLE `data_pemilihan`
   ADD PRIMARY KEY (`id_pemilihan`);
 
 --
--- Indeks untuk tabel `dosen`
+-- Indexes for table `dosen`
 --
 ALTER TABLE `dosen`
   ADD PRIMARY KEY (`nik`) USING BTREE;
 
 --
--- Indeks untuk tabel `jurusan`
+-- Indexes for table `jurusan`
 --
 ALTER TABLE `jurusan`
   ADD PRIMARY KEY (`id`) USING BTREE;
 
 --
--- Indeks untuk tabel `kampanye`
+-- Indexes for table `kampanye`
 --
 ALTER TABLE `kampanye`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `kampanyevideo`
+-- Indexes for table `kampanyevideo`
 --
 ALTER TABLE `kampanyevideo`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `kandidat`
+-- Indexes for table `kandidat`
 --
 ALTER TABLE `kandidat`
   ADD PRIMARY KEY (`no_kandidat`);
 
 --
--- Indeks untuk tabel `komentar`
+-- Indexes for table `komentar`
 --
 ALTER TABLE `komentar`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `konfir_komentar`
+-- Indexes for table `konfir_komentar`
 --
 ALTER TABLE `konfir_komentar`
   ADD PRIMARY KEY (`id_konfir`);
 
 --
--- Indeks untuk tabel `mahasiswa`
+-- Indexes for table `mahasiswa`
 --
 ALTER TABLE `mahasiswa`
   ADD PRIMARY KEY (`nim`) USING BTREE,
   ADD KEY `kode_jurusan` (`kode_jurusan`);
 
 --
--- Indeks untuk tabel `pimpinan`
+-- Indexes for table `pimpinan`
 --
 ALTER TABLE `pimpinan`
   ADD PRIMARY KEY (`nidn`);
 
 --
--- Indeks untuk tabel `riwayat`
+-- Indexes for table `riwayat`
 --
 ALTER TABLE `riwayat`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`) USING BTREE;
 
 --
--- Indeks untuk tabel `user_access_menu`
+-- Indexes for table `user_access_menu`
 --
 ALTER TABLE `user_access_menu`
   ADD PRIMARY KEY (`id`) USING BTREE;
 
 --
--- Indeks untuk tabel `user_menu`
+-- Indexes for table `user_menu`
 --
 ALTER TABLE `user_menu`
   ADD PRIMARY KEY (`id`) USING BTREE;
 
 --
--- Indeks untuk tabel `user_role`
+-- Indexes for table `user_role`
 --
 ALTER TABLE `user_role`
   ADD PRIMARY KEY (`id`) USING BTREE;
 
 --
--- Indeks untuk tabel `user_sub_menu`
+-- Indexes for table `user_sub_menu`
 --
 ALTER TABLE `user_sub_menu`
   ADD PRIMARY KEY (`id`) USING BTREE;
 
 --
--- Indeks untuk tabel `user_token`
+-- Indexes for table `user_token`
 --
 ALTER TABLE `user_token`
   ADD PRIMARY KEY (`id`) USING BTREE;
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `data_pemilihan`
+-- AUTO_INCREMENT for table `countdown`
+--
+ALTER TABLE `countdown`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `data_pemilihan`
 --
 ALTER TABLE `data_pemilihan`
   MODIFY `id_pemilihan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=218;
 
 --
--- AUTO_INCREMENT untuk tabel `jurusan`
+-- AUTO_INCREMENT for table `jurusan`
 --
 ALTER TABLE `jurusan`
   MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT untuk tabel `kampanye`
+-- AUTO_INCREMENT for table `kampanye`
 --
 ALTER TABLE `kampanye`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=168;
 
 --
--- AUTO_INCREMENT untuk tabel `kampanyevideo`
+-- AUTO_INCREMENT for table `kampanyevideo`
 --
 ALTER TABLE `kampanyevideo`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT untuk tabel `komentar`
+-- AUTO_INCREMENT for table `komentar`
 --
 ALTER TABLE `komentar`
-  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=174;
+  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=175;
 
 --
--- AUTO_INCREMENT untuk tabel `konfir_komentar`
+-- AUTO_INCREMENT for table `konfir_komentar`
 --
 ALTER TABLE `konfir_komentar`
   MODIFY `id_konfir` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
 
 --
--- AUTO_INCREMENT untuk tabel `riwayat`
+-- AUTO_INCREMENT for table `riwayat`
 --
 ALTER TABLE `riwayat`
   MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT untuk tabel `user`
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
--- AUTO_INCREMENT untuk tabel `user_access_menu`
+-- AUTO_INCREMENT for table `user_access_menu`
 --
 ALTER TABLE `user_access_menu`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
--- AUTO_INCREMENT untuk tabel `user_menu`
+-- AUTO_INCREMENT for table `user_menu`
 --
 ALTER TABLE `user_menu`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT untuk tabel `user_role`
+-- AUTO_INCREMENT for table `user_role`
 --
 ALTER TABLE `user_role`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT untuk tabel `user_sub_menu`
+-- AUTO_INCREMENT for table `user_sub_menu`
 --
 ALTER TABLE `user_sub_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
--- AUTO_INCREMENT untuk tabel `user_token`
+-- AUTO_INCREMENT for table `user_token`
 --
 ALTER TABLE `user_token`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `mahasiswa`
+-- Constraints for table `mahasiswa`
 --
 ALTER TABLE `mahasiswa`
   ADD CONSTRAINT `mahasiswa_ibfk_1` FOREIGN KEY (`kode_jurusan`) REFERENCES `jurusan` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;

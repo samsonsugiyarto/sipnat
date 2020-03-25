@@ -14,7 +14,7 @@
             <div class="form-group row">
                 <label for="date" class="col-sm-3 col-form-label">Date</label>
                 <div class="col-sm-9">
-                    <input type="date" id="date" class="form-control" name="date">
+                    <input type="date" id="date" class="form-control" name="date" >
                     <?= form_error('date', ' <small class="text-danger pl-3">', '</small>'); ?>
 
                 </div>
@@ -38,23 +38,31 @@
 
                 </div>
             </div>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+            <div class="form-check row mb-4">  
+                 <div class="col-sm-9">
+                    <div id="countdown1">
+                        <?php $aktif = $countdown['status'];?>
+                          
+                             <input type="checkbox" class="form-check-input" <?= ($aktif==1 ? 'checked data-status="0" ' : 'data-status="1"' );?>    />
+                       
+                        <label for="date" class="form-check-label">Munculkan Countdown? </label>
+                    </div>
+                </div>
+            </div>
 
             </form>
 
             <div class="row">
-                <div class="col-sm-9">
+                <div class="col-sm">
                     <?php $date = $countdown['date'];
                     $tt = strtotime($date);
                     $newDate = date("d M, Y", $tt);
                     $time = $countdown['time']; ?>
-                    <p>Countdown di atur : <br> <?= $newDate; ?> jam <?= $time; ?></p>
-                    <div class="row">
-                        <div class="col-sm-9">
-                            <p>Waktu hitung mundur</p>
-                            <h4 id="teks"></h4>
-                        </div>
-                    </div>
+                    <p>Countdown di atur : <br> <?= $newDate; ?> Jam <?= $time; ?></p>
+                        
                 </div>
+               
             </div>
 
 
@@ -69,6 +77,52 @@
 
 </div>
 <!-- End of Main Content -->
+ <?php $aktif = $countdown['status'];?>
+
+<script>
+
+    $('.form-check-input').on('click', function() {
+           const status = $(this).data('status');
+
+           $.ajax({
+               url: "<?= base_url('admin/countdownaccess'); ?>",
+               type: 'post',
+               data: {
+                   status: status,
+               },
+               success: function() {
+                   document.location.href = "<?= base_url('admin/countdown'); ?>";
+
+                    
+               }
+           });
+       });
+
+
+    $('#countdown1').append(function(){
+        if (<?= $aktif;?> == 1) {
+            return '<div id="addme"><div class="col-sm-9"><p>Waktu hitung mundur</p><h4 id="teks"></h4></div></div>';
+        }else{
+            $('#countdown1').find('#addme').remove();
+        }
+    });
+
+    
+    //  function(){
+    //     var $this = $(this);
+    //     if (<?= $aktif;?> == 1) {
+    //         var newInput = $('<div id="addme"><div class="col-sm-9"><p>Waktu hitung mundur</p><h4 id="teks"></h4></div></div>');
+    //         $('#countdown1').append(newInput);
+    //     }else{
+    //         $('#countdown1').find('#addme').remove();
+    //     }
+    // };
+
+
+
+</script>
+
+
 <!-- Hitung Mundur -->
 <?php
 $date = $countdown['date'];

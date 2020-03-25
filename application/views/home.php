@@ -76,12 +76,9 @@
         <div class="container">
 
             <!-- info panel -->
-            <div class="row justify-content-center">
-                <div class="col-7 col-md-5 info-panel">
-                    <p>Waktu hitung mundur</p>
-                    <h4 id="teks"></h4>
-                </div>
-            </div>
+             <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+            <div id="countdown1"></div>
+           
         </div>
         <!-- <script src=" <?= base_url('assets/js/hitungmundur.js'); ?>"></script> -->
         <!-- akhir info panel -->
@@ -718,6 +715,24 @@
         });
     </Script> -->
     <!-- Akhir Diagram -->
+<?php $aktif = $countdown['status'];?>
+
+    <script >
+          $('#countdown1').append(function(){
+        if (<?= $aktif;?> == 1) {
+            return '<div id="addme"> <div class="row justify-content-center"><div class="col-7 col-md-5 info-panel"><p>Waktu hitung mundur</p><h4 id="teks"></h4></div></div></div>';
+        }else{
+            $('#countdown1').find('#addme').remove();
+        }
+    });
+    </script>
+
+
+
+
+
+
+
     <!-- Hitung Mundur -->
     <?php
     $date = $countdown['date'];

@@ -184,7 +184,7 @@
                             <input type="checkbox" name="is_active" value="1" checked />
 
 
-                            <label class="form-check-label" for="aktif">&nbsp;AKtif ?</label>
+                            <label class="form-check-label" for="aktif">&nbsp;Aktif ?</label>
                         </div>
 
                     </div>

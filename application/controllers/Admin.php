@@ -114,6 +114,26 @@ class Admin extends CI_Controller
         }
     }
 
+     public function countdownAccess()
+    {
+        $status = $this->input->post('status');
+    
+        $data = [
+            'status' => $status   
+        ];
+
+        $this->db->set($data);
+        $this->db->update('countdown');
+
+        if($status == 1){
+        $this->session->set_flashdata('message', '<div class="alert
+        alert-success" role="alert">Countdown Berhasil ditampilkan!</div>');
+        }else{
+             $this->session->set_flashdata('message', '<div class="alert
+        alert-success" role="alert">Countdown Berhasil Disembunyikan!</div>');
+        }  
+    }
+
 
     public function statistik()
     {
