@@ -285,6 +285,7 @@ class Admin extends CI_Controller
         $data['role'] = $this->db->get_where('user_role', ['id' => $role_id])->row_array();
 
         $this->db->where('id !=', 1);
+          $this->db->where('id !=', 7);
         $data['menu'] = $this->db->get('user_menu')->result_array();
 
         $data['namarole']   = $this->db->get_where('user_role', ['id' =>

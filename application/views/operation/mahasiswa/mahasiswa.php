@@ -27,7 +27,7 @@
 
             <div class="table-responsive">
 
-                <table class="table table-bordered table-hover" id="dataTable">
+                <table class="table table-sm table-striped table-hover" id="dataTable">
                     <thead class="thead-dark">
                         <tr>
                             <th>No</th>
@@ -37,8 +37,7 @@
                             <th>Jurusan</th>
                             <th>Email</th>
                             <th>HP</th>
-                            <th>Aktif</th>
-
+                            <th>Status Aktif</th>
                             <th>Opsi</th>
                         </tr>
                     </thead>
@@ -46,10 +45,10 @@
                     <?php
 
                     $query = "SELECT * 
-            FROM mahasiswa INNER JOIN jurusan
-              ON mahasiswa.kode_jurusan = jurusan.id  
-              ORDER BY mahasiswa.nim ASC
-         ";
+                    FROM mahasiswa INNER JOIN jurusan
+                    ON mahasiswa.kode_jurusan = jurusan.id  
+                    ORDER BY mahasiswa.nim ASC
+                    ";
                     $datamhs = $this->db->query($query)->result_array();
                     ?>
 
@@ -66,12 +65,24 @@
                                 <td><?= $mhs['nama_jurusan']; ?></td>
                                 <td><?= $mhs['email']; ?></td>
                                 <td><?= $mhs['hp']; ?></td>
-                                <td><?= $mhs['is_active']; ?></td>
+
+                                <td>         
+                                    <?php $aktif = $mhs['is_active'];?>
+                                    <div class=" form-check">
+                                        <input type="checkbox" class="form-check-input aktifmhs" <?= ($aktif==1 ? 'checked data-status="0" ' : 'data-status="1"' );?> data-nim="<?= $mhs['nim']; ?>"   />        
+                                        <?php if ($aktif == 1){
+                                            echo "Aktif";
+                                        }
+                                        else{
+                                            echo "Pasif";
+                                        }?>
+                                    </div>
+                                </td>
 
 
                                 <td>
                                     <div class="dropdown ">
-                                        <button class="btn btn-primary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <button class="btn btn-primary btn-sm dropdown-toggle " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             opsi
                                         </button>
                                         <div class="dropdown-menu animated--fade-in" aria-labelledby="dropdownMenuButton">
@@ -97,4 +108,3 @@
 </div>
 <!-- End of Main Content -->
 
-<!-- Modal -->

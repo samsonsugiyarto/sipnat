@@ -135,9 +135,29 @@ class Operation extends CI_Controller
         $this->load->view('operation/mahasiswa/mahasiswa', $data);
         $this->load->view('templates/footer');
     }
+
+    public function mahasiswaAccess()
+    {
+        $status = $this->input->post('status');
+        $nim = $this->input->post('nim');
+
+        $data = [
+            'is_active' => $status
+        ];
+
+        $this->db->set($data);
+        $this->db->where('nim', $nim);
+        $this->db->update('mahasiswa');
+
+        if ($status == 1) {
+            $this->session->set_flashdata('message', 'Aktif!');
+        } else {
+            $this->session->set_flashdata('message', 'Tidak Aktif');
+        }
+    }
+
     public function tambahmahasiswa()
     {
-
         $data['title'] = 'Mahasiswa';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
@@ -169,12 +189,7 @@ class Operation extends CI_Controller
             $this->load->view('operation/mahasiswa/tambahmahasiswa', $data);
             $this->load->view('templates/footer');
         } else {
-
             $this->Mahasiswa_model->tambahDataMahasiswa();
-
-
-
-
             $this->session->set_flashdata('message', 'Ditambahkan!');
             redirect('operation/mahasiswa');
         }
@@ -205,10 +220,7 @@ class Operation extends CI_Controller
 
         $data['mahasiswa'] = $this->Mahasiswa_model->getMahasiswaById($nim);
         $mhs = $this->Mahasiswa_model->getMahasiswaById($nim);
-
         $data['jurusan'] = $this->db->get('jurusan')->result_array();
-
-
 
         $this->form_validation->set_rules('namalengkap', 'NamaLengkap', 'required|trim');
         $this->form_validation->set_rules('passwordmhs1', 'Password', 'trim|min_length[3]|matches[passwordmhs2]', [
@@ -237,7 +249,6 @@ class Operation extends CI_Controller
     public function hapusmahasiswa($nim)
     {
         $mhs = $this->Mahasiswa_model->getMahasiswaById($nim);
-
         $this->Mahasiswa_model->hapusDataMahasiswa($nim, $mhs);
         $this->session->set_flashdata('message', 'Dihapus!');
         redirect('operation/mahasiswa');
@@ -247,9 +258,7 @@ class Operation extends CI_Controller
         $data['title'] = 'Dosen';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
-
         $data['dosen'] = $this->Dosen_model->getAllDosen();
-
         $data['namarole']  = $this->db->get_where('user_role', ['id' =>
         $this->session->userdata('id')])->row_array();
 
@@ -259,6 +268,28 @@ class Operation extends CI_Controller
         $this->load->view('operation/dosen/dosen', $data);
         $this->load->view('templates/footer');
     }
+
+    public function dosenAccess()
+    {
+        $status = $this->input->post('status');
+        $nik = $this->input->post('nik');
+
+        $data = [
+            'is_active' => $status
+        ];
+
+        $this->db->set($data);
+        $this->db->where('nik', $nik);
+        $this->db->update('dosen');
+
+        if ($status == 1) {
+            $this->session->set_flashdata('message', 'Aktif!');
+        } else {
+            $this->session->set_flashdata('message', 'Tidak Aktif');
+        }
+    }
+
+
     public function tambahdosen()
     {
         $data['title'] = 'Dosen';
@@ -310,7 +341,6 @@ class Operation extends CI_Controller
 
         $data['dosen'] = $this->Dosen_model->getDosenById($nik);
 
-
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
@@ -353,6 +383,7 @@ class Operation extends CI_Controller
             redirect('operation/dosen');
         }
     }
+
     public function hapusdosen($nik)
     {
         $dosen = $this->Dosen_model->getDosenById($nik);
@@ -361,6 +392,7 @@ class Operation extends CI_Controller
         $this->session->set_flashdata('message', 'Dihapus!');
         redirect('operation/dosen');
     }
+
     public function pimpinan()
     {
         $data['title'] = 'Pimpinan';
@@ -377,6 +409,28 @@ class Operation extends CI_Controller
         $this->load->view('operation/pimpinan/pimpinan', $data);
         $this->load->view('templates/footer');
     }
+
+    public function pimpinanAccess()
+    {
+        $status = $this->input->post('status');
+        $nidn = $this->input->post('nidn');
+
+        $data = [
+            'is_active' => $status
+        ];
+
+        $this->db->set($data);
+        $this->db->where('nidn', $nidn);
+        $this->db->update('pimpinan');
+
+        if ($status == 1) {
+            $this->session->set_flashdata('message', 'Aktif!');
+        } else {
+            $this->session->set_flashdata('message', 'Tidak Aktif');
+        }
+    }
+
+
     public function tambahpimpinan()
     {
 
@@ -555,8 +609,6 @@ class Operation extends CI_Controller
         }
     }
 
-
-
     public function uploadimgkampanye()
     {
         if ($this->input->post('submitForm') && !empty($_FILES['upload_Files']['name'])) {
@@ -715,8 +767,6 @@ class Operation extends CI_Controller
         redirect('operation/editkandidat/' . $kandidat['no_kandidat']);
     }
 
-
-
     public function komentar()
     {
         $data['title'] = 'Komentar';
@@ -728,8 +778,6 @@ class Operation extends CI_Controller
 
         $data['komentar'] = $this->Komentar_model->getAllKomentar();
         $data['konfir'] = $this->Komentar_model->getDatakonfir();
-
-
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
@@ -769,9 +817,9 @@ class Operation extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
         $query = "SELECT * 
-        FROM komentar INNER JOIN konfir_komentar
-          ON komentar.id = konfir_komentar.id_komentar 
-          ORDER BY komentar.waktu ASC";
+    FROM komentar INNER JOIN konfir_komentar
+    ON komentar.id = konfir_komentar.id_komentar 
+    ORDER BY komentar.waktu ASC";
         $data['komentar'] = $this->db->query($query)->result_array();
 
         $data['namarole']  = $this->db->get_where('user_role', ['id' =>

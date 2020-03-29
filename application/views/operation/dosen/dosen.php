@@ -34,7 +34,7 @@
                             <th scope="col">Mengajar</th>
                             <th scope="col">Email</th>
                             <th scope="col">HP</th>
-                            <th scope="col">Aktif</th>
+                            <th scope="col">Status Aktif</th>
                             <th scope="col">Opsi</th>
                         </tr>
                     </thead>
@@ -50,7 +50,20 @@
                                 <td><?= $dsn['mengajar']; ?></td>
                                 <td><?= $dsn['email']; ?></td>
                                 <td><?= $dsn['hp']; ?></td>
-                                <td><?= $dsn['is_active']; ?></td>
+                                  <td>         
+                                    <?php $aktif = $dsn['is_active'];?>
+                                    <div class=" form-check">
+                                        <input type="checkbox" class="form-check-input aktifdsn" <?= ($aktif==1 ? 'checked data-status="0" ' : 'data-status="1"' );?> data-nik="<?= $dsn['nik']; ?>"   />        
+                                        <?php if ($aktif == 1){
+                                            echo "Aktif";
+                                        }
+                                        else{
+                                            echo "Pasif";
+                                        }?>
+                                    </div>
+                                </td>
+
+
                                 <td>
                                     <div class="dropdown ">
                                         <button class="btn btn-primary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

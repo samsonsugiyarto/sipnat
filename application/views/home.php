@@ -8,99 +8,109 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- My css-->
     <link rel="stylesheet" href="<?= base_url('assets/css/reset.css'); ?>">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="<?= base_url('assets/css/style.css') ?>">
-    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css" rel="stylesheet">
+    <!-- 
+        <link href="<?= base_url('assets/'); ?>vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet"> -->
 
-    <link rel="icon" type="image/png" href="<?= base_url('assets/img/logostikom.png'); ?>">
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Viga" rel="stylesheet">
-
-    <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
-
-    <title>SIPNAT | Sistem Informasi Pemilihan Senat Mahasiswa</title>
-</head>
-
-<style>
-    body {
-        background-color: #fffdfdcc;
-    }
-</style>
-
-<body data-spy="scroll" data-target="#navbar-example2" data-offset="160">
+        <link href="//stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+        <link href="//cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+        <link href="//cdn.datatables.net/buttons/1.5.6/css/buttons.bootstrap4.min.css" rel="stylesheet">
 
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-dark bg-dark navbar-expand-lg sticky-top" id="navbar-example2">
-        <div class="container">
-            <a class="navbar-brand page-scroll" href="#home"> <img id="logo" alt="Logo" src="<?= base_url('assets/img/logostikom.png') ?>" width="65" height="65"> <span>SIPNAT<b>Sistem Informasi Pemilihan Senat Mahasiswa</b></span> </a>
 
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav ml-auto">
-                    <a class="nav-item nav-link active   page-scroll" href="#home">Home <span class="sr-only"></span></a>
-                    <a class="nav-item nav-link page-scroll" href="#voting">Voting <span></span></a>
-                    <a class="nav-item nav-link  page-scroll" href="#personil">Tentang Senat</a>
-                    <a class="nav-item nav-link  page-scroll" href="#gallery">Galeri </a>
-                    <a class="nav-item nav-link" href="<?= base_url('home/kampanye'); ?>">Kampanye</a>
-                    <a class="nav-item nav-link" href="<?= base_url('home/riwayatsenat'); ?>">Riwayat Senat</a>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link nav-item nav-link btn btn-primary text-white tombol " href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Login
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="<?= base_url('auth'); ?>">Admin</a>
-                            <a class="dropdown-item" href="<?= base_url('auth/pimpinan'); ?>">Pimpinan STIKOM</a>
-                            <a class="dropdown-item" href="<?= base_url('auth/dosen'); ?>">Dosen</a>
-                            <a class="dropdown-item" href="<?= base_url('auth/mahasiswa'); ?>">Mahasiswa</a>
-                        </div>
-                    </li>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="<?= base_url('assets/css/style.css') ?>">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+
+        <link rel="icon" type="image/png" href="<?= base_url('assets/img/logostikom.png'); ?>">
+
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Viga" rel="stylesheet">
+
+        <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+
+        <title>SIPNAT | Sistem Informasi Pemilihan Senat Mahasiswa</title>
+    </head>
+
+    <style>
+        body {
+            background-color: #fffdfdcc;
+        }
+    </style>
+
+    <body data-spy="scroll" data-target="#navbar-example2" data-offset="160">
+
+
+        <!-- Navbar -->
+        <nav class="navbar navbar-dark bg-dark navbar-expand-lg sticky-top" id="navbar-example2">
+            <div class="container">
+                <a class="navbar-brand page-scroll" href="#home"> <img id="logo" alt="Logo" src="<?= base_url('assets/img/logostikom.png') ?>" width="65" height="65"> <span>SIPNAT<b>Sistem Informasi Pemilihan Senat Mahasiswa</b></span> </a>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav ml-auto">
+                        <a class="nav-item nav-link active   page-scroll" href="#home">Home <span class="sr-only"></span></a>
+                        <a class="nav-item nav-link page-scroll" href="#voting">Voting <span></span></a>
+                        <a class="nav-item nav-link  page-scroll" href="#personil">Tentang Senat</a>
+                        <a class="nav-item nav-link  page-scroll" href="#gallery">Galeri </a>
+                        <a class="nav-item nav-link" href="<?= base_url('home/kampanye'); ?>">Kampanye</a>
+                        <a class="nav-item nav-link" href="<?= base_url('home/riwayatsenat'); ?>">Riwayat Senat</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link nav-item nav-link btn btn-primary text-white tombol " href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Login
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="<?= base_url('auth'); ?>">Admin</a>
+                                <a class="dropdown-item" href="<?= base_url('auth/pimpinan'); ?>">Pimpinan STIKOM</a>
+                                <a class="dropdown-item" href="<?= base_url('auth/dosen'); ?>">Dosen</a>
+                                <a class="dropdown-item" href="<?= base_url('auth/mahasiswa'); ?>">Mahasiswa</a>
+                            </div>
+                        </li>
+
+                    </div>
 
                 </div>
 
-            </div>
-
 
             </data-spy="scroll">
-    </nav>
-    <!-- akhir Navbar -->
+        </nav>
+        <!-- akhir Navbar -->
 
-    <!-- Jumbotron -->
-    <div class="jumbotron  jumbotron-fluid">
-        <div class="container">
-
-            <!-- info panel -->
-             <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-            <div id="countdown1"></div>
-           
-        </div>
-        <!-- <script src=" <?= base_url('assets/js/hitungmundur.js'); ?>"></script> -->
-        <!-- akhir info panel -->
-        <div class="cover-overlay  ">
+        <!-- Jumbotron -->
+        <div class="jumbotron  jumbotron-fluid">
             <div class="container">
-                <h1 class="display-4"><span>Pemilihan Ketua Senat Mahasiswa</span> </h1>
-                <h1 class="display-3 ">STIKOM Yos Sudarso Purwokerto </h1>
+
+                <!-- info panel -->
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+                <div id="countdown1"></div>
+
             </div>
+            <!-- <script src=" <?= base_url('assets/js/hitungmundur.js'); ?>"></script> -->
+            <!-- akhir info panel -->
+            <div class="cover-overlay  ">
+                <div class="container">
+                    <h1 class="display-4"><span>Pemilihan Ketua Senat Mahasiswa</span> </h1>
+                    <h1 class="display-3 ">STIKOM Yos Sudarso Purwokerto </h1>
+                </div>
+            </div>
+            <!-- container -->
+
         </div>
-        <!-- container -->
 
-    </div>
+        <!-- akhir Jumbotron -->
 
-    <!-- akhir Jumbotron -->
-
-    <!-- Workingspace -->
-    <section id="voting">
-        <div class="container gallery-container">
-            <div class="row workingspace">
-                <div class="col-lg">
-                    <h2><span>LIVE </span>Voting </h2>
-                    <!-- desain voting card -->
+        <!-- Workingspace -->
+        <section id="voting">
+            <div class="container gallery-container">
+                <div class="row workingspace">
+                    <div class="col-lg">
+                        <h2><span>LIVE </span>Voting </h2>
+                        <!-- desain voting card -->
                     <!-- <div class="row justify-content-around pt-4">
                     <?php foreach ($kandidat as $kand) : ?>
                         <div class="card-group">
@@ -146,23 +156,161 @@
                         </div>
                     <?php endforeach; ?>
                 </div> -->
-                    <!-- Akhir desain voting card -->
-                    <div class="row vote ">
-                        <!-- <canvas id="myChart" width="1" height="1"></canvas> -->
-                        <div class="col-sm-6  ">
-                            <div id="piechart" class="chart"></div>
-                        </div>
-                        <div class="col-sm-6 py-5 ">
-                            <h3>TOTAL<br>
-                                <P>Suara Masuk</P><span> <?= $js['jsuara'] ?> Suara</span>
-                            </h3>
-                        </div>
+                <!-- Akhir desain voting card -->
+                <div class="row vote ">
+                    <!-- <canvas id="myChart" width="1" height="1"></canvas> -->
+                    <div class="col-sm-6  ">
+                        <div id="piechart" class="chart"></div>
+                    </div>
+                    <div class="col-sm-6 py-5 ">
+                        <h3>TOTAL<br>
+                            <P>Suara Masuk</P><span> <?= $js['jsuara'] ?> Suara</span><br>
+                            <a href="<?= base_url('operation/tambahmahasiswa'); ?>" class="btn btn-warning mb-1 mt-1" data-toggle="modal" data-target="#detailCoblos" >lihat Detail Pencoblos</a>
+                              <a href="<?= base_url('operation/tambahmahasiswa'); ?>" class="btn btn-primary"  data-toggle="modal" data-target="#detailStatistik">Lihat Data Statistik</a>
+                        </h3>
                     </div>
 
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Modal -->
+    <div class="modal fade" id="detailCoblos" tabindex="-1" role="dialog" aria-labelledby="detailCoblosLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="detailCoblosLabel">Data Pencoblos</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="row  ">
+                    <div class="col-lg-12">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover  " id="dataTable">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th scope="col">No</th>
+                                        <th scope="col">Id</th>
+                                        <th scope="col">Nama</th>
+                                        <th scope="col">Role</th>
+                                        <th scope="col">Waktu</th>
+                                    </tr>
+                                </thead>
+
+                                <?php
+
+                                $query = "(SELECT m.name, m.nim AS id, ur.role, dp.waktu FROM  mahasiswa m 
+                                JOIN data_pemilihan dp ON m.nim = dp.id_pemilih 
+                                JOIN user_role ur ON ur.id = m.role_id)
+                                UNION ALL
+                                (SELECT p.name, p.nidn AS id, ur.role, dp.waktu FROM pimpinan p
+                                JOIN data_pemilihan dp ON p.nidn = dp.id_pemilih  
+                                JOIN user_role ur ON ur.id = p.role_id)
+                                UNION ALL
+                                (SELECT d.name, d.nik AS id, ur.role, dp.waktu FROM dosen d
+                                JOIN data_pemilihan dp ON d.nik = dp.id_pemilih   
+                                JOIN user_role ur ON ur.id = d.role_id) ORDER BY waktu ASC 
+                                ";
+                                $data = $this->db->query($query)->result_array();
+
+                                ?>
+
+                                <tbody>
+
+                                    <?php $i = 1; ?>
+                                    <?php foreach ($data as $pemilih) : ?>
+                                        <tr>
+                                            <th scope="row"><?= $i ?></th>
+                                            <td><?= $pemilih['id']; ?></td>
+                                            <td><?= $pemilih['name']; ?></td>
+                                            <td><?= $pemilih['role']; ?></td>
+                                            <td><?= date('d F Y H:i:s', $pemilih['waktu']); ?></td>
+                                        </tr>
+                                        <?php $i++; ?>
+                                    <?php endforeach; ?>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="detailStatistik" tabindex="-1" role="dialog" aria-labelledby="detailStatistikLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="detailStatistikLabel">Data statistik</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="row  ">
+                    <div class="col-lg-12">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover" >
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th scope="col">No</th>
+                                        <th scope="col">Role</th>
+                                        <th scope="col">Mencoblos</th>
+                                        <th scope="col">Aktif</th>
+                                        <th scope="col">TIdak Aktif</th>
+                                        <th scope="col">Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    <tr>
+                                        <th><?= 1 ?></th>
+                                        <td>Pimpinan</td>
+                                        <td><?= $coblospimp['coblos']; ?></td>
+                                        <td><?= $pimpinan; ?></td>
+                                        <td><?= $tdkpimp; ?></td>
+                                        <td><?= $totalpimp; ?></td>
+                                    </tr>
+
+                                    <tr>
+                                        <th><?= 2 ?></th>
+                                        <td>Dosen</td>
+                                        <td><?= $coblosdsn['coblos']; ?></td>
+                                        <td><?= $dosen; ?></td>
+                                        <td><?= $tdkdsn; ?></td>
+                                        <td><?= $totaldsn; ?></td>
+                                    </tr>
+
+                                    <tr>
+                                        <th><?= 3 ?></th>
+                                        <td>Mahasiswa</td>
+                                        <td><?= $coblosmhs['coblos']; ?></td>
+                                        <td><?= $mahasiswa; ?></td>
+                                        <td><?= $tdkmhs; ?></td>
+                                        <td><?= $totalmhs; ?></td>
+                                    </tr>
+
+                                    <tr>
+                                        <th style="display: none;">4</th>
+                                        <td colspan="2" style="font-weight: bold;">TOTAL SELURUH</td>
+                                        <td style="font-weight: bold;"><?= $totalpilih; ?></td>
+                                        <td style="font-weight: bold;"><?= $totalaktif; ?></td>
+                                        <td style="font-weight: bold;"><?= $tdkaktif; ?></td>
+                                        <td style="font-weight: bold;"><?= $total; ?></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
 
     <div class="row justify-content-center " id="personil">
         <div class="col-sm-5 zero-panel text-center tentang  ">
@@ -458,118 +606,118 @@
                     <div class="embed-responsive embed-responsive-16by9">
                         <video controls>
                             <source src="<?= base_url('assets/video/INISIASI_2019.mp4'); ?>"> </video>
-                    </div>
-                    <div class="caption">
-                        <h3 class="mt-2">INISIASI 2019</h3>
-                        <p>Cuplikan video kegiatan inisisasi 2019</p>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.css">
-    <script>
-        baguetteBox.run('.tz-gallery');
-    </script>
-    <div class="container komen-container  mt-4" id="komen">
-        <div class="overflow-auto" style=" width:auto; height:600px; ;
-        ">
-            <div class="sticky-top" style="background-color: white; border-radius: 30px;">
-
-                <h1 class="py-3  pl-4 "><?= $hitungkomen ?> Komentar</h1>
-            </div>
-            <div class="row justify-content-start  mt-3">
-
-                <div class="col-sm-7 komen  mt-1">
-                    <?php foreach ($komentar as $komen) : ?>
-                        <?php
-                        $user = $this->db->get_where('user', ['id' => $komen['user_id']])->row_array();
-                        $pimpinan = $this->db->get_where('pimpinan', ['nidn' => $komen['user_id']])->row_array();
-                        $dosen = $this->db->get_where('dosen', ['nik' => $komen['user_id']])->row_array();
-                        $mhs = $this->db->get_where('mahasiswa', ['nim' => $komen['user_id']])->row_array();
-                        ?>
-                        <div class="row">
-                            <div class="col-auto-12">
-                                <img style="height: 3rem; width: 3rem;" src=" <?php if ($komen['role_id'] == 1 || $komen['role_id'] == 2) : ?>
-                        <?= base_url('assets/img/profile/') . $user['image']; ?>
-                        <?php elseif ($komen['role_id'] == 3) : ?>
-                        <?= base_url('assets/img/profile/pimpinan/') . $pimpinan['image']; ?>
-
-                        <?php elseif ($komen['role_id'] == 4) : ?>
-                        <?= base_url('assets/img/profile/dosen/') . $dosen['image']; ?>
-
-                        <?php elseif ($komen['role_id'] == 5) : ?>
-                        <?= base_url('assets/img/profile/mahasiswa/') . $mhs['image']; ?>
-                        <?php endif; ?>" class="img-profile rounded-circle float-left" alt="...">
-
-                                <?php if ($komen['role_id'] == 1 || $komen['role_id'] == 2) : ?>
-                                    <h6><?= ucwords(strtolower($user['name'])); ?> <small class="text-muted">Admin </small></h6>
-                                <?php elseif ($komen['role_id'] == 3) : ?>
-
-                                    <h6><?= ucwords(strtolower($pimpinan['name'])); ?></h6>
-                                <?php elseif ($komen['role_id'] == 4) : ?>
-
-                                    <h6><?= ucwords(strtolower($dosen['name'])); ?></h6>
-
-                                <?php elseif ($komen['role_id'] == 5) : ?>
-
-                                    <h6><?= ucwords(strtolower($mhs['name'])); ?></h6>
-                                <?php endif; ?>
-
-
-                                <h5> <?= time_since($komen['waktu']); ?></h5>
-                                <p><?= $komen['uraian']; ?></p>
+                            </div>
+                            <div class="caption">
+                                <h3 class="mt-2">INISIASI 2019</h3>
+                                <p>Cuplikan video kegiatan inisisasi 2019</p>
                             </div>
                         </div>
-                    <?php endforeach; ?>
+
+                    </div>
+
                 </div>
+
             </div>
-        </div>
-    </div>
 
-    <!-- akhir container -->
 
-    <!-- Footer -->
-    <footer>
-        <div class="container text-center ">
-            <div class="row">
-                <div class="col-sm-12 ">
-                    <p>&copy; copyright 2019 | STIKOM Yos Sudarso Purwokerto</p>
-                    <!-- <p>&copy; copyright 2019 | built with <i class="fas fa-heart"></i> by. <a href="http://instagram.com/samsonsugiyarto">Team A</a></p> -->
+
+
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.css">
+            <script>
+                baguetteBox.run('.tz-gallery');
+            </script>
+            <div class="container komen-container  mt-4" id="komen">
+                <div class="overflow-auto" style=" width:auto; height:600px; ;
+                ">
+                <div class="sticky-top" style="background-color: white; border-radius: 30px;">
+
+                    <h1 class="py-3  pl-4 "><?= $hitungkomen ?> Komentar</h1>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-12">
-                    <p>Sistem Informasi Pemilihan Senat</p>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- Akhir Footer -->
-    <!-- Optional JavaScript -->
+                <div class="row justify-content-start  mt-3">
 
-    <!-- Script Diagram Pie/donat Voting -->
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-        google.charts.load('current', {
-            'packages': ['corechart']
-        });
-        google.charts.setOnLoadCallback(drawChart);
+                    <div class="col-sm-7 komen  mt-1">
+                        <?php foreach ($komentar as $komen) : ?>
+                            <?php
+                            $user = $this->db->get_where('user', ['id' => $komen['user_id']])->row_array();
+                            $pimpinan = $this->db->get_where('pimpinan', ['nidn' => $komen['user_id']])->row_array();
+                            $dosen = $this->db->get_where('dosen', ['nik' => $komen['user_id']])->row_array();
+                            $mhs = $this->db->get_where('mahasiswa', ['nim' => $komen['user_id']])->row_array();
+                            ?>
+                            <div class="row">
+                                <div class="col-auto-12">
+                                    <img style="height: 3rem; width: 3rem;" src=" <?php if ($komen['role_id'] == 1 || $komen['role_id'] == 2) : ?>
+                                    <?= base_url('assets/img/profile/') . $user['image']; ?>
+                                    <?php elseif ($komen['role_id'] == 3) : ?>
+                                        <?= base_url('assets/img/profile/pimpinan/') . $pimpinan['image']; ?>
 
-        function drawChart() {
+                                        <?php elseif ($komen['role_id'] == 4) : ?>
+                                            <?= base_url('assets/img/profile/dosen/') . $dosen['image']; ?>
 
-            var data = google.visualization.arrayToDataTable(
-                [
-                    ['Nama Kandidat', 'Suara'],
-                    <?php foreach ($kandidat as $kand) {
+                                            <?php elseif ($komen['role_id'] == 5) : ?>
+                                                <?= base_url('assets/img/profile/mahasiswa/') . $mhs['image']; ?>
+                                                <?php endif; ?>" class="img-profile rounded-circle float-left" alt="...">
+
+                                                <?php if ($komen['role_id'] == 1 || $komen['role_id'] == 2) : ?>
+                                                    <h6><?= ucwords(strtolower($user['name'])); ?> <small class="text-muted">Admin </small></h6>
+                                                    <?php elseif ($komen['role_id'] == 3) : ?>
+
+                                                        <h6><?= ucwords(strtolower($pimpinan['name'])); ?></h6>
+                                                        <?php elseif ($komen['role_id'] == 4) : ?>
+
+                                                            <h6><?= ucwords(strtolower($dosen['name'])); ?></h6>
+
+                                                            <?php elseif ($komen['role_id'] == 5) : ?>
+
+                                                                <h6><?= ucwords(strtolower($mhs['name'])); ?></h6>
+                                                            <?php endif; ?>
+
+
+                                                            <h5> <?= time_since($komen['waktu']); ?></h5>
+                                                            <p><?= $komen['uraian']; ?></p>
+                                                        </div>
+                                                    </div>
+                                                <?php endforeach; ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- akhir container -->
+
+                                <!-- Footer -->
+                                <footer>
+                                    <div class="container text-center ">
+                                        <div class="row">
+                                            <div class="col-sm-12 ">
+                                                <p>&copy; copyright 2019 | STIKOM Yos Sudarso Purwokerto</p>
+                                                <!-- <p>&copy; copyright 2019 | built with <i class="fas fa-heart"></i> by. <a href="http://instagram.com/samsonsugiyarto">Team A</a></p> -->
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <p>Sistem Informasi Pemilihan Senat</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </footer>
+                                <!-- Akhir Footer -->
+                                <!-- Optional JavaScript -->
+
+                                <!-- Script Diagram Pie/donat Voting -->
+                                <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+                                <script type="text/javascript">
+                                    google.charts.load('current', {
+                                        'packages': ['corechart']
+                                    });
+                                    google.charts.setOnLoadCallback(drawChart);
+
+                                    function drawChart() {
+
+                                        var data = google.visualization.arrayToDataTable(
+                                            [
+                                            ['Nama Kandidat', 'Suara'],
+                                            <?php foreach ($kandidat as $kand) {
                         // $a = $kand['jumlah_suara'];
                         // $b = $js['jsuara'];
                         // if ($b != 0) {
@@ -578,36 +726,36 @@
                         //     $hasil = $kand['jumlah_suara'];
                         // }
 
-                        echo "['" . $kand['nama'] . "', " . $kand['jumlah_suara'] . "],";
-                    } ?>
+                                                echo "['" . $kand['nama'] . "', " . $kand['jumlah_suara'] . "],";
+                                            } ?>
 
 
-                ]);
+                                            ]);
 
-            var options = {
-                backgroundColor: 'none',
-                pieHole: 0.50,
-                pieSliceBorderColor: 'none',
-                chartArea: {
-                    top: 30,
-                    width: "90%",
-                    height: "90%",
+                                        var options = {
+                                            backgroundColor: 'none',
+                                            pieHole: 0.50,
+                                            pieSliceBorderColor: 'none',
+                                            chartArea: {
+                                                top: 30,
+                                                width: "90%",
+                                                height: "90%",
 
-                },
-                pieSliceBorderColor: 'black',
-                pieSliceTextStyle: {
-                    fontName: 'Poppins',
-                    color: 'black',
-                    bold: true,
-                    fontSize: '16',
+                                            },
+                                            pieSliceBorderColor: 'black',
+                                            pieSliceTextStyle: {
+                                                fontName: 'Poppins',
+                                                color: 'black',
+                                                bold: true,
+                                                fontSize: '16',
 
-                },
-                tooltip: {
-                    textStyle: {
-                        fontName: 'Poppins',
-                        color: 'black'
-                    },
-                    showColorCode: true,
+                                            },
+                                            tooltip: {
+                                                textStyle: {
+                                                    fontName: 'Poppins',
+                                                    color: 'black'
+                                                },
+                                                showColorCode: true,
                     // text: 'value',
 
 
@@ -715,17 +863,17 @@
         });
     </Script> -->
     <!-- Akhir Diagram -->
-<?php $aktif = $countdown['status'];?>
+    <?php $aktif = $countdown['status'];?>
 
     <script >
-          $('#countdown1').append(function(){
+      $('#countdown1').append(function(){
         if (<?= $aktif;?> == 1) {
             return '<div id="addme"> <div class="row justify-content-center"><div class="col-7 col-md-5 info-panel"><p>Waktu hitung mundur</p><h4 id="teks"></h4></div></div></div>';
         }else{
             $('#countdown1').find('#addme').remove();
         }
     });
-    </script>
+</script>
 
 
 
@@ -733,17 +881,17 @@
 
 
 
-    <!-- Hitung Mundur -->
-    <?php
-    $date = $countdown['date'];
-    $tt = strtotime($date);
-    $newDateY = date("Y", $tt);
-    $newDateMD = date("M d", $tt);
-    $time = $countdown['time'];
-    ?>
+<!-- Hitung Mundur -->
+<?php
+$date = $countdown['date'];
+$tt = strtotime($date);
+$newDateY = date("Y", $tt);
+$newDateMD = date("M d", $tt);
+$time = $countdown['time'];
+?>
 
-    <script>
-        const tanggalTujuan = new Date('<?= $newDateMD; ?>, <?= $newDateY; ?> <?= $time; ?>').getTime();
+<script>
+    const tanggalTujuan = new Date('<?= $newDateMD; ?>, <?= $newDateY; ?> <?= $time; ?>').getTime();
         // const tanggalTujuan = new Date('Dec 02, 2021 16:00:00').getTime();
 
 
@@ -782,13 +930,6 @@
     <!-- Akhir Hitung Mundur -->
 
 
-
-
-
-
-
-
-
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script>
@@ -809,6 +950,44 @@
 
     <script src="<?= base_url('assets/js/pindahnav.js'); ?>">
     </script>
+    <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="//cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+    <script src="//cdn.datatables.net/buttons/1.5.6/js/dataTables.buttons.min.js"></script>
+    <script src="//cdn.datatables.net/buttons/1.5.6/js/buttons.bootstrap4.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+
+    <script src="//cdn.datatables.net/buttons/1.5.6/js/buttons.html5.min.js"></script>
+    <script src="//cdn.datatables.net/buttons/1.5.6/js/buttons.print.min.js"></script>
+    <script src="//cdn.datatables.net/buttons/1.5.6/js/buttons.colVis.min.js"></script>
+
+    <script type="text/javascript">
+       $(document).ready(function() {
+           var table = $('#dataTable').dataTable({
+
+               "aLengthMenu": [
+               [5,10, 25, 50, 100, 250, 500, -1],
+               [5,10, 25, 50, 100, 250, 500, 'All']
+               ],
+               "oLanguage": {
+                   "sInfo": 'Total _TOTAL_ Data ditampilkan (_START_ sampai _END_)',
+                   "sLengthMenu": 'Tampilkan _MENU_ Data',
+                   "sInfoEmpty": 'Tidak ada Data.',
+                   "sSearch": 'Pencarian:',
+                   "sEmptyTable": 'Tidak ada Data di dalam Database',
+                   "sZeroRecords": 'Tidak ada data yang cocok',
+                   "sInfoFiltered": '(tersaring dari _MAX_ total data yang masuk)',
+                   "oPaginate": {
+                       "sNext": 'Selanjutnya',
+                       "sLast": 'Terakhir',
+                       "sFirst": 'Pertama',
+                       "sPrevious": 'Sebelumnya'
+                   }
+               }
+           });
+
+       });
+   </script>
+
 
 
 

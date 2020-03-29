@@ -19,14 +19,18 @@
                 <div class="card-body">
                     <h5 class="card-title"><?= $user['nik']; ?></h5>
                     <p class="card-text"><?= $user['name']; ?></p>
-                    <p class="card-text"><?= $user['jk']; ?></p>
-                    <p class="card-text"><?= $user['mengajar']; ?></p>
-                    <p class="card-text"><?= $user['email']; ?></p>
-                    <p class="card-text"><?= $user['hp']; ?></p>
-                </div>
-            </div>
-        </div>
-    </div>
+                    <?php if($user['jk'] == "L"):?>
+                     <p class="card-text">Laki - Laki</p>
+                     <?php else:?>
+                       <p class="card-text">Perempuan</p>
+                   <?php endif;?>
+                   <p class="card-text"><?= $user['mengajar']; ?></p>
+                   <p class="card-text"><?= $user['email']; ?></p>
+                   <p class="card-text"><?= $user['hp']; ?></p>
+               </div>
+           </div>
+       </div>
+   </div>
 
 </div>
 <!-- /.container-fluid -->

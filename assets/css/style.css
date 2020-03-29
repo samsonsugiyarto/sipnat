@@ -31,6 +31,11 @@
 	vertical-align: middle;
 }
 
+
+.modal{
+	z-index: 99999999999!important;
+}
+
 .navbar-brand span {
 	font: Poppins;
 	font-size: 1.8rem;
@@ -482,6 +487,8 @@ footer p i {
 
 }
 
+
+
 /* Gallery */
 
 .container.gallery-container {
@@ -615,6 +622,12 @@ footer p i {
 
 /* RESPONSIVE */
 @media (min-width: 992px) {
+
+	
+
+
+
+
 	.navbar {
 		margin-top: -10px;
 		background-color: rgba(24, 24, 24, 0.856) !important;

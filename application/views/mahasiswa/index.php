@@ -13,11 +13,11 @@
     <?php
     $nim =  $this->session->userdata('nim');
     $query = "SELECT * 
-            FROM mahasiswa INNER JOIN jurusan
-              ON mahasiswa.kode_jurusan = jurusan.id
-              WHERE mahasiswa.nim = $nim  
-              ORDER BY mahasiswa.nim ASC
-         ";
+    FROM mahasiswa INNER JOIN jurusan
+    ON mahasiswa.kode_jurusan = jurusan.id
+    WHERE mahasiswa.nim = $nim  
+    ORDER BY mahasiswa.nim ASC
+    ";
     $datamhs = $this->db->query($query)->row_array();
     ?>
 
@@ -30,17 +30,21 @@
                 <div class="card-body">
                     <h5 class="card-title"><?= $datamhs['nim']; ?></h5>
                     <p class="card-text"><?= $datamhs['name']; ?></p>
-                    <p class="card-text"><?= $datamhs['jk']; ?></p>
-                    <p class="card-text"><?= $datamhs['nama_jurusan']; ?></p>
-                    <p class="card-text"><?= $datamhs['email']; ?></p>
-                    <p class="card-text"><?= $datamhs['hp']; ?></p>
-                </div>
-            </div>
-        </div>
-    </div>
+                    <?php if($datamhs['jk'] == "L"):?>
+                       <p class="card-text">Laki - Laki</p>
+                       <?php else:?>
+                         <p class="card-text">Perempuan</p>
+                     <?php endif;?>
+                     <p class="card-text"><?= $datamhs['nama_jurusan']; ?></p>
+                     <p class="card-text"><?= $datamhs['email']; ?></p>
+                     <p class="card-text"><?= $datamhs['hp']; ?></p>
+                 </div>
+             </div>
+         </div>
+     </div>
 
-</div>
-<!-- /.container-fluid -->
+ </div>
+ <!-- /.container-fluid -->
 
 </div>
 <!-- End of Main Content -->

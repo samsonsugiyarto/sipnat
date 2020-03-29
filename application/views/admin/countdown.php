@@ -46,7 +46,7 @@
                           
                              <input type="checkbox" class="form-check-input" <?= ($aktif==1 ? 'checked data-status="0" ' : 'data-status="1"' );?>    />
                        
-                        <label for="date" class="form-check-label">Munculkan Countdown? </label>
+                        <label class="form-check-label">Munculkan Countdown? </label>
                     </div>
                 </div>
             </div>

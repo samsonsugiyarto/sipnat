@@ -158,7 +158,7 @@
                                 <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $admin ?></div>
                             </div>
                             <div class="col-auto">
-                                <i class="fas fa-history fa-2x text-gray-300"></i>
+                                <i class="fas fa-user fa-2x text-gray-300"></i>
                             </div>
                         </div>
                     </div>
