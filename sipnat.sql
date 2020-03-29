@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 25, 2020 at 03:46 AM
+-- Generation Time: Mar 29, 2020 at 07:29 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.3
 
@@ -267,7 +267,8 @@ INSERT INTO `data_pemilihan` (`id_pemilihan`, `id_pemilih`, `id_kandidat`, `wakt
 (214, '201801063', 3, '1575272796'),
 (215, '201701026', 1, '1575272846'),
 (216, '201701006', 2, '1575272996'),
-(217, '201601046', 1, '1575273228');
+(217, '201601046', 1, '1575273228'),
+(218, '201301035', 2, '1585400659');
 
 -- --------------------------------------------------------
 
@@ -427,7 +428,7 @@ CREATE TABLE `kandidat` (
 
 INSERT INTO `kandidat` (`no_kandidat`, `nama`, `wakil`, `jk_ketua`, `jk_wakil`, `email_ketua`, `email_wakil`, `hp_ketua`, `hp_wakil`, `visi`, `misi`, `foto_ketua`, `foto_wakil`, `uraian`, `jumlah_suara`) VALUES
 (1, 'Randimazco Michael Philip', 'Wahyu Eka Mulatsari', 'L', 'P', 'randi@gmail.com', 'wahyu@gmail.com', '08xxxxxxxxxx', '08xxxxxxxxxx', 'Sebagai organisasi mahasiswa yang profesional dalam membangun dan mengayomi serta dapat melaksanakan fungsinya sebagai aspiratif guna membentuk mahasiswa STIKOM Yos Sudarso yang aktif, kritis dan kreatif.', 'Pembuatan dan pengesahan ad/art senat mahasiswa.</br></br>\r\nMenciptakan pengurus senat yang disiplin, bertanggung jawab, kekeluargaan dan tanggap serta sebagai sumber informasi yang terpercaya bagi mahasiswa baik dibidang akademik maupun non-akdemik.</br></br>\r\nMemberikan pelayanan terdepan, teroptimal dan menerima, menampung serta menyampaikan aspirasi mahasiswa STIKOM. </br></br>\r\nMelaksanakan program kerja yang bermanfaat sesuai kebutuhan mahasiswa. </br></br>\r\nMenyatukan antara angkatan untuk menjalin silaturahmi dan menjalin keakraban antara mahasiswa. </br></br>\r\nMengaktifkan kembali HIMAJUR yang sudah terbentuk. </br></br>', '2_11.png', '1_1.png', 'Seorang pemimpin harus siap menjadi langit yang dipandang semua orang dan menjadi bumi yang siap diinjak orang.', 104),
-(2, 'Vebi', 'Nur Aliandi Irawan', 'P', 'L', 'veby@gmail.com', 'nur@gmail.com', '08xxxxxxxxxx', '08xxxxxxxxxx', 'Mewujudkan SENAT Mahasiswa STIKOM Yos Sudarso sebagai organisasi mahasiswa yang Profesional dalam membangun dan menampung aspirasi mahasiswa serta dapat menjadikan mahasiswa STIKOM Yos Sudaso menjadi mahasiswa yang berperan aktif dalam kegiatan akademik maupun non akademik', 'Menjalin hubungan yang baik antar sesama anggota Senat serta Mahasiswa - mahasiswa lain. </br></br>\r\nMenerima, menampung dan melaksanakan aspirasi mahasiswa STIKOM Yos Sudarso. </br></br>\r\nTurut mengembangkan kampus melalui Program Kerja yang telah dibentuk. </br></br>\r\nMembantu mengembangkan Potensi dan Kreativitas mahasiswa melalui kegiatan UKM. </br></br>\r\nMembentuk Himpunan Mahasiswa Jurusan sebagai wadah untuk mempererat rasa kekeluargaan atar mahasiswa perjurusan', '2_1.png', '2_2.png', 'Pemimpin tidak hanya memimpin tapi harus terlebih dahulu mau dipimpin, pergerakan timbul bukan karena pemimpin bersuara, tetapi pemimpin bersuara karena ada pergerakan.', 47),
+(2, 'Vebi', 'Nur Aliandi Irawan', 'P', 'L', 'veby@gmail.com', 'nur@gmail.com', '08xxxxxxxxxx', '08xxxxxxxxxx', 'Mewujudkan SENAT Mahasiswa STIKOM Yos Sudarso sebagai organisasi mahasiswa yang Profesional dalam membangun dan menampung aspirasi mahasiswa serta dapat menjadikan mahasiswa STIKOM Yos Sudaso menjadi mahasiswa yang berperan aktif dalam kegiatan akademik maupun non akademik', 'Menjalin hubungan yang baik antar sesama anggota Senat serta Mahasiswa - mahasiswa lain. </br></br>\r\nMenerima, menampung dan melaksanakan aspirasi mahasiswa STIKOM Yos Sudarso. </br></br>\r\nTurut mengembangkan kampus melalui Program Kerja yang telah dibentuk. </br></br>\r\nMembantu mengembangkan Potensi dan Kreativitas mahasiswa melalui kegiatan UKM. </br></br>\r\nMembentuk Himpunan Mahasiswa Jurusan sebagai wadah untuk mempererat rasa kekeluargaan atar mahasiswa perjurusan', '2_1.png', '2_2.png', 'Pemimpin tidak hanya memimpin tapi harus terlebih dahulu mau dipimpin, pergerakan timbul bukan karena pemimpin bersuara, tetapi pemimpin bersuara karena ada pergerakan.', 48),
 (3, 'Laras Anisa Hidayah', 'Nur Khalid', 'P', 'L', 'laras@gmail.com', 'khalid@gmail.com', '08xxxxxxxxxx', '08xxxxxxxxxx', 'Mewujudkan Senat Mahasiswa sebagai organisasi kemahasiswaan yang bersatu, aspiratif, profesional dalam membangun dan mengayomi guna membentuk generasi muda yang berkarakter serta unggul dalam pengembangan dan kemajuan kampus.', 'Mempererat hubungan dengan pembimbing, UKM dan komunitas serta seluruh mahasiswa. </br></br>\r\nMenyerap, menghimpun dan menindaklanjuti aspirasi mahasiswa secara berkala. </br></br>\r\nMelaksanakan dan mengembangkan program kegiatan yang telah dibuat dan bermanfaat sesuai kebutuhan mahasiswa. </br></br>\r\nMengarahkan mahasiswa STIKOM Yos Sudarso untuk lebih aktif dalam kegiatan akademik dan non akademik. </br></br>\r\nMengkoordinasikan, mengkomunikasikan dan mengsinkronasikan  aktifitas kegiatan UKM (unit kegiatan mahasiswa) dan UKK (unit kegiatan rohani) kearah semangat kompetisi yang sehat dan prestasi.', '3_3.png', '3_1.png', '...', 57);
 
 -- --------------------------------------------------------
@@ -459,7 +460,8 @@ INSERT INTO `komentar` (`id`, `user_id`, `nama`, `waktu`, `uraian`, `image`, `ro
 (170, '201901023', 'BRIAN APRILIANO T', '1575257856', 'Saya berharap banyak jam kosong disemseter selanjutnya!!! \r\n\r\n\r\n#dukungphilipsmoris\r\n#nobriannoparty', 'default.jpg', 5),
 (171, '201601006', 'KEVIN RYAN SUJONO', '1575259187', 'Mengapa Kandidat No.3 tidak punya Penjelasan moto menjadi kandidat ketua dan wakil ketua?', 'default.jpg', 5),
 (172, '201601029', 'FOUSTINO ASPRILLA GUNANTARA', '1575264928', 'semoga sukses!!!', 'default.jpg', 5),
-(173, '201601053', 'NABILLA NUR FADILLAH', '1575268542', 'Tinggal 2 jam lagi, yang belum nyoblos , ayooo gunakan hak suara kalian', 'crop_image.jpg', 5);
+(173, '201601053', 'NABILLA NUR FADILLAH', '1575268542', 'Tinggal 2 jam lagi, yang belum nyoblos , ayooo gunakan hak suara kalian', 'crop_image.jpg', 5),
+(175, '201301035', 'WIWIK SUNDARI', '1585399468', 'aku wiwik', 'default.jpg', 5);
 
 -- --------------------------------------------------------
 
@@ -511,7 +513,7 @@ CREATE TABLE `mahasiswa` (
 --
 
 INSERT INTO `mahasiswa` (`nim`, `name`, `jk`, `email`, `hp`, `image`, `password`, `role_id`, `is_active`, `kode_jurusan`) VALUES
-(201301035, 'WIWIK SUNDARI', 'P', 'wiwiks@gmail.com', '081205xxxxxxx', 'default.jpg', '$2y$10$a.UMIHv3pQowlQLj1ElcRecy9L6wOcyQKo.Ljv70IDPG3j2wHJDp.', 5, 0, 3),
+(201301035, 'WIWIK SUNDARI', 'P', 'wiwiks@gmail.com', '081205xxxxxxx', 'default.jpg', '$2y$10$m2jcGwUvjtK01QmUfErL9OA.7DSSoFU.7Osc4oLYqcs4hKOLZp1qq', 5, 1, 3),
 (201401001, 'MICHAEL STEVIE HANTORO', 'L', 'michaels@gmail.com', '091288xxxxxx', 'default.jpg', '$2y$10$GgQtB/sQsKXS4bOsawerCOZmR/l6NdnhNYltPowP8opEaSBt2hqiO', 5, 0, 3),
 (201401003, 'ANGGIT AMBARTI LARAS', 'P', 'anggita@gmail.com', '087599xxxxxx', 'default.jpg', '$2y$10$TbHiApb2tS.L41sE2TZsj.nMvztnPFiNpf88t82WoMvPDpu9mtBpG', 5, 0, 3),
 (201401005, 'EKO SURYANTO CONDRO B', 'L', 'ekosuryanto@gmail.com', '089133xxxxxx', 'default.jpg', '$2y$10$ApyKqnTj8ixu8h/Qm7aTee4479/Of43jpe..8Z3O14Eg1PA8m3PD6', 5, 0, 3),
@@ -1045,12 +1047,10 @@ CREATE TABLE `user_access_menu` (
 --
 
 INSERT INTO `user_access_menu` (`id`, `role_id`, `menu_id`) VALUES
-(1, 1, 1),
 (12, 1, 2),
 (13, 2, 2),
 (15, 1, 4),
 (16, 1, 6),
-(18, 1, 3),
 (19, 1, 8),
 (23, 5, 2),
 (25, 5, 10),
@@ -1063,7 +1063,10 @@ INSERT INTO `user_access_menu` (`id`, `role_id`, `menu_id`) VALUES
 (39, 2, 1),
 (40, 1, 15),
 (46, 1, 13),
-(47, 4, 2);
+(47, 4, 2),
+(49, 1, 3),
+(50, 1, 1),
+(51, 5, 9);
 
 -- --------------------------------------------------------
 
@@ -1295,7 +1298,7 @@ ALTER TABLE `countdown`
 -- AUTO_INCREMENT for table `data_pemilihan`
 --
 ALTER TABLE `data_pemilihan`
-  MODIFY `id_pemilihan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=218;
+  MODIFY `id_pemilihan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=219;
 
 --
 -- AUTO_INCREMENT for table `jurusan`
@@ -1319,7 +1322,7 @@ ALTER TABLE `kampanyevideo`
 -- AUTO_INCREMENT for table `komentar`
 --
 ALTER TABLE `komentar`
-  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=175;
+  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=176;
 
 --
 -- AUTO_INCREMENT for table `konfir_komentar`
@@ -1343,7 +1346,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `user_access_menu`
 --
 ALTER TABLE `user_access_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT for table `user_menu`
